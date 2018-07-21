@@ -1446,8 +1446,11 @@ section.widget.widget_rss ul li .rssSummary {
   padding-top: 15px;
 }
 
-.site-copyright_text {
+.site-copyright {
   font-size: 12px;
+}
+
+.site-copyright p:last-child {
   margin: 0;
 }
 

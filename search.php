@@ -1,9 +1,33 @@
-<?php get_header(); ?>
+<?php
+get_header();
+
+global $basictheme_options;
+
+$basictheme_blog_sidebar_search = !empty( $basictheme_options['basictheme_blog_sidebar_search'] ) ? $basictheme_options['basictheme_blog_sidebar_search'] : 'right';
+
+if ( ( $basictheme_blog_sidebar_search == 'left' || $basictheme_blog_sidebar_search == 'right' ) && is_active_sidebar( 'basictheme-sidebar' ) ):
+
+    $basictheme_col_class_blog = 'col-md-9';
+
+else:
+
+    $basictheme_col_class_blog = 'col-md-12';
+
+endif;
+
+?>
 
 <div class="site-container site-blog">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+
+            <?php
+            if ( $basictheme_blog_sidebar_search == 'left' ) :
+                get_sidebar();
+            endif;
+            ?>
+
+            <div class="<?php echo esc_attr( $basictheme_col_class_blog ); ?>">
                 <?php
 
                 if ( have_posts() ) : while (have_posts()) : the_post();
@@ -92,7 +116,10 @@
 
             </div>
 
-            <?php get_sidebar(); ?>
+            <?php if ( $basictheme_blog_sidebar_search == 'right' ) :
+                get_sidebar();
+            endif;
+            ?>
 
         </div>
     </div>

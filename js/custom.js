@@ -8,27 +8,29 @@
 
     "use strict";
 
+    let timer_clear;
+
     $( document ).ready( function () {
 
         /* Start back top */
-        $('#back-top').click( function(e) {
+        $('#back-top').on( 'click', function (e) {
 
             e.preventDefault();
             $( 'html, body' ).animate({
                 scrollTop: 0
             },700);
 
-        });
+        } );
         /* End back top */
 
         /* btn mobile Start*/
-        var $menu_item_has_children =   $( '.site-menu .menu-item-has-children' );
+        let $menu_item_has_children =   $( '.site-menu .menu-item-has-children' );
 
         if ( $menu_item_has_children.length ) {
 
             $('.site-menu .menu-item-has-children > a').after( "<span class='icon_menu_item_mobile'></span>" );
 
-            var $icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
+            let $icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
 
             $icon_menu_item_mobile.each(function () {
 
@@ -47,7 +49,7 @@
         /* btn mobile End */
 
         /* Start Gallery Single */
-        var $site_post_slides   =   $( '.site-post-slides' );
+        let $site_post_slides   =   $( '.site-post-slides' );
 
         if ( $site_post_slides.length ) {
 
@@ -76,16 +78,14 @@
 
     });
 
-    var timer_clear;
-
-    $(window).scroll(function(){
+    $( window ).scroll( function() {
 
         if ( timer_clear ) clearTimeout(timer_clear);
 
-        timer_clear = setTimeout(function(){
+        timer_clear = setTimeout( function() {
 
             /* Start scroll back top */
-            var $scrollTop = $(this).scrollTop();
+            let $scrollTop = $(this).scrollTop();
 
             if ( $scrollTop > 200 ) {
                 $('#back-top').addClass('active_top');
@@ -94,7 +94,7 @@
             }
             /* End scroll back top */
 
-        }, 100);
+        }, 100 );
 
     });
 

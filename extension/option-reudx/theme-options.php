@@ -359,6 +359,57 @@ Redux::setSection( $basictheme_opt_name, array(
 
 /* End Header Options */
 
+/* Start Blog Option */
+Redux::setSection( $basictheme_opt_name, array(
+    'title'             =>  esc_html__( 'Blog Options', 'basictheme' ),
+    'id'                =>  'basictheme_blog_option',
+    'customizer_width'  =>  '400px',
+    'icon'              =>  'el el-blogger',
+    'fields'            =>  array(
+
+        array(
+            'id'        =>  'basictheme_blog_sidebar_archive',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Position Sidebar Archive', 'basictheme' ),
+            'desc'      =>  esc_html__( 'Position Sidebar Archive', 'basictheme' ),
+            'default'   =>  'right',
+            'options'   =>  array(
+                'left'  =>  'Left',
+                'right' =>  'Right',
+                'hide'  =>  'Hide',
+            )
+        ),
+
+        array(
+            'id'        =>  'basictheme_blog_sidebar_single',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Position Sidebar Single', 'basictheme' ),
+            'desc'      =>  esc_html__( 'Position Sidebar Single', 'basictheme' ),
+            'default'   =>  'right',
+            'options'   =>  array(
+                'left'  =>  'Left',
+                'right' =>  'Right',
+                'hide'  =>  'Hide',
+            )
+        ),
+
+        array(
+            'id'        =>  'basictheme_blog_sidebar_search',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Position Sidebar Page Search', 'basictheme' ),
+            'desc'      =>  esc_html__( 'Position Sidebar Page Search', 'basictheme' ),
+            'default'   =>  'right',
+            'options'   =>  array(
+                'left'  =>  'Left',
+                'right' =>  'Right',
+                'hide'  =>  'Hide',
+            )
+        ),
+
+    )
+));
+/* End Blog Option */
+
 /* Start Social Network */
 Redux::setSection( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Social Network', 'basictheme' ),
@@ -809,6 +860,13 @@ Redux::setSection( $basictheme_opt_name, array(
             'title'         =>  esc_html__( 'Enter content copyright', 'basictheme' ),
             'full_width'    =>  true,
             'default'       =>  'Copyright &amp; DiepLK',
+            'args'          =>  array(
+                'wpautop'       => false,
+                'media_buttons' => false,
+                'textarea_rows' => 5,
+                'teeny'         => false,
+                'quicktags'     => true,
+            )
         ),
     )
 ));

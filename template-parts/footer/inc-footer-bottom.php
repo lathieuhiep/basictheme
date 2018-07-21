@@ -2,7 +2,7 @@
 //Global variable redux
 global $basictheme_options;
 
-$basictheme_copyright    =   $basictheme_options ["basictheme_footer_copyright_editor"] == '' ? 'Copyright &amp; Templaza' : $basictheme_options ["basictheme_footer_copyright_editor"];
+$basictheme_copyright = $basictheme_options ['basictheme_footer_copyright_editor'] == '' ? 'Copyright &amp; Templaza' : $basictheme_options ['basictheme_footer_copyright_editor'];
 
 ?>
 
@@ -11,9 +11,7 @@ $basictheme_copyright    =   $basictheme_options ["basictheme_footer_copyright_e
         <div class="site-copyright-menu d-flex align-items-center">
 
             <div class="site-copyright">
-                <p class="site-copyright_text">
-                    <?php echo balanceTags( $basictheme_copyright, true ); ?>
-                </p>
+                <?php echo wp_kses_post( $basictheme_copyright ); ?>
             </div>
 
             <div class="site-footer__menu">
