@@ -26,6 +26,27 @@
       @include flexbox();
       @include flex-flow(row wrap);
 
+      &.columns-5 {
+        li {
+          &.product {
+            width: 20%;
+          }
+        }
+      }
+      &.columns-4 {
+        li {
+          &.product {
+            width: 25%;
+          }
+        }
+      }
+      &.columns-3 {
+        li {
+          &.product {
+            width: 33.333333%;
+          }
+        }
+      }
       li {
         &.first {
           clear: none;
@@ -34,7 +55,6 @@
           float: none;
           margin: 0 0 15px;
           padding: 0 15px;
-          width: 25%;
 
           .price {
             del {

@@ -426,6 +426,53 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 /* End Social Network */
 
+/* Start Shop */
+Redux::setSection( $basictheme_opt_name, array(
+    'title'             =>  esc_html__( 'Shop', 'basictheme' ),
+    'id'                =>  'basictheme_shop_woo',
+    'desc'              =>  esc_html__( 'Settings WooCommerce', 'basictheme' ),
+    'customizer_width'  =>  '400px',
+    'icon'              =>  'el el-shopping-cart',
+    'fields'            =>  array(
+        array(
+            'id'            =>  'basictheme_product_limit',
+            'type'          =>  'slider',
+            'title'         =>  esc_html__( 'Product Limit Page Shop', 'basictheme' ),
+            'min'           =>  1,
+            'step'          =>  1,
+            'max'           =>  250,
+            'default'       =>  12,
+            'display_value' => 'text'
+        ),
+
+        array(
+            'id'        =>  'basictheme_products_per_row',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Products Per Row', 'basictheme' ),
+            'default'   =>  4,
+            'options'   =>  array(
+                3   =>  '3 Column',
+                4   =>  '4 Column',
+                5   =>  '5 Column',
+            )
+        ),
+
+        array(
+            'id'        =>  'basictheme_sidebar_woo',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Position Sidebar Woocommerce', 'basictheme' ),
+            'desc'          =>  esc_html__( 'Position Sidebar Woocommerce', 'basictheme' ),
+            'default'   =>  'left',
+            'options'   =>  array(
+                'left'  =>  'Left',
+                'right' =>  'Right',
+                'hide'  =>  'Hide',
+            )
+        ),
+    )
+));
+/* End Shop */
+
 /* Start Typography Options */
 Redux::setSection( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Typography', 'basictheme' ),

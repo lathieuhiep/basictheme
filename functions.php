@@ -102,8 +102,8 @@ if ( class_exists('Woocommerce') ) :
     /*
      * Required: Woocommerce
      */
-    require get_parent_theme_file_path( '/extension/woocommerce/hooks.php' );
-    require get_parent_theme_file_path( '/extension/woocommerce/functions.php' );
+    require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
+    require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
 
 endif;
 
@@ -201,7 +201,6 @@ function basictheme_register_front_end() {
 
         /* Start Carousel Css */
         wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/owl.carousel.min.css' ), array(), '2.2.1' );
-        wp_enqueue_style( 'owl-theme-default', get_theme_file_uri( '/css/owl.theme.default.min.css' ), array(), '2.2.1' );
         /* End Carousel Css */
 
     }
@@ -496,6 +495,13 @@ function basictheme_register_required_plugins() {
         array(
             'name'      =>  'Elementor',
             'slug'      =>  'elementor',
+            'required'  =>  true,
+        ),
+
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
+        array(
+            'name'      =>  'Woocommerce',
+            'slug'      =>  'woocommerce',
             'required'  =>  true,
         ),
 

@@ -165,6 +165,73 @@ pre {
   background-color: #333333;
 }
 
+/* owl carousel navigation */
+.owl-carousel .owl-nav {
+  text-align: center;
+}
+
+.owl-carousel .owl-nav button {
+  margin: 0 5px;
+}
+
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+  padding: 10px 15px !important;
+  color: #ffffff;
+  background-color: #ff5555;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.owl-carousel .owl-nav button.owl-next i.fa, .owl-carousel .owl-nav button.owl-prev i.fa {
+  font-size: 20px;
+  line-height: inherit;
+}
+
+.owl-carousel .owl-nav button:hover {
+  background-color: #333333;
+}
+
+.owl-carousel .owl-dots {
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.owl-carousel .owl-dots .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.owl-carousel .owl-dots .owl-dot span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #000000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.owl-carousel .owl-dots .owl-dot.active span, .owl-carousel .owl-dots .owl-dot:hover span {
+  background-color: #ff5555;
+}
+
 /* =WordPress Core
 -------------------------------------------------------------- */
 .alignnone {
@@ -1246,6 +1313,18 @@ section.widget.widget_rss ul li .rssSummary {
   flex-flow: row wrap;
 }
 
+.woocommerce ul.products.columns-5 li.product {
+  width: 20%;
+}
+
+.woocommerce ul.products.columns-4 li.product {
+  width: 25%;
+}
+
+.woocommerce ul.products.columns-3 li.product {
+  width: 33.333333%;
+}
+
 .woocommerce ul.products li.first {
   clear: none;
 }
@@ -1254,7 +1333,6 @@ section.widget.widget_rss ul li .rssSummary {
   float: none;
   margin: 0 0 15px;
   padding: 0 15px;
-  width: 25%;
 }
 
 .woocommerce ul.products li.product .price del {

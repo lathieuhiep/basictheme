@@ -19,12 +19,26 @@ function basictheme_shop_setup() {
 add_filter('loop_shop_per_page', 'basictheme_show_products_per_page');
 
 function basictheme_show_products_per_page() {
+    global $basictheme_options;
 
-    $basictheme_product_limit = 12;
+    $basictheme_product_limit = $basictheme_options['basictheme_product_limit'];
+
     return $basictheme_product_limit;
 
 }
 /* End limit product */
+
+/* Start Change number or products per row */
+add_filter('loop_shop_columns', 'basictheme_loop_columns_product');
+
+function basictheme_loop_columns_product() {
+    global $basictheme_options;
+
+    $basictheme_products_per_row = $basictheme_options['basictheme_products_per_row'];
+
+    return $basictheme_products_per_row;
+}
+/* End Change number or products per row */
 
 /*
 * Lay Out Shop
