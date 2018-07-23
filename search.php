@@ -45,12 +45,10 @@ endif;
 
                             get_template_part( 'template-parts/post/content','info' );
 
-                            if(has_post_format('gallery')):
-                                get_template_part( 'template-parts/post/content','gallery' );
-                            elseif(has_post_format('audio')):
-                                get_template_part( 'template-parts/post/content','audio' );
-                            else:
+                            if( has_post_format('audio') || has_post_format('video') ):
                                 get_template_part( 'template-parts/post/content','video' );
+                            else:
+                                get_template_part( 'template-parts/post/content','gallery' );
                             endif;
 
                         else:

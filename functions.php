@@ -117,32 +117,32 @@ function basictheme_widgets_init() {
 
     $basictheme_widgets_arr  =   array(
 
-        'basictheme-sidebar'     =>  array(
+        'basictheme-sidebar'    =>  array(
             'name'              =>  esc_html__( 'Sidebar', 'basictheme' ),
             'description'       =>  esc_html__( 'Display sidebar right or left on all page.', 'basictheme' )
         ),
 
-        'basictheme-sidebar-wc'     =>  array(
+        'basictheme-sidebar-wc' =>  array(
             'name'              =>  esc_html__( 'Sidebar Woocommerce', 'basictheme' ),
             'description'       =>  esc_html__( 'Display sidebar on page shop.', 'basictheme' )
         ),
 
-        'basictheme-footer-1'    =>  array(
+        'basictheme-footer-1'   =>  array(
             'name'              =>  esc_html__( 'Footer 1', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 1 on all page.', 'basictheme' )
         ),
 
-        'basictheme-footer-2'    =>  array(
+        'basictheme-footer-2'   =>  array(
             'name'              =>  esc_html__( 'Footer 2', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 2 on all page.', 'basictheme' )
         ),
 
-        'basictheme-footer-3'    =>  array(
+        'basictheme-footer-3'   =>  array(
             'name'              =>  esc_html__( 'Footer 3', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 3 on all page.', 'basictheme' )
         ),
 
-        'basictheme-footer-4'    =>  array(
+        'basictheme-footer-4'   =>  array(
             'name'              =>  esc_html__( 'Footer 4', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 4 on all page.', 'basictheme' )
         )
