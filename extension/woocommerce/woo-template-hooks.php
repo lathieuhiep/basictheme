@@ -24,7 +24,7 @@ add_action( 'woocommerce_before_main_content', 'basictheme_woo_before_main_conte
 add_action( 'woocommerce_before_shop_loop', 'basictheme_woo_before_shop_loop_open',  5 );
 add_action( 'woocommerce_before_shop_loop', 'basictheme_woo_before_shop_loop_close',  35 );
 
-add_action( 'basictheme_woo_sidebar', 'woocommerce_get_sidebar', 10 );
+add_action( 'basictheme_woo_sidebar', 'basictheme_woo_get_sidebar', 10 );
 
 add_action( 'woocommerce_after_main_content', 'basictheme_woo_after_main_content', 10 );
 
