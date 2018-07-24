@@ -132,6 +132,128 @@ if ( ! function_exists( 'basictheme_woo_after_main_content' ) ) :
 
 endif;
 
+if ( ! function_exists( 'basictheme_woo_product_thumbnail_open' ) ) :
+    /**
+     * Hook: woocommerce_before_shop_loop_item_title.
+     *
+     * @hooked basictheme_woo_product_thumbnail_open - 5
+     */
+
+    function basictheme_woo_product_thumbnail_open() {
+        ?>
+        <div class="site-shop__product--item-image">
+        <?php
+    }
+
+endif;
+
+if ( ! function_exists( 'basictheme_woo_product_thumbnail_close' ) ) :
+    /**
+     * Hook: woocommerce_before_shop_loop_item_title.
+     *
+     * @hooked basictheme_woo_product_thumbnail_close - 15
+     */
+
+    function basictheme_woo_product_thumbnail_close() {
+    ?>
+        </div><!-- .site-shop__product--item-image -->
+        <div class="site-shop__product--item-content">
+    <?php
+    }
+
+endif;
+
+if ( ! function_exists( 'basictheme_woo_get_product_title' ) ) :
+    /**
+     * Hook: woocommerce_shop_loop_item_title.
+     *
+     * @hooked basictheme_woo_get_product_title - 10
+     */
+
+    function basictheme_woo_get_product_title() {
+    ?>
+        <h2 class="woocommerce-loop-product__title">
+            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
+                <?php the_title(); ?>
+            </a>
+        </h2>
+    <?php
+    }
+endif;
+
+if ( ! function_exists( 'basictheme_woo_after_shop_loop_item_title' ) ) :
+    /**
+     * Hook: woocommerce_after_shop_loop_item_title.
+     *
+     * @hooked basictheme_woo_after_shop_loop_item_title - 15
+     */
+    function basictheme_woo_after_shop_loop_item_title() {
+    ?>
+        </div><!-- .site-shop__product--item-content -->
+    <?php
+    }
+endif;
+
+if ( ! function_exists( 'basictheme_woo_loop_add_to_cart_open' ) ) :
+    /**
+     * Hook: woocommerce_after_shop_loop_item.
+     *
+     * @hooked basictheme_woo_loop_add_to_cart_open - 4
+     */
+
+    function basictheme_woo_loop_add_to_cart_open() {
+    ?>
+        <div class="site-shop__product-add-to-cart">
+    <?php
+    }
+
+endif;
+
+if ( ! function_exists( 'basictheme_woo_loop_add_to_cart_close' ) ) :
+    /**
+     * Hook: woocommerce_after_shop_loop_item.
+     *
+     * @hooked basictheme_woo_loop_add_to_cart_close - 12
+     */
+
+    function basictheme_woo_loop_add_to_cart_close() {
+    ?>
+        </div><!-- .site-shop__product-add-to-cart -->
+    <?php
+    }
+
+endif;
+
+if ( ! function_exists( 'basictheme_woo_before_shop_loop_item' ) ) :
+    /**
+     * Hook: woocommerce_before_shop_loop_item.
+     *
+     * @hooked basictheme_woo_before_shop_loop_item - 5
+     */
+    function basictheme_woo_before_shop_loop_item() {
+    ?>
+
+        <div class="site-shop__product--item">
+
+    <?php
+    }
+endif;
+
+if ( ! function_exists( 'basictheme_woo_after_shop_loop_item' ) ) :
+    /**
+     * Hook: woocommerce_after_shop_loop_item.
+     *
+     * @hooked basictheme_woo_after_shop_loop_item - 15
+     */
+    function basictheme_woo_after_shop_loop_item() {
+    ?>
+
+        </div><!-- .site-shop__product--item -->
+
+    <?php
+    }
+endif;
+
 if ( ! function_exists( 'basictheme_woo_before_shop_loop_open' ) ) :
     /**
      * Before Shop Loop

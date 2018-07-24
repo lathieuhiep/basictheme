@@ -357,13 +357,13 @@ if ( ! function_exists( 'basictheme_fonts_url' ) ) :
         * supported by Open Sans, translate this to 'off'. Do not translate
         * into your own language.
         */
-        $basictheme_font_google = _x( 'on', 'Raleway font: on or off', 'basictheme' );
+        $basictheme_font_google = _x( 'on', 'Google font: on or off', 'basictheme' );
 
         if ( 'off' !== $basictheme_font_google ) {
             $basictheme_font_families = array();
 
             if ( 'off' !== $basictheme_font_google ) {
-                $basictheme_font_families[] = 'Raleway:300,400,700';
+                $basictheme_font_families[] = 'Roboto:400,700';
             }
 
             $basictheme_query_args = array(

@@ -2,6 +2,9 @@ section {
   &.widget {
     margin-bottom: 30px;
 
+    &:last-child {
+      margin-bottom: 0;
+    }
     .widget-title {
       text-transform: uppercase;
       margin-bottom: 20px;
@@ -28,11 +31,18 @@ section {
           display: block;
         }
         ul {
-          &.children {
+          &.children,
+          &.sub-menu {
             padding-left: 15px;
+            padding-top: 10px;
 
             li {
               border-bottom: 0;
+              padding: 0 0 10px;
+
+              &:last-child {
+                padding-bottom: 0;
+              }
             }
           }
         }
@@ -99,6 +109,24 @@ section {
 
           .rssSummary {
             font-size: 12px;
+          }
+        }
+      }
+    }
+    &.widget_tag_cloud,
+    &.widget_product_tag_cloud {
+      .tagcloud {
+        a {
+          display: inline-block;
+          font-size: 13px !important;
+          border: 1px solid #eee;
+          padding: 5px 10px;
+          margin: 0 2px 5px;
+
+          &:hover {
+            background-color: #ff5555;
+            color: #ffffff;
+            border-color: #ff5555;
           }
         }
       }
@@ -171,6 +199,29 @@ section {
           li {
             padding-top: 10px;
             padding-bottom: 10px;
+          }
+        }
+      }
+      ul {
+        li {
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+          a {
+            display: inline-block;
+          }
+        }
+      }
+      .woocommerce-widget-layered-nav-list {
+        .woocommerce-widget-layered-nav-list__item {
+          padding-bottom: 10px;
+
+          &:last-child {
+            padding-bottom: 0;
           }
         }
       }

@@ -5,7 +5,9 @@ $basictheme_gallery_post = get_post_meta( get_the_ID(),'basictheme_gallery_post'
 if( !empty( $basictheme_gallery_post ) ) :
 
     $basictheme_slider_settings =   [
-        'dots'  =>  true,
+        'loop'  =>  true,
+        'nav'   =>  false,
+        'dots'  =>  true
     ];
 
 ?>
