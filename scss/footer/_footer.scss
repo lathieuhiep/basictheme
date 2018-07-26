@@ -1,12 +1,12 @@
 .site-footer {
-  border-top: 2px solid $border-color;
+  border-top: 1px solid $border-color;
   padding-bottom: 10px;
 }
 .site-footer__top {
-  padding-top: 50px;
+  padding: 50px 0 30px;
 }
 /* Footer Bottom */
-.site-copyright-menu {
+.site-footer__bottom {
   border-top: 1px solid $border-color;
   padding-top: 15px;
 }

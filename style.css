@@ -169,6 +169,80 @@ pre {
   background-color: #333333;
 }
 
+/* Social network */
+.social-network-item {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.social-network-item:last-child {
+  margin-right: 0;
+}
+
+.social-network-item a {
+  display: block;
+}
+
+.social-network-toTopFromBottom .social-network-item {
+  overflow: hidden;
+}
+
+.social-network-toTopFromBottom .social-network-item:hover {
+  background: #ff5555;
+  border-color: #ff5555;
+}
+
+.social-network-toTopFromBottom .social-network-item:hover a {
+  color: #fff;
+}
+
+.social-network-toTopFromBottom .social-network-item:hover i.fa {
+  -webkit-animation: toTopFromBottom 0.4s forwards;
+  -moz-animation: toTopFromBottom 0.4s forwards;
+  animation: toTopFromBottom 0.4s forwards;
+}
+
+@-webkit-keyframes toTopFromBottom {
+  49% {
+    -webkit-transform: translateY(-100%);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+  }
+  51% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes toTopFromBottom {
+  49% {
+    -moz-transform: translateY(-100%);
+  }
+  50% {
+    opacity: 0;
+    -moz-transform: translateY(100%);
+  }
+  51% {
+    opacity: 1;
+  }
+}
+
+@keyframes toTopFromBottom {
+  49% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  51% {
+    opacity: 1;
+  }
+}
+
 /* owl carousel navigation */
 .owl-carousel .owl-nav {
   text-align: center;
@@ -549,82 +623,15 @@ form.post-password-form p input[type='submit'] {
   margin-right: 5px;
 }
 
-.site-social {
-  list-style: none;
+.information__social-network .social-network-item {
   margin: 0;
-  padding: 0;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-.site-social li {
-  display: inline-block;
-}
-
-.site-social li a {
-  display: block;
+  width: 30px;
   text-align: center;
-  width: 32px;
-  line-height: 32px;
   border-right: 1px solid #eeeeee;
 }
 
-.site-social li a:first-child {
+.information__social-network .social-network-item:first-child {
   border-left: 1px solid #eeeeee;
-}
-
-.site-social li a:hover {
-  color: #fff;
-  background: #ff5555;
-  border-color: #ff5555;
-}
-
-.site-social li a:hover i.fa {
-  -webkit-animation: toTopFromBottom 0.4s forwards;
-  -moz-animation: toTopFromBottom 0.4s forwards;
-  animation: toTopFromBottom 0.4s forwards;
-}
-
-@-webkit-keyframes toTopFromBottom {
-  49% {
-    -webkit-transform: translateY(-100%);
-  }
-  50% {
-    opacity: 0;
-    -webkit-transform: translateY(100%);
-  }
-  51% {
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes toTopFromBottom {
-  49% {
-    -moz-transform: translateY(-100%);
-  }
-  50% {
-    opacity: 0;
-    -moz-transform: translateY(100%);
-  }
-  51% {
-    opacity: 1;
-  }
-}
-
-@keyframes toTopFromBottom {
-  49% {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-  }
-  50% {
-    opacity: 0;
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  51% {
-    opacity: 1;
-  }
 }
 
 /* Menu */
@@ -648,11 +655,6 @@ form.post-password-form p input[type='submit'] {
 .site-logo a {
   display: inline-block;
   line-height: 64px;
-}
-
-.site-logo a .tz-logo-text {
-  font-size: 18px;
-  display: inline-block;
 }
 
 .site-menu {
@@ -992,6 +994,18 @@ section.widget.widget_tag_cloud .tagcloud a:hover, section.widget.widget_product
   background-color: #ff5555;
   color: #ffffff;
   border-color: #ff5555;
+}
+
+section.widget .social-network-item {
+  margin-bottom: 10px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #eeeeee;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }
 
 section.widget .woocommerce-product-search {
@@ -2019,16 +2033,16 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 # Footer
 -----------------------------------------------------------------------------*/
 .site-footer {
-  border-top: 2px solid #eeeeee;
+  border-top: 1px solid #eeeeee;
   padding-bottom: 10px;
 }
 
 .site-footer__top {
-  padding-top: 50px;
+  padding: 50px 0 30px;
 }
 
 /* Footer Bottom */
-.site-copyright-menu {
+.site-footer__bottom {
   border-top: 1px solid #eeeeee;
   padding-top: 15px;
 }

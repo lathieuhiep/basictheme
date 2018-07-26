@@ -266,27 +266,15 @@ Redux::setSection( $basictheme_opt_name, array(
     'desc'          =>  esc_html__( '', 'basictheme' ),
     'subsection'    =>  true,
     'fields'        =>  array(
-        array(
-            'id'        =>  'basictheme_type_logo',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Logo Type', 'basictheme' ),
-            'subtitle'  =>  esc_html__( 'select type for logo', 'basictheme' ),
-            'default'   =>  'logo_image',
-            'options'   =>  array(
-                'logo_image'    =>  'Logo Image',
-                'logo_text'     =>  'Logo Text'
-            )
-        ),
 
         array(
-            'id'        =>  'basictheme_logo_images',
+            'id'        =>  'basictheme_logo_image',
             'type'      =>  'media',
             'url'       =>  true,
             'title'     =>  esc_html__( 'Upload logo', 'basictheme' ),
             'subtitle'  =>  esc_html__( 'logo image for your website', 'basictheme' ),
             'desc'      =>  esc_html__( '', 'basictheme' ),
             'default'   =>  false,
-            'required'  =>  array( 'basictheme_type_logo', '=', array( 'logo_image' ) )
         ),
 
         array(
@@ -300,28 +288,7 @@ Redux::setSection( $basictheme_opt_name, array(
                 'width'     =>  '',
                 'height'    =>  '',
             ),
-            'output'         => array('.basictheme_logo img'),
-            'required' => array( 'basictheme_type_logo', '=', array( 'logo_image' ) )
-        ),
-
-        array(
-            'id'            =>  'basictheme_logo_name',
-            'type'          =>  'text',
-            'title'         =>  esc_html__( 'Logo Text', 'basictheme' ),
-            'subtitle'      =>  esc_html__( 'logo name for your website', 'basictheme' ),
-            'desc'          =>  esc_html__( '', 'basictheme' ),
-            'default'       =>  $basictheme_theme->get( 'Name' ),
-            'placeholder'   =>  $basictheme_theme->get( 'Name' ),
-            'required'      =>  array( 'basictheme_type_logo', '=', array( 'logo_text' ) )
-        ),
-
-        array(
-            'id'        =>  'basictheme_logo_name_color',
-            'type'      =>  'color',
-            'title'     =>  esc_html__( 'Color text', 'basictheme' ),
-            'desc'      =>  esc_html__( '', 'basictheme' ),
-            'output'    =>  '.basictheme_logo .tz-logo-text',
-            'required'  =>  array( 'basictheme_type_logo', '=', array( 'logo_text' ) )
+            'output'         => array('.site-logo img'),
         ),
     )
 ));
@@ -333,6 +300,18 @@ Redux::setSection( $basictheme_opt_name, array(
     'desc'          =>  esc_html__( '', 'basictheme' ),
     'subsection'    =>  true,
     'fields'        =>  array(
+
+        array(
+            'id'        =>  'basictheme_information_show_hide',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Show Or Hide Information', 'basictheme' ),
+            'default'   =>  1,
+            'options'   =>  array(
+                1   =>  esc_html__( 'Show', 'basictheme' ),
+                0   =>  esc_html__( 'Hide', 'basictheme' )
+            )
+        ),
+
         array(
             'id'        =>  'basictheme_information_address',
             'type'      =>  'text',

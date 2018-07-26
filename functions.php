@@ -98,6 +98,11 @@ if ( ! function_exists( '_is_elementor_installed' ) ) :
 
 endif;
 
+/* Require Widgets */
+foreach(glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $basictheme_file_widgets ) {
+    require $basictheme_file_widgets;
+}
+
 if ( class_exists('Woocommerce') ) :
     /*
      * Required: Woocommerce
@@ -527,8 +532,6 @@ function basictheme_get_social_url() {
 
 ?>
 
-    <ul class="site-social d-flex">
-
         <?php
         foreach( $basictheme_social_networks as $basictheme_social ) :
 
@@ -538,19 +541,17 @@ function basictheme_get_social_url() {
 
         ?>
 
-                <li>
+                <div class="social-network-item">
                     <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
                         <i class="fa fa-<?php echo esc_attr( $basictheme_social['id'] ); ?>" aria-hidden="true"></i>
                     </a>
-                </li>
+                </div>
 
         <?php
             endif;
 
         endforeach;
         ?>
-
-    </ul>
 
 <?php
 

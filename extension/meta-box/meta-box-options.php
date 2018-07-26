@@ -4,7 +4,7 @@ add_filter( 'rwmb_meta_boxes', 'basictheme_register_meta_boxes' );
 
 function basictheme_register_meta_boxes() {
 
-    /* Start 1st meta box */
+    /* Start meta box post */
     $basictheme_meta_boxes[] = array(
         'id'         => 'post_format_option',
         'title'      => esc_html__( 'Post Format', 'basictheme' ),
@@ -31,7 +31,7 @@ function basictheme_register_meta_boxes() {
 
         )
     );
-    /* End 1st meta box */
+    /* End meta box post */
 
     return $basictheme_meta_boxes;
 
