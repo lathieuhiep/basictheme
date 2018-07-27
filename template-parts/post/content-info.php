@@ -28,7 +28,6 @@ $basictheme_comment_count  =    wp_count_comments( get_the_ID() );
     </h2>
 
     <div class="site-post-meta">
-
         <span class="site-post-author">
             <?php echo esc_html__('Author:','basictheme');?>
             <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>">
@@ -45,7 +44,6 @@ $basictheme_comment_count  =    wp_count_comments( get_the_ID() );
             comments_popup_link( '0 '. esc_html__('Comment','basictheme'),'1 '. esc_html__('Comment','basictheme'), '% '. esc_html__('Comments','basictheme') );
             ?>
         </span>
-
     </div>
 
     <?php if( is_single() ) : ?>
