@@ -868,6 +868,37 @@ form.post-password-form p input[type='submit'] {
 /**
 # Sidebar
 -----------------------------------------------------------------------------*/
+.search-form {
+  font-size: 12px;
+}
+
+.search-field {
+  border: 1px solid #eeeeee;
+  height: auto;
+  padding: 9px 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.search-submit {
+  background-color: #ff5555;
+  color: #fff;
+  padding: 9px 10px;
+  border: none;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
 section.widget {
   margin-bottom: 30px;
   /* Widgets woocommerce */
@@ -926,6 +957,25 @@ section.widget select {
   width: 100%;
   padding: 9px 10px;
   font-size: 12px;
+}
+
+section.widget.widget_search .search-form {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+section.widget.widget_search .search-form .search-field {
+  -webkit-flex: 1 auto;
+  -ms-flex: 1 auto;
+  -webkit-box-flex: 1;
+  flex: 1 auto;
+}
+
+section.widget.widget_search .search-form .search-submit {
+  margin-left: 10px;
 }
 
 section.widget.widget_archive ul li a, section.widget.widget_categories ul li a {
@@ -1112,37 +1162,6 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 
 section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-widget-layered-nav-list__item:last-child {
   padding-bottom: 0;
-}
-
-.search-form {
-  font-size: 12px;
-}
-
-.search-field {
-  border: 1px solid #eeeeee;
-  height: auto;
-  padding: 9px 10px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-
-.search-submit {
-  background-color: #ff5555;
-  color: #fff;
-  padding: 9px 10px;
-  border: none;
-  cursor: pointer;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
 }
 
 /* recent posts thumbs widget */
@@ -2303,6 +2322,9 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 }
 
 @media (max-width: 767px) {
+  .site-sidebar {
+    padding-top: 50px;
+  }
   /* woocommerce */
   .woocommerce .col2-set .col-1,
   .woocommerce .col2-set .col-2,
