@@ -1,12 +1,20 @@
+.site-comments {
+  padding: 30px 0;
+}
 .comment-reply-title,
 .comments-title {
-  font-size: 16px;
-  margin-bottom: 20px;
+  position: relative;
+  font-size: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
   display: inline-block;
 
   &:after {
-    display: block;
+    position: absolute;
     content: '';
+    bottom: 0;
+    left: 0;
+    display: block;
     margin-top: 5px;
     width: 15%;
     height: 1px;
@@ -14,7 +22,6 @@
     @include transition(all 0.4s ease-in-out);
   }
 }
-
 .comment-form {
   @include flexbox();
   @include flex-direction(column);

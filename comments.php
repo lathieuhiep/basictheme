@@ -63,7 +63,7 @@ if ( post_password_required() ) {
             wp_list_comments( array(
                 'type'          =>  'comment',
                 'short_ping'    =>  true,
-                'avatar_size'   =>  80,
+                'avatar_size'   =>  60,
                 'callback'      =>  'basictheme_comments'
             ) );
             ?>
@@ -106,9 +106,9 @@ if ( post_password_required() ) {
 
                 'comment_notes_before' => '<div class="comment-fields-row order-1"><div class="row">',
 
-                'author' => '<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12"><div class="form-comment-item"><input id="author" placeholder="'.esc_html__('Full Name','basictheme').'" class="form-control" name="author" type="text" value="' . esc_attr( $basictheme_commenter['comment_author'] ) . '" size="30" ' . $basictheme_comments_args . ' /></div></div>',
+                'author' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="author" placeholder="'.esc_html__('Full Name','basictheme').'" class="form-control" name="author" type="text" value="' . esc_attr( $basictheme_commenter['comment_author'] ) . '" size="30" ' . $basictheme_comments_args . ' /></div></div>',
 
-                'email' => '<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12"><div class="form-comment-item"><input id="email" placeholder="'.esc_html__('Your Email','basictheme').'" class="form-control" name="email" type="text" value="' . esc_attr( $basictheme_commenter['comment_author_email'] ) . '" size="30" ' . $basictheme_comments_args . ' /></div></div>',
+                'email' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="email" placeholder="'.esc_html__('Your Email','basictheme').'" class="form-control" name="email" type="text" value="' . esc_attr( $basictheme_commenter['comment_author_email'] ) . '" size="30" ' . $basictheme_comments_args . ' /></div></div>',
 
                 'comment_notes_after' => '</div></div>',
 

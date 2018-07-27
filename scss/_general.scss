@@ -6,7 +6,7 @@ html {
 }
 body {
   min-height: 100vh;
-  line-height: 1.5em;
+  line-height: 1.8em;
   overflow-x: hidden;
   font-size: 14px;
   color: $color-primary;
@@ -19,7 +19,7 @@ body {
   flex: 1 0 auto;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 30px;
+  margin: 0 0 15px;
   font-weight: $font-weight-bold;
   color: $color-title;
 }
@@ -36,7 +36,7 @@ a {
   }
 }
 p {
-  margin: 0 0 30px;
+  margin: 0 0 15px;
 
   &:last-child {
     margin-bottom: 0;
@@ -51,6 +51,7 @@ iframe {
 }
 blockquote {
   border-left: 1px solid $color-hover;
+  padding-left: 30px;
 }
 pre {
   white-space: pre-wrap;

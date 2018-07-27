@@ -41,7 +41,9 @@ $basictheme_comment_count  =    wp_count_comments( get_the_ID() );
         </span>
 
         <span>
-            <?php echo esc_html__('Comments:','basictheme') . esc_html($basictheme_comment_count ->total_comments);?>
+            <?php
+            comments_popup_link( '0 '. esc_html__('Comment','basictheme'),'1 '. esc_html__('Comment','basictheme'), '% '. esc_html__('Comments','basictheme') );
+            ?>
         </span>
 
     </div>

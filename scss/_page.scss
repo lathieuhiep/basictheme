@@ -6,10 +6,12 @@
   }
 }
 .site-page-content {
-  :after {
-    display: table;
-    clear: both;
-    content: '';
+  p {
+    &:after {
+      display: table;
+      clear: both;
+      content: '';
+    }
   }
 }
 .site-post-item {
