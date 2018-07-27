@@ -348,28 +348,51 @@ Redux::setSection( $basictheme_opt_name, array(
 
         array(
             'id'        =>  'basictheme_blog_sidebar_archive',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Position Sidebar Archive', 'basictheme' ),
-            'desc'      =>  esc_html__( 'Position Sidebar Archive', 'basictheme' ),
+            'type'      =>  'image_select',
+            'title'     =>  esc_html__( 'Sidebar Archive', 'basictheme' ),
+            'desc'      =>  esc_html__( 'Use for archive, index, page search', 'basictheme' ),
             'default'   =>  'right',
             'options'   =>  array(
-                'left'  =>  'Left',
-                'right' =>  'Right',
-                'hide'  =>  'Hide',
-            )
+                'hide' =>  array(
+                    'alt'   =>  'None Sidebar',
+                    'img'   =>  ReduxFramework::$_url . 'assets/img/1col.png'
+                ),
+
+                'left' =>  array(
+                    'alt'   =>  'Sidebar Left',
+                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cl.png'
+                ),
+
+                'right' =>  array(
+                    'alt'   =>  'Sidebar Right',
+                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cr.png'
+                ),
+
+            ),
         ),
 
         array(
             'id'        =>  'basictheme_blog_sidebar_single',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Position Sidebar Single', 'basictheme' ),
-            'desc'      =>  esc_html__( 'Position Sidebar Single', 'basictheme' ),
+            'type'      =>  'image_select',
+            'title'     =>  esc_html__( 'Sidebar Single', 'basictheme' ),
             'default'   =>  'right',
             'options'   =>  array(
-                'left'  =>  'Left',
-                'right' =>  'Right',
-                'hide'  =>  'Hide',
-            )
+                'hide' =>  array(
+                    'alt'   =>  'None Sidebar',
+                    'img'   =>  ReduxFramework::$_url . 'assets/img/1col.png'
+                ),
+
+                'left' =>  array(
+                    'alt'   =>  'Sidebar Left',
+                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cl.png'
+                ),
+
+                'right' =>  array(
+                    'alt'   =>  'Sidebar Right',
+                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cr.png'
+                ),
+
+            ),
         ),
 
     )
@@ -615,43 +638,6 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 /* End Typography Options */
-
-/* Start Blog Single */
-Redux::setSection( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Blog Single', 'basictheme' ),
-    'id'            =>  'basictheme_blog_single',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
-    'subsection'    =>  true,
-    'fields'        =>  array(
-
-        array(
-            'id'        =>  'basictheme_blog_single_sidebar',
-            'type'      =>  'image_select',
-            'title'     =>  esc_html__( 'Sidebar', 'basictheme' ),
-            'subtitle'  =>  esc_html__( '', 'basictheme' ),
-            'default'   =>  1,
-            'options'   =>  array(
-                1 =>  array(
-                    'alt'   =>  'None Sidebar',
-                    'img'   =>  ReduxFramework::$_url . 'assets/img/1col.png'
-                ),
-
-                2 =>  array(
-                    'alt'   =>  'Sidebar Left',
-                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cl.png'
-                ),
-
-                3 =>  array(
-                    'alt'   =>  'Sidebar Right',
-                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cr.png'
-                ),
-
-            ),
-        ),
-
-    )
-));
-/* End Blog Single */
 
 /* Start 404 Options */
 Redux::setSection( $basictheme_opt_name, array(
