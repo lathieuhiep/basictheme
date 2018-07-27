@@ -1,4 +1,4 @@
-@media (min-width: 992px) and (max-width: 1400px) {
+@media ( min-width: 992px ) and ( max-width: 1400px ) {
 
   .site-menu ul li:nth-last-child(1),
   .site-menu ul li:nth-last-child(2) {
@@ -23,7 +23,7 @@
 
 }
 
-@media (min-width: 992px) {
+@media ( min-width: 992px ) {
 
   .site-menu {
     ul {
@@ -37,7 +37,7 @@
 
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media ( min-width: 992px ) and ( max-width: 1200px ) {
 
   .site-menu {
     ul {
@@ -51,7 +51,7 @@
 
 }
 
-@media (max-width: 991px) {
+@media ( max-width: 991px ) {
 
   .header-bottom_warp {
     display: block;
@@ -125,6 +125,85 @@
   }
   .icon_menu_item_mobile {
     display: block;
+  }
+
+}
+
+@media ( min-width: 768px ) and ( max-width: 991px ) {
+
+  .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item,
+  .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) {
+    @include flex-direction(column);
+  }
+  .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item--image,
+  .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) .recent_posts_thumbs_widget_item--image {
+    max-width: 100%;
+    margin: 0 0 10px;
+  }
+  .recent_posts_thumbs_widget_grid {
+    .recent_posts_thumbs_widget_item {
+      width: 100%;
+    }
+  }
+
+}
+
+@media ( max-width: 767px ) {
+
+  /* woocommerce */
+  .woocommerce,
+  .woocommerce-page {
+    .col2-set {
+      .col-1,
+      .col-2 {
+        @include flex(0 0 100%);
+        max-width: 100%;
+      }
+    }
+  }
+
+}
+
+@media ( min-width: 481px ) and ( max-width: 1200px ) {
+
+  /* woocommerce */
+  .woocommerce {
+    ul {
+      &.products {
+        &.columns-3,
+        &.columns-4,
+        &.columns-5 {
+          li {
+            &.product {
+              @include flex(0 0 33.333333%);
+              width: 33.333333%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media ( max-width: 480px ) {
+
+  /* woocommerce */
+  .woocommerce {
+    ul {
+      &.products {
+        &.columns-3,
+        &.columns-4,
+        &.columns-5 {
+          li {
+            &.product {
+              @include flex(0 0 50%);
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
   }
 
 }

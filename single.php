@@ -42,11 +42,7 @@ endif;
 
                         <?php
 
-                        if( has_post_format('audio') || has_post_format('video') ):
-                            get_template_part( 'template-parts/post/content','video' );
-                        else:
-                            get_template_part( 'template-parts/post/content','gallery' );
-                        endif;
+                        basictheme_post_formats();
 
                         get_template_part( 'template-parts/post/content','info' );
 

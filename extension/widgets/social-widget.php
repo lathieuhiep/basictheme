@@ -3,10 +3,8 @@
  * Widget Name: Social Widget
  */
 
-add_action( 'widgets_init', 'basictheme_social_load_widget' );
-
-function basictheme_social_load_widget() {
-	register_widget( 'basictheme_social_widget' );
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
 
 class basictheme_social_widget extends WP_Widget {
@@ -15,29 +13,27 @@ class basictheme_social_widget extends WP_Widget {
 	 * Widget setup.
 	 */
 
-	function __construct() {
+    public function __construct() {
 
-		parent::__construct (
-			'basictheme_social_widget',
-			esc_html__( 'basictheme: Social Icons','basictheme' ),
+        $basictheme_social_widget_ops = array(
+            'classname'     =>  'basictheme_social_widget',
+            'description'   =>  'A widget that displays your social icons',
+        );
 
-			array(
-				'description' => esc_html__( 'A widget that displays your social icons','basictheme' )
-			)
-		);
-	}
+        parent::__construct( 'basictheme_social_widget', 'Basic Theme: Social Icons', $basictheme_social_widget_ops );
 
-	/**
-	 * How to display the widget on the screen.
-	 */
+    }
+
+    /**
+     * Outputs the content of the widget
+     *
+     * @param array $args
+     * @param array $instance
+     */
 	function widget( $args, $instance ) {
 
-		extract( $args );
-		
-		/* Before widget (defined by themes). */
         echo $args['before_widget'];
 
-		/* Display the widget title if one was input (before and after defined by themes). */
         if ( ! empty( $instance['title'] ) ) {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
@@ -50,27 +46,23 @@ class basictheme_social_widget extends WP_Widget {
 
     <?php
 
-		/* After widget (defined by themes). */
         echo $args['after_widget'];
 	}
 
-	/**
-	 * Update the widget settings.
-	 */
-	function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
-
-		/* Strip tags for title and name to remove HTML (important for text inputs). */
-		$instance['title']  =   strip_tags( $new_instance['title'] );
-
-		return $instance;
-	}
-
-
+    /**
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
 	function form( $instance ) {
 
-		/* Set up some default widget settings. */
-		$defaults = array( 'title' => 'Subscribe & Follow', 'facebook' => 'on', 'twitter' => 'on', 'instagram' => 'on', );
+		$defaults = array(
+            'title' => 'Subscribe & Follow',
+            'facebook' => 'on',
+            'twitter' => 'on',
+            'instagram' => 'on',
+            );
+
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<!-- Widget Title: Text Input -->
@@ -78,6 +70,7 @@ class basictheme_social_widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
                 <?php esc_html_e( 'Title:', 'basictheme' ); ?>
             </label>
+
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
 		</p>
 		
@@ -89,4 +82,27 @@ class basictheme_social_widget extends WP_Widget {
 
 	}
 
+    /**
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     *
+     * @return array
+     */
+    function update( $new_instance, $old_instance ) {
+        $instance = array();
+
+        $instance['title']  =   strip_tags( $new_instance['title'] );
+
+        return $instance;
+    }
+
 }
+
+// Register social widget
+function basictheme_social_register_widget() {
+    register_widget( 'basictheme_social_widget' );
+}
+
+add_action( 'widgets_init', 'basictheme_social_register_widget' );

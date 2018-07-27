@@ -6,42 +6,26 @@ $basictheme_post_type      =    get_post_type( get_the_ID() );
 $basictheme_comment_count  =    wp_count_comments( get_the_ID() );
 
 ?>
+
 <div class="site-post-content">
-
     <h2 class="site-post-title">
-
         <?php
-
         if( is_single() ) :
             the_title();
         else :
-
         ?>
             <a href="<?php the_permalink();?>">
                 <?php if ( is_sticky() && is_home() ) : ?>
-
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
-
                 <?php
-
                 endif;
 
                 the_title();
-
                 ?>
             </a>
 
         <?php endif; ?>
-
     </h2>
-
-    <?php if ( has_post_thumbnail() ) :?>
-        <!-- Post Image -->
-        <div class="site-post-image">
-            <?php the_post_thumbnail('full'); ?>
-        </div>
-        <!-- /Post Image -->
-    <?php endif;?>
 
     <div class="site-post-meta">
 

@@ -372,19 +372,6 @@ Redux::setSection( $basictheme_opt_name, array(
             )
         ),
 
-        array(
-            'id'        =>  'basictheme_blog_sidebar_search',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Position Sidebar Page Search', 'basictheme' ),
-            'desc'      =>  esc_html__( 'Position Sidebar Page Search', 'basictheme' ),
-            'default'   =>  'right',
-            'options'   =>  array(
-                'left'  =>  'Left',
-                'right' =>  'Right',
-                'hide'  =>  'Hide',
-            )
-        ),
-
     )
 ));
 /* End Blog Option */
@@ -687,14 +674,21 @@ Redux::setSection( $basictheme_opt_name, array(
             'id'        =>  'basictheme_404_title',
             'type'      =>  'text',
             'title'     =>  esc_html__( '404 Title', 'basictheme' ),
-            'default'   =>  false,
+            'default'   =>  esc_html__('Awww...Don’t Cry', 'basictheme' ),
         ),
 
         array(
             'id'        =>  'basictheme_404_editor',
             'type'      =>  'editor',
             'title'     =>  esc_html__( '404 Content', 'basictheme' ),
-            'default'   =>  false,
+            'default'   =>  esc_html__( "It's just a 404 Error! <br /> What you’re looking for may have been misplaced <br> in Long Term Memory.", 'basictheme' ),
+            'args'          =>  array(
+                'wpautop'       => false,
+                'media_buttons' => false,
+                'textarea_rows' => 5,
+                'teeny'         => false,
+                'quicktags'     => true,
+            )
         ),
 
     )

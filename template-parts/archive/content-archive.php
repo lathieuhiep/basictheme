@@ -26,33 +26,25 @@ endif;
             ?>
 
             <div class="<?php echo esc_attr( $basictheme_col_class_blog ); ?>">
-
-                <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
-
-                    <div id='post-<?php the_ID(); ?>' <?php post_class(); ?>>
-                        <?php
-
-                        get_template_part( 'template-parts/post/content','info' );
-
-                        if( has_post_format('audio') || has_post_format('video') ):
-                            get_template_part( 'template-parts/post/content','video' );
-                        else:
-                            get_template_part( 'template-parts/post/content','gallery' );
-                        endif;
-
-                        ?>
-                    </div>
-
                 <?php
+                if ( have_posts() ) :
 
-                endwhile;
+                    if ( ! is_search() ):
+                        get_template_part( 'template-parts/archive/content', 'archive-post' );
+                    else:
+                        get_template_part( 'template-parts/search/content', 'search-post' );
+                    endif;
 
                     basictheme_pagination();
 
-                endif;
+                else:
 
+                    if ( is_search() ) :
+                        get_template_part( 'template-parts/search/content', 'search-no-data' );
+                    endif;
+
+                endif; // end if ( have_posts )
                 ?>
-
             </div>
 
             <?php if ( $basictheme_blog_sidebar_archive == 'right' ) :

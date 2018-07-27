@@ -1,6 +1,12 @@
 .site-footer {
   border-top: 1px solid $border-color;
   padding-bottom: 10px;
+
+  section {
+    &.widget {
+      margin-bottom: 15px;
+    }
+  }
 }
 .site-footer__top {
   padding: 50px 0 30px;

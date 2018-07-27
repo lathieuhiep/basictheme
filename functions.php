@@ -66,6 +66,21 @@ if( !function_exists('basictheme_setup') ):
 endif;
 
 /*
+ * post formats
+ * */
+function basictheme_post_formats() {
+
+    if( has_post_format('audio') || has_post_format('video') ):
+        get_template_part( 'template-parts/post/content','video' );
+    elseif ( has_post_format('gallery') ):
+        get_template_part( 'template-parts/post/content','gallery' );
+    else:
+        get_template_part( 'template-parts/post/content','image' );
+    endif;
+
+}
+
+/*
 * Required: include plugin theme scripts
 */
 require get_parent_theme_file_path( '/extension/tz-process-option.php' );
