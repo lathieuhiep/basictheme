@@ -194,4 +194,5 @@ class basictheme_widget_slides extends Widget_Base {
     }
 
 }
+
 Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_slides );

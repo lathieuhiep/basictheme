@@ -13,7 +13,7 @@
     $( window ).on( 'elementor/frontend/init', function() {
 
         /* Element slider */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/slides-theme.default', ElementCarouselSlider  );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-slides.default', ElementCarouselSlider  );
 
     } );
 

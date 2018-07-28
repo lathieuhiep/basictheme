@@ -105,7 +105,7 @@ if ( ! function_exists( 'basictheme_check_rwmb_meta' ) ) {
     }
 }
 
-if ( ! function_exists( '_is_elementor_installed' ) ) :
+if ( did_action( 'elementor/loaded' ) ) :
     /*
      * Required: Elementor
      */
