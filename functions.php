@@ -205,7 +205,7 @@ function basictheme_register_front_end() {
     * */
 
     /* Start Bootstrap Css */
-    wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/css/bootstrap.min.css' ), array(), '4.0.0' );
+    wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/css/bootstrap.min.css' ), array(), '4.1.3' );
     /* End Bootstrap Css */
 
     /* Start Font Awesome */
@@ -216,15 +216,9 @@ function basictheme_register_front_end() {
     wp_enqueue_style( 'basictheme-fonts', basictheme_fonts_url(), array(), null );
     /* End Font */
 
-    /* Start flex slider */
-    if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() || is_home() ){
-
-        /* Start Carousel Css */
-        wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/owl.carousel.min.css' ), array(), '2.2.1' );
-        /* End Carousel Css */
-
-    }
-    /* End flex slider */
+    /* Start Carousel Css */
+    wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/owl.carousel.min.css' ), array(), '2.3.4' );
+    /* End Carousel Css */
 
     /*  Start Style Css   */
     wp_enqueue_style( 'basictheme-style', get_stylesheet_uri() );
@@ -241,15 +235,17 @@ function basictheme_register_front_end() {
 
     // Load the html5 shiv.
 
-    wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.0' );
+    wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
     wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-    wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/js/bootstrap.min.js' ), array('jquery'), '4.0.0', true );
+    wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/js/bootstrap.min.js' ), array('jquery'), '4.1.3', true );
+
+    wp_register_script( 'owl-carousel', get_theme_file_uri( '/js/owl.carousel.min.js' ), array(), '2.3.4', true );
 
     if( is_single() || is_tag() || is_category() || is_archive() || is_author() || is_search() || is_home()){
 
         /* Start Carousel Js */
-        wp_enqueue_script( 'owl-carousel', get_theme_file_uri( '/js/owl.carousel.min.js' ), array(), '2.2.1', true );
+        wp_enqueue_script( 'owl-carousel' );
         /* End Carousel Js */
 
     }
