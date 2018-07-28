@@ -11,7 +11,7 @@ class basictheme_widget_about_text extends Widget_Base {
     }
 
     public function get_name() {
-        return 'about-text';
+        return 'about-text-my';
     }
 
     public function get_title() {
