@@ -395,6 +395,13 @@ Redux::setSection( $basictheme_opt_name, array(
             ),
         ),
 
+        array(
+            'id'        =>  'basictheme_on_off_share_single',
+            'type'      =>  'switch',
+            'title'     =>  esc_html__( 'On/Off Share Post Single', 'basictheme' ),
+            'default'   =>  true,
+        ),
+
     )
 ));
 /* End Blog Option */

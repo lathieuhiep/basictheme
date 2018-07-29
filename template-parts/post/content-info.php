@@ -5,6 +5,8 @@ global $basictheme_options;
 $basictheme_post_type      =    get_post_type( get_the_ID() );
 $basictheme_comment_count  =    wp_count_comments( get_the_ID() );
 
+$basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_single'];
+
 ?>
 
 <div class="site-post-content">
@@ -92,32 +94,32 @@ $basictheme_comment_count  =    wp_count_comments( get_the_ID() );
 
         </div>
 
-        <div class="site-post-share">
+        <?php if ( $basictheme_on_off_share_single == 1 || $basictheme_on_off_share_single == null ) : ?>
+            <div class="site-post-share">
+                <span>
+                    <?php  esc_html_e('Share this post:', 'basictheme') ; ?>
+                </span>
 
-            <span>
-                <?php  esc_html_e('Share this post:', 'basictheme') ; ?>
-            </span>
+                <!-- Facebook Button -->
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
+                    <i class="fa fa-facebook"></i>
+                </a>
 
-            <!-- Facebook Button -->
-            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
-                <i class="fa fa-facebook"></i>
-            </a>
+                <a target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print basictheme_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
+                    <i class="fa fa-twitter"></i>
+                </a>
 
-            <a target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print basictheme_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
-                <i class="fa fa-twitter"></i>
-            </a>
+                <?php $basictheme_pin_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() )); ?>
 
-            <?php $basictheme_pin_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() )); ?>
+                <a data-pin-do="skipLink" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo esc_url( $basictheme_pin_image ); ?>&description=<?php the_title(); ?>">
+                    <i class="fa fa-pinterest"></i>
+                </a>
 
-            <a data-pin-do="skipLink" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo esc_url( $basictheme_pin_image ); ?>&description=<?php the_title(); ?>">
-                <i class="fa fa-pinterest"></i>
-            </a>
-
-            <a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
-                <i class="fa fa-google-plus"></i>
-            </a>
-
-        </div>
+                <a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </div>
+        <?php endif; ?>
 
     <?php
 
