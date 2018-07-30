@@ -22,6 +22,8 @@
   ## Single
   ## Pagination
   ## Comment
+## Elementor
+  ## Slider
 ## Shop Woocommerce
 # Footer
 # Responsive
@@ -56,6 +58,11 @@
 # Blog
 -----------------------------------------------------------------------------*/
 @import "blog/blog";
+
+/**
+# Elementor
+-----------------------------------------------------------------------------*/
+@import "elementor/elementor";
 
 /**
 # Shop Woocommerce

@@ -6,7 +6,7 @@ if( !empty( $basictheme_gallery_post ) ) :
 
     $basictheme_slider_settings =   [
         'loop'  =>  true,
-        'nav'   =>  false,
+        'nav'   =>  true,
         'dots'  =>  true
     ];
 

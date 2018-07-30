@@ -35,12 +35,12 @@ class basictheme_plugin_elementor_widgets {
     }
 
     function basictheme_elementor_widgets_registered() {
-//        foreach(glob( get_parent_theme_file_path( '/extension/elementor/widgets/*.php' ) ) as $file){
-//            require $file;
-//        }
+        foreach(glob( get_parent_theme_file_path( '/extension/elementor/widgets/*.php' ) ) as $file){
+            require $file;
+        }
 
-        require get_parent_theme_file_path( '/extension/elementor/widgets/slider.php' );
-        require get_parent_theme_file_path( '/extension/elementor/widgets/about-text.php' );
+//        require get_parent_theme_file_path( '/extension/elementor/widgets/slider.php' );
+//        require get_parent_theme_file_path( '/extension/elementor/widgets/about-text.php' );
     }
 
     function basictheme_elementor_script() {

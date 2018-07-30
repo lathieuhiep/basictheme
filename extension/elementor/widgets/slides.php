@@ -63,6 +63,9 @@ class basictheme_widget_slides extends Widget_Base {
                         'default'   =>  [
                             'url'   =>  Utils::get_placeholder_image_src(),
                         ],
+                        'selectors' => [
+                            '{{WRAPPER}} {{CURRENT_ITEM}} .element-slides__item--bg' => 'background-image: url({{URL}})',
+                        ],
                     ],
 
                     [
@@ -166,23 +169,24 @@ class basictheme_widget_slides extends Widget_Base {
 
             ?>
 
-                <div class="element-slides__item">
+                <div class="element-slides__item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
+                    <div class="element-slides__item--bg"></div>
 
-                    <?php if ( !empty( $basictheme_slides_btn_item['url'] ) ) : ?>
-
-                        <a title="<?php echo esc_attr( $item['slides_title'] ); ?>" class="element-slides__link" href="<?php echo esc_url( $basictheme_slides_btn_item['url'] ); ?>" <?php echo ( $basictheme_slides_btn_item['is_external'] ? 'target="_blank"' : '' ); ?>>
-
-                            <?php echo wp_get_attachment_image( $basictheme_slides_image_item['id'], 'full' ); ?>
-
-                        </a>
-
-                    <?php
-
-                    else:
-                        echo wp_get_attachment_image( $basictheme_slides_image_item['id'], 'full' );
-                    endif;
-
-                    ?>
+<!--                    --><?php //if ( !empty( $basictheme_slides_btn_item['url'] ) ) : ?>
+<!---->
+<!--                        <a title="--><?php //echo esc_attr( $item['slides_title'] ); ?><!--" class="element-slides__link" href="--><?php //echo esc_url( $basictheme_slides_btn_item['url'] ); ?><!--" --><?php //echo ( $basictheme_slides_btn_item['is_external'] ? 'target="_blank"' : '' ); ?><!-->-->
+<!---->
+<!--                            --><?php //echo wp_get_attachment_image( $basictheme_slides_image_item['id'], 'full' ); ?>
+<!---->
+<!--                        </a>-->
+<!---->
+<!--                    --><?php
+//
+//                    else:
+//                        echo wp_get_attachment_image( $basictheme_slides_image_item['id'], 'full' );
+//                    endif;
+//
+//                    ?>
 
                 </div>
 
