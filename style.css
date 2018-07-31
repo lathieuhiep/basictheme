@@ -1581,15 +1581,71 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 -----------------------------------------------------------------------------*/
 /* Slider */
 .element-slides__item {
-  height: 400px;
+  position: relative;
 }
 
-.element-slides__item--bg {
+.element-slides__item .element-slides__item--bg {
   min-width: 100%;
   min-height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+}
+
+.element-slides__item .element-slides__item--inner,
+.element-slides__item .element-slides__item--overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.element-slides__item .element-slides__item--inner {
+  padding: 50px;
+  text-align: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.element-slides__item .element-slides__item--content {
+  max-width: 66%;
+}
+
+.element-slides__item .element-slides__item--heading {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.element-slides__item .element-slides__item--description {
+  font-size: 17px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.element-slides__item .element-slides__item--link {
+  display: inline-block;
+  font-size: 15px;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: 2px solid #ffffff;
+  border-radius: 3px;
+}
+
+.element-slides__item .element-slides__item--link a {
+  display: block;
+  color: #ffffff;
 }
 
 /**
