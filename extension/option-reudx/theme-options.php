@@ -674,7 +674,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'id'        =>  'basictheme_404_editor',
             'type'      =>  'editor',
             'title'     =>  esc_html__( '404 Content', 'basictheme' ),
-            'default'   =>  esc_html__( "It's just a 404 Error! <br /> What you’re looking for may have been misplaced <br> in Long Term Memory.", 'basictheme' ),
+            'default'   =>  esc_html__( "It's just a 404 Error! What you’re looking for may have been misplaced in Long Term Memory.", 'basictheme' ),
             'args'          =>  array(
                 'wpautop'       => false,
                 'media_buttons' => false,
