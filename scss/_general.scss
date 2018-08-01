@@ -188,18 +188,19 @@ pre {
         display: inline-block;
         margin: 0 5px;
         padding: 5px 15px !important;
-        color: #ffffff;
         background-color: #ff5555;
         @include border-radius(5px);
         @include transition(all 0.4s ease-in-out);
 
-        i.fa {
-          font-size: 20px;
-          line-height: inherit;
-        }
         &:hover {
           background-color: #333333;
         }
+      }
+      i.fa {
+        color: #ffffff;
+        font-size: 20px;
+        line-height: inherit;
+        @include transition(all 0.4s ease-in-out);
       }
     }
   }

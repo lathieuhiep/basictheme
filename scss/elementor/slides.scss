@@ -1,3 +1,56 @@
+.element-slides {
+  position: relative;
+
+  &.owl-carousel {
+    .owl-nav {
+      margin: 0;
+
+      button {
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+
+        &.owl-prev,
+        &.owl-next {
+          background-color: transparent;
+          margin: 0;
+          padding: 0 !important;
+        }
+        &.owl-prev {
+          left: 15px;
+        }
+        &.owl-next {
+          right: 15px;
+        }
+        i.fa {
+          font-size: 30px;
+
+          &:hover {
+            color: $color-hover;
+          }
+        }
+      }
+    }
+    .owl-dots {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+
+      .owl-dot {
+        span {
+          background-color: #ffffff;
+        }
+        &.active,
+        &:hover {
+          span {
+            background-color: $background-hover;
+          }
+        }
+      }
+    }
+  }
+}
 .element-slides__item {
   position: relative;
 
@@ -17,13 +70,7 @@
   }
   .element-slides__item--inner {
     padding: 50px;
-    text-align: center;
     @include flexbox();
-    @include align-items(center);
-    @include justify-content(center);
-  }
-  .element-slides__item--content {
-    max-width: 66%;
   }
   .element-slides__item--heading {
     font-size: 30px;
@@ -40,8 +87,11 @@
     font-size: 15px;
     color: #ffffff;
     padding: 12px 24px;
-    border: 2px solid #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
     border-radius: 3px;
+    @include transition(all 0.4s ease-in-out);
 
     a {
       display: block;
@@ -49,4 +99,33 @@
     }
   }
 }
-
+.element-slides--h-position-center {
+  .element-slides__item--inner {
+    @include justify-content(center);
+  }
+}
+.element-slides--h-position-left {
+  .element-slides__item--inner {
+    @include justify-content(flex-start);
+  }
+}
+.element-slides--h-position-right {
+  .element-slides__item--inner {
+    @include justify-content(flex-end);
+  }
+}
+.element-slides--v-position-middle {
+  .element-slides__item--inner {
+    @include align-items(center);
+  }
+}
+.element-slides--v-position-top {
+  .element-slides__item--inner {
+    @include align-items(flex-start);
+  }
+}
+.element-slides--v-position-bottom {
+  .element-slides__item--inner {
+    @include align-items(flex-end);
+  }
+}

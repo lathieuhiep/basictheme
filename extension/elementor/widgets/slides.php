@@ -258,20 +258,20 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'text_align',
             [
-                'label' => esc_html__( 'Text Align', 'elementor-pro' ),
+                'label' => esc_html__( 'Text Align', 'basictheme' ),
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
                     'left' => [
-                        'title' => esc_html__( 'Left', 'elementor-pro' ),
+                        'title' => esc_html__( 'Left', 'basictheme' ),
                         'icon' => 'fa fa-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'elementor-pro' ),
+                        'title' => esc_html__( 'Center', 'basictheme' ),
                         'icon' => 'fa fa-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'elementor-pro' ),
+                        'title' => esc_html__( 'Right', 'basictheme' ),
                         'icon' => 'fa fa-align-right',
                     ],
                 ],
@@ -320,7 +320,7 @@ class basictheme_widget_slides extends Widget_Base {
         $this->add_responsive_control(
             'slides_height',
             [
-                'label' => esc_html__( 'Height', 'elementor-pro' ),
+                'label' => esc_html__( 'Height', 'basictheme' ),
                 'type' => Controls_Manager::SLIDER,
                 'range' => [
                     'px' => [
@@ -398,6 +398,558 @@ class basictheme_widget_slides extends Widget_Base {
                 'label_off'     => esc_html__('No', 'basictheme'),
                 'return_value'  => 'yes',
                 'default'       => 'no',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_slides',
+            [
+                'label' => esc_html__( 'Slides', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'content_max_width',
+            [
+                'label' => esc_html__( 'Content Width', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'size_units' => [ '%', 'px' ],
+                'default' => [
+                    'size' => '66',
+                    'unit' => '%',
+                ],
+                'tablet_default' => [
+                    'unit' => '%',
+                ],
+                'mobile_default' => [
+                    'unit' => '%',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--content' => 'max-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'slides_padding',
+            [
+                'label' => esc_html__( 'Padding', 'basictheme' ),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', 'em', '%' ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--inner' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'slides_horizontal_position',
+            [
+                'label' => esc_html__( 'Horizontal Position', 'basictheme' ),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'default' => 'center',
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__( 'Left', 'basictheme' ),
+                        'icon' => 'eicon-h-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__( 'Center', 'basictheme' ),
+                        'icon' => 'eicon-h-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__( 'Right', 'basictheme' ),
+                        'icon' => 'eicon-h-align-right',
+                    ],
+                ],
+                'prefix_class' => 'element-slides--h-position-',
+            ]
+        );
+
+        $this->add_control(
+            'slides_vertical_position',
+            [
+                'label' => esc_html__( 'Vertical Position', 'basictheme' ),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'default' => 'middle',
+                'options' => [
+                    'top' => [
+                        'title' => esc_html__( 'Top', 'basictheme' ),
+                        'icon' => 'eicon-v-align-top',
+                    ],
+                    'middle' => [
+                        'title' => esc_html__( 'Middle', 'basictheme' ),
+                        'icon' => 'eicon-v-align-middle',
+                    ],
+                    'bottom' => [
+                        'title' => esc_html__( 'Bottom', 'basictheme' ),
+                        'icon' => 'eicon-v-align-bottom',
+                    ],
+                ],
+                'prefix_class' => 'element-slides--v-position-',
+            ]
+        );
+
+        $this->add_control(
+            'slides_text_align',
+            [
+                'label' => esc_html__( 'Text Align', 'basictheme' ),
+                'type' => Controls_Manager::CHOOSE,
+                'label_block' => false,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__( 'Left', 'basictheme' ),
+                        'icon' => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__( 'Center', 'basictheme' ),
+                        'icon' => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__( 'Right', 'basictheme' ),
+                        'icon' => 'fa fa-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item--inner' => 'text-align: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_title',
+            [
+                'label' => esc_html__( 'Title', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'heading_spacing',
+            [
+                'label' => esc_html__( 'Spacing', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--heading' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'heading_color',
+            [
+                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--heading' => 'color: {{VALUE}}',
+
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'heading_typography',
+                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                'selector' => '{{WRAPPER}} .element-slides__item .element-slides__item--heading',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_description',
+            [
+                'label' => esc_html__( 'Description', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'description_spacing',
+            [
+                'label' => esc_html__( 'Spacing', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--description' => 'margin-bottom: {{SIZE}}{{UNIT}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'description_color',
+            [
+                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--description' => 'color: {{VALUE}}',
+
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'description_typography',
+                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+                'selector' => '{{WRAPPER}} .element-slides__item .element-slides__item--description',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_button',
+            [
+                'label' => esc_html__( 'Button', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control( 'button_color',
+            [
+                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}}; border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'button_typography',
+                'selector' => '{{WRAPPER}} .element-slides__item .element-slides__item--link',
+                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+            ]
+        );
+
+        $this->add_control(
+            'button_border_width',
+            [
+                'label' => esc_html__( 'Border Width', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 20,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'border-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_border_radius',
+            [
+                'label' => esc_html__( 'Border Radius', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'border-radius: {{SIZE}}{{UNIT}};',
+                ],
+                'separator' => 'after',
+            ]
+        );
+
+        $this->start_controls_tabs( 'button_tabs' );
+
+        $this->start_controls_tab( 'normal', [ 'label' => esc_html__( 'Normal', 'basictheme' ) ] );
+
+        $this->add_control(
+            'button_text_color',
+            [
+                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link, {{WRAPPER}} .element-slides__item .element-slides__item--link a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_background_color',
+            [
+                'label' => esc_html__( 'Background Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_border_color',
+            [
+                'label' => esc_html__( 'Border Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab( 'hover', [ 'label' => esc_html__( 'Hover', 'basictheme' ) ] );
+
+        $this->add_control(
+            'button_hover_text_color',
+            [
+                'label' => esc_html__( 'Text Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover, {{WRAPPER}} .element-slides__item .element-slides__item--link a:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_hover_background_color',
+            [
+                'label' => esc_html__( 'Background Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_hover_border_color',
+            [
+                'label' => esc_html__( 'Border Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides__item .element-slides__item--link:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_style_navigation',
+            [
+                'label' => esc_html__( 'Navigation', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'conditions' => [
+                    'relation' => 'or',
+                    'terms' => [
+                        [
+                            'name' => 'nav',
+                            'value' => 'yes',
+                        ],
+                        [
+                            'name' => 'dots',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'heading_style_arrows',
+            [
+                'label' => esc_html__( 'Arrows', 'basictheme' ),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'nav',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'arrows_size',
+            [
+                'label' => esc_html__( 'Arrows Size', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 60,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa' => 'font-size: {{SIZE}}{{UNIT}};',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'nav',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'arrows_color',
+            [
+                'label' => esc_html__( 'Arrows Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa' => 'color: {{VALUE}};',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'nav',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'arrows_color_hover',
+            [
+                'label' => esc_html__( 'Arrows Color Hover', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides.owl-carousel .owl-nav button i.fa:hover' => 'color: {{VALUE}};',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'nav',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'heading_style_dots',
+            [
+                'label' => esc_html__( 'Dots', 'basictheme' ),
+                'type' => Controls_Manager::HEADING,
+                'separator' => 'before',
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'dots',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dots_size',
+            [
+                'label' => esc_html__( 'Dots Size', 'basictheme' ),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 60,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot span' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'dots',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dots_color',
+            [
+                'label' => esc_html__( 'Dots Color', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot span' => 'background-color: {{VALUE}};',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'dots',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dots_color_hover',
+            [
+                'label' => esc_html__( 'Dots Color Hover', 'basictheme' ),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot.active span, {{WRAPPER}} .element-slides.owl-carousel .owl-dots .owl-dot:hover span' => 'background-color: {{VALUE}};',
+                ],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name' => 'dots',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
             ]
         );
 
