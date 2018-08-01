@@ -38,9 +38,6 @@ class basictheme_plugin_elementor_widgets {
         foreach(glob( get_parent_theme_file_path( '/extension/elementor/widgets/*.php' ) ) as $file){
             require $file;
         }
-
-//        require get_parent_theme_file_path( '/extension/elementor/widgets/slider.php' );
-//        require get_parent_theme_file_path( '/extension/elementor/widgets/about-text.php' );
     }
 
     function basictheme_elementor_script() {
@@ -50,3 +47,25 @@ class basictheme_plugin_elementor_widgets {
 }
 
 new basictheme_plugin_elementor_widgets();
+
+
+/* Start get Category check box */
+function basictheme_check_get_cat( $type_taxonomy ) {
+
+    $cat_check    =   array();
+    $category     =   get_categories( array( 'taxonomy'   =>  $type_taxonomy ) );
+
+    if ( isset( $category ) && !empty( $category ) ):
+
+        foreach( $category as $item ) {
+
+            $cat_check[$item->term_id]  =   $item->name.'('. $item->count .')';
+
+        }
+
+    endif;
+
+    return $cat_check;
+
+}
+/* End get Category check box */
