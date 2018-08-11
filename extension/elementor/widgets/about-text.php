@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class basictheme_widget_about_text extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme-widgets' );
+        return array( 'basictheme_widgets' );
     }
 
     public function get_name() {

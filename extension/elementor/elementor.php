@@ -25,7 +25,7 @@ class basictheme_plugin_elementor_widgets {
     function basictheme_elementor_widget_categories() {
 
         Plugin::instance()->elements_manager->add_category(
-            'basictheme-widgets',
+            'basictheme_widgets',
             [
                 'title' => esc_html__( 'Basic theme Widgets', 'basictheme' ),
                 'icon'  => 'icon-goes-here'
