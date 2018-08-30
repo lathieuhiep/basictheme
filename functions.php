@@ -127,7 +127,6 @@ if ( class_exists('Woocommerce') ) :
 
 endif;
 
-
 /**
  * Register Sidebar
  */
@@ -182,6 +181,44 @@ function basictheme_widgets_init() {
         ));
 
     endforeach;
+
+}
+
+// Remove jquery migrate
+add_action( 'wp_default_scripts', 'basictheme_remove_jquery_migrate' );
+function basictheme_remove_jquery_migrate( $scripts ) {
+    if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+        $script = $scripts->registered['jquery'];
+        if ( $script->deps ) {
+            $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
+        }
+    }
+}
+
+// Load jquery script in footer
+add_action( 'init', 'basictheme_init_load'  );
+function basictheme_init_load() {
+
+    if ( !is_admin() ) :
+        wp_deregister_script('jquery');
+
+        // Load the copy of jQuery that comes with WordPress
+        // The last parameter set to TRUE states that it should be loaded
+        // in the footer.
+        wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
+
+        wp_enqueue_script('jquery');
+    endif;
+
+    /* Require HTML Compression */
+    global $basictheme_options;
+    $basictheme_minify_html =   $basictheme_options['basictheme_minify_html'];
+
+    if ( $basictheme_minify_html == 1 ) :
+
+        require get_parent_theme_file_path( '/extension/html-compression/wp-html-compression.php' );
+
+    endif;
 
 }
 
@@ -628,6 +665,9 @@ function basictheme_paging_nav_query( $basictheme_querry ) {
 }
 
 /* End pagination */
+
+// Sanitize Pagination
+add_action('navigation_markup_template', 'basictheme_sanitize_pagination');
 function basictheme_sanitize_pagination( $basictheme_content ) {
     // Remove role attribute
     $basictheme_content = str_replace('role="navigation"', '', $basictheme_content);
@@ -638,4 +678,21 @@ function basictheme_sanitize_pagination( $basictheme_content ) {
     return $basictheme_content;
 }
 
-add_action('navigation_markup_template', 'basictheme_sanitize_pagination');
+/* Start Get col global */
+function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
+
+    if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
+        $class_col_content = 'col-12 col-md-8 col-lg-9';
+    else:
+        $class_col_content = 'col-md-12';
+    endif;
+
+    return $class_col_content;
+}
+
+function basictheme_col_sidebar() {
+    $class_col_sidebar = 'col-12 col-md-4 col-lg-3';
+
+    return $class_col_sidebar;
+}
+/* End Get col global */

@@ -1,22 +1,21 @@
-.header .navbar {
-  margin: 0;
+.header {
+  .navbar {
+    margin: 0;
+  }
 }
 .header-bottom {
-  -webkit-box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
+  @include box-shadow(0 3px 3px -3px rgba(0, 0, 0, 0.3));
 }
 .site-logo {
-  -webkit-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-.site-logo a {
-  display: inline-block;
-  line-height: 64px;
+  @include flex(0 0 auto);
+
+  a {
+    display: inline-block;
+    line-height: 64px;
+  }
 }
 .site-menu {
-  -webkit-flex: 1;
-  flex: 1;
+  @include flex(1);
 }
 .site-menu {
   ul {
@@ -27,7 +26,6 @@
       display: inline-block;
       padding: 22px 0;
       position: relative;
-      text-align: left;
 
       a {
         padding: 0 15px;

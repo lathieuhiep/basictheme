@@ -4,15 +4,7 @@ global $basictheme_options;
 
 $basictheme_blog_sidebar_archive = !empty( $basictheme_options['basictheme_blog_sidebar_archive'] ) ? $basictheme_options['basictheme_blog_sidebar_archive'] : 'right';
 
-if ( ( $basictheme_blog_sidebar_archive == 'left' || $basictheme_blog_sidebar_archive == 'right' ) && is_active_sidebar( 'basictheme-sidebar' ) ):
-
-    $basictheme_col_class_blog = 'col-md-9';
-
-else:
-
-    $basictheme_col_class_blog = 'col-md-12';
-
-endif;
+$basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sidebar_archive, 'basictheme-sidebar' );
 
 ?>
 
@@ -25,7 +17,7 @@ endif;
             endif;
             ?>
 
-            <div class="<?php echo esc_attr( $basictheme_col_class_blog ); ?>">
+            <div class="<?php echo esc_attr( $basictheme_class_col_content ); ?>">
                 <?php
                 if ( have_posts() ) :
 
