@@ -1,6 +1,4 @@
 .site-footer {
-  border-top: 1px solid $border-color;
-  padding-bottom: 10px;
 
   section {
     &.widget {
@@ -9,12 +7,12 @@
   }
 }
 .site-footer__top {
-  padding: 50px 0 30px;
+  border-top: 1px solid $border-color;
+  padding: 30px 0;
 }
-/* Footer Bottom */
 .site-footer__bottom {
   border-top: 1px solid $border-color;
-  padding-top: 15px;
+  padding: 10px 0;
 }
 .site-copyright {
   font-size: 12px;

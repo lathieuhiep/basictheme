@@ -30,7 +30,7 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
 
                 ?>
 
-                    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <div class="site-post-single-item">
 
                         <?php
 

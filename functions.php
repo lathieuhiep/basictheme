@@ -474,29 +474,6 @@ if( ! function_exists( 'basictheme_social_title' )):
 
 endif;
 
-/****************************************************************************************************************
- * Fuction override post_class()
- * */
-
-if ( ! function_exists( 'basictheme_post_classes' ) ) :
-
-    function basictheme_post_classes( $basictheme_body_class ) {
-
-        if ( is_category() || is_tag() || is_search() || is_author() || is_archive() || is_home() ) {
-            $basictheme_body_class[] = 'site-post-item';
-        }
-
-        if ( is_single() ) {
-            $basictheme_body_class[] = 'site-post-single-item';
-        }
-        return $basictheme_body_class;
-
-    }
-
-    add_filter( 'post_class', 'basictheme_post_classes' );
-
-endif;
-
 /**
  * Include the TGM_Plugin_Activation class.
  */

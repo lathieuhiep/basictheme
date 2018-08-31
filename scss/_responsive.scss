@@ -56,6 +56,18 @@
   .header-bottom_warp {
     display: block;
   }
+  .information {
+    .container {
+      max-width: none;
+    }
+  }
+  .header-bottom {
+    position: relative;
+
+    .container {
+      max-width: none;
+    }
+  }
   .site-logo {
     @include flexbox();
     @include justify-content(space-between);
@@ -67,7 +79,12 @@
     display: block;
   }
   .site-menu {
-    text-align: left;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #eeeeee;
+    z-index: 99;
 
     .collapse {
       display: none !important;
@@ -79,7 +96,7 @@
     ul {
       li {
         display: block;
-        padding: 0;
+        padding: 0 15px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
         &:last-child {
@@ -117,6 +134,7 @@
             }
             .icon_menu_item_mobile {
               top: 5px;
+              right: 0;
             }
           }
         }

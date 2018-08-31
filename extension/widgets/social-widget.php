@@ -58,10 +58,7 @@ class basictheme_social_widget extends WP_Widget {
 
 		$defaults = array(
             'title' => 'Subscribe & Follow',
-            'facebook' => 'on',
-            'twitter' => 'on',
-            'instagram' => 'on',
-            );
+        );
 
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
@@ -101,8 +98,8 @@ class basictheme_social_widget extends WP_Widget {
 }
 
 // Register social widget
-function basictheme_social_register_widget() {
+function basictheme_social_widget_register() {
     register_widget( 'basictheme_social_widget' );
 }
 
-add_action( 'widgets_init', 'basictheme_social_register_widget' );
+add_action( 'widgets_init', 'basictheme_social_widget_register' );

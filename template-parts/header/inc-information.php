@@ -9,7 +9,7 @@ $basictheme_information_phone     =   $basictheme_options['basictheme_informatio
 <div class="information">
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-12 col-md-12 col-lg-7">
                 <?php if ( $basictheme_information_address != '' ) : ?>
 
                     <span>
@@ -42,8 +42,8 @@ $basictheme_information_phone     =   $basictheme_options['basictheme_informatio
                 <?php endif; ?>
             </div>
 
-            <div class="col-md-5">
-                <div class="information__social-network social-network-toTopFromBottom d-flex justify-content-end">
+            <div class="col-12 col-md-12 col-lg-5 d-none d-lg-block">
+                <div class="information__social-network social-network-toTopFromBottom d-lg-flex justify-content-lg-end">
                     <?php basictheme_get_social_url(); ?>
                 </div>
             </div>

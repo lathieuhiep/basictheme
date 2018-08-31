@@ -5,6 +5,13 @@
 }
 .header-bottom {
   @include box-shadow(0 3px 3px -3px rgba(0, 0, 0, 0.3));
+
+  button {
+    &.navbar-toggler {
+      padding: 0;
+      border: 0;
+    }
+  }
 }
 .site-logo {
   @include flex(0 0 auto);
