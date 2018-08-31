@@ -195,20 +195,9 @@ function basictheme_remove_jquery_migrate( $scripts ) {
     }
 }
 
-// Load jquery script in footer
+// Load int
 add_action( 'init', 'basictheme_init_load'  );
 function basictheme_init_load() {
-
-    if ( !is_admin() ) :
-        wp_deregister_script('jquery');
-
-        // Load the copy of jQuery that comes with WordPress
-        // The last parameter set to TRUE states that it should be loaded
-        // in the footer.
-        wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
-
-        wp_enqueue_script('jquery');
-    endif;
 
     /* Require HTML Compression */
     global $basictheme_options;
@@ -271,6 +260,9 @@ function basictheme_register_front_end() {
     * */
 
     // Load the html5 shiv.
+    wp_deregister_script('jquery');
+    wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', false, '', true );
+    wp_enqueue_script('jquery');
 
     wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
     wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
