@@ -16,7 +16,7 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
             the_title();
         else :
         ?>
-            <a href="<?php the_permalink();?>">
+            <a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
                 <?php if ( is_sticky() && is_home() ) : ?>
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
                 <?php
