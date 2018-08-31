@@ -570,31 +570,23 @@ function basictheme_get_social_url() {
     global $basictheme_options;
     $basictheme_social_networks = basictheme_get_social_network();
 
+    foreach( $basictheme_social_networks as $basictheme_social ) :
+        $basictheme_social_url = $basictheme_options['basictheme_social_network_' . $basictheme_social['id']];
+
+        if( $basictheme_social_url ) :
 ?>
 
-        <?php
-        foreach( $basictheme_social_networks as $basictheme_social ) :
+        <div class="social-network-item">
+            <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
+                <i class="fa fa-<?php echo esc_attr( $basictheme_social['id'] ); ?>" aria-hidden="true"></i>
+            </a>
+        </div>
 
-            $basictheme_social_url = $basictheme_options['basictheme_social_network_' . $basictheme_social['id']];
-
-            if( $basictheme_social_url ) :
-
-        ?>
-
-                <div class="social-network-item">
-                    <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
-                        <i class="fa fa-<?php echo esc_attr( $basictheme_social['id'] ); ?>" aria-hidden="true"></i>
-                    </a>
-                </div>
-
-        <?php
-            endif;
-
-        endforeach;
-        ?>
 
 <?php
+        endif;
 
+    endforeach;
 }
 
 function basictheme_get_social_network() {
