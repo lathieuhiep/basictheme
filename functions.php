@@ -230,21 +230,9 @@ function basictheme_register_front_end() {
     * Start Get Css Front End
     * */
 
-    /* Start Bootstrap Css */
-    wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/css/bootstrap.min.css' ), array(), '4.1.3' );
-    /* End Bootstrap Css */
-
-    /* Start Font Awesome */
-    wp_enqueue_style( 'font-awesome', get_theme_file_uri( '/css/font-awesome.min.css' ), array(), '4.7.0' );
-    /* End Font Awesome */
-
-    /* Start Font */
-    wp_enqueue_style( 'basictheme-fonts', basictheme_fonts_url(), array(), null );
-    /* End Font */
-
-    /* Start Carousel Css */
-    wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/owl.carousel.min.css' ), array(), '2.3.4' );
-    /* End Carousel Css */
+    /* Start main Css */
+    wp_enqueue_style( 'owl-carousel', get_theme_file_uri( '/css/main.css' ), array(), '' );
+    /* End main Css */
 
     /*  Start Style Css   */
     wp_enqueue_style( 'basictheme-style', get_stylesheet_uri() );
