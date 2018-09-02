@@ -1,7 +1,6 @@
 <?php
 /**
  * ReduxFramework Config File
- * TemPlaza Plazart Default Theme
  */
 if ( ! class_exists( 'Redux' ) ) {
     return;

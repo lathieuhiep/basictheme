@@ -20,6 +20,9 @@
     display: inline-block;
     line-height: 64px;
   }
+  .logo-default {
+    width: 12%;
+  }
 }
 .site-menu {
   @include flex(1);

@@ -23,7 +23,7 @@
                                 if ( !empty( $basictheme_logo_image_id ) ) :
                                     echo wp_get_attachment_image( $basictheme_logo_image_id, 'full' );
                                 else :
-                                    echo'<img src="'.esc_url( get_theme_file_uri( '/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
+                                    echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/images/wordpress-logo.svg' ) ).'" alt="'.get_bloginfo('title').'" />';
                                 endif;
                             ?>
                         </a>

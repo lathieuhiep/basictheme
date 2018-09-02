@@ -23,8 +23,6 @@ if( !function_exists('basictheme_setup') ):
         load_theme_textdomain( 'basictheme', get_parent_theme_file_path( '/languages' ) );
 
         /**
-         * plazart theme setup.
-         *
          * Set up theme defaults and registers support for various WordPress features.
          *
          * Note that this function is hooked into the after_setup_theme hook, which

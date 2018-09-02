@@ -682,6 +682,10 @@ form.post-password-form p input[type='submit'] {
   line-height: 64px;
 }
 
+.site-logo .logo-default {
+  width: 12%;
+}
+
 .site-menu {
   -webkit-flex: 1;
   -ms-flex: 1;
