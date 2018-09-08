@@ -247,28 +247,6 @@ Redux::setSection( $basictheme_opt_name, array(
     ),
 ));
 
-//Minify HTML Options
-Redux::setSection( $basictheme_opt_name, array(
-    'title'             =>  esc_html__( 'Minify HTML', 'basictheme' ),
-    'id'                =>  'basictheme_minify_html_option',
-    'customizer_width'  =>  '400px',
-    'subsection'        => true,
-    'fields'            => array(
-
-        array(
-            'id'        =>  'basictheme_minify_html',
-            'type'      =>  'select',
-            'title'     =>  esc_html__( 'Usage Minify HTML', 'basictheme' ),
-            'default'   =>  0,
-            'options'   =>  array(
-                0   =>  esc_html__( 'Off', 'basictheme' ),
-                1   =>  esc_html__( 'On', 'basictheme' )
-            )
-        ),
-
-    ),
-));
-
 /* End General Options */
 
 /* Start Header Options */
