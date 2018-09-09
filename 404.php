@@ -30,7 +30,7 @@ $basictheme_background = $basictheme_options['basictheme_404_background']['id'];
                     if ( $basictheme_title != '' ):
                         echo esc_html( $basictheme_title );
                     else:
-                        esc_html_e( 'Awww...Don’t Cry', 'basictheme' );
+                        esc_html_e( 'Awww...Do Not Cry', 'basictheme' );
                     endif;
                     ?>
                 </h1>
@@ -42,11 +42,11 @@ $basictheme_background = $basictheme_options['basictheme_404_background']['id'];
                     else:
                     ?>
                         <p>
-                            <?php esc_html_e( "It's just a 404 Error!", "basictheme" ); ?>
+                            <?php esc_html_e( 'It is just a 404 Error!', 'basictheme' ); ?>
                             <br />
-                            <?php esc_html_e( "What you’re looking for may have been misplaced", "basictheme" ); ?>
+                            <?php esc_html_e( 'What you are looking for may have been misplaced', 'basictheme' ); ?>
                             <br />
-                            <?php esc_html_e( "in Long Term Memory.", "basictheme" ); ?>
+                            <?php esc_html_e( 'in Long Term Memory.', 'basictheme' ); ?>
                         </p>
                     <?php endif; ?>
                 </div>

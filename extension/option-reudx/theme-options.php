@@ -666,14 +666,14 @@ Redux::setSection( $basictheme_opt_name, array(
             'id'        =>  'basictheme_404_title',
             'type'      =>  'text',
             'title'     =>  esc_html__( '404 Title', 'basictheme' ),
-            'default'   =>  esc_html__('Awww...Don’t Cry', 'basictheme' ),
+            'default'   =>  'Awww...Do Not Cry',
         ),
 
         array(
             'id'        =>  'basictheme_404_editor',
             'type'      =>  'editor',
             'title'     =>  esc_html__( '404 Content', 'basictheme' ),
-            'default'   =>  esc_html__( "It's just a 404 Error! What you’re looking for may have been misplaced in Long Term Memory.", 'basictheme' ),
+            'default'   =>  esc_html__( 'It is just a 404 Error! What you are looking for may have been misplaced in Long Term Memory.', 'basictheme' ),
             'args'          =>  array(
                 'wpautop'       => false,
                 'media_buttons' => false,
