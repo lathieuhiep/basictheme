@@ -11,11 +11,11 @@ class basictheme_widget_about_text extends Widget_Base {
     }
 
     public function get_name() {
-        return 'about-text-my';
+        return 'basictheme-about-text';
     }
 
     public function get_title() {
-        return esc_html__( 'About Text', 'basictheme' );
+        return esc_html__( 'About Text Theme', 'basictheme' );
     }
 
     public function get_icon() {
@@ -157,25 +157,25 @@ class basictheme_widget_about_text extends Widget_Base {
 
     protected function render() {
 
-        $basictheme_widget_elmentor_settings  =   $this->get_settings();
+        $settings       =   $this->get_settings_for_display();
 
     ?>
 
         <div class="element-about-text">
             <h2 class="element-about-text__title">
-                <?php echo wp_kses_post( $basictheme_widget_elmentor_settings['widget_title'] ); ?>
+                <?php echo wp_kses_post( $settings['widget_title'] ); ?>
             </h2>
 
-            <?php if ( $basictheme_widget_elmentor_settings['hide_line'] == 'no' ) : ?>
+            <?php if ( $settings['hide_line'] == 'no' ) : ?>
 
                 <span class="element-about-text__line">&nbsp;</span>
 
             <?php endif; ?>
 
-            <?php if ( !empty( $basictheme_widget_elmentor_settings['widget_description'] ) ) : ?>
+            <?php if ( !empty( $settings['widget_description'] ) ) : ?>
 
                 <div class="element-about-text__description">
-                    <?php echo wp_kses_post( $basictheme_widget_elmentor_settings['widget_description'] ); ?>
+                    <?php echo wp_kses_post( $settings['widget_description'] ); ?>
                 </div>
 
             <?php endif; ?>
