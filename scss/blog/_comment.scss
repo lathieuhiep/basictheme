@@ -7,7 +7,7 @@
   font-size: 15px;
   margin-bottom: 30px;
   padding-bottom: 15px;
-  display: inline-block;
+  display: block;
 
   &:after {
     position: absolute;
@@ -16,7 +16,7 @@
     left: 0;
     display: block;
     margin-top: 5px;
-    width: 15%;
+    width: 15px;
     height: 1px;
     background: $background-hover;
     @include transition(all 0.4s ease-in-out);

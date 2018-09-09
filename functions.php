@@ -621,3 +621,58 @@ function basictheme_col_sidebar() {
     return $class_col_sidebar;
 }
 /* End Get col global */
+
+/* Start Post Meta */
+    function basictheme_post_meta() {
+?>
+
+        <div class="site-post-meta">
+            <span class="site-post-author">
+                <?php echo esc_html__('Author:','basictheme');?>
+                <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>">
+                    <?php the_author();?>
+                </a>
+            </span>
+
+            <span class="site-post-date">
+                <?php esc_html_e( 'Post date: ','basictheme' ); the_date(); ?>
+            </span>
+
+            <span class="site-post-comments">
+                <?php
+                comments_popup_link( '0 '. esc_html__('Comment','basictheme'),'1 '. esc_html__('Comment','basictheme'), '% '. esc_html__('Comments','basictheme') );
+                ?>
+            </span>
+        </div>
+
+<?php
+    }
+/* End Post Meta */
+
+/* Start Link Pages */
+function basictheme_link_page() {
+
+    wp_link_pages( array(
+        'before'      => '<div class="page-links">' . __( 'Pages:', 'basictheme' ),
+        'after'       => '</div>',
+        'link_before' => '<span class="page-number">',
+        'link_after'  => '</span>',
+    ) );
+
+}
+/* End Link Pages */
+
+/* Start comment */
+function basictheme_comment_form() {
+
+    if ( comments_open() || get_comments_number() ) :
+?>
+
+        <div class="site-comments">
+            <?php comments_template( '', true ); ?>
+        </div>
+
+<?php
+    endif;
+}
+/* End comment */

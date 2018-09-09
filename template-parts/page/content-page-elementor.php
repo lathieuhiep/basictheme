@@ -7,19 +7,12 @@
 while ( have_posts() ) : the_post() ;
 ?>
 
-    <div <?php post_class('site-page-content') ?>>
+    <div class="site-page-content">
 
         <?php
-
         the_content();
 
-        wp_link_pages( array(
-            'before'      => '<div class="page-links">' . __( 'Pages:', 'basictheme' ),
-            'after'       => '</div>',
-            'link_before' => '<span class="page-number">',
-            'link_after'  => '</span>',
-        ) );
-
+        basictheme_link_page();
         ?>
 
     </div>

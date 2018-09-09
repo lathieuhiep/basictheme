@@ -103,25 +103,24 @@
     }
   }
 }
-.site-author {
-  .author-avata {
-    width: 80px;
-    margin-right: 20px;
-    @include flex(0 0 auto);
+.site-single-post-related {
+  .title {
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
 
-    img {
-      width: 100%;
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 30px;
+      height: 1px;
+      background-color: $background-hover;
     }
   }
-  .author-info {
-    h3 {
-      font-size: 15px;
-      margin-bottom: 15px;
-    }
-    p {
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+  .item {
+    margin-bottom: 15px;
   }
 }
