@@ -221,7 +221,7 @@ function basictheme_register_front_end() {
     * */
 
     /* Start main Css */
-    wp_enqueue_style( 'basictheme-main', get_theme_file_uri( '/css/main.css' ), array(), '' );
+    wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/css/library.min.css' ), array(), '' );
     /* End main Css */
 
     /*  Start Style Css   */
@@ -517,7 +517,7 @@ function basictheme_get_social_url() {
         if( $basictheme_social_url ) :
 ?>
 
-        <div class="social-network-item">
+        <div class="social-network-item item-<?php echo esc_attr( $basictheme_social['id'] ); ?>">
             <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
                 <i class="fa fa-<?php echo esc_attr( $basictheme_social['id'] ); ?>" aria-hidden="true"></i>
             </a>

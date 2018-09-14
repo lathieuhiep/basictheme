@@ -1,8 +1,15 @@
 .site-single {
-  .site-post-title,
   .site-post-image,
   .page-links {
     margin-bottom: 30px;
+  }
+  .site-post-title {
+    margin-bottom: 15px;
+  }
+}
+.site-post-single-item {
+  .site-post-meta {
+    margin-bottom: 15px;
   }
 }
 .site-post-slides {

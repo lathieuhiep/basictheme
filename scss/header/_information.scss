@@ -17,10 +17,5 @@
     margin: 0;
     width: 30px;
     text-align: center;
-    border-right: 1px solid $border-color;
-
-    &:first-child {
-      border-left: 1px solid $border-color;
-    }
   }
 }

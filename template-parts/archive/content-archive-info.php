@@ -11,30 +11,28 @@
         </a>
     </h2>
 
-    <?php basictheme_post_meta(); ?>
+    <?php
+    basictheme_post_formats();
+
+    basictheme_post_meta();
+    ?>
 
     <div class="site-post-excerpt">
+        <p>
+            <?php
+            if ( has_excerpt() ) :
+                echo esc_html( get_the_excerpt() );
+            else:
+                echo wp_trim_words( get_the_content(), 30, '...' );
+            endif;
+            ?>
+        </p>
 
-        <?php
+        <a href="<?php the_permalink();?>" class="text-read-more">
+            <?php echo esc_html__('Read more','basictheme');?>
+        </a>
 
-        if( ! has_excerpt()):
-
-            the_content();
-
-        else:
-
-            the_excerpt();
-        ?>
-
-            <a href="<?php the_permalink();?>" class="text-read-more">
-                <?php echo esc_html__('Read more','basictheme');?>
-            </a>
-
-        <?php
-        endif;
-
-        basictheme_link_page();
-        ?>
+        <?php basictheme_link_page(); ?>
 
     </div>
 </div>

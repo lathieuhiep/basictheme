@@ -13,46 +13,46 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
         <h2 class="site-post-title">
             <?php the_title(); ?>
         </h2>
-    </div>
 
-    <?php basictheme_post_meta(); ?>
+        <?php basictheme_post_meta(); ?>
 
-    <div class="site-post-excerpt">
-        <?php
-        the_content();
+        <div class="site-post-excerpt">
+            <?php
+            the_content();
 
-        basictheme_link_page()
-        ?>
-    </div>
+            basictheme_link_page()
+            ?>
+        </div>
 
-    <div class="site-post-cat-tag">
+        <div class="site-post-cat-tag">
 
-        <?php if( get_the_category() != false ): ?>
+            <?php if( get_the_category() != false ): ?>
 
-            <p class="site-post-category">
-                <?php
-                esc_html_e('Category: ','basictheme');
-                the_category( ' ' );;
-                ?>
-            </p>
+                <p class="site-post-category">
+                    <?php
+                    esc_html_e('Category: ','basictheme');
+                    the_category( ' ' );;
+                    ?>
+                </p>
 
-        <?php
+            <?php
 
-        endif;
+            endif;
 
-        if( get_the_tags() != false ):
+            if( get_the_tags() != false ):
 
-        ?>
+            ?>
 
-            <p class="site-post-tag">
-                <?php
-                esc_html_e('Tag: ','basictheme');
-                the_tags('',' ');
-                ?>
-            </p>
+                <p class="site-post-tag">
+                    <?php
+                    esc_html_e('Tag: ','basictheme');
+                    the_tags('',' ');
+                    ?>
+                </p>
 
-        <?php endif; ?>
+            <?php endif; ?>
 
+        </div>
     </div>
 
     <?php if ( $basictheme_on_off_share_single == 1 || $basictheme_on_off_share_single == null ) : ?>
