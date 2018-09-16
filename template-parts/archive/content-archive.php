@@ -26,7 +26,7 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
 
                             <?php while ( have_posts() ) : the_post(); ?>
 
-                                <div class="site-post-item col-12 col-md-6">
+                                <div id="post-<?php the_ID(); ?>" <?php post_class( 'site-post-item col-12 col-md-6' ); ?>>
                                     <?php
                                         if ( ! is_search() ):
                                             get_template_part( 'template-parts/archive/content', 'archive-info' );

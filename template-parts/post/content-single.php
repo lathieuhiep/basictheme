@@ -6,7 +6,7 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
 
 ?>
 
-<div class="site-post-single-item">
+<div id="post-<?php the_ID() ?>" <?php post_class( 'site-post-single-item' ); ?>>
     <?php basictheme_post_formats(); ?>
 
     <div class="site-post-content">
