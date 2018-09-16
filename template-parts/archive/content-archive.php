@@ -29,7 +29,7 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
                                 <div class="site-post-item col-12 col-md-6">
                                     <?php
                                         if ( ! is_search() ):
-                                            get_template_part( 'template-parts/archive/content', 'archive-post' );
+                                            get_template_part( 'template-parts/archive/content', 'archive-info' );
                                         else:
                                             get_template_part( 'template-parts/search/content', 'search-post' );
                                         endif;

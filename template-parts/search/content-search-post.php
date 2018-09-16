@@ -3,7 +3,7 @@ $basictheme_post_type = get_post_type( get_the_ID() );
 
 if ( $basictheme_post_type != 'page' ) :
 
-    get_template_part( 'template-parts/archive/content', 'archive-post' );
+    get_template_part( 'template-parts/archive/content', 'archive-info' );
 
 else:
 
