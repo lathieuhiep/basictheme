@@ -103,6 +103,11 @@ if ( ! function_exists( 'basictheme_check_rwmb_meta' ) ) {
     }
 }
 
+/*
+* Required: Meta Box CMB2
+*/
+require get_parent_theme_file_path( '/extension/meta-box/meta-box-cmb2-options.php' );
+
 if ( did_action( 'elementor/loaded' ) ) :
     /*
      * Required: Elementor
@@ -460,9 +465,16 @@ function basictheme_register_required_plugins() {
         ),
 
         // This is an example of how to include a plugin from the WordPress Plugin Repository
+//        array(
+//            'name'      =>  'Meta Box',
+//            'slug'      =>  'meta-box',
+//            'required'  =>  true,
+//        ),
+
+        // This is an example of how to include a plugin from the WordPress Plugin Repository
         array(
-            'name'      =>  'Meta Box',
-            'slug'      =>  'meta-box',
+            'name'      =>  'CMB2',
+            'slug'      =>  'cmb2',
             'required'  =>  true,
         ),
 
