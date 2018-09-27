@@ -6,7 +6,7 @@ $basictheme_copyright = $basictheme_options ['basictheme_footer_copyright_editor
 
 ?>
 
-<div class="site-footer__bottom">
+<div class="site-footer__copyright">
     <div class="container">
         <div class="site-copyright-menu d-flex align-items-center">
 

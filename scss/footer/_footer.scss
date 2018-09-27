@@ -1,16 +1,15 @@
 .site-footer {
-
   section {
     &.widget {
       margin-bottom: 15px;
     }
   }
 }
-.site-footer__top {
+.site-footer__multi--column {
   border-top: 1px solid $border-color;
   padding: 30px 0;
 }
-.site-footer__bottom {
+.site-footer__copyright {
   border-top: 1px solid $border-color;
   padding: 10px 0;
 }

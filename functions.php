@@ -106,7 +106,7 @@ if ( ! function_exists( 'basictheme_check_rwmb_meta' ) ) {
 /*
 * Required: Meta Box CMB2
 */
-require get_parent_theme_file_path( '/extension/meta-box/meta-box-cmb2-options.php' );
+//require get_parent_theme_file_path( '/extension/meta-box/meta-box-cmb2-options.php' );
 
 if ( did_action( 'elementor/loaded' ) ) :
     /*
@@ -139,8 +139,8 @@ function basictheme_widgets_init() {
 
     $basictheme_widgets_arr  =   array(
 
-        'basictheme-sidebar'    =>  array(
-            'name'              =>  esc_html__( 'Sidebar', 'basictheme' ),
+        'basictheme-sidebar-main'    =>  array(
+            'name'              =>  esc_html__( 'Sidebar Main', 'basictheme' ),
             'description'       =>  esc_html__( 'Display sidebar right or left on all page.', 'basictheme' )
         ),
 
@@ -149,23 +149,23 @@ function basictheme_widgets_init() {
             'description'       =>  esc_html__( 'Display sidebar on page shop.', 'basictheme' )
         ),
 
-        'basictheme-footer-1'   =>  array(
-            'name'              =>  esc_html__( 'Footer 1', 'basictheme' ),
+        'basictheme-sidebar-footer-multi-column-1'   =>  array(
+            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 1', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 1 on all page.', 'basictheme' )
         ),
 
-        'basictheme-footer-2'   =>  array(
-            'name'              =>  esc_html__( 'Footer 2', 'basictheme' ),
+        'basictheme-sidebar-footer-multi-column-2'   =>  array(
+            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 2', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 2 on all page.', 'basictheme' )
         ),
 
-        'basictheme-footer-3'   =>  array(
-            'name'              =>  esc_html__( 'Footer 3', 'basictheme' ),
+        'basictheme-sidebar-footer-multi-column-3'   =>  array(
+            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 3', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 3 on all page.', 'basictheme' )
         ),
 
-        'basictheme-footer-4'   =>  array(
-            'name'              =>  esc_html__( 'Footer 4', 'basictheme' ),
+        'basictheme-sidebar-footer-multi-column-4'   =>  array(
+            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 4', 'basictheme' ),
             'description'       =>  esc_html__('Display footer column 4 on all page.', 'basictheme' )
         )
 
@@ -382,7 +382,7 @@ if ( ! function_exists( 'basictheme_fonts_url' ) ) :
 
             $basictheme_query_args = array(
                 'family' => urlencode( implode( '|', $basictheme_font_families ) ),
-                'subset' => urlencode( 'latin' ),
+                'subset' => urlencode( 'latin,vietnamese' ),
             );
 
             $basictheme_fonts_url = add_query_arg( $basictheme_query_args, 'https://fonts.googleapis.com/css' );
@@ -465,11 +465,11 @@ function basictheme_register_required_plugins() {
         ),
 
         // This is an example of how to include a plugin from the WordPress Plugin Repository
-//        array(
-//            'name'      =>  'Meta Box',
-//            'slug'      =>  'meta-box',
-//            'required'  =>  true,
-//        ),
+        array(
+            'name'      =>  'Meta Box',
+            'slug'      =>  'meta-box',
+            'required'  =>  true,
+        ),
 
         // This is an example of how to include a plugin from the WordPress Plugin Repository
         array(

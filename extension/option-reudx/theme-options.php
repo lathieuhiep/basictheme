@@ -696,15 +696,14 @@ Redux::setSection( $basictheme_opt_name, array(
     'icon'              =>  'el el-arrow-down'
 ));
 
-//Footer Content
+// Footer Sidebar Multi Column
 Redux::setSection( $basictheme_opt_name, array(
-    'title'         =>  esc_html__( 'Footer content', 'basictheme' ),
-    'id'            =>  'basictheme_footer_content',
-    'desc'          =>  esc_html__( '', 'basictheme' ),
+    'title'         =>  esc_html__( 'Sidebar Footer Multi Column', 'basictheme' ),
+    'id'            =>  'basictheme_footer_sidebar_multi_column',
     'subsection'    =>  true,
     'fields'        =>  array(
         array(
-            'id'        =>  'basictheme_footer_column_col',
+            'id'        =>  'basictheme_footer_multi_column',
             'type'      =>  'image_select',
             'title'     =>  esc_html__( 'Number of Footer Columns', 'basictheme' ),
             'subtitle'  =>  esc_html__( 'Controls the number of columns in the footer', 'basictheme' ),
@@ -736,9 +735,9 @@ Redux::setSection( $basictheme_opt_name, array(
         ),
 
         array(
-            'id'            =>  'basictheme_footer_column_w1',
+            'id'            =>  'basictheme_footer_multi_column_1',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Footer width 1', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 1', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
             'default'       =>  1,
@@ -747,15 +746,15 @@ Redux::setSection( $basictheme_opt_name, array(
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_column_col', 'equals','1', '2', '3', '4' ),
-                array( 'basictheme_footer_column_col', '!=', '0' ),
+                array( 'basictheme_footer_multi_column', 'equals','1', '2', '3', '4' ),
+                array( 'basictheme_footer_multi_column', '!=', '0' ),
             )
         ),
 
         array(
-            'id'            =>  'basictheme_footer_column_w2',
+            'id'            =>  'basictheme_footer_multi_column_2',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Footer width 2', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 2', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
             'default'       =>  1,
@@ -764,16 +763,16 @@ Redux::setSection( $basictheme_opt_name, array(
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_column_col', 'equals', '2', '3', '4' ),
-                array( 'basictheme_footer_column_col', '!=', '1' ),
-                array( 'basictheme_footer_column_col', '!=', '0' ),
+                array( 'basictheme_footer_multi_column', 'equals', '2', '3', '4' ),
+                array( 'basictheme_footer_multi_column', '!=', '1' ),
+                array( 'basictheme_footer_multi_column', '!=', '0' ),
             )
         ),
 
         array(
-            'id'            =>  'basictheme_footer_column_w3',
+            'id'            =>  'basictheme_footer_multi_column_3',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Footer width 3', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 3', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
             'default'       =>  1,
@@ -782,17 +781,17 @@ Redux::setSection( $basictheme_opt_name, array(
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_column_col', 'equals', '3', '4' ),
-                array( 'basictheme_footer_column_col', '!=', '1' ),
-                array( 'basictheme_footer_column_col', '!=', '2' ),
-                array( 'basictheme_footer_column_col', '!=', '0' ),
+                array( 'basictheme_footer_multi_column', 'equals', '3', '4' ),
+                array( 'basictheme_footer_multi_column', '!=', '1' ),
+                array( 'basictheme_footer_multi_column', '!=', '2' ),
+                array( 'basictheme_footer_multi_column', '!=', '0' ),
             )
         ),
 
         array(
-            'id'            =>  'basictheme_footer_column_w4',
+            'id'            =>  'basictheme_footer_multi_column_4',
             'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Footer width 4', 'basictheme' ),
+            'title'         =>  esc_html__( 'Column width 4', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
             'default'       =>  1,
@@ -801,11 +800,11 @@ Redux::setSection( $basictheme_opt_name, array(
             'max'           =>  12,
             'display_value' =>  'label',
             'required'      =>  array(
-                array( 'basictheme_footer_column_col',  'equals', '4' ),
-                array( 'basictheme_footer_column_col', '!=', '1' ),
-                array( 'basictheme_footer_column_col', '!=', '2' ),
-                array( 'basictheme_footer_column_col', '!=', '3' ),
-                array( 'basictheme_footer_column_col', '!=', '0' ),
+                array( 'basictheme_footer_multi_column',  'equals', '4' ),
+                array( 'basictheme_footer_multi_column', '!=', '1' ),
+                array( 'basictheme_footer_multi_column', '!=', '2' ),
+                array( 'basictheme_footer_multi_column', '!=', '3' ),
+                array( 'basictheme_footer_multi_column', '!=', '0' ),
             )
         ),
     )

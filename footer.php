@@ -5,9 +5,9 @@
 
     <?php
 
-    get_template_part( 'template-parts/footer/inc','footer-top' );
+    get_template_part( 'template-parts/footer/inc','multi-column' );
 
-    get_template_part( 'template-parts/footer/inc','footer-bottom' );
+    get_template_part( 'template-parts/footer/inc','copyright' );
 
     ?>
 

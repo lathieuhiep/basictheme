@@ -440,7 +440,7 @@
       }
       &.place-order {
         @include flex-direction(column);
-        @include align-items(start);
+        @include align-items(flex-start);
       }
     }
   }

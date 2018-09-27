@@ -2231,8 +2231,8 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-align-items: start;
-  align-items: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
 }
 
 .woocommerce #payment #place_order,
@@ -2311,12 +2311,12 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
   margin-bottom: 15px;
 }
 
-.site-footer__top {
+.site-footer__multi--column {
   border-top: 1px solid #eeeeee;
   padding: 30px 0;
 }
 
-.site-footer__bottom {
+.site-footer__copyright {
   border-top: 1px solid #eeeeee;
   padding: 10px 0;
 }
