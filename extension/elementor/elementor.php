@@ -53,7 +53,12 @@ new basictheme_plugin_elementor_widgets();
 function basictheme_check_get_cat( $type_taxonomy ) {
 
     $cat_check    =   array();
-    $category     =   get_categories( array( 'taxonomy'   =>  $type_taxonomy ) );
+    $category     =   get_terms(
+        array(
+            'taxonomy'      =>  $type_taxonomy,
+            'hide_empty'    =>  false
+        )
+    );
 
     if ( isset( $category ) && !empty( $category ) ):
 
