@@ -30,10 +30,8 @@ if( !function_exists('basictheme_setup') ):
          * as indicating support post thumbnails.
          *
          */
-        //Enable support for Header (tz-demo)
         add_theme_support( 'custom-header' );
 
-        //Enable support for Background (tz-demo)
         add_theme_support( 'custom-background' );
 
         //Enable support for Post Thumbnails
@@ -81,7 +79,7 @@ function basictheme_post_formats() {
 /*
 * Required: include plugin theme scripts
 */
-require get_parent_theme_file_path( '/extension/tz-process-option.php' );
+require get_parent_theme_file_path( '/extension/process-option.php' );
 
 if ( class_exists( 'ReduxFramework' ) ) {
     /*
