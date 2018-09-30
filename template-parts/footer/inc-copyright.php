@@ -2,7 +2,7 @@
 //Global variable redux
 global $basictheme_options;
 
-$basictheme_copyright = $basictheme_options ['basictheme_footer_copyright_editor'] == '' ? 'Copyright &amp; Templaza' : $basictheme_options ['basictheme_footer_copyright_editor'];
+$basictheme_copyright = $basictheme_options ['basictheme_footer_copyright_editor'] == '' ? 'Copyright &amp; DiepLK' : $basictheme_options ['basictheme_footer_copyright_editor'];
 
 ?>
 
