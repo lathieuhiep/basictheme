@@ -49,7 +49,8 @@
     display: none;
 }
 
-.input-checkbox-purchase-url, .input-checkbox-price {
+.input-checkbox-purchase-url,
+.input-checkbox-price {
     left: 135px;
     position: relative !important;
     top: -22px;
@@ -79,14 +80,6 @@
 
 .format-setting .format-setting-inner.width100 {
     width: 100% !important;
-}
-
-/**
-  * CSS FOR PAGE BUILDER
-  */
-.tzicon_font,
-.tzicon_img {
-    display: none;
 }
 
 /**
@@ -131,14 +124,11 @@
     line-height: 50px;
 }
 
-.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild.hasSubSections a, .wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections a {
+.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild.hasSubSections a,
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections a {
     background: #191e23 none repeat scroll 0 0;
     text-shadow: none !important;
     color: #fff !important;
-}
-
-#tz_custom_css_code-editor {
-    border: 1px solid #428bca;
 }
 
 .redux-sidebar .redux-group-menu li a {
@@ -152,7 +142,8 @@
     background: #32373c;
 }
 
-.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a, .wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a {
+.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a,
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li a {
     background: #32373c none repeat scroll 0 0 !important;
     text-shadow: none;
     color: #aaaaaa !important;
@@ -177,7 +168,8 @@
     padding: 0;
 }
 
-.redux-sidebar > ul > li:first-child a, .redux-sidebar > ul > li:first-child:active a {
+.redux-sidebar > ul > li:first-child a,
+.redux-sidebar > ul > li:first-child:active a {
     height: 200px;
     color: #fff !important;
     font-size: 18px;
@@ -187,7 +179,8 @@
     border-bottom: 1px solid #eee !important;
 }
 
-.redux-sidebar > ul > li:first-child a span, .redux-sidebar > ul > li:first-child:active a span {
+.redux-sidebar > ul > li:first-child a span,
+.redux-sidebar > ul > li:first-child:active a span {
     color: #fff !important;
     font-size: 14px;
     margin-top: 165px !important;
@@ -198,7 +191,9 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.redux-sidebar .redux-menu-warning i, .redux-sidebar .redux-menu-error i, .redux-sidebar .hasSubSections .extraIconSubsections i {
+.redux-sidebar .redux-menu-warning i,
+.redux-sidebar .redux-menu-error i,
+.redux-sidebar .hasSubSections .extraIconSubsections i {
     font-weight: lighter;
     right: 20px;
     top: 20px;
@@ -271,21 +266,29 @@
     background-size: 10px auto !important;
 }
 
-.redux-container .ui-button, .control-section-redux .ui-button, .control-panel-redux .ui-button, .redux-metabox .ui-button {
+.redux-container .ui-button,
+.control-section-redux .ui-button,
+.control-panel-redux .ui-button,
+.redux-metabox .ui-button {
     border-radius: 0 !important;
 }
 
-.redux-container-switch .cb-enable, .redux-container-switch .cb-disable {
+.redux-container-switch .cb-enable,
+.redux-container-switch .cb-disable {
     border-radius: 0 !important;
 }
 
-.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a, .wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a {
+.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a,
+.wp-customizer .redux-sidebar .redux-group-menu li.activeChild.hasSubSections ul.subsection li.active a {
     color: #fff !important;
     text-shadow: 1px 1px #002e44;
     transition: all 0.5s ease;
 }
 
-.redux-sidebar .redux-group-menu li.active a, .redux-sidebar .redux-group-menu li.active a:hover, .redux-sidebar .redux-group-menu li.activeChild a, .redux-sidebar .redux-group-menu li.activeChild a:hover {
+.redux-sidebar .redux-group-menu li.active a,
+.redux-sidebar .redux-group-menu li.active a:hover,
+.redux-sidebar .redux-group-menu li.activeChild a,
+.redux-sidebar .redux-group-menu li.activeChild a:hover {
     background: #191e23 !important;
     width: 100%;
     color: #fff !important;
