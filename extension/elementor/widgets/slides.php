@@ -5,6 +5,7 @@ namespace Elementor;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class basictheme_widget_slides extends Widget_Base {
+
     public function get_categories() {
         return array( 'basictheme_widgets' );
     }
