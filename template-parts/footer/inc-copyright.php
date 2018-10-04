@@ -29,7 +29,7 @@ $basictheme_copyright = $basictheme_options ['basictheme_footer_copyright_editor
 
                     else:
 
-                        ?>
+                    ?>
 
                         <ul class="main-menu">
                             <li>
