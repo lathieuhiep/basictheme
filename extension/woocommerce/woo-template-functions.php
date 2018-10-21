@@ -36,7 +36,12 @@ function basictheme_loop_columns_product() {
 
     $basictheme_products_per_row = $basictheme_options['basictheme_products_per_row'];
 
-    return $basictheme_products_per_row;
+    if ( !empty( $basictheme_products_per_row ) ) :
+        return $basictheme_products_per_row;
+    else:
+        return 4;
+    endif;
+
 }
 /* End Change number or products per row */
 
