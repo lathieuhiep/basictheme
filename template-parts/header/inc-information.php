@@ -35,7 +35,7 @@ $basictheme_information_phone     =   $basictheme_options['basictheme_informatio
                 ?>
 
                     <span>
-                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <i class="fas fa-mobile-alt"></i>
                         <?php echo esc_html( $basictheme_information_phone ); ?>
                     </span>
 
