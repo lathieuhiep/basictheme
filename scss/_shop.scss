@@ -465,22 +465,34 @@
     color: $color-hover;
   }
 }
-.woocommerce #respond input#submit,
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button {
-  display: inline-block;
-  width: auto;
-  padding: 9px 22px;
-  color: #000000;
-  border-color: #eeeeee;
-  background-color: #eeeeee;
-  border: none;
-  font-weight: 400;
-  @include transition(all 0.4s ease-in-out);
+.woocommerce {
+  #respond input#submit,
+  a.button,
+  button.button,
+  input.button {
+    display: inline-block;
+    width: auto;
+    padding: 9px 22px;
+    color: #000000;
+    border-color: #eeeeee;
+    background-color: #eeeeee;
+    border: none;
+    font-weight: 400;
+    @include transition(all 0.4s ease-in-out);
 
-  &:hover {
-    color: #ffffff;
-    background-color: #ff5555;
+    &:hover {
+      color: #ffffff;
+      background-color: #ff5555;
+    }
+  }
+  #review_form {
+    #respond {
+      label {
+        display: block;
+      }
+      p {
+        display: inline-block;
+      }
+    }
   }
 }

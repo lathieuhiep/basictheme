@@ -2281,6 +2281,14 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
   background-color: #ff5555;
 }
 
+.woocommerce #review_form #respond label {
+  display: block;
+}
+
+.woocommerce #review_form #respond p {
+  display: inline-block;
+}
+
 /**
 # 404
 -----------------------------------------------------------------------------*/
