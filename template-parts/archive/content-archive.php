@@ -4,7 +4,7 @@ global $basictheme_options;
 
 $basictheme_blog_sidebar_archive = !empty( $basictheme_options['basictheme_blog_sidebar_archive'] ) ? $basictheme_options['basictheme_blog_sidebar_archive'] : 'right';
 
-$basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sidebar_archive, 'basictheme-sidebar' );
+$basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sidebar_archive, 'basictheme-sidebar-main' );
 
 ?>
 
