@@ -64,7 +64,7 @@ function basictheme_check_get_cat( $type_taxonomy ) {
 
         foreach( $category as $item ) {
 
-            $cat_check[$item->term_id]  =   $item->name.'('. $item->count .')';
+            $cat_check[$item->term_id]  =   $item->name;
 
         }
 
