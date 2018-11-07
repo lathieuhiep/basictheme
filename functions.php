@@ -95,8 +95,8 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
     require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
 }
 
-if ( ! function_exists( 'basictheme_check_rwmb_meta' ) ) {
-    function basictheme_check_rwmb_meta( $basictheme_rwmb_metakey, $basictheme_opt_args = '', $basictheme_rwmb_post_id = null ) {
+if ( ! function_exists( 'rwmb_meta' ) ) {
+    function rwmb_meta( $key, $args = '', $post_id = null ) {
         return false;
     }
 }
