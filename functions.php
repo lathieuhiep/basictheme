@@ -222,6 +222,7 @@ function basictheme_register_front_end() {
     /*
     * Start Get Css Front End
     * */
+    wp_enqueue_style( 'basictheme-fonts', basictheme_fonts_url(), array(), null );
 
     /* Start main Css */
     wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/css/library.min.css' ), array(), '' );
