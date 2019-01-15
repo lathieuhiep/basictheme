@@ -15,7 +15,7 @@ class basictheme_widget_about_text extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__( 'About Text Theme', 'basictheme' );
+        return esc_html__( 'About Text', 'basictheme' );
     }
 
     public function get_icon() {

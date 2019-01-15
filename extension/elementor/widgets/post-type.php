@@ -15,7 +15,7 @@ class basictheme_post_type extends Widget_Base {
     }
 
     public function get_title() {
-        return esc_html__( 'Basic theme Post Type', 'basictheme' );
+        return esc_html__( 'Post Type', 'basictheme' );
     }
 
     public function get_icon() {
@@ -42,7 +42,7 @@ class basictheme_post_type extends Widget_Base {
         );
 
         $this->add_control(
-            'post_type__column_number',
+            'post_type_column_number',
             [
                 'label'     =>  esc_html__( 'Column', 'basictheme' ),
                 'type'      =>  Controls_Manager::SELECT,
