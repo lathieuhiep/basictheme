@@ -101,11 +101,6 @@ if ( ! function_exists( 'rwmb_meta' ) ) {
     }
 }
 
-/*
-* Required: Meta Box CMB2
-*/
-//require get_parent_theme_file_path( '/extension/meta-box/meta-box-cmb2-options.php' );
-
 if ( did_action( 'elementor/loaded' ) ) :
     /*
      * Required: Elementor
@@ -236,7 +231,6 @@ function basictheme_register_front_end() {
     * End Get Css Front End
     * */
 
-
     /*
     * Start Get Js Front End
     * */
@@ -324,14 +318,17 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
     <?php endif; ?>
 
     <div class="comment-author vcard">
+
         <?php if ( $basictheme_comment_args['avatar_size'] != 0 ) echo get_avatar( $basictheme_comment, $basictheme_comment_args['avatar_size'] ); ?>
 
     </div>
 
     <?php if ( $basictheme_comment->comment_approved == '0' ) : ?>
+
         <em class="comment-awaiting-moderation">
             <?php esc_html_e( 'Your comment is awaiting moderation.', 'basictheme' ); ?>
         </em>
+
     <?php endif; ?>
 
     <div class="comment-meta commentmetadata">
@@ -339,6 +336,7 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
              <span class="name">
                 <?php comment_author_link(); ?>
             </span>
+
             <span class="comment-metadata">
                 <?php comment_date(); ?>
             </span>
@@ -346,8 +344,8 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
             <?php edit_comment_link( esc_html__( 'Edit ', 'basictheme' ) ); ?>
 
             <?php comment_reply_link( array_merge( $basictheme_comment_args, array( 'add_below' => $basictheme_comment_add_below, 'depth' => $basictheme_comment_depth, 'max_depth' => $basictheme_comment_args['max_depth'] ) ) ); ?>
-
         </div>
+
         <div class="comment-text-box">
             <?php comment_text(); ?>
         </div>
@@ -467,13 +465,6 @@ function basictheme_register_required_plugins() {
         array(
             'name'      =>  'Meta Box',
             'slug'      =>  'meta-box',
-            'required'  =>  true,
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'CMB2',
-            'slug'      =>  'cmb2',
             'required'  =>  true,
         ),
 

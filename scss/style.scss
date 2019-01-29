@@ -15,6 +15,7 @@ Text Domain: basictheme
 * Table of Contents:
 *
 # General
+# WordPress Core
 # Header
 # Page
 # Sidebar
@@ -22,9 +23,12 @@ Text Domain: basictheme
   ## Single
   ## Pagination
   ## Comment
-## Elementor
+# Elementor
   ## Slider
-## Shop Woocommerce
+  ## Posts Grid
+  ## Posts Carousel
+# Woocommerce
+# Contact Form 7
 # Footer
 # Responsive
 * -----------------------------------------------------------------------------
@@ -37,7 +41,7 @@ Text Domain: basictheme
 -----------------------------------------------------------------------------*/
 @import "general";
 
-/* =WordPress Core
+/* WordPress Core
 -------------------------------------------------------------- */
 @import "wp-core";
 
@@ -67,9 +71,14 @@ Text Domain: basictheme
 @import "elementor/elementor";
 
 /**
-# Shop Woocommerce
+# Woocommerce
 -----------------------------------------------------------------------------*/
 @import "shop";
+
+/**
+# Contact Form 7
+-----------------------------------------------------------------------------*/
+@import "cf7";
 
 /**
 # 404
