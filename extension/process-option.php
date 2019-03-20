@@ -6,7 +6,7 @@
     */
     if( !is_admin() ):
 
-        add_action('wp_head','basictheme_config_theme');
+        add_action( 'wp_head','basictheme_config_theme' );
 
         function basictheme_config_theme() {
 
@@ -17,7 +17,7 @@
 
                     if( $basictheme_favicon != '' ) :
 
-                        echo '<link rel="shortcut icon" href="' . esc_url($basictheme_favicon) . '" type="image/x-icon" />';
+                        echo '<link rel="shortcut icon" href="' . esc_url( $basictheme_favicon ) . '" type="image/x-icon" />';
 
                     endif;
 

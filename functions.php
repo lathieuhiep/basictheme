@@ -93,18 +93,16 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
      * Required: Meta Box Framework
      */
     require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
+
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
+
     function rwmb_meta( $key, $args = '', $post_id = null ) {
         return false;
     }
-}
 
-/*
-* Required: Meta Box CMB2
-*/
-//require get_parent_theme_file_path( '/extension/meta-box/meta-box-cmb2-options.php' );
+}
 
 if ( did_action( 'elementor/loaded' ) ) :
     /*
