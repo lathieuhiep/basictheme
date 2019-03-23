@@ -14,6 +14,7 @@ Text Domain: basictheme
 * Table of Contents:
 *
 # General
+# WordPress Core
 # Header
 # Page
 # Sidebar
@@ -21,9 +22,12 @@ Text Domain: basictheme
   ## Single
   ## Pagination
   ## Comment
-## Elementor
+# Elementor
   ## Slider
-## Shop Woocommerce
+  ## Posts Grid
+  ## Posts Carousel
+# Woocommerce
+# Contact Form 7
 # Footer
 # Responsive
 * -----------------------------------------------------------------------------
@@ -327,7 +331,7 @@ pre {
 }
 
 .owl-carousel .owl-dots {
-  padding: 10px 0;
+  margin-top: 30px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -362,7 +366,11 @@ pre {
   background-color: #ff5555;
 }
 
-/* =WordPress Core
+.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated.elementor-column-wrap {
+  padding: 15px;
+}
+
+/* WordPress Core
 -------------------------------------------------------------- */
 .alignnone {
   margin: 5px 20px 20px 0;
@@ -1608,6 +1616,15 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 /**
 # Elementor
 -----------------------------------------------------------------------------*/
+.item-post__title {
+  font-size: 18px;
+  word-break: break-word;
+}
+
+.item-post__title a {
+  display: inline-block;
+}
+
 /* Slider */
 .element-slides {
   position: relative;
@@ -1755,8 +1772,63 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
   align-items: flex-end;
 }
 
+/* Posts Grid */
+.element-post-grid .title {
+  text-align: center;
+}
+
+.element-post-grid .item-post {
+  margin-bottom: 30px;
+}
+
+.element-post-grid .item-post .item-post__thumbnail {
+  margin-bottom: 15px;
+}
+
+.element-post-grid .item-post .item-post__thumbnail a {
+  display: block;
+}
+
+.element-post-grid .item-post .item-post__content {
+  margin-top: 15px;
+}
+
+.element-post-grid .item-post .item-post__content p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Posts Carousel */
+.element-post-carousel .item-post_content {
+  padding: 15px;
+  border: 1px solid #eeeeee;
+}
+
+.element-post-carousel.owl-carousel .owl-nav {
+  margin: 0;
+}
+
+.element-post-carousel.owl-carousel .owl-nav .owl-prev,
+.element-post-carousel.owl-carousel .owl-nav .owl-next {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.element-post-carousel.owl-carousel .owl-nav .owl-prev {
+  left: -70px;
+}
+
+.element-post-carousel.owl-carousel .owl-nav .owl-next {
+  right: -70px;
+}
+
 /**
-# Shop Woocommerce
+# Woocommerce
 -----------------------------------------------------------------------------*/
 .site-shop {
   padding: 50px 0;
@@ -2290,6 +2362,63 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 }
 
 /**
+# Contact Form 7
+-----------------------------------------------------------------------------*/
+form.wpcf7-form p {
+  position: relative;
+  margin: 0;
+}
+
+form.wpcf7-form p span.ajax-loader {
+  position: absolute;
+  top: 8px;
+}
+
+form.wpcf7-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+form.wpcf7-form span.required {
+  color: #ff5555;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap {
+  display: block;
+  margin-bottom: 15px;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap input,
+form.wpcf7-form span.wpcf7-form-control-wrap textarea {
+  height: auto;
+  width: 100%;
+  display: block;
+  border: 1px solid #e9ebed;
+  background-color: #f8f8f8;
+  padding: 4px 12px;
+  color: #202020;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap input:focus,
+form.wpcf7-form span.wpcf7-form-control-wrap textarea:focus {
+  border-color: #ff335f;
+}
+
+form.wpcf7-form span.wpcf7-form-control-wrap textarea {
+  height: 100px;
+}
+
+form.wpcf7-form .wpcf7-submit {
+  color: #fff;
+  padding: 5px 25px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: #333333;
+}
+
+/**
 # 404
 -----------------------------------------------------------------------------*/
 .site-error {
@@ -2362,6 +2491,12 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
 /**
 # Responsive
 -----------------------------------------------------------------------------*/
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1400px) {
   .site-menu ul li:nth-last-child(1) .sub-menu,
   .site-menu ul li:nth-last-child(2) .sub-menu {
