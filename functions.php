@@ -234,7 +234,6 @@ function basictheme_register_front_end() {
     * End Get Css Front End
     * */
 
-
     /*
     * Start Get Js Front End
     * */
@@ -465,13 +464,6 @@ function basictheme_register_required_plugins() {
         array(
             'name'      =>  'Meta Box',
             'slug'      =>  'meta-box',
-            'required'  =>  true,
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'CMB2',
-            'slug'      =>  'cmb2',
             'required'  =>  true,
         ),
 
