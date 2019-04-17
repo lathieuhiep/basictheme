@@ -677,7 +677,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'args'          =>  array(
                 'wpautop'       => false,
                 'media_buttons' => false,
-                'textarea_rows' => 5,
+                'textarea_rows' => 10,
                 'teeny'         => false,
                 'quicktags'     => true,
             )
@@ -740,7 +740,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'title'         =>  esc_html__( 'Column width 1', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
-            'default'       =>  1,
+            'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
@@ -757,7 +757,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'title'         =>  esc_html__( 'Column width 2', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
-            'default'       =>  1,
+            'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
@@ -775,7 +775,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'title'         =>  esc_html__( 'Column width 3', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
-            'default'       =>  1,
+            'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
@@ -794,7 +794,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'title'         =>  esc_html__( 'Column width 4', 'basictheme' ),
             'subtitle'      =>  esc_html__( 'Select the number of columns to display in the footer', 'basictheme' ),
             'desc'          =>  esc_html__( 'Min: 1, max: 12, default value: 1', 'basictheme' ),
-            'default'       =>  1,
+            'default'       =>  3,
             'min'           =>  1,
             'step'          =>  1,
             'max'           =>  12,
@@ -827,7 +827,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'args'          =>  array(
                 'wpautop'       => false,
                 'media_buttons' => false,
-                'textarea_rows' => 5,
+                'textarea_rows' => 10,
                 'teeny'         => false,
                 'quicktags'     => true,
             )

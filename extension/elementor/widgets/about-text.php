@@ -41,6 +41,15 @@ class basictheme_widget_about_text extends Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'icon',
+            [
+                'label' => __( 'Icon', 'elementor' ),
+                'type' => Controls_Manager::ICON,
+                'default' => '',
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(

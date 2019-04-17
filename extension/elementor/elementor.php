@@ -10,6 +10,18 @@ class basictheme_plugin_elementor_widgets {
     public function __construct() {
 
         $this->basictheme_elementor_add_actions();
+
+        // Register controls
+        add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
+    }
+
+    public function register_controls() {
+
+        require get_parent_theme_file_path( '/extension/elementor/controls/box-icon.php' );
+
+        $controls_manager = Plugin::$instance->controls_manager;
+        $controls_manager->register_control( 'BoxIcon', new Control_Box_Icon() );
+
     }
 
     function basictheme_elementor_add_actions() {
