@@ -138,7 +138,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'item',
             [
-                'label'     =>  esc_html__( 'Number of Item Desktop', 'event_conference' ),
+                'label'     =>  esc_html__( 'Number of Item Desktop', 'basictheme' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  3,
                 'min'       =>  1,
@@ -150,7 +150,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'item_tablet',
             [
-                'label'     =>  esc_html__( 'Number of Item Tablet', 'event_conference' ),
+                'label'     =>  esc_html__( 'Number of Item Tablet', 'basictheme' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  3,
                 'min'       =>  1,
@@ -162,7 +162,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'item_mobile',
             [
-                'label'     =>  esc_html__( 'Number of Item Mobile', 'event_conference' ),
+                'label'     =>  esc_html__( 'Number of Item Mobile', 'basictheme' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  1,
                 'min'       =>  1,
@@ -174,7 +174,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'margin_item',
             [
-                'label'     =>  esc_html__( 'Margin Item Desktop', 'event_conference' ),
+                'label'     =>  esc_html__( 'Margin Item Desktop', 'basictheme' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  30,
                 'min'       =>  0,
@@ -186,7 +186,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'margin_item_mobile',
             [
-                'label'     =>  esc_html__( 'Margin Item Mobile', 'event_conference' ),
+                'label'     =>  esc_html__( 'Margin Item Mobile', 'basictheme' ),
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  0,
                 'min'       =>  0,
@@ -199,9 +199,9 @@ class basictheme_post_carousel extends Widget_Base {
             'loop',
             [
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label'         =>  esc_html__('Loop Slider ?', 'event_conference'),
-                'label_off'     =>  esc_html__('No', 'event_conference'),
-                'label_on'      =>  esc_html__('Yes', 'event_conference'),
+                'label'         =>  esc_html__('Loop Slider ?', 'basictheme'),
+                'label_off'     =>  esc_html__('No', 'basictheme'),
+                'label_on'      =>  esc_html__('Yes', 'basictheme'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -210,10 +210,10 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'autoplay',
             [
-                'label'         => esc_html__('Autoplay?', 'event_conference'),
+                'label'         => esc_html__('Autoplay?', 'basictheme'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_off'     => esc_html__('No', 'event_conference'),
-                'label_on'      => esc_html__('Yes', 'event_conference'),
+                'label_off'     => esc_html__('No', 'basictheme'),
+                'label_on'      => esc_html__('Yes', 'basictheme'),
                 'return_value'  => 'yes',
                 'default'       => 'no',
             ]
@@ -222,10 +222,10 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'nav',
             [
-                'label'         => esc_html__('Nav Slider', 'event_conference'),
+                'label'         => esc_html__('Nav Slider', 'basictheme'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'event_conference'),
-                'label_off'     => esc_html__('No', 'event_conference'),
+                'label_on'      => esc_html__('Yes', 'basictheme'),
+                'label_off'     => esc_html__('No', 'basictheme'),
                 'return_value'  => 'yes',
                 'default'       => 'yes',
             ]
@@ -234,10 +234,10 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'dots',
             [
-                'label'         => esc_html__('Dots Slider', 'event_conference'),
+                'label'         => esc_html__('Dots Slider', 'basictheme'),
                 'type'          => Controls_Manager::SWITCHER,
-                'label_on'      => esc_html__('Yes', 'event_conference'),
-                'label_off'     => esc_html__('No', 'event_conference'),
+                'label_on'      => esc_html__('Yes', 'basictheme'),
+                'label_off'     => esc_html__('No', 'basictheme'),
                 'return_value'  => 'yes',
                 'default'       => 'yes',
             ]
@@ -258,7 +258,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'title_post_options',
             [
-                'label'     =>  esc_html__( 'Title Post', 'plugin-name' ),
+                'label'     =>  esc_html__( 'Title Post', 'basictheme' ),
                 'type'      =>  \Elementor\Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
@@ -330,7 +330,7 @@ class basictheme_post_carousel extends Widget_Base {
         $this->add_control(
             'excerpt_post_options',
             [
-                'label'     =>  esc_html__( 'Excerpt Post', 'plugin-name' ),
+                'label'     =>  esc_html__( 'Excerpt Post', 'basictheme' ),
                 'type'      =>  \Elementor\Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]

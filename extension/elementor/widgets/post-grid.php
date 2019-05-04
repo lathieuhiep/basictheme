@@ -164,7 +164,7 @@ class basictheme_post_grid extends Widget_Base {
         $this->add_control(
             'title_post_options',
             [
-                'label'     =>  esc_html__( 'Title Post', 'plugin-name' ),
+                'label'     =>  esc_html__( 'Title Post', 'basictheme' ),
                 'type'      =>  \Elementor\Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
@@ -236,7 +236,7 @@ class basictheme_post_grid extends Widget_Base {
         $this->add_control(
             'excerpt_post_options',
             [
-                'label'     =>  esc_html__( 'Excerpt Post', 'plugin-name' ),
+                'label'     =>  esc_html__( 'Excerpt Post', 'basictheme' ),
                 'type'      =>  \Elementor\Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
