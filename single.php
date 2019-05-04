@@ -12,15 +12,6 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
 <div class="site-container site-single">
     <div class="container">
         <div class="row">
-
-            <?php
-
-            if( $basictheme_blog_sidebar_single == 'left' ):
-                get_sidebar();
-            endif;
-
-            ?>
-
             <div class="<?php echo esc_attr( $basictheme_class_col_content ); ?>">
 
                 <?php
@@ -34,14 +25,7 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
 
             </div>
 
-            <?php
-
-            if( $basictheme_blog_sidebar_single == 'right' ):
-                get_sidebar();
-            endif;
-
-            ?>
-
+            <?php get_sidebar(); ?>
         </div>
     </div>
 </div>

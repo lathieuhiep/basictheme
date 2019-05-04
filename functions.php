@@ -579,9 +579,7 @@ function basictheme_paging_nav_query( $basictheme_querry ) {
 
     ?>
         <nav class="pagination">
-
             <?php echo $basictheme_paginate_links; ?>
-
         </nav>
 
     <?php
@@ -608,7 +606,14 @@ function basictheme_sanitize_pagination( $basictheme_content ) {
 function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
 
     if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
-        $class_col_content = 'col-12 col-md-8 col-lg-9';
+
+        if ( $option_sidebar == 'left' ) :
+            $class_position_sidebar = ' order-1';
+        else:
+            $class_position_sidebar = '';
+        endif;
+
+        $class_col_content = 'col-12 col-md-8 col-lg-9' . $class_position_sidebar;
     else:
         $class_col_content = 'col-md-12';
     endif;
@@ -654,7 +659,7 @@ function basictheme_col_sidebar() {
 function basictheme_link_page() {
 
     wp_link_pages( array(
-        'before'      => '<div class="page-links">' . __( 'Pages:', 'basictheme' ),
+        'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'basictheme' ),
         'after'       => '</div>',
         'link_before' => '<span class="page-number">',
         'link_after'  => '</span>',

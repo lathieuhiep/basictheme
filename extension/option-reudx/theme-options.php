@@ -707,27 +707,27 @@ Redux::setSection( $basictheme_opt_name, array(
             'type'      =>  'image_select',
             'title'     =>  esc_html__( 'Number of Footer Columns', 'basictheme' ),
             'subtitle'  =>  esc_html__( 'Controls the number of columns in the footer', 'basictheme' ),
-            'default'   =>  0,
+            'default'   =>  4,
             'options'   =>  array(
-                '0' =>  array(
+                0 =>  array(
                     'alt'   =>  'No Footer',
                     'img'   =>  get_theme_file_uri( '/extension/assets/images/no-footer.png' )
                 ),
 
-                '1' =>  array(
+                1 =>  array(
                     'alt'   =>  '1 Columnn',
                     'img'   =>  get_theme_file_uri(  '/extension/assets/images/1column.png' )
                 ),
 
-                '2' =>  array(
+                2 =>  array(
                     'alt'   =>  '2 Columnn',
                     'img'   =>  get_theme_file_uri( '/extension/assets/images/2column.png' )
                 ),
-                '3' =>  array(
+                3 =>  array(
                     'alt'   =>  '3 Columnn',
                     'img'   =>  get_theme_file_uri(   '/extension/assets/images/3column.png' )
                 ),
-                '4' =>  array(
+                4 =>  array(
                     'alt'   =>  '4 Columnn',
                     'img'   =>  get_theme_file_uri( '/extension/assets/images/4column.png' )
                 ),

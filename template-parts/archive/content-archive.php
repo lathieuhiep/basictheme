@@ -11,11 +11,6 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
 <div class="site-container site-blog">
     <div class="container">
         <div class="row">
-            <?php
-            if ( $basictheme_blog_sidebar_archive == 'left' ) :
-                get_sidebar();
-            endif;
-            ?>
 
             <div class="<?php echo esc_attr( $basictheme_class_col_content ); ?>">
                 <div class="site-post-content">
@@ -54,11 +49,7 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
                 <?php basictheme_pagination(); ?>
             </div>
 
-            <?php if ( $basictheme_blog_sidebar_archive == 'right' ) :
-                get_sidebar();
-            endif;
-            ?>
-
+            <?php get_sidebar(); ?>
         </div>
     </div>
 </div>

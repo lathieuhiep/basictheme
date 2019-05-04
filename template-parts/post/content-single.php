@@ -31,7 +31,7 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
                 <p class="site-post-category">
                     <?php
                     esc_html_e('Category: ','basictheme');
-                    the_category( ' ' );;
+                    the_category( ' ' );
                     ?>
                 </p>
 
@@ -45,7 +45,7 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
 
                 <p class="site-post-tag">
                     <?php
-                    esc_html_e('Tag: ','basictheme');
+                    esc_html_e( 'Tag: ','basictheme' );
                     the_tags('',' ');
                     ?>
                 </p>
@@ -87,7 +87,6 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
 basictheme_comment_form();
 
 get_template_part( 'template-parts/post/inc','related-post' );
-?>
 
 
 

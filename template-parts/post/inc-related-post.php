@@ -35,18 +35,6 @@ if ( !empty( $basictheme_term_cat_post ) ):
                     <div class="related-post-item">
                         <figure class="post-image">
                             <?php the_post_thumbnail( 'medium' ); ?>
-
-                            <figcaption class="d-flex align-items-end">
-                                <p>
-                                    <?php
-                                    if( has_excerpt() ) :
-                                        echo wp_trim_words( get_the_excerpt(), 15, '...' );
-                                    else:
-                                        echo wp_trim_words( get_the_content(), 15, '...' );
-                                    endif;
-                                    ?>
-                                </p>
-                            </figcaption>
                         </figure>
 
                         <h4 class="title-post">
@@ -54,6 +42,18 @@ if ( !empty( $basictheme_term_cat_post ) ):
                                 <?php the_title(); ?>
                             </a>
                         </h4>
+
+                        <div class="excerpt-post">
+                            <p>
+                                <?php
+                                if( has_excerpt() ) :
+                                    echo wp_trim_words( get_the_excerpt(), 15, '...' );
+                                else:
+                                    echo wp_trim_words( get_the_content(), 15, '...' );
+                                endif;
+                                ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
