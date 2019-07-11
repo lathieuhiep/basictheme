@@ -7,6 +7,7 @@
 /**
  * Layout
  *
+ * @see basictheme_get_cart()
  * @see basictheme_woo_before_main_content()
  * @see basictheme_woo_before_shop_loop_open()
  * @see basictheme_woo_before_shop_loop_close()
@@ -37,7 +38,7 @@ add_action( 'basictheme_woo_shopping_cart', 'basictheme_get_cart', 5 );
 
 add_action( 'woocommerce_before_main_content', 'basictheme_woo_before_main_content', 10 );
 
-add_action( 'woocommerce_before_shop_loop', 'basictheme_woo_before_shop_loop_open',  5 );
+add_action( 'woocommerce_before_shop_loop', 'basictheme_woo_before_shop_loop_open',  15 );
 add_action( 'woocommerce_before_shop_loop', 'basictheme_woo_before_shop_loop_close',  35 );
 
 add_action( 'woocommerce_before_shop_loop_item_title', 'basictheme_woo_product_thumbnail_open', 5 );
