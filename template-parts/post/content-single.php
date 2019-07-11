@@ -20,7 +20,7 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
             <?php
             the_content();
 
-            basictheme_link_page()
+            basictheme_link_page();
             ?>
         </div>
 
@@ -55,32 +55,15 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
         </div>
     </div>
 
-    <?php if ( $basictheme_on_off_share_single == 1 || $basictheme_on_off_share_single == null ) : ?>
-        <div class="site-post-share">
-            <span>
-                <?php  esc_html_e('Share this post:', 'basictheme') ; ?>
-            </span>
+    <?php
 
-            <!-- Facebook Button -->
-            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
-                <i class="fa fa-facebook"></i>
-            </a>
+    if ( $basictheme_on_off_share_single == 1 || $basictheme_on_off_share_single == null ) :
 
-            <a target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print basictheme_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
-                <i class="fa fa-twitter"></i>
-            </a>
+        basictheme_post_share();
 
-            <?php $basictheme_pin_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() )); ?>
+    endif;
 
-            <a data-pin-do="skipLink" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo esc_url( $basictheme_pin_image ); ?>&description=<?php the_title(); ?>">
-                <i class="fa fa-pinterest"></i>
-            </a>
-
-            <a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </div>
-    <?php endif; ?>
+    ?>
 </div>
 
 <?php

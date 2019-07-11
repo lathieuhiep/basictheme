@@ -1,6 +1,8 @@
 <?php
+global $basictheme_options;
 
-$basictheme_term_cat_post = get_the_terms( get_the_ID(), 'category' );
+$basictheme_related_post_limit  =   $basictheme_options ['basictheme_related_post_limit'];
+$basictheme_term_cat_post       =   get_the_terms( get_the_ID(), 'category' );
 
 if ( !empty( $basictheme_term_cat_post ) ):
 
@@ -12,7 +14,7 @@ if ( !empty( $basictheme_term_cat_post ) ):
         'post_type'         =>  'post',
         'cat'               =>  $basictheme_term_cat_post_ids,
         'post__not_in'      =>  array( get_the_ID() ),
-        'posts_per_page'    =>  3,
+        'posts_per_page'    =>  $basictheme_related_post_limit,
     );
 
     $basictheme_post_related_query = new WP_Query( $basictheme_post_related_arg );

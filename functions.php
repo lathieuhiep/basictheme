@@ -345,6 +345,7 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
             <?php comment_reply_link( array_merge( $basictheme_comment_args, array( 'add_below' => $basictheme_comment_add_below, 'depth' => $basictheme_comment_depth, 'max_depth' => $basictheme_comment_args['max_depth'] ) ) ); ?>
 
         </div>
+
         <div class="comment-text-box">
             <?php comment_text(); ?>
         </div>
@@ -402,8 +403,9 @@ if ( ! function_exists( 'basictheme_comment_nav' ) ) :
     ?>
             <nav class="navigation comment-navigation">
                 <h2 class="screen-reader-text">
-                    <?php _e( 'Comment navigation', 'basictheme' ); ?>
+                    <?php esc_html_e( 'Comment navigation', 'basictheme' ); ?>
                 </h2>
+
                 <div class="nav-links">
                     <?php
                     if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'basictheme' ) ) ) :
@@ -551,11 +553,11 @@ function basictheme_get_social_network() {
 function basictheme_pagination() {
 
     the_posts_pagination( array(
-        'type' => 'list',
-        'mid_size' => 2,
-        'prev_text' => esc_html__( 'Previous', 'basictheme' ),
-        'next_text' => esc_html__( 'Next', 'basictheme' ),
-        'screen_reader_text' => esc_html__( '&nbsp;', 'basictheme' ),
+        'type'                  =>  'list',
+        'mid_size'              =>  2,
+        'prev_text'             =>  esc_html__( 'Previous', 'basictheme' ),
+        'next_text'             =>  esc_html__( 'Next', 'basictheme' ),
+        'screen_reader_text'    =>  '&nbsp;',
     ) );
 
 }
@@ -587,7 +589,6 @@ function basictheme_paging_nav_query( $basictheme_querry ) {
     endif;
 
 }
-
 /* End pagination */
 
 // Sanitize Pagination
@@ -629,31 +630,65 @@ function basictheme_col_sidebar() {
 /* End Get col global */
 
 /* Start Post Meta */
-    function basictheme_post_meta() {
+function basictheme_post_meta() {
 ?>
 
-        <div class="site-post-meta">
-            <span class="site-post-author">
-                <?php echo esc_html__('Author:','basictheme');?>
-                <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>">
-                    <?php the_author();?>
-                </a>
-            </span>
+    <div class="site-post-meta">
+        <span class="site-post-author">
+            <?php echo esc_html__('Author:','basictheme');?>
+            <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>">
+                <?php the_author();?>
+            </a>
+        </span>
 
-            <span class="site-post-date">
-                <?php esc_html_e( 'Post date: ','basictheme' ); the_date(); ?>
-            </span>
+        <span class="site-post-date">
+            <?php esc_html_e( 'Post date: ','basictheme' ); the_date(); ?>
+        </span>
 
-            <span class="site-post-comments">
-                <?php
-                comments_popup_link( '0 '. esc_html__('Comment','basictheme'),'1 '. esc_html__('Comment','basictheme'), '% '. esc_html__('Comments','basictheme') );
-                ?>
-            </span>
-        </div>
+        <span class="site-post-comments">
+            <?php
+            comments_popup_link( '0 '. esc_html__('Comment','basictheme'),'1 '. esc_html__('Comment','basictheme'), '% '. esc_html__('Comments','basictheme') );
+            ?>
+        </span>
+    </div>
 
 <?php
-    }
+}
 /* End Post Meta */
+
+/* Start share */
+function basictheme_post_share() {
+
+    $basictheme_pin_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ));
+
+?>
+
+    <div class="site-post-share">
+        <span>
+            <?php esc_html_e('Share this post:', 'basictheme') ; ?>
+        </span>
+
+        <!-- Facebook Button -->
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
+            <i class="fa fa-facebook"></i>
+        </a>
+
+        <a target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print basictheme_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
+            <i class="fa fa-twitter"></i>
+        </a>
+
+        <a data-pin-do="skipLink" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo esc_url( $basictheme_pin_image ); ?>&description=<?php the_title(); ?>">
+            <i class="fa fa-pinterest"></i>
+        </a>
+
+        <a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
+            <i class="fa fa-google-plus"></i>
+        </a>
+    </div>
+
+<?php
+}
+/* End share */
 
 /* Start Link Pages */
 function basictheme_link_page() {

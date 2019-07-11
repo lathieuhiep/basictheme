@@ -1,9 +1,14 @@
 <?php
 global $basictheme_options;
 
+$basictheme_information_show_hide = $basictheme_options['basictheme_information_show_hide'] == '' ? 1 : $basictheme_options['basictheme_information_show_hide'];
+
+if ( $basictheme_information_show_hide == 1 ) :
+
 $basictheme_information_address   =   $basictheme_options['basictheme_information_address'];
 $basictheme_information_mail      =   $basictheme_options['basictheme_information_mail'];
 $basictheme_information_phone     =   $basictheme_options['basictheme_information_phone'];
+
 ?>
 
 <div class="information">
@@ -50,3 +55,7 @@ $basictheme_information_phone     =   $basictheme_options['basictheme_informatio
         </div>
     </div>
 </div>
+
+<?php
+
+endif;

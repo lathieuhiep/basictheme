@@ -61,20 +61,25 @@
 
 @media ( max-width: 991px ) {
 
-  .header-bottom_warp {
+  .information,
+  .main-navigation {
+    .container {
+      max-width: none;
+    }
+  }
+  .main-navigation {
+    .site-navbar {
+      padding: 15px 0;
+    }
+    .navbar-expand-lg {
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  }
+  .site-navigation_warp {
     display: block;
-  }
-  .information {
-    .container {
-      max-width: none;
-    }
-  }
-  .header-bottom {
-    position: relative;
-
-    .container {
-      max-width: none;
-    }
   }
   .site-logo {
     @include flexbox();

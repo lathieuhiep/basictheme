@@ -289,6 +289,18 @@ Redux::setSection( $basictheme_opt_name, array(
             ),
             'output'         => array('.site-logo img'),
         ),
+
+        array(
+            'id'        =>  'basictheme_nav_top_sticky',
+            'type'      =>  'select',
+            'title'     =>  esc_html__( 'Sticky Menu', 'basictheme' ),
+            'default'   =>  1,
+            'options'   =>  array(
+                1   =>  esc_html__( 'Yes', 'basictheme' ),
+                0   =>  esc_html__( 'No', 'basictheme' )
+            )
+        ),
+
     )
 ));
 
@@ -399,6 +411,17 @@ Redux::setSection( $basictheme_opt_name, array(
             'type'      =>  'switch',
             'title'     =>  esc_html__( 'On/Off Share Post Single', 'basictheme' ),
             'default'   =>  true,
+        ),
+
+        array(
+            'id'            =>  'basictheme_related_post_limit',
+            'type'          =>  'slider',
+            'title'         =>  esc_html__( 'Related Post Limit', 'basictheme' ),
+            'min'           =>  1,
+            'step'          =>  1,
+            'max'           =>  250,
+            'default'       =>  3,
+            'display_value' => 'text'
         ),
 
     )

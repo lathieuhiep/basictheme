@@ -45,6 +45,50 @@ function basictheme_loop_columns_product() {
 }
 /* End Change number or products per row */
 
+/* Start get cart */
+if ( ! function_exists( 'basictheme_get_cart' ) ):
+
+    function basictheme_get_cart() {
+
+    ?>
+
+        <div class="cart-box d-flex align-items-center">
+            <div class="cart-customlocation">
+                <a class="cart-link" href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html_e('View your shopping cart', 'basictheme'); ?>"></a>
+
+                <i class="fas fa-shopping-cart"></i>
+
+                <span class="number-cart-product">
+                     <?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
+                </span>
+            </div>
+        </div>
+
+    <?php
+    }
+
+endif;
+
+/* To ajaxify your cart viewer */
+add_filter( 'woocommerce_add_to_cart_fragments', 'basictheme_add_to_cart_fragment' );
+
+if ( ! function_exists( 'basictheme_add_to_cart_fragment' ) ) :
+
+    function basictheme_add_to_cart_fragment( $basictheme_fragments ) {
+
+        ob_start();
+
+        do_action( 'basictheme_woo_shopping_cart' );
+
+        $basictheme_fragments['.cart-box'] = ob_get_clean();
+
+        return $basictheme_fragments;
+
+    }
+
+endif;
+/* End get cart */
+
 /* Start Sidebar Shop */
 if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
 

@@ -33,6 +33,8 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
 
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
+add_action( 'basictheme_woo_shopping_cart', 'basictheme_get_cart', 5 );
+
 add_action( 'woocommerce_before_main_content', 'basictheme_woo_before_main_content', 10 );
 
 add_action( 'woocommerce_before_shop_loop', 'basictheme_woo_before_shop_loop_open',  5 );

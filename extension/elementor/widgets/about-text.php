@@ -44,9 +44,9 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'icon',
             [
-                'label' => __( 'Icon', 'elementor' ),
-                'type' => Controls_Manager::ICON,
-                'default' => '',
+                'label'     =>  esc_html__( 'Icon', 'basictheme' ),
+                'type'      =>  Controls_Manager::ICON,
+                'default'   =>  '',
             ]
         );
 
@@ -72,7 +72,7 @@ class basictheme_widget_about_text extends Widget_Base {
 
         /*STYLE TAB*/
         $this->start_controls_section('style', array(
-            'label' =>  esc_html__( 'Text', '' ),
+            'label' =>  esc_html__( 'Text', 'basictheme' ),
             'tab'   =>  Controls_Manager::TAB_STYLE,
         ));
 
