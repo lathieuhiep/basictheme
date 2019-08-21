@@ -8,7 +8,7 @@ $basictheme_nav_top_sticky   =   $basictheme_options['basictheme_nav_top_sticky'
 <nav id="site-navigation" class="main-navigation<?php echo esc_attr( $basictheme_nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">
     <div class="site-navbar navbar-expand-lg">
         <div class="container">
-            <div class="site-navigation_warp d-lg-flex justify-content-lg-end">
+            <div class="site-navigation_warp d-flex justify-content-lg-end">
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php

@@ -11,18 +11,6 @@
       border: 0;
     }
   }
-  &.active-sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-}
-.admin-bar {
-  .main-navigation {
-    &.active-sticky-nav {
-      top: 32px;
-    }
-  }
 }
 .site-logo {
   @include flex(0 0 auto);
@@ -30,6 +18,7 @@
   a {
     display: inline-block;
     line-height: 64px;
+    padding: 15px 0;
   }
 }
 .site-menu {
@@ -40,14 +29,13 @@
     margin: 0;
 
     li {
-      display: inline-block;
-      padding: 30px 0;
       position: relative;
 
       a {
         padding: 0 15px;
         text-shadow: none;
         display: block;
+
         &:hover {
           background-color: transparent;
           color: $color-hover;

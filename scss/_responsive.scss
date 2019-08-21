@@ -33,7 +33,30 @@
 
 @media ( min-width: 992px ) {
 
+  .main-navigation {
+    &.active-sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+  }
+  .admin-bar {
+    .main-navigation {
+      &.active-sticky-nav {
+        top: 32px;
+      }
+    }
+  }
   .site-menu {
+    > ul {
+      height: 100%;
+
+      > li {
+        display: inline-flex;
+        height: 100%;
+        @include align-items(center);
+      }
+    }
     ul {
       li {
         .sub-menu {
@@ -41,6 +64,14 @@
         }
       }
     }
+  }
+
+}
+
+@media ( max-width: 1199px ) {
+
+  .container {
+    max-width: none;
   }
 
 }
@@ -60,17 +91,8 @@
 }
 
 @media ( max-width: 991px ) {
-
-  .information,
+  
   .main-navigation {
-    .container {
-      max-width: none;
-    }
-  }
-  .main-navigation {
-    .site-navbar {
-      padding: 15px 0;
-    }
     .navbar-expand-lg {
       .container {
         padding-left: 15px;
@@ -84,6 +106,7 @@
   .site-logo {
     @include flexbox();
     @include justify-content(space-between);
+    @include flex(1);
   }
   .navbar-toggle {
     float: none;
@@ -176,6 +199,21 @@
       width: 100%;
     }
   }
+  .woocommerce {
+    ul {
+      &.products {
+        &.columns-4,
+        &.columns-5 {
+          li {
+            &.product {
+              @include flex(0 0 33.33333333%);
+              width: 33.33333333%;
+            }
+          }
+        }
+      }
+    }
+  }
 
 }
 
@@ -198,9 +236,8 @@
 
 }
 
-@media ( min-width: 481px ) and ( max-width: 1200px ) {
+@media ( min-width: 576px ) and ( max-width: 767px ) {
 
-  /* woocommerce */
   .woocommerce {
     ul {
       &.products {
@@ -209,8 +246,8 @@
         &.columns-5 {
           li {
             &.product {
-              @include flex(0 0 33.333333%);
-              width: 33.333333%;
+              @include flex(0 0 33.33333333%);
+              width: 33.33333333%;
             }
           }
         }
@@ -228,6 +265,22 @@
     }
     .form-comment-item {
       margin-bottom: 15px;
+    }
+  }
+  .woocommerce {
+    ul {
+      &.products {
+        &.columns-3,
+        &.columns-4,
+        &.columns-5 {
+          li {
+            &.product {
+              @include flex(0 0 50%);
+              width: 50%;
+            }
+          }
+        }
+      }
     }
   }
 

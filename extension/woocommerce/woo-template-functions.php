@@ -54,8 +54,6 @@ if ( ! function_exists( 'basictheme_get_cart' ) ):
 
         <div class="cart-box d-flex align-items-center">
             <div class="cart-customlocation">
-                <a class="cart-link" href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html_e('View your shopping cart', 'basictheme'); ?>"></a>
-
                 <i class="fas fa-shopping-cart"></i>
 
                 <span class="number-cart-product">

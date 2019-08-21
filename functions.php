@@ -194,14 +194,6 @@ function basictheme_remove_jquery_migrate( $scripts ) {
     }
 }
 
-// Check deregister styles
-add_action( 'wp_print_styles', 'logi_deregister_styles', 100 );
-function logi_deregister_styles() {
-
-    wp_deregister_style('font-awesome');
-
-}
-
 //Register Back-End script
 add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
 
