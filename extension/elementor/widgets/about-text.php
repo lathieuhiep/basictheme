@@ -46,7 +46,18 @@ class basictheme_widget_about_text extends Widget_Base {
             [
                 'label'     =>  esc_html__( 'Icon', 'basictheme' ),
                 'type'      =>  Controls_Manager::ICON,
-                'default'   =>  '',
+                'default'   =>  [
+                    'value'     =>  'fas fa-star',
+                    'library'   =>  'solid',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'icon_2',
+            [
+                'label'     =>  esc_html__( 'BoxIcon', 'basictheme' ),
+                'type'      =>  'BoxIcon',
             ]
         );
 
@@ -168,12 +179,19 @@ class basictheme_widget_about_text extends Widget_Base {
 
         $settings       =   $this->get_settings_for_display();
 
-    ?>
+        ?>
 
         <div class="element-about-text">
             <h2 class="element-about-text__title">
                 <?php echo wp_kses_post( $settings['widget_title'] ); ?>
             </h2>
+
+            <div class="icon">
+                <?php
+                //                Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] );
+                ?>
+                <i class="<?php echo esc_attr( $settings['icon_2'] ); ?>"></i>
+            </div>
 
             <?php if ( $settings['hide_line'] == 'no' ) : ?>
 
@@ -190,35 +208,42 @@ class basictheme_widget_about_text extends Widget_Base {
             <?php endif; ?>
         </div>
 
-    <?php
+        <?php
 
     }
 
     protected function _content_template() {
 
-    ?>
+        ?>
+        <#
+        iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+        #>
 
         <div class="element-about-text">
             <h2 class="element-about-text__title">
                 {{{ settings.widget_title }}}
             </h2>
 
+            <div class="icon">
+                {{{ iconHTML.value }}}
+            </div>
+
             <# if ( settings.hide_line == 0 ) {#>
 
-                <span class="element-about-text__line">&nbsp;</span>
+            <span class="element-about-text__line">&nbsp;</span>
 
             <# } #>
 
             <# if ( '' !== settings.widget_description ) {#>
 
-                <div class="element-about-text__description">
-                    {{{ settings.widget_description }}}
-                </div>
+            <div class="element-about-text__description">
+                {{{ settings.widget_description }}}
+            </div>
 
             <# } #>
         </div>
 
-    <?php
+        <?php
     }
 
 }

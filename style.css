@@ -2521,6 +2521,33 @@ section.widget.woocommerce .woocommerce-widget-layered-nav-list .woocommerce-wid
   display: inline-block;
 }
 
+section.widget.woocommerce ul.product_list_widget li a {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+section.widget.woocommerce ul.product_list_widget li a img {
+  width: 70px;
+  margin: 0 15px 0 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+section.widget.woocommerce ul.product_list_widget li a .product-title {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+section.widget.woocommerce ul.product_list_widget li .star-rating {
+  margin-bottom: 10px;
+}
+
 /**
 # Contact Form 7
 -----------------------------------------------------------------------------*/

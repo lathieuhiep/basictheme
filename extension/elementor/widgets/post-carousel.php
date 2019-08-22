@@ -4,7 +4,7 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class basictheme_post_carousel extends Widget_Base {
+class basictheme_widget_post_carousel extends Widget_Base {
 
     public function get_categories() {
         return array( 'basictheme_widgets' );
@@ -494,4 +494,4 @@ class basictheme_post_carousel extends Widget_Base {
 
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_post_carousel );
+Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_post_carousel );

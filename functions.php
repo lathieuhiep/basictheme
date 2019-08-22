@@ -709,3 +709,29 @@ function basictheme_comment_form() {
     endif;
 }
 /* End comment */
+
+/* Start get Category check box */
+function basictheme_check_get_cat( $type_taxonomy ) {
+
+    $cat_check    =   array();
+    $category     =   get_terms(
+        array(
+            'taxonomy'      =>  $type_taxonomy,
+            'hide_empty'    =>  false
+        )
+    );
+
+    if ( isset( $category ) && !empty( $category ) ):
+
+        foreach( $category as $item ) {
+
+            $cat_check[$item->term_id]  =   $item->name;
+
+        }
+
+    endif;
+
+    return $cat_check;
+
+}
+/* End get Category check box */

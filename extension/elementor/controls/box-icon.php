@@ -49,7 +49,9 @@ class Control_Box_Icon extends Base_Data_Control {
                 <select id="<?php echo $control_uid; ?>" class="elementor-control-icon" data-setting="{{ data.name }}" data-placeholder="<?php echo esc_attr_e( 'Select Icon', 'basictheme' ); ?>">
                     <option value=""><?php esc_html_e( 'Select Icon', 'basictheme' ); ?></option>
                     <# _.each( data.options, function( option_title, option_value ) { #>
-                    <option value="{{ option_value }}">{{{ option_title }}}</option>
+                    <option value="{{ option_value }}">
+                        {{{ option_title }}}
+                    </option>
                     <# } ); #>
                 </select>
             </div>
