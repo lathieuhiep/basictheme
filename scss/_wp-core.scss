@@ -102,13 +102,13 @@ form {
     p {
       label {
         font-family: $font-family-text;
-        float: left;
+        margin: 0;
       }
       input {
         border: 1px solid #dddddd;
         border-radius: 0;
-        padding: 5px;
-        margin-bottom: 20px;
+        padding: 4px 10px;
+        margin-left: 10px;
 
         &[type='submit'] {
           border-radius: 0;

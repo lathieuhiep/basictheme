@@ -4,7 +4,7 @@
   @include flex-direction(column);
 
   .site-post-content {
-    padding: 15px;
+    padding: 25px 15px 15px;
     border: 1px solid #eee;
     @include flex(1 auto);
   }
@@ -21,6 +21,10 @@
   a {
     color: $color-title;
 
+    i {
+      margin-right: 5px;
+      color: $color-hover;
+    }
     &:hover {
       color: $color-hover;
     }
@@ -57,6 +61,8 @@
   }
 }
 .site-post-excerpt {
+  margin-bottom: 15px;
+
   ul {
     li {
       margin-bottom: 10px;

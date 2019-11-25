@@ -2,11 +2,11 @@
 //Global variable redux
 global $basictheme_options;
 
-$basictheme_footer_multi_column     =   $basictheme_options ["basictheme_footer_multi_column"];
-$basictheme_footer_multi_column_l   =   $basictheme_options ["basictheme_footer_multi_column_1"];
-$basictheme_footer_multi_column_2   =   $basictheme_options ["basictheme_footer_multi_column_2"];
-$basictheme_footer_multi_column_3   =   $basictheme_options ["basictheme_footer_multi_column_3"];
-$basictheme_footer_multi_column_4   =   $basictheme_options ["basictheme_footer_multi_column_4"];
+$multi_column     =   $basictheme_options ["basictheme_footer_multi_column"];
+$multi_column_l   =   $basictheme_options ["basictheme_footer_multi_column_1"];
+$multi_column_2   =   $basictheme_options ["basictheme_footer_multi_column_2"];
+$multi_column_3   =   $basictheme_options ["basictheme_footer_multi_column_3"];
+$multi_column_4   =   $basictheme_options ["basictheme_footer_multi_column_4"];
 
 if( is_active_sidebar( 'basictheme-sidebar-footer-multi-column-1' ) || is_active_sidebar( 'basictheme-sidebar-footer-multi-column-2' ) || is_active_sidebar( 'basictheme-sidebar-footer-multi-column-3' ) || is_active_sidebar( 'basictheme-sidebar-footer-multi-column-4' ) ) :
 
@@ -16,18 +16,18 @@ if( is_active_sidebar( 'basictheme-sidebar-footer-multi-column-1' ) || is_active
         <div class="container">
             <div class="row">
                 <?php
-                for( $i = 0; $i < $basictheme_footer_multi_column; $i++ ):
+                for( $i = 0; $i < $multi_column; $i++ ):
 
                     $j = $i +1;
 
                     if ( $i == 0 ) :
-                        $basictheme_col = $basictheme_footer_multi_column_l;
+                        $basictheme_col = $multi_column_l;
                     elseif ( $i == 1 ) :
-                        $basictheme_col = $basictheme_footer_multi_column_2;
+                        $basictheme_col = $multi_column_2;
                     elseif ( $i == 2 ) :
-                        $basictheme_col = $basictheme_footer_multi_column_3;
+                        $basictheme_col = $multi_column_3;
                     else :
-                        $basictheme_col = $basictheme_footer_multi_column_4;
+                        $basictheme_col = $multi_column_4;
                     endif;
 
                     if( is_active_sidebar( 'basictheme-sidebar-footer-multi-column-'.$j ) ):
