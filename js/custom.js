@@ -24,21 +24,22 @@
         /* End back top */
 
         /* btn mobile Start*/
-        let $menu_item_has_children =   $( '.site-menu .menu-item-has-children' );
+        let menu_item_has_children  =   $( '.site-menu .menu-item-has-children' ),
+            navbar_toggler          =   $( '.site-navbar .navbar-toggler' );
 
-        if ( $menu_item_has_children.length ) {
+        if ( menu_item_has_children.length ) {
 
             $('.site-menu .menu-item-has-children > a').after( "<span class='icon_menu_item_mobile'></span>" );
 
-            let $icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
+            let icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
 
-            $icon_menu_item_mobile.each(function () {
+            icon_menu_item_mobile.each(function () {
 
                 $(this).on( 'click', function () {
 
-                    $(this).addClass( 'icon_menu_item_mobile_active' );
+                    $(this).toggleClass('icon_menu_item_mobile_active');
                     $(this).parents( '.menu-item-has-children' ).siblings().find( '.icon_menu_item_mobile' ).removeClass( 'icon_menu_item_mobile_active' );
-                    $(this).parents( '.menu-item-has-children' ).children( '.sub-menu' ).slideDown();
+                    $(this).parent().children( '.sub-menu' ).slideToggle();
                     $(this).parents( '.menu-item-has-children' ).siblings().find( '.sub-menu' ).slideUp();
 
                 } )
