@@ -22,6 +22,10 @@ class basictheme_widget_post_carousel extends Widget_Base {
         return 'fa fa-newspaper-o';
     }
 
+    public function get_script_depends() {
+        return ['basictheme-elementor-custom'];
+    }
+
     protected function _register_controls() {
 
         /* Section Query */
@@ -81,16 +85,6 @@ class basictheme_widget_post_carousel extends Widget_Base {
                     'ASC'   =>  esc_html__( 'Ascending', 'basictheme' ),
                     'DESC'  =>  esc_html__( 'Descending', 'basictheme' ),
                 ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-                'name'      =>  'thumbnail',
-                'exclude'   =>  [ 'custom' ],
-                'default'   =>  'medium_large',
-                'separator' =>  'before'
             ]
         );
 
@@ -445,11 +439,14 @@ class basictheme_widget_post_carousel extends Widget_Base {
                     <div class="item-post">
                         <div class="item-post__thumbnail">
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                <?php if ( has_post_thumbnail() ) : ?>
+                                <?php
+                                if ( has_post_thumbnail() ) :
 
-                                    <img src="<?php echo esc_url( Group_Control_Image_Size::get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail', $settings ) ); ?>" alt="<?php the_title(); ?>">
+                                    the_post_thumbnail( 'large' );
 
-                                <?php else: ?>
+                                else:
+
+                                ?>
 
                                     <img src="<?php echo esc_url( get_theme_file_uri( '/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
 

@@ -118,7 +118,7 @@
                     nav: $active_nav,
                     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
                     dots: $active_dots,
-                    autoHeight:true
+                    autoHeight: false
 
                 });
 
@@ -175,7 +175,7 @@
                     autoplaySpeed: 800,
                     navSpeed: 800,
                     dotsSpeed: 800,
-                    autoHeight:true,
+                    autoHeight: false,
                     responsive:{
                         0:{
                             items: $item_mobile,
