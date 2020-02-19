@@ -57,13 +57,13 @@ class basictheme_widget_slides extends Widget_Base {
         $repeater->add_control(
             'background_size',
             [
-                'label' => _x( 'Size', 'Background Control', 'basictheme' ),
-                'type' => Controls_Manager::SELECT,
-                'default' => 'cover',
-                'options' => [
-                    'cover' => _x( 'Cover', 'Background Control', 'basictheme' ),
-                    'contain' => _x( 'Contain', 'Background Control', 'basictheme' ),
-                    'auto' => _x( 'Auto', 'Background Control', 'basictheme' ),
+                'label'     =>  esc_html__( 'Size', 'basictheme' ),
+                'type'      =>  Controls_Manager::SELECT,
+                'default'   =>  'cover',
+                'options'   =>  [
+                    'cover'     =>  esc_html__( 'Cover', 'basictheme' ),
+                    'contain'   =>  esc_html__( 'Contain', 'basictheme' ),
+                    'auto'      =>  esc_html__( 'Auto', 'basictheme' ),
                 ],
                 'selectors' => [
                     '{{WRAPPER}} {{CURRENT_ITEM}} .element-slides__item--bg' => 'background-size: {{VALUE}}',
@@ -164,6 +164,18 @@ class basictheme_widget_slides extends Widget_Base {
                 'placeholder'   =>  esc_html__( 'https://your-link.com', 'basictheme' ),
             ]
         );
+
+	    $repeater->add_control(
+		    'show_content',
+		    [
+			    'label'         => esc_html__( 'Show Content', 'basictheme' ),
+			    'type'          => Controls_Manager::SWITCHER,
+			    'label_on'      => esc_html__( 'Show', 'basictheme' ),
+			    'label_off'     => esc_html__( 'Hide', 'basictheme' ),
+			    'return_value'  => 'yes',
+			    'default'       => 'yes',
+		    ]
+	    );
 
         $repeater->end_controls_tab();
 
@@ -962,16 +974,17 @@ class basictheme_widget_slides extends Widget_Base {
 
         $settings  =   $this->get_settings_for_display();
 
-        $basictheme_slider_settings     =   [
-            'loop'      =>  ( 'yes' === $settings['loop'] ),
-            'autoplay'  =>  ( 'yes' === $settings['autoplay'] ),
-            'nav'       =>  ( 'yes' === $settings['nav'] ),
-            'dots'      =>  ( 'yes' === $settings['dots'] ),
-        ];
+	    $data_settings_owl  =   [
+		    "items"     =>  1,
+		    "loop"      =>  ( 'yes' === $settings['loop'] ),
+		    "autoplay"  =>  ( 'yes' === $settings['autoplay'] ),
+		    "nav"       =>  ( 'yes' === $settings['nav'] ),
+		    "dots"      =>  ( 'yes' === $settings['dots'] ),
+	    ];
 
     ?>
 
-        <div class="element-slides owl-carousel owl-theme" data-settings='<?php echo esc_attr( wp_json_encode( $basictheme_slider_settings ) ); ?>'>
+        <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo htmlspecialchars( json_encode( $data_settings_owl ) ); ?>'>
 
             <?php
 
@@ -986,35 +999,41 @@ class basictheme_widget_slides extends Widget_Base {
                     <div class="element-slides__item--inner">
                         <?php if ( $item['background_overlay'] == 'yes' ) : ?>
                             <div class="element-slides__item--overlay"></div>
-                        <?php endif; ?>
+                        <?php
+                        endif;
 
-                        <div class="element-slides__item--content">
-                            <?php if ( !empty( $item['heading'] ) ) : ?>
-                                <div class="element-slides__item--heading">
-                                    <?php echo esc_html( $item['heading'] ); ?>
-                                </div>
-                            <?php endif; ?>
+	                    if ( $item['show_content'] == 'yes' ) :
+                        ?>
 
-                            <?php if ( !empty( $item['description'] ) ) : ?>
-                                <div class="element-slides__item--description">
-                                    <?php echo esc_html( $item['description'] ); ?>
-                                </div>
-                            <?php endif; ?>
+                            <div class="element-slides__item--content">
+                                <?php if ( !empty( $item['heading'] ) ) : ?>
+                                    <div class="element-slides__item--heading">
+                                        <?php echo esc_html( $item['heading'] ); ?>
+                                    </div>
+                                <?php endif; ?>
 
-                            <?php if ( !empty( $item['button_text'] ) ) : ?>
-                                <div class="element-slides__item--link">
-                                    <?php if ( !empty( $basictheme_slides_link['url'] ) ) : ?>
-                                        <a href="<?php echo esc_url( $basictheme_slides_link['url'] ); ?>" <?php echo ( $basictheme_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
-                                            <?php echo esc_html( $item['button_text'] ); ?>
-                                        </a>
-                                    <?php
-                                    else:
-                                        echo esc_html( $item['button_text'] );
-                                    endif;
-                                    ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
+                                <?php if ( !empty( $item['description'] ) ) : ?>
+                                    <div class="element-slides__item--description">
+                                        <?php echo esc_html( $item['description'] ); ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ( !empty( $item['button_text'] ) ) : ?>
+                                    <div class="element-slides__item--link">
+                                        <?php if ( !empty( $basictheme_slides_link['url'] ) ) : ?>
+                                            <a href="<?php echo esc_url( $basictheme_slides_link['url'] ); ?>" <?php echo ( $basictheme_slides_link['is_external'] ? 'target="_blank"' : '' ); ?>>
+                                                <?php echo esc_html( $item['button_text'] ); ?>
+                                            </a>
+                                        <?php
+                                        else:
+                                            echo esc_html( $item['button_text'] );
+                                        endif;
+                                        ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+	                    <?php endif; ?>
                     </div>
                 </div>
 
@@ -1033,6 +1052,7 @@ class basictheme_widget_slides extends Widget_Base {
             nav       =  ( 'yes' === settings.nav ),
             dots      =  ( 'yes' === settings.dots ),
             sliderOptions = {
+                "items": 1,
                 "loop": loop,
                 "autoplay": autoplay,
                 "nav": nav,
@@ -1042,7 +1062,7 @@ class basictheme_widget_slides extends Widget_Base {
             sliderOptionsStr = JSON.stringify( sliderOptions );
         #>
 
-        <div class="element-slides owl-carousel owl-theme" data-settings="{{ sliderOptionsStr }}">
+        <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl="{{ sliderOptionsStr }}">
 
             <#
             _.each( settings.slides_list, function( item ) {
@@ -1057,31 +1077,33 @@ class basictheme_widget_slides extends Widget_Base {
                             <div class="element-slides__item--overlay"></div>
                         <# } #>
 
-                        <div class="element-slides__item--content">
-                            <# if ( item.heading ) { #>
-                                <div class="element-slides__item--heading">
-                                    {{{ item.heading }}}
-                                </div>
-                            <# } #>
+                        <# if ( item.show_content  === 'yes') { #>
+                            <div class="element-slides__item--content">
+                                <# if ( item.heading ) { #>
+                                    <div class="element-slides__item--heading">
+                                        {{{ item.heading }}}
+                                    </div>
+                                <# } #>
 
-                            <# if ( item.description ) { #>
-                                <div class="element-slides__item--description">
-                                    {{{ item.description }}}
-                                </div>
-                            <# } #>
+                                <# if ( item.description ) { #>
+                                    <div class="element-slides__item--description">
+                                        {{{ item.description }}}
+                                    </div>
+                                <# } #>
 
-                            <# if ( item.button_text ) { #>
-                                <div class="element-slides__item--link">
-                                    <# if ( item.link.url ) { #>
-                                        <a href="{{ item.link.url }}"{{ target }}>
+                                <# if ( item.button_text ) { #>
+                                    <div class="element-slides__item--link">
+                                        <# if ( item.link.url ) { #>
+                                            <a href="{{ item.link.url }}"{{ target }}>
+                                                {{{ item.button_text }}}
+                                            </a>
+                                        <# } else { #>
                                             {{{ item.button_text }}}
-                                        </a>
-                                    <# } else { #>
-                                        {{{ item.button_text }}}
-                                    <# } #>
-                                </div>
-                            <# } #>
-                        </div>
+                                        <# } #>
+                                    </div>
+                                <# } #>
+                            </div>
+                        <# } #>
                     </div>
                 </div>
 

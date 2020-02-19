@@ -382,49 +382,71 @@ Redux::setSection( $basictheme_opt_name, array(
             ),
         ),
 
-        array(
-            'id'        =>  'basictheme_blog_sidebar_single',
-            'type'      =>  'image_select',
-            'title'     =>  esc_html__( 'Sidebar Single', 'basictheme' ),
-            'default'   =>  'right',
-            'options'   =>  array(
-                'hide' =>  array(
-                    'alt'   =>  'None Sidebar',
-                    'img'   =>  ReduxFramework::$_url . 'assets/img/1col.png'
-                ),
-
-                'left' =>  array(
-                    'alt'   =>  'Sidebar Left',
-                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cl.png'
-                ),
-
-                'right' =>  array(
-                    'alt'   =>  'Sidebar Right',
-                    'img'   =>  ReduxFramework::$_url . 'assets/img/2cr.png'
-                ),
-
-            ),
-        ),
-
-        array(
-            'id'        =>  'basictheme_on_off_share_single',
-            'type'      =>  'switch',
-            'title'     =>  esc_html__( 'On/Off Share Post Single', 'basictheme' ),
-            'default'   =>  true,
-        ),
-
-        array(
-            'id'            =>  'basictheme_related_post_limit',
-            'type'          =>  'slider',
-            'title'         =>  esc_html__( 'Related Post Limit', 'basictheme' ),
-            'min'           =>  1,
-            'step'          =>  1,
-            'max'           =>  250,
-            'default'       =>  3,
-            'display_value' => 'text'
-        ),
+	    array(
+		    'id'        =>  'basictheme_blog_per_row',
+		    'type'      =>  'select',
+		    'title'     =>  esc_html__( 'Blog Per Row', 'basictheme' ),
+		    'default'   =>  2,
+		    'options'   =>  array(
+			    2   =>  '2 Column',
+			    3   =>  '3 Column',
+			    4   =>  '4 Column',
+		    )
+	    ),
 
     )
+));
+
+Redux::setSection( $basictheme_opt_name, array(
+	'title'         =>  esc_html__( 'Single Post', 'basictheme' ),
+	'id'            =>  'basictheme_single_post_option',
+	'desc'          =>  esc_html__( '', 'basictheme' ),
+	'subsection'    =>  true,
+	'fields'        =>  array(
+
+		array(
+			'id'        =>  'basictheme_blog_sidebar_single',
+			'type'      =>  'image_select',
+			'title'     =>  esc_html__( 'Sidebar Single', 'basictheme' ),
+			'default'   =>  'right',
+			'options'   =>  array(
+				'hide' =>  array(
+					'alt'   =>  'None Sidebar',
+					'img'   =>  ReduxFramework::$_url . 'assets/img/1col.png'
+				),
+
+				'left' =>  array(
+					'alt'   =>  'Sidebar Left',
+					'img'   =>  ReduxFramework::$_url . 'assets/img/2cl.png'
+				),
+
+				'right' =>  array(
+					'alt'   =>  'Sidebar Right',
+					'img'   =>  ReduxFramework::$_url . 'assets/img/2cr.png'
+				),
+
+			),
+		),
+
+		array(
+			'id'        =>  'basictheme_on_off_share_single',
+			'type'      =>  'switch',
+			'title'     =>  esc_html__( 'On/Off Share Post Single', 'basictheme' ),
+			'default'   =>  true,
+		),
+
+		array(
+			'id'            =>  'basictheme_related_post_limit',
+			'type'          =>  'slider',
+			'title'         =>  esc_html__( 'Related Post Limit', 'basictheme' ),
+			'min'           =>  1,
+			'step'          =>  1,
+			'max'           =>  250,
+			'default'       =>  3,
+			'display_value' => 'text'
+		),
+
+	)
 ));
 /* End Blog Option */
 
@@ -503,6 +525,7 @@ Redux::setSection( $basictheme_opt_name, array(
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-shopping-cart',
     'fields'            =>  array(
+
         array(
             'id'            =>  'basictheme_product_limit',
             'type'          =>  'slider',

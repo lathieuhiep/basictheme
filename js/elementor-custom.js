@@ -1,24 +1,28 @@
 (function ($) {
 
-    /* Start element slider */
-    let ElementCarouselSlider   =   function( $scope, $ ) {
+    /* Carousel slider */
+    let ElementCarouselSlider = function ( $scope, $ ) {
 
-        let element_slides = $scope.find( '.element-slides' );
+        $scope.find( '.custom-owl-carousel' ).each( function () {
 
-        $( document ).general_owlCarousel_item( element_slides );
+            let slider = $(this);
 
+            if( elementorFrontend.isEditMode() || !slider.hasClass('owl-carousel-init') ){
+
+                let defaults = {
+                    autoplaySpeed: 800,
+                    navSpeed: 800,
+                    dotsSpeed: 800,
+                    autoHeight: false,
+                    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+                };
+
+                let config = $.extend({}, defaults, slider.data( 'settings-owl') );
+                // Initialize Slider
+                slider.owlCarousel( config ).addClass( 'owl-carousel-init' );
+            }
+        } );
     };
-    /* End element slider */
-
-    /* Start element post carousel */
-    let ElementPostCarousel   =   function( $scope, $ ) {
-
-        let element_post_carousel = $scope.find( '.element-post-carousel' );
-
-        $( document ).general_multi_owlCarouse( element_post_carousel );
-
-    };
-    /* End element post carousel */
 
     $( window ).on( 'elementor/frontend/init', function() {
 
@@ -26,7 +30,7 @@
         elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-slides.default', ElementCarouselSlider );
 
         /* Element post carousel */
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-post-carousel.default', ElementPostCarousel );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-post-carousel.default', ElementCarouselSlider );
 
     } );
 

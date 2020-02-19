@@ -7,6 +7,7 @@ $basictheme_blog_sidebar_single = !empty( $basictheme_options['basictheme_blog_s
 
 $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sidebar_single, 'basictheme-sidebar-main' );
 
+get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
 
 <div class="site-container site-single">
@@ -25,7 +26,11 @@ $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sid
 
             </div>
 
-            <?php get_sidebar(); ?>
+            <?php
+            if ( $basictheme_blog_sidebar_single !== 'hide' ) :
+	            get_sidebar();
+            endif;
+            ?>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-/*
+/**
  *constants
  */
 if( !function_exists('basictheme_setup') ):
@@ -61,22 +61,12 @@ if( !function_exists('basictheme_setup') ):
 
 endif;
 
-/*
- * post formats
- * */
-function basictheme_post_formats() {
+/**
+ * Required: Plugin Activation
+ */
+require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
-    if( has_post_format('audio') || has_post_format('video') ):
-        get_template_part( 'template-parts/post/content','video' );
-    elseif ( has_post_format('gallery') ):
-        get_template_part( 'template-parts/post/content','gallery' );
-    else:
-        get_template_part( 'template-parts/post/content','image' );
-    endif;
-
-}
-
-/*
+/**
 * Required: include plugin theme scripts
 */
 require get_parent_theme_file_path( '/extension/process-option.php' );
@@ -127,124 +117,25 @@ if ( class_exists('Woocommerce') ) :
 endif;
 
 /**
- * Register Sidebar
+ * Required: Register Sidebar
  */
-add_action( 'widgets_init', 'basictheme_widgets_init');
+require get_parent_theme_file_path( '/includes/register-sidebar.php' );
 
-function basictheme_widgets_init() {
+/**
+ * Required: Theme Scripts
+ */
+require get_parent_theme_file_path( '/includes/theme-scripts.php' );
 
-    $basictheme_widgets_arr  =   array(
+/* post formats */
+function basictheme_post_formats() {
 
-        'basictheme-sidebar-main'    =>  array(
-            'name'              =>  esc_html__( 'Sidebar Main', 'basictheme' ),
-            'description'       =>  esc_html__( 'Display sidebar right or left on all page.', 'basictheme' )
-        ),
-
-        'basictheme-sidebar-wc' =>  array(
-            'name'              =>  esc_html__( 'Sidebar Woocommerce', 'basictheme' ),
-            'description'       =>  esc_html__( 'Display sidebar on page shop.', 'basictheme' )
-        ),
-
-        'basictheme-sidebar-footer-multi-column-1'   =>  array(
-            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 1', 'basictheme' ),
-            'description'       =>  esc_html__('Display footer column 1 on all page.', 'basictheme' )
-        ),
-
-        'basictheme-sidebar-footer-multi-column-2'   =>  array(
-            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 2', 'basictheme' ),
-            'description'       =>  esc_html__('Display footer column 2 on all page.', 'basictheme' )
-        ),
-
-        'basictheme-sidebar-footer-multi-column-3'   =>  array(
-            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 3', 'basictheme' ),
-            'description'       =>  esc_html__('Display footer column 3 on all page.', 'basictheme' )
-        ),
-
-        'basictheme-sidebar-footer-multi-column-4'   =>  array(
-            'name'              =>  esc_html__( 'Sidebar Footer Multi Column 4', 'basictheme' ),
-            'description'       =>  esc_html__('Display footer column 4 on all page.', 'basictheme' )
-        )
-
-    );
-
-    foreach ( $basictheme_widgets_arr as $basictheme_widgets_id => $basictheme_widgets_value ) :
-
-        register_sidebar( array(
-            'name'          =>  esc_attr( $basictheme_widgets_value['name'] ),
-            'id'            =>  esc_attr( $basictheme_widgets_id ),
-            'description'   =>  esc_attr( $basictheme_widgets_value['description'] ),
-            'before_widget' =>  '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  =>  '</section>',
-            'before_title'  =>  '<h2 class="widget-title">',
-            'after_title'   =>  '</h2>'
-        ));
-
-    endforeach;
-
-}
-
-// Remove jquery migrate
-add_action( 'wp_default_scripts', 'basictheme_remove_jquery_migrate' );
-function basictheme_remove_jquery_migrate( $scripts ) {
-    if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
-        $script = $scripts->registered['jquery'];
-        if ( $script->deps ) {
-            $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
-        }
-    }
-}
-
-//Register Back-End script
-add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
-
-function basictheme_register_back_end_scripts(){
-
-    /* Start Get CSS Admin */
-    wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/extension/assets/css/admin-styles.css' ) );
-
-}
-
-//Register Front-End Styles
-add_action('wp_enqueue_scripts', 'basictheme_register_front_end');
-
-function basictheme_register_front_end() {
-
-    /*
-    * Start Get Css Front End
-    * */
-    wp_enqueue_style( 'basictheme-fonts', basictheme_fonts_url(), array(), null );
-
-    /* Start main Css */
-    wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/css/library.min.css' ), array(), '' );
-    /* End main Css */
-
-    /*  Start Style Css   */
-    wp_enqueue_style( 'basictheme-style', get_stylesheet_uri() );
-    /*  Start Style Css   */
-
-    /*
-    * End Get Css Front End
-    * */
-
-    /*
-    * Start Get Js Front End
-    * */
-
-    // Load the html5 shiv.
-    wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
-    wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
-
-    wp_enqueue_script( 'basictheme-main', get_theme_file_uri( '/js/main.min.js' ), array('jquery'), '', true );
-
-    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-        wp_enqueue_script( 'comment-reply' );
-    }
-
-    wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/js/custom.js' ), array(), '1.0.0', true );
-
-    /*
-   * End Get Js Front End
-   * */
+	if( has_post_format('audio') || has_post_format('video') ):
+		get_template_part( 'template-parts/post/content','video' );
+    elseif ( has_post_format('gallery') ):
+		get_template_part( 'template-parts/post/content','gallery' );
+	else:
+		get_template_part( 'template-parts/post/content','image' );
+	endif;
 
 }
 
@@ -351,37 +242,6 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
 }
 /* callback comment list */
 
-if ( ! function_exists( 'basictheme_fonts_url' ) ) :
-
-    function basictheme_fonts_url() {
-        $basictheme_fonts_url = '';
-
-        /* Translators: If there are characters in your language that are not
-        * supported by Open Sans, translate this to 'off'. Do not translate
-        * into your own language.
-        */
-        $basictheme_font_google = _x( 'on', 'Google font: on or off', 'basictheme' );
-
-        if ( 'off' !== $basictheme_font_google ) {
-            $basictheme_font_families = array();
-
-            if ( 'off' !== $basictheme_font_google ) {
-                $basictheme_font_families[] = 'Roboto:400,700';
-            }
-
-            $basictheme_query_args = array(
-                'family' => urlencode( implode( '|', $basictheme_font_families ) ),
-                'subset' => urlencode( 'latin,vietnamese' ),
-            );
-
-            $basictheme_fonts_url = add_query_arg( $basictheme_query_args, 'https://fonts.googleapis.com/css' );
-        }
-
-        return esc_url_raw( $basictheme_fonts_url );
-    }
-
-endif;
-
 /*
  * Content Nav
  */
@@ -416,89 +276,6 @@ if ( ! function_exists( 'basictheme_comment_nav' ) ) :
     }
 
 endif;
-
-/*
- * TWITTER AMPERSAND ENTITY DECODE
- */
-if( ! function_exists( 'basictheme_social_title' )):
-
-    function basictheme_social_title( $basictheme_title ) {
-
-        $basictheme_title = html_entity_decode( $basictheme_title );
-        $basictheme_title = urlencode( $basictheme_title );
-
-        return $basictheme_title;
-
-    }
-
-endif;
-
-/**
- * Include the TGM_Plugin_Activation class.
- */
-require get_parent_theme_file_path( '/plugins/class-tgm-plugin-activation.php' );
-
-add_action( 'tgmpa_register', 'basictheme_register_required_plugins' );
-function basictheme_register_required_plugins() {
-
-    /**
-     * Array of plugin arrays. Required keys are name and slug.
-     * If the source is NOT from the .org repo, then source is also required.
-     */
-    $basictheme_plugins = array(
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'Redux Framework',
-            'slug'      =>  'redux-framework',
-            'required'  =>  true,
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'Meta Box',
-            'slug'      =>  'meta-box',
-            'required'  =>  true,
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'Elementor',
-            'slug'      =>  'elementor',
-            'required'  =>  true,
-        ),
-
-        // This is an example of how to include a plugin from the WordPress Plugin Repository
-        array(
-            'name'      =>  'Woocommerce',
-            'slug'      =>  'woocommerce',
-            'required'  =>  true,
-        ),
-
-    );
-
-    /**
-     * Array of configuration settings. Amend each line as needed.
-     * If you want the default strings to be available under your own theme domain,
-     * leave the strings uncommented.
-     * Some of the strings are added into a sprintf, so see the comments at the
-     * end of each line for what each argument will be.
-     */
-    $basictheme_config = array(
-        'id'           => 'basictheme',          // Unique ID for hashing notices for multiple instances of TGMPA.
-        'default_path' => '',                      // Default absolute path to bundled plugins.
-        'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'parent_slug'  => 'themes.php',            // Parent menu slug.
-        'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-        'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-        'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
-    );
-
-    tgmpa( $basictheme_plugins, $basictheme_config );
-}
 
 /* Start Social Network */
 function basictheme_get_social_url() {
@@ -648,40 +425,6 @@ function basictheme_post_meta() {
 }
 /* End Post Meta */
 
-/* Start share */
-function basictheme_post_share() {
-
-    $basictheme_pin_image = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ));
-
-?>
-
-    <div class="site-post-share">
-        <span>
-            <?php esc_html_e('Share this post:', 'basictheme') ; ?>
-        </span>
-
-        <!-- Facebook Button -->
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>">
-            <i class="fa fa-facebook"></i>
-        </a>
-
-        <a target="_blank" href="https://twitter.com/home?status=Check%20out%20this%20article:%20<?php print basictheme_social_title( get_the_title() ); ?>%20-%20<?php the_permalink(); ?>">
-            <i class="fa fa-twitter"></i>
-        </a>
-
-        <a data-pin-do="skipLink" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php the_permalink(); ?>&media=<?php echo esc_url( $basictheme_pin_image ); ?>&description=<?php the_title(); ?>">
-            <i class="fa fa-pinterest"></i>
-        </a>
-
-        <a target="_blank" href="https://plus.google.com/share?url=<?php the_permalink(); ?>">
-            <i class="fa fa-google-plus"></i>
-        </a>
-    </div>
-
-<?php
-}
-/* End share */
-
 /* Start Link Pages */
 function basictheme_link_page() {
 
@@ -735,3 +478,81 @@ function basictheme_check_get_cat( $type_taxonomy ) {
 
 }
 /* End get Category check box */
+
+/**
+*Start share
+*/
+function basictheme_post_share() {
+
+?>
+
+    <div class="site-post-share">
+        <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="" data-layout="button_count" data-share="true" data-action="like" data-size="small"></div>
+    </div>
+
+<?php
+
+}
+
+/* Start opengraph */
+function basictheme_doctype_opengraph( $output ) {
+	return $output . '
+ xmlns:og="http://opengraphprotocol.org/schema/"
+ xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'basictheme_doctype_opengraph');
+
+function basictheme_opengraph() {
+	global $post;
+
+	if( is_single() ) :
+
+		if( has_post_thumbnail( $post->ID ) ) :
+			$img_src = get_the_post_thumbnail_url( get_the_ID(),'full' );
+		else :
+			$img_src = get_theme_file_uri( '/images/no-image.png' );
+		endif;
+
+		if( $excerpt = $post->post_excerpt ) :
+			$excerpt = strip_tags( $post->post_excerpt );
+			$excerpt = str_replace( "", "'", $excerpt );
+		else :
+			$excerpt = get_bloginfo( 'description' );
+		endif;
+
+?>
+        <meta property="og:title" content="<?php the_title(); ?>"/>
+        <meta property="og:description" content="<?php echo esc_attr( $excerpt ); ?>"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:url" content="<?php the_permalink(); ?>"/>
+        <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo() ); ?>"/>
+        <meta property="og:image" content="<?php echo esc_url( $img_src ); ?>"/>
+
+<?php
+
+	else :
+		return;
+	endif;
+}
+add_action( 'wp_head', 'basictheme_opengraph', 5 );
+/* End opengraph */
+
+/* Start Facebook SDK */
+function basictheme_facebook_sdk() {
+
+	if ( is_single() ) :
+
+?>
+
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
+
+<?php
+
+	endif;
+
+}
+
+add_action( 'wp_footer', 'basictheme_facebook_sdk' );
+
+/* End share */
