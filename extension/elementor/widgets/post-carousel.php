@@ -4,6 +4,8 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+use Elementor\Core\Schemes;
+
 class basictheme_widget_post_carousel extends Widget_Base {
 
     public function get_categories() {
@@ -333,7 +335,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
             'title_post_options',
             [
                 'label'     =>  esc_html__( 'Title Post', 'basictheme' ),
-                'type'      =>  \Elementor\Controls_Manager::HEADING,
+                'type'      =>  Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
         );
@@ -405,7 +407,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
             'excerpt_post_options',
             [
                 'label'     =>  esc_html__( 'Excerpt Post', 'basictheme' ),
-                'type'      =>  \Elementor\Controls_Manager::HEADING,
+                'type'      =>  Controls_Manager::HEADING,
                 'separator' =>  'before',
             ]
         );
@@ -473,12 +475,12 @@ class basictheme_widget_post_carousel extends Widget_Base {
         $order_post     =   $settings['order'];
 
 	    $data_settings_owl  =   [
-		    "loop"          =>  ( 'yes' === $settings['loop'] ),
-		    "nav"           =>  ( 'yes' === $settings['nav'] ),
-		    "dots"          =>  ( 'yes' === $settings['dots'] ),
-		    "margin"        =>  $settings['margin_item'],
-		    "autoplay"      =>  ( 'yes' === $settings['autoplay'] ),
-		    "responsive"   => [
+		    'loop'          =>  ( 'yes' === $settings['loop'] ),
+		    'nav'           =>  ( 'yes' === $settings['nav'] ),
+		    'dots'          =>  ( 'yes' === $settings['dots'] ),
+		    'margin'        =>  $settings['margin_item'],
+		    'autoplay'      =>  ( 'yes' === $settings['autoplay'] ),
+		    'responsive'    => [
 			    '0' => array(
 				    'items'     =>  $settings['item_567'],
 				    'margin'    =>  $settings['margin_item_567']
@@ -529,7 +531,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
     ?>
 
             <div class="element-post-carousel">
-                <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo htmlspecialchars( json_encode( $data_settings_owl ) ); ?>'>
+                <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                     <?php while ( $query->have_posts() ): $query->the_post(); ?>
 
                         <div class="item-post">

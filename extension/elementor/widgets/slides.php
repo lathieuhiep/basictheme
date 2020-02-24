@@ -588,7 +588,6 @@ class basictheme_widget_slides extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
                 'selector' => '{{WRAPPER}} .element-slides__item .element-slides__item--heading',
             ]
         );
@@ -636,7 +635,6 @@ class basictheme_widget_slides extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'description_typography',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_2,
                 'selector' => '{{WRAPPER}} .element-slides__item .element-slides__item--description',
             ]
         );
@@ -666,7 +664,6 @@ class basictheme_widget_slides extends Widget_Base {
             [
                 'name' => 'button_typography',
                 'selector' => '{{WRAPPER}} .element-slides__item .element-slides__item--link',
-                'scheme' => Scheme_Typography::TYPOGRAPHY_4,
             ]
         );
 
@@ -975,16 +972,16 @@ class basictheme_widget_slides extends Widget_Base {
         $settings  =   $this->get_settings_for_display();
 
 	    $data_settings_owl  =   [
-		    "items"     =>  1,
-		    "loop"      =>  ( 'yes' === $settings['loop'] ),
-		    "autoplay"  =>  ( 'yes' === $settings['autoplay'] ),
-		    "nav"       =>  ( 'yes' === $settings['nav'] ),
-		    "dots"      =>  ( 'yes' === $settings['dots'] ),
+		    'items'     =>  1,
+		    'loop'      =>  ( 'yes' === $settings['loop'] ),
+		    'autoplay'  =>  ( 'yes' === $settings['autoplay'] ),
+		    'nav'       =>  ( 'yes' === $settings['nav'] ),
+		    'dots'      =>  ( 'yes' === $settings['dots'] ),
 	    ];
 
     ?>
 
-        <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo htmlspecialchars( json_encode( $data_settings_owl ) ); ?>'>
+        <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
 
             <?php
 
