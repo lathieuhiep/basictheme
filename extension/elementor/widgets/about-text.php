@@ -53,14 +53,6 @@ class basictheme_widget_about_text extends Widget_Base {
             ]
         );
 
-        $this->add_control(
-            'icon_2',
-            [
-                'label'     =>  esc_html__( 'BoxIcon', 'basictheme' ),
-                'type'      =>  'BoxIcon',
-            ]
-        );
-
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -187,10 +179,7 @@ class basictheme_widget_about_text extends Widget_Base {
             </h2>
 
             <div class="icon">
-                <?php
-                //                Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] );
-                ?>
-                <i class="<?php echo esc_attr( $settings['icon_2'] ); ?>"></i>
+                <?php Icons_Manager::render_icon( $settings['icon'], [ 'aria-hidden' => 'true' ] ); ?>
             </div>
 
             <?php if ( $settings['hide_line'] == 'no' ) : ?>
@@ -216,7 +205,7 @@ class basictheme_widget_about_text extends Widget_Base {
 
         ?>
         <#
-        iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+        var iconHTML = elementor.helpers.renderIcon( view, settings.selected_icon, { 'aria-hidden': true }, 'i' , 'object' );
         #>
 
         <div class="element-about-text">

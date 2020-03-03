@@ -30,8 +30,6 @@ final class basictheme_plugin_elementor_widgets {
 
         add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
 
-        add_action( 'elementor/controls/controls_registered', [ $this, 'init_controls' ] );
-
         add_action( 'elementor/frontend/after_enqueue_styles', [$this, 'init_script'] );
 
     }
@@ -63,16 +61,6 @@ final class basictheme_plugin_elementor_widgets {
             require get_parent_theme_file_path( '/extension/elementor/widgets/'. $widget_filename .'.php' );
 
         endforeach;
-
-    }
-
-    public function init_controls() {
-
-        // Include Control files
-        require get_parent_theme_file_path( '/extension/elementor/controls/box-icon.php' );
-
-        // Register control
-        Plugin::$instance->controls_manager->register_control( 'BoxIcon', new Control_Box_Icon() );
 
     }
 

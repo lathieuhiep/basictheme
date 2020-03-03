@@ -291,7 +291,7 @@ function basictheme_get_social_url() {
 
         <div class="social-network-item item-<?php echo esc_attr( $basictheme_social['id'] ); ?>">
             <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
-                <i class="fa fa-<?php echo esc_attr( $basictheme_social['id'] ); ?>" aria-hidden="true"></i>
+                <i class="<?php echo esc_attr( $basictheme_social['icon'] ); ?>" aria-hidden="true"></i>
             </a>
         </div>
 
@@ -305,14 +305,10 @@ function basictheme_get_social_url() {
 function basictheme_get_social_network() {
     return array(
 
-        array('id' => 'facebook', 'title' => 'Facebook'),
-        array('id' => 'twitter', 'title' => 'Twitter'),
-        array('id' => 'google-plus', 'title' => 'Google Plus'),
-        array('id' => 'linkedin', 'title' => 'linkedin'),
-        array('id' => 'pinterest', 'title' => 'Pinterest'),
-        array('id' => 'youtube', 'title' => 'Youtube'),
-        array('id' => 'instagram', 'title' => 'instagram'),
-        array('id' => 'vimeo', 'title' => 'Vimeo'),
+        array( 'id' =>  'facebook', 'icon'  =>  'fab fa-facebook-f'),
+        array( 'id' =>  'youtube', 'icon'   =>  'fab fa-youtube'),
+        array( 'id' =>  'twitter', 'icon'   =>  'fab fa-twitter'),
+        array( 'id' =>  'instagram', 'icon' =>  'fab fa-instagram'),
 
     );
 }

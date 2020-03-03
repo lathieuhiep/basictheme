@@ -149,23 +149,11 @@ pre {
   &.item-twitter {
     background-color: #1da1f2;
   }
-  &.item-google-plus {
-    background-color: #dd4b39;
-  }
-  &.item-linkedin {
-    background-color: #0077B5;
-  }
-  &.item-pinterest {
-    background-color: #bd081c;
-  }
   &.item-youtube {
     background-color: #cd201f;
   }
   &.item-instagram {
     background-color: #e4405f;
-  }
-  &.item-vimeo {
-    background-color: #1ab7ea;
   }
 }
 .social-network-toTopFromBottom {
@@ -173,7 +161,7 @@ pre {
     overflow: hidden;
 
     &:hover {
-      i.fa {
+      i {
         -webkit-animation: toTopFromBottom 0.4s forwards;
         -moz-animation: toTopFromBottom 0.4s forwards;
         animation: toTopFromBottom 0.4s forwards;

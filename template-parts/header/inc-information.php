@@ -18,7 +18,7 @@ $basictheme_information_phone     =   $basictheme_options['basictheme_informatio
                 <?php if ( $basictheme_information_address != '' ) : ?>
 
                     <span>
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <i class="fas fa-map-marker" aria-hidden="true"></i>
                         <?php echo esc_html( $basictheme_information_address ); ?>
                     </span>
 
@@ -29,7 +29,7 @@ $basictheme_information_phone     =   $basictheme_options['basictheme_informatio
                 ?>
 
                     <span>
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <i class="fas fa-envelope"></i>
                         <?php echo esc_html( $basictheme_information_mail ); ?>
                     </span>
 

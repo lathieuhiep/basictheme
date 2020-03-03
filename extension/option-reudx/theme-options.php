@@ -457,38 +457,11 @@ Redux::setSection( $basictheme_opt_name, array(
     'customizer_width'  =>  '400px',
     'icon'              =>  'el el-globe-alt',
     'fields'            =>  array(
+
         array(
             'id'        =>  'basictheme_social_network_facebook',
             'type'      =>  'text',
             'title'     =>  esc_html__( 'Facebook', 'basictheme' ),
-            'default'   =>  '#',
-        ),
-
-        array(
-            'id'        =>  'basictheme_social_network_twitter',
-            'type'      =>  'text',
-            'title'     =>  esc_html__( 'Twitter', 'basictheme' ),
-            'default'   =>  '#',
-        ),
-
-        array(
-            'id'        =>  'basictheme_social_network_google-plus',
-            'type'      =>  'text',
-            'title'     =>  esc_html__( 'Google Plus', 'basictheme' ),
-            'default'   =>  '#',
-        ),
-
-        array(
-            'id'        =>  'basictheme_social_network_linkedin',
-            'type'      =>  'text',
-            'title'     =>  esc_html__( 'Linkedin', 'basictheme' ),
-            'default'   =>  '#',
-        ),
-
-        array(
-            'id'        =>  'basictheme_social_network_pinterest',
-            'type'      =>  'text',
-            'title'     =>  esc_html__( 'Pinterest', 'basictheme' ),
             'default'   =>  '#',
         ),
 
@@ -500,16 +473,16 @@ Redux::setSection( $basictheme_opt_name, array(
         ),
 
         array(
-            'id'        =>  'basictheme_social_network_instagram',
+            'id'        =>  'basictheme_social_network_twitter',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Instagram', 'basictheme' ),
+            'title'     =>  esc_html__( 'Twitter', 'basictheme' ),
             'default'   =>  '#',
         ),
 
         array(
-            'id'        =>  'basictheme_social_network_vimeo',
+            'id'        =>  'basictheme_social_network_instagram',
             'type'      =>  'text',
-            'title'     =>  esc_html__( 'Vimeo', 'basictheme' ),
+            'title'     =>  esc_html__( 'Instagram', 'basictheme' ),
             'default'   =>  '#',
         ),
 
