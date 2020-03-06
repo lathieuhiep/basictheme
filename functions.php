@@ -374,9 +374,9 @@ function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
     if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
 
         if ( $option_sidebar == 'left' ) :
-            $class_position_sidebar = ' order-1';
+            $class_position_sidebar = ' order-1 order-md-2';
         else:
-            $class_position_sidebar = '';
+            $class_position_sidebar = ' order-1';
         endif;
 
         $class_col_content = 'col-12 col-md-8 col-lg-9' . $class_position_sidebar;

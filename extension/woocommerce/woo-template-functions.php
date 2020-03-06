@@ -92,10 +92,20 @@ if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
 
     function basictheme_woo_get_sidebar() {
 
-        if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
+	    global $basictheme_options;
+	    $basictheme_sidebar_woo_position = $basictheme_options['basictheme_sidebar_woo'];
+
+
+	    if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
+
+	        if ( $basictheme_sidebar_woo_position == 'left' ) :
+		        $class_order = 'order-md-1';
+	        else:
+		        $class_order = 'order-md-2';
+	        endif;
     ?>
 
-            <aside class="col-md-3">
+            <aside class="col-12 col-md-4 col-lg-3 order-2 <?php echo esc_attr( $class_order ); ?>">
                 <?php dynamic_sidebar( 'basictheme-sidebar-wc' ); ?>
             </aside>
 
@@ -126,18 +136,16 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
                 <div class="row">
 
                 <?php
-                /**
-                 * woocommerce_sidebar hook.
-                 *
-                 * @hooked basictheme_woo_sidebar - 10
-                 */
-        
-                if ( $basictheme_sidebar_woo_position == 'left' ) :
+                    /**
+                     * woocommerce_sidebar hook.
+                     *
+                     * @hooked basictheme_woo_sidebar - 10
+                     */
                     do_action( 'basictheme_woo_sidebar' );
-                endif;
+
                 ?>
 
-                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $basictheme_sidebar_woo_position != 'hide' ? 'col-md-9' : 'col-md-12'; ?>">
+                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $basictheme_sidebar_woo_position != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
 
     <?php
 
@@ -156,19 +164,6 @@ if ( ! function_exists( 'basictheme_woo_after_main_content' ) ) :
     ?>
 
                     </div><!-- .col-md-9 -->
-
-                    <?php
-                    /**
-                     * woocommerce_sidebar hook.
-                     *
-                     * @hooked basictheme_woo_sidebar - 10
-                     */
-
-                    if ( $basictheme_sidebar_woo_position == 'right' ) :
-                        do_action( 'basictheme_woo_sidebar' );
-                    endif;
-                    ?>
-
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .site-shop -->
