@@ -8,6 +8,7 @@
  * Layout
  *
  * @see basictheme_get_cart()
+ * @see basictheme_button_quick_view()
  * @see basictheme_woo_before_main_content()
  * @see basictheme_woo_before_shop_loop_open()
  * @see basictheme_woo_before_shop_loop_close()
@@ -35,6 +36,8 @@ remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_pr
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
 add_action( 'basictheme_woo_shopping_cart', 'basictheme_get_cart', 5 );
+
+add_action( 'basictheme_woo_button_quick_view', 'basictheme_button_quick_view', 5 );
 
 add_action( 'woocommerce_before_main_content', 'basictheme_woo_before_main_content', 10 );
 

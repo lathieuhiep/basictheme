@@ -182,9 +182,13 @@ if ( ! function_exists( 'basictheme_woo_product_thumbnail_open' ) ) :
      */
 
     function basictheme_woo_product_thumbnail_open() {
-    ?>
+
+?>
+
         <div class="site-shop__product--item-image">
-    <?php
+
+<?php
+
     }
 
 endif;
@@ -197,11 +201,16 @@ if ( ! function_exists( 'basictheme_woo_product_thumbnail_close' ) ) :
      */
 
     function basictheme_woo_product_thumbnail_close() {
-    ?>
+
+        do_action( 'basictheme_woo_button_quick_view' );
+?>
+
         </div><!-- .site-shop__product--item-image -->
 
         <div class="site-shop__product--item-content">
-    <?php
+
+<?php
+
     }
 
 endif;

@@ -471,6 +471,22 @@
     }
   }
 }
+.btn-quick-view-product {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #ffffff;
+  @include border-radius(4px);
+  background-color: $background-primary;
+  @include transition(all 0.4s ease-in-out);
+
+  &:hover {
+    color: #ffffff;
+    background-color: $background-hover;
+  }
+}
 .site-shop__product--item {
   position: relative;
   border: 1px solid #eeeeee;
@@ -485,9 +501,17 @@
     }
   }
   .site-shop__product--item-image {
+    position: relative;
+
     img {
       max-width: none;
       width: 100%;
+    }
+    .btn-quick-view-product {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-50%));
     }
   }
 }

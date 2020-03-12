@@ -93,6 +93,20 @@ function basictheme_register_front_end() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+    if ( class_exists('Woocommerce') ) :
+
+        if ( is_shop() || is_product_category() ) :
+
+            wp_enqueue_script( 'woo-quick-view', get_theme_file_uri( '/js/woo-quick-view.js' ), array(), '', true );
+
+            $basictheme_woo_quick_view_admin_url    =   admin_url( 'admin-ajax.php' );
+            $basictheme_woo_quick_view_ajax         =   array( 'url' => $basictheme_woo_quick_view_admin_url );
+            wp_localize_script( 'woo-quick-view', 'woo_quick_view_product', $basictheme_woo_quick_view_ajax );
+
+        endif;
+
+    endif;
+
 	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/js/custom.js' ), array(), '1.0.0', true );
 
 	/*

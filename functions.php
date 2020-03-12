@@ -111,6 +111,7 @@ if ( class_exists('Woocommerce') ) :
     /*
      * Required: Woocommerce
      */
+    require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
     require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
     require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
 
@@ -400,7 +401,8 @@ function basictheme_post_meta() {
 
     <div class="site-post-meta">
         <span class="site-post-author">
-            <?php echo esc_html__('Author:','basictheme');?>
+            <?php esc_html_e( 'Author:','basictheme' ); ?>
+
             <a href="<?php echo get_author_posts_url( get_the_author_meta('ID') );?>">
                 <?php the_author();?>
             </a>

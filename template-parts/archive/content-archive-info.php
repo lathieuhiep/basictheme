@@ -29,7 +29,7 @@
         </p>
 
         <a href="<?php the_permalink();?>" class="text-read-more">
-            <?php echo esc_html__(  'Read more','basictheme' ); ?>
+            <?php esc_html_e(  'Read more','basictheme' ); ?>
         </a>
 
         <?php basictheme_link_page(); ?>
