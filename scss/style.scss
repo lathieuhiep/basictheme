@@ -31,6 +31,11 @@ Text Domain: basictheme
   ## Posts Grid
   ## Posts Carousel
 # Woocommerce
+  ## Archive shop
+  ## Single Shop
+  ## Other Page Shop
+  ## Sidebar Shop
+  ## Quick View Product
 # Contact Form 7
 # Footer
 # Responsive
@@ -81,7 +86,7 @@ Text Domain: basictheme
 /**
 # Woocommerce
 -----------------------------------------------------------------------------*/
-@import "shop";
+@import "shop/shop";
 
 /**
 # Contact Form 7

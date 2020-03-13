@@ -22,6 +22,7 @@
  * @see basictheme_woo_loop_add_to_cart_close()
  * @see basictheme_woo_get_sidebar()
  * @see basictheme_woo_after_main_content()
+ * @see basictheme_popup_quick_view_product()
  */
 
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
@@ -61,6 +62,7 @@ add_action( 'basictheme_woo_sidebar', 'basictheme_woo_get_sidebar', 10 );
 
 add_action( 'woocommerce_after_main_content', 'basictheme_woo_after_main_content', 10 );
 
+add_action( 'woocommerce_after_main_content', 'basictheme_popup_quick_view_product', 12 );
 
 /**
  * Single Product
