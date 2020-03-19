@@ -6,13 +6,15 @@
 
     "use strict";
 
-    let btn_quick_view_product  =   $( '.btn-quick-view-product' );
+    let btn_quick_view_product  =   $( '.btn-quick-view-product' ),
+        mode_quick_view_product =   $( '#mode-quick-view-product' );
 
     btn_quick_view_product.on( 'click', function (e) {
 
         e.preventDefault();
 
-        let product_id  =   $(this).data( 'id-product' );
+        let product_id              =   $(this).data( 'id-product' ),
+            quick_view_product_body =   $( '.quick-view-product-body' );
 
         $.ajax({
 
@@ -27,19 +29,21 @@
 
             beforeSend: function () {
 
+
+
             },
 
             success: function( data ){
 
                 if ( data ){
 
-                    site_shop_product.empty().append(data).find( 'li.product' ).addClass( 'popIn' );
+                    quick_view_product_body.empty().append(data);
 
                 }
 
                 setTimeout( function() {
 
-                    site_shop_product.find( 'ul.products li.product' ).removeClass( 'popIn' );
+
 
                 }, 800 );
 

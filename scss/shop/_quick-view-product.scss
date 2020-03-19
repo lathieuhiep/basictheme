@@ -14,22 +14,11 @@
     background-color: $background-hover;
   }
 }
-.popup-quick-view-product {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 30;
-  background-color: rgba( 0,0,0,0.8 );
-
-  .quick-view-container {
-    position: relative;
-    top: 50%;
-    padding: 30px 15px;
-    max-width: 850px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    @include transform(translateY(-50%));
+.modal {
+  &.mode-quick-view-product {
+    .modal-dialog {
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
   }
 }
