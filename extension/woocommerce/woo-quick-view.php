@@ -29,7 +29,9 @@ function basictheme_popup_quick_view_product() {
                 </div>
 
                 <div class="modal-body">
-                    <div class="loading-body"></div>
+                    <div class="loading-body">
+                        <div class="icon-loading"></div>
+                    </div>
                     <div class="quick-view-product-body"></div>
                 </div>
             </div>
@@ -48,8 +50,48 @@ function basictheme_get_quick_view_product() {
 
     $product_id   =   $_POST['product_id'];
 
-    var_dump($product_id);
+    $args = array(
+	    'post_type' =>  'product',
+        'post__in'  =>  array( $product_id )
+    );
 
+	$query = new WP_Query( $args );
+
+	while ( $query->have_posts() ): $query->the_post();
+?>
+
+    <div class="item-product">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="item-product-img">
+                    <?php the_post_thumbnail( 'large' ); ?>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="content_product_detail">
+                    <h1 class="title-product">
+                        <?php the_title(); ?>
+                    </h1>
+
+                    <div class="item-rating">
+                        <?php woocommerce_template_loop_rating(); ?>
+                    </div>
+
+                    <?php woocommerce_template_single_excerpt(); ?>
+
+                    <div class="item-price">
+                        <?php woocommerce_template_loop_price(); ?>
+                    </div>
+
+                    <?php woocommerce_template_single_add_to_cart(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+	endwhile; wp_reset_postdata();
     wp_die();
 
 }

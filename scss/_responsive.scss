@@ -94,6 +94,13 @@
       }
     }
   }
+  .modal {
+    &.mode-quick-view-product {
+      .modal-dialog {
+        max-width: 850px;
+      }
+    }
+  }
 
 }
 

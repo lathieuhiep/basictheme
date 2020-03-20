@@ -146,8 +146,15 @@
     }
   }
   .star-rating {
+    width: 7em;
+    font-size: 14px;
+
     > span {
       color: $color-hover;
+    }
+    &:before,
+    > span:before {
+      letter-spacing: 3.5px;
     }
   }
   span {
@@ -207,8 +214,6 @@
           .woocommerce-loop-product__title {
             padding: 0;
             margin: 0 0 10px;
-            line-height: 1.5em;
-            height: 3em;
             overflow: hidden;
 
             a {
