@@ -122,7 +122,7 @@ $basictheme_opt_args = array(
         ),
     )
 );
-Redux::setArgs( $basictheme_opt_name, $basictheme_opt_args );
+Redux::set_args( $basictheme_opt_name, $basictheme_opt_args );
 /*
  * ---> END ARGUMENTS
  */
@@ -143,11 +143,11 @@ $basictheme_opt_tabs = array(
         'content'   =>  esc_html__( '<p>This is the tab content, HTML is allowed.</p>', 'basictheme' )
     )
 );
-Redux::setHelpTab( $basictheme_opt_name, $basictheme_opt_tabs );
+Redux::set_help_tab( $basictheme_opt_name, $basictheme_opt_tabs );
 
 // Set the help sidebar
 $basictheme_opt_content = esc_html__( '<p>This is the sidebar content, HTML is allowed.</p>', 'basictheme' );
-Redux::setHelpSidebar( $basictheme_opt_name, $basictheme_opt_content );
+Redux::set_help_sidebar( $basictheme_opt_name, $basictheme_opt_content );
 
 
 /*
@@ -162,7 +162,7 @@ Redux::setHelpSidebar( $basictheme_opt_name, $basictheme_opt_content );
 
 // -> START option background
 
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'id'                =>   'basictheme_theme_option',
     'title'             =>   $basictheme_theme->get( 'Name' ).' '.$basictheme_theme->get( 'Version' ),
     'customizer_width'  =>   '400px',
@@ -173,7 +173,7 @@ Redux::setSection( $basictheme_opt_name, array(
 
 /* Start General Options */
 
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'General Options', 'basictheme' ),
     'id'                =>  'basictheme_general',
     'desc'              =>  esc_html__( 'General all config', 'basictheme' ),
@@ -182,7 +182,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 // Favicon Config
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Favicon', 'basictheme' ),
     'id'            =>  'basictheme_favicon_config',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -201,7 +201,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 //Loading config
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Loading config', 'basictheme' ),
     'id'            =>  'basictheme_general_loading',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -226,7 +226,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 //Background Options
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Background', 'basictheme' ),
     'id'                =>  'basictheme_background',
     'desc'              =>  esc_html__( 'Background all config', 'basictheme' ),
@@ -250,7 +250,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End General Options */
 
 /* Start Header Options */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Header Options', 'basictheme' ),
     'id'                =>  'basictheme_header',
     'desc'              =>  esc_html__( 'Header all config', 'basictheme' ),
@@ -259,7 +259,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 //Logo Config
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Logo', 'basictheme' ),
     'id'            =>  'basictheme_logo_config',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -297,7 +297,7 @@ Redux::setSection( $basictheme_opt_name, array(
             'default'   =>  1,
             'options'   =>  array(
                 1   =>  esc_html__( 'Yes', 'basictheme' ),
-                0   =>  esc_html__( 'No', 'basictheme' )
+                2   =>  esc_html__( 'No', 'basictheme' )
             )
         ),
 
@@ -305,7 +305,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 // information
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Information', 'basictheme' ),
     'id'            =>  'basictheme_information_config',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -350,7 +350,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End Header Options */
 
 /* Start Blog Option */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Blog Options', 'basictheme' ),
     'id'                =>  'basictheme_blog_option',
     'customizer_width'  =>  '400px',
@@ -397,7 +397,7 @@ Redux::setSection( $basictheme_opt_name, array(
     )
 ));
 
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
 	'title'         =>  esc_html__( 'Single Post', 'basictheme' ),
 	'id'            =>  'basictheme_single_post_option',
 	'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -451,7 +451,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End Blog Option */
 
 /* Start Social Network */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Social Network', 'basictheme' ),
     'id'                =>  'basictheme_social_network',
     'customizer_width'  =>  '400px',
@@ -491,7 +491,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End Social Network */
 
 /* Start Shop */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Shop', 'basictheme' ),
     'id'                =>  'basictheme_shop_woo',
     'desc'              =>  esc_html__( 'Settings WooCommerce', 'basictheme' ),
@@ -539,7 +539,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End Shop */
 
 /* Start Typography Options */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Typography', 'basictheme' ),
     'id'                =>  'basictheme_typography',
     'desc'              =>  esc_html__( 'Typography all config', 'basictheme' ),
@@ -548,7 +548,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 // Body font
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Body Typography', 'basictheme' ),
     'id'            =>  'basictheme_body_typography',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -582,7 +582,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 // Header font
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Custom Typography', 'basictheme' ),
     'id'            =>  'basictheme_custom_typography',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -665,7 +665,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End Typography Options */
 
 /* Start 404 Options */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( '404 Options', 'basictheme' ),
     'id'                =>  'basictheme_404',
     'desc'              =>  esc_html__( '404 page all config', 'basictheme' ),
@@ -707,7 +707,7 @@ Redux::setSection( $basictheme_opt_name, array(
 /* End 404 Options */
 
 /* Start Footer Options */
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'             =>  esc_html__( 'Footer Options', 'basictheme' ),
     'id'                =>  'basictheme_footer',
     'desc'              =>  esc_html__( 'Footer all config', 'basictheme' ),
@@ -716,7 +716,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 // Footer Sidebar Multi Column
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Sidebar Footer Multi Column', 'basictheme' ),
     'id'            =>  'basictheme_footer_sidebar_multi_column',
     'subsection'    =>  true,
@@ -831,7 +831,7 @@ Redux::setSection( $basictheme_opt_name, array(
 ));
 
 //Copyright
-Redux::setSection( $basictheme_opt_name, array(
+Redux::set_section( $basictheme_opt_name, array(
     'title'         =>  esc_html__( 'Copyright', 'basictheme' ),
     'id'            =>  'basictheme_footer_copyright',
     'desc'          =>  esc_html__( '', 'basictheme' ),
@@ -860,9 +860,6 @@ Redux::setSection( $basictheme_opt_name, array(
 /*
  * <--- END SECTIONS
  */
-
-// Function to test the compiler hook and demo CSS output.
-add_filter('redux/options/' . $basictheme_opt_name . '/compiler', 'compiler_action', 10, 3);
 
 /**
  * This is a test function that will let you see when the compiler hook occurs.

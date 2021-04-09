@@ -92,7 +92,7 @@
     border-width: 2px;
     border-color: #ffffff;
     border-radius: 3px;
-    @include transition(all 0.4s ease-in-out);
+    @include transition();
 
     a {
       display: block;

@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-uglify": "^3.0.2",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^21.0.0"
+  },
+  "dependencies": {
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^5.0.0"
+  }
+}
