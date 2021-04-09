@@ -44,7 +44,7 @@ h6 {
 }
 a {
   color: $color-primary;
-  @include transition(all 0.4s ease-in-out);
+  @include transition();
 
   &:hover,
   &:focus {
@@ -113,7 +113,7 @@ pre {
   position: fixed;
   right: 15px;
   z-index: 1000;
-  @include transition(all 400ms ease-in-out);
+  @include transition();
 
   a {
     display: block;
@@ -219,7 +219,7 @@ pre {
         padding: 5px 15px !important;
         background-color: #ff5555;
         @include border-radius(5px);
-        @include transition(all 0.4s ease-in-out);
+        @include transition();
 
         &:hover {
           background-color: #333333;
@@ -229,7 +229,7 @@ pre {
         color: #ffffff;
         font-size: 20px;
         line-height: inherit;
-        @include transition(all 0.4s ease-in-out);
+        @include transition();
       }
     }
   }

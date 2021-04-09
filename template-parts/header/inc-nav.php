@@ -2,7 +2,7 @@
 global $basictheme_options;
 
 $basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['id'];
-$basictheme_nav_top_sticky   =   $basictheme_options['basictheme_nav_top_sticky'];
+$basictheme_nav_top_sticky   =   $basictheme_options['basictheme_nav_top_sticky'] ? : 1;
 ?>
 
 <nav id="site-navigation" class="main-navigation<?php echo esc_attr( $basictheme_nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">

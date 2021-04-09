@@ -13,7 +13,7 @@
 }
 
 // Transition
-@mixin transition( $transition ) {
+@mixin transition( $transition: all 0.4s ease-in-out ) {
   -webkit-transition: $transition;
   -moz-transition:    $transition;
   -o-transition:      $transition;

@@ -7,7 +7,7 @@
   color: #ffffff;
   @include border-radius(4px);
   background-color: $background-primary;
-  @include transition(all 0.4s ease-in-out);
+  @include transition();
 
   &:hover {
     color: #ffffff;
