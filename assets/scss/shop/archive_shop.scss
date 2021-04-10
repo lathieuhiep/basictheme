@@ -334,7 +334,7 @@
                 display: none;
               }
               &.active {
-                background-color: #ff5555;
+                background-color: $background-hover;
 
                 a {
                   color: #ffffff;
@@ -380,7 +380,7 @@
   }
   p.stars a,
   .star-rating::before {
-    color: #ff5555;
+    color: $color-hover;
   }
   a {
     &.button {
@@ -388,7 +388,7 @@
         background-color: #000000;
 
         &:hover {
-          background-color: #ff5555;
+          background-color: $background-hover;
         }
       }
     }

@@ -64,7 +64,7 @@ function basictheme_register_front_end() {
 	wp_enqueue_style( 'basictheme-fonts', basictheme_fonts_url(), array(), null );
 
 	/* Start main Css */
-	wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/css/library/minify/library.min.css' ), array(), '' );
+	wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
 	/* End main Css */
 
     /* Start main Css */
@@ -84,10 +84,10 @@ function basictheme_register_front_end() {
 	* */
 
 	// Load the html5 shiv.
-	wp_enqueue_script( 'html5', get_theme_file_uri( '/js/html5.js' ), array(), '3.7.3' );
+	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'basictheme-main', get_theme_file_uri( '/js/library/minify/library.min.js' ), array('jquery'), '', true );
+	wp_enqueue_script( 'basictheme-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -97,7 +97,7 @@ function basictheme_register_front_end() {
 
         if ( is_shop() || is_product_category() ) :
 
-            wp_enqueue_script( 'woo-quick-view', get_theme_file_uri( '/js/woo-quick-view.js' ), array(), '', true );
+            wp_enqueue_script( 'woo-quick-view', get_theme_file_uri( '/assets/js/woo-quick-view.js' ), array(), '', true );
 
             $basictheme_woo_quick_view_admin_url    =   admin_url( 'admin-ajax.php' );
             $basictheme_woo_quick_view_ajax         =   array( 'url' => $basictheme_woo_quick_view_admin_url );
@@ -107,7 +107,7 @@ function basictheme_register_front_end() {
 
     endif;
 
-	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/js/custom.js' ), array(), '1.0.0', true );
+	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
 
 	/*
    * End Get Js Front End

@@ -217,7 +217,7 @@ pre {
         display: inline-block;
         margin: 0 5px;
         padding: 5px 15px !important;
-        background-color: #ff5555;
+        background-color: $background-hover;
         @include border-radius(5px);
         @include transition();
 
@@ -254,7 +254,7 @@ pre {
       &.active,
       &:hover {
         span {
-          background-color: #ff5555;
+          background-color: $background-hover;
         }
       }
     }

@@ -347,7 +347,7 @@ class basictheme_widget_post_grid extends Widget_Base {
 
                                         <?php else: ?>
 
-                                            <img src="<?php echo esc_url( get_theme_file_uri( '/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
+                                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
 
                                         <?php endif; ?>
                                     </a>

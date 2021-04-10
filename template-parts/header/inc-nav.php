@@ -15,7 +15,7 @@ $basictheme_nav_top_sticky   =   $basictheme_options['basictheme_nav_top_sticky'
                             if ( !empty( $basictheme_logo_image_id ) ) :
                                 echo wp_get_attachment_image( $basictheme_logo_image_id, 'full' );
                             else :
-                                echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
+                                echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
                             endif;
                         ?>
                     </a>
