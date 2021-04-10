@@ -17,7 +17,7 @@ if(  $basictheme_show_loading == 1 ) :
 
         <?php else: ?>
 
-            <img class="loading_img" src="<?php echo esc_url(get_theme_file_uri( '/images/loading.gif' )); ?>" alt="<?php esc_attr_e('loading...','basictheme') ?>">
+            <img class="loading_img" src="<?php echo esc_url(get_theme_file_uri( '/assets/images/loading.gif' )); ?>" alt="<?php esc_attr_e('loading...','basictheme') ?>">
 
         <?php endif; ?>
 

@@ -83,7 +83,7 @@ class basictheme_recent_post_widget extends WP_Widget {
                                 the_post_thumbnail( 'medium' );
                             else:
                             ?>
-                                <img src="<?php echo esc_url( get_theme_file_uri( '/images/no-image.png' ) ); ?>" alt="post">
+                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ); ?>" alt="post">
                             <?php endif; ?>
                         </div>
 
