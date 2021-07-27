@@ -52,12 +52,6 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 
 		/*  Post Type   */
 		add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio' ) );
-
-		/*
-		* This theme styles the visual editor to resemble the theme style,
-		* specifically font, colors, icons, and column width.
-		*/
-		add_editor_style( array( 'css/editor-style.css', basictheme_fonts_url() ) );
 	}
 
 	add_action( 'after_setup_theme', 'basictheme_setup' );
@@ -114,6 +108,7 @@ if ( class_exists( 'Woocommerce' ) ) :
 	/*
 	 * Required: Woocommerce
 	 */
+    require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );

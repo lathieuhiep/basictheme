@@ -2,10 +2,9 @@
 global $basictheme_options;
 
 $basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['id'];
-$basictheme_nav_top_sticky   =   $basictheme_options['basictheme_nav_top_sticky'] ? : 1;
 ?>
 
-<nav id="site-navigation" class="main-navigation<?php echo esc_attr( $basictheme_nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">
+<nav id="site-navigation" class="main-navigation">
     <div class="site-navbar navbar-expand-lg">
         <div class="container">
             <div class="site-navigation_warp d-flex justify-content-lg-end">
@@ -20,12 +19,12 @@ $basictheme_nav_top_sticky   =   $basictheme_options['basictheme_nav_top_sticky'
                         ?>
                     </a>
 
-                    <button class="navbar-toggler" data-toggle="collapse" data-target=".site-menu">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-menu" aria-controls="site-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
                 </div>
 
-                <div class="site-menu collapse navbar-collapse d-lg-flex justify-content-lg-end">
+                <div id="site-menu" class="site-menu collapse navbar-collapse d-lg-flex justify-content-lg-end">
 
                     <?php
 

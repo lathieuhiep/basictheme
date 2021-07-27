@@ -1,5 +1,7 @@
-const gulp = require('gulp'),
-    sass = require('gulp-sass'),
+'use strict';
+
+let gulp = require('gulp'),
+    sass = require('gulp-sass')(require('sass')),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
@@ -37,9 +39,9 @@ gulp.task('sass-library-theme', function () {
 // Task compress lib js & mini file
 gulp.task('compress-js', function () {
     return gulp.src( [
-        './node_modules/popper.js/dist/js/popper.js',
+        './node_modules/@popperjs/core/dist/umd/popper.js',
         './node_modules/bootstrap/dist/js/bootstrap.js',
-        './node_modules/owl.carousel/dist/owl.carousel.js',
+        './node_modules/owl.carousel/dist/owl.carousel.js'
     ],  { allowEmpty: true } )
         .pipe(concat('library.min.js'))
         .pipe(uglify())

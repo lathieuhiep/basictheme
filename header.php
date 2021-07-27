@@ -23,12 +23,6 @@ get_template_part('template-parts/header/inc','header');
 ?>
 <!--End Loading Template-->
 
-<div id="back-top">
-    <a href="#">
-        <i class="fa fa-chevron-up"></i>
-    </a>
-</div>
-
 <!--Start Sticky Footer-->
 <div class="sticky-footer">
 

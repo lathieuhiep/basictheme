@@ -7,8 +7,8 @@ function basictheme_button_quick_view() {
 
 ?>
 
-    <a class="btn-quick-view-product" href="#" title="<?php esc_attr_e( 'Quick view product', 'basictheme' ); ?>" data-id-product="<?php echo esc_attr( get_the_ID() ); ?>" data-toggle="modal" data-target="#mode-quick-view-product">
-        <i class="fas fa-search"></i>
+    <a class="btn-quick-view-product" href="#" title="<?php esc_attr_e( 'Quick view product', 'basictheme' ); ?>" data-id-product="<?php echo esc_attr( get_the_ID() ); ?>" data-bs-toggle="modal" data-bs-target="#mode-quick-view-product">
+        <?php esc_html_e('Xem nhanh'); ?>
     </a>
 
 <?php
@@ -23,9 +23,7 @@ function basictheme_popup_quick_view_product() {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
@@ -47,6 +45,7 @@ add_action( 'wp_ajax_nopriv_basictheme_get_quick_view_product', 'basictheme_get_
 add_action( 'wp_ajax_basictheme_get_quick_view_product', 'basictheme_get_quick_view_product' );
 
 function basictheme_get_quick_view_product() {
+    global $product;
 
     $product_id   =   $_POST['product_id'];
 
@@ -60,31 +59,37 @@ function basictheme_get_quick_view_product() {
 	while ( $query->have_posts() ): $query->the_post();
 ?>
 
-    <div class="item-product">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="item-product-img">
-                    <?php the_post_thumbnail( 'large' ); ?>
+    <div id="et-quickview">
+        <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'item-product', $product ); ?>>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="item-product-img">
+                        <?php
+    //                    the_post_thumbnail( 'large' );
+                        woocommerce_show_product_sale_flash();
+                        woocommerce_show_product_images();
+                        ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-12 col-md-6">
-                <div class="content_product_detail">
-                    <h1 class="title-product">
-                        <?php the_title(); ?>
-                    </h1>
+                <div class="col-12 col-md-6">
+                    <div class="content_product_detail">
+                        <h1 class="title-product">
+                            <?php the_title(); ?>
+                        </h1>
 
-                    <div class="item-rating">
-                        <?php woocommerce_template_loop_rating(); ?>
+                        <div class="item-rating">
+                            <?php woocommerce_template_loop_rating(); ?>
+                        </div>
+
+                        <?php woocommerce_template_single_excerpt(); ?>
+
+                        <div class="item-price">
+                            <?php woocommerce_template_loop_price(); ?>
+                        </div>
+
+                        <?php woocommerce_template_single_add_to_cart(); ?>
                     </div>
-
-                    <?php woocommerce_template_single_excerpt(); ?>
-
-                    <div class="item-price">
-                        <?php woocommerce_template_loop_price(); ?>
-                    </div>
-
-                    <?php woocommerce_template_single_add_to_cart(); ?>
                 </div>
             </div>
         </div>

@@ -9,6 +9,10 @@
     &.navbar-toggler {
       padding: 0;
       border: 0;
+
+      &:focus {
+        box-shadow: none;
+      }
     }
   }
 }
