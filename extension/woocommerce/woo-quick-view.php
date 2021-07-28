@@ -1,7 +1,7 @@
 <?php
 
 /*
-* Start quick view product
+* Quick view product
 */
 function basictheme_button_quick_view() {
 
@@ -40,12 +40,11 @@ function basictheme_popup_quick_view_product() {
 
 }
 
-/* Start ajax quick view product */
+/* Ajax quick view product */
 add_action( 'wp_ajax_nopriv_basictheme_get_quick_view_product', 'basictheme_get_quick_view_product' );
 add_action( 'wp_ajax_basictheme_get_quick_view_product', 'basictheme_get_quick_view_product' );
 
 function basictheme_get_quick_view_product() {
-    global $product;
 
     $product_id   =   $_POST['product_id'];
 
@@ -57,46 +56,14 @@ function basictheme_get_quick_view_product() {
 	$query = new WP_Query( $args );
 
 	while ( $query->have_posts() ): $query->the_post();
-?>
 
-    <div id="et-quickview">
-        <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'item-product', $product ); ?>>
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="item-product-img">
-                        <?php
-    //                    the_post_thumbnail( 'large' );
-                        woocommerce_show_product_sale_flash();
-                        woocommerce_show_product_images();
-                        ?>
-                    </div>
-                </div>
+        get_template_part( 'extension/woocommerce/quickview/content', 'quickview' );
 
-                <div class="col-12 col-md-6">
-                    <div class="content_product_detail">
-                        <h1 class="title-product">
-                            <?php the_title(); ?>
-                        </h1>
-
-                        <div class="item-rating">
-                            <?php woocommerce_template_loop_rating(); ?>
-                        </div>
-
-                        <?php woocommerce_template_single_excerpt(); ?>
-
-                        <div class="item-price">
-                            <?php woocommerce_template_loop_price(); ?>
-                        </div>
-
-                        <?php woocommerce_template_single_add_to_cart(); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php
 	endwhile; wp_reset_postdata();
     wp_die();
+}
 
+/* Quick view product image */
+function basictheme_quick_view_product_image() {
+    get_template_part( 'extension/woocommerce/quickview/product', 'image' );
 }
