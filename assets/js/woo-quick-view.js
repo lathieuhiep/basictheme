@@ -42,9 +42,42 @@
     let a = function (product_id) {
         let n = $("#et-quickview"),
             e = n.children("#product-" + product_id),
-            t = e.find("form.cart");
+            t = e.find("form.cart"),
+            hasProductVariable = e.hasClass("product-type-variable"),
+            i = $("#et-quickview-slider");
 
-        t.wc_variation_form().find(".variations select:eq(0)").change();
+        e.find('.et-quickview-owl').owlCarousel({
+            items: 1,
+            loop: true,
+            nav: false,
+            autoplaySpeed: 800,
+            navSpeed: 800,
+            dotsSpeed: 800,
+        });
+
+        if ( hasProductVariable ) {
+            t.wc_variation_form().find(".variations select:eq(0)").change();
+
+            if ( i.length ) {
+                if ( i.hasClass("owl-carousel") ) {
+                    i = $(".owl-item:not(.cloned)", i).eq(0);
+                }
+
+                a = $(".woocommerce-product-gallery__image", i).eq(0).find("img");
+                e = a.attr("src");
+
+                if ( a.attr("data-src") ) {
+                    e = a.attr("data-src");
+                }
+
+                t.on("show_variation", function (e, t) {
+                    t.hasOwnProperty("image") && t.image.src && t.image.src != a.attr("src") && (a.attr("src", t.image.src).attr("srcset", ""),
+                    i.hasClass("slick-initialized") && i.slick("slickGoTo", 0))
+                }).on("reset_image", function () {
+                    a.attr("src", e).attr("srcset", "")
+                })
+            }
+        }
     }
 
     mode_quick_view_product.on('hidden.bs.modal', function () {
