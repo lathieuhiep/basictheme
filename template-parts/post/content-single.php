@@ -1,13 +1,20 @@
 <?php
-
 global $basictheme_options;
 
 $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_single'];
+$basictheme_on_off_related_post = $basictheme_options['basictheme_on_off_related_post'];
 
+$type_image = rwmb_meta( 'basictheme_meta_box_post_select_image' );
 ?>
 
 <div id="post-<?php the_ID() ?>" <?php post_class( 'site-post-single-item' ); ?>>
-    <?php basictheme_post_formats(); ?>
+    <?php
+    if ( $type_image == 'featured_image' ) :
+        get_template_part( 'template-parts/post/content', 'image' );
+    else:
+        get_template_part( 'template-parts/post/content', 'gallery' );
+    endif;
+     ?>
 
     <div class="site-post-content">
         <h2 class="site-post-title">
@@ -69,7 +76,10 @@ $basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_s
 <?php
 basictheme_comment_form();
 
-get_template_part( 'template-parts/post/inc','related-post' );
+if ( $basictheme_on_off_related_post == 1 ) :
+    get_template_part( 'template-parts/post/inc','related-post' );
+endif;
+
 
 
 

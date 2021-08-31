@@ -34,7 +34,7 @@ $basictheme_blog_per_row            =   $basictheme_options['basictheme_blog_per
                                         </h2>
 
 		                                <?php
-		                                basictheme_post_formats();
+                                        get_template_part( 'template-parts/post/content', 'image' );
 
 		                                basictheme_post_meta();
 		                                ?>

@@ -1,6 +1,6 @@
 <?php
 
-$basictheme_gallery_post = get_post_meta( get_the_ID(),'basictheme_gallery_post', false );
+$basictheme_gallery_post = get_post_meta( get_the_ID(),'basictheme_meta_box_post_gallery', false );
 
 if( !empty( $basictheme_gallery_post ) ) :
 

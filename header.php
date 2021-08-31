@@ -1,8 +1,3 @@
-<?php
-/*
- * The Header for our theme.
- */
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
