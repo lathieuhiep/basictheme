@@ -1,7 +1,7 @@
 <?php
 global $basictheme_options;
 
-$limit = $basictheme_options ['basictheme_opt_single_related_limit'];
+$limit = $basictheme_options ['basictheme_opt_single_related_limit'] ?? 3;
 $list_cate = get_the_terms(get_the_ID(), 'category');
 
 if (!empty($list_cate)):

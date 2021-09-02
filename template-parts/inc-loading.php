@@ -1,7 +1,7 @@
 <?php
 global $basictheme_options;
 
-$basictheme_show_loading = $basictheme_options['basictheme_opt_loading_show'] == '' ? '0' : $basictheme_options['basictheme_opt_loading_show'];
+$basictheme_show_loading = $basictheme_options['basictheme_opt_loading_show'] ?? '1';
 
 if(  $basictheme_show_loading == 1 ) :
 

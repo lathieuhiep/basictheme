@@ -279,7 +279,7 @@ function basictheme_get_social_url() {
 	$basictheme_opt_social_networks = basictheme_get_social_network();
 
 	foreach ( $basictheme_opt_social_networks as $basictheme_social ) :
-		$basictheme_social_url = $basictheme_options[ 'basictheme_opt_social_network_' . $basictheme_social['id'] ];
+		$basictheme_social_url = $basictheme_options[ 'basictheme_opt_social_network_' . $basictheme_social['id'] ] ?? '#';
 
 		if ( $basictheme_social_url ) :
 			?>
@@ -289,7 +289,6 @@ function basictheme_get_social_url() {
                     <i class="<?php echo esc_attr( $basictheme_social['icon'] ); ?>" aria-hidden="true"></i>
                 </a>
             </div>
-
 
 		<?php
 		endif;

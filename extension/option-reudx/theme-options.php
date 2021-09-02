@@ -178,6 +178,14 @@ Redux::set_section($basictheme_opt_name, array(
     'desc' => esc_html__('General all config', 'basictheme'),
     'customizer_width' => '400px',
     'icon' => 'el el-th-large',
+    'fields' => array(
+        array(
+            'id' => 'basictheme_opt_backtotop_show',
+            'type' => 'switch',
+            'title' => esc_html__('Back To Top On/Off', 'basictheme'),
+            'default' => true,
+        ),
+    )
 ));
 
 // Favicon Config
@@ -311,23 +319,21 @@ Redux::set_section($basictheme_opt_name, array(
     'title' => esc_html__('Contact us', 'basictheme'),
     'icon' => 'el el-inbox',
     'fields' => array(
-
         array(
-            'id' => 'basictheme_opt_contact_us_show_hide',
-            'type' => 'select',
-            'title' => esc_html__('Show Or Hide', 'basictheme'),
-            'default' => 1,
-            'options' => array(
-                1 => esc_html__('Show', 'basictheme'),
-                0 => esc_html__('Hide', 'basictheme')
-            )
+            'id' => 'basictheme_opt_contact_us_show',
+            'type' => 'switch',
+            'title' => esc_html__('Show contact us', 'basictheme'),
+            'on' => esc_html__('Yes', 'basictheme'),
+            'off' => esc_html__('No', 'basictheme'),
+            'default' => true,
         ),
 
         array(
             'id' => 'basictheme_opt_contact_us_address',
             'type' => 'text',
             'title' => esc_html__('Address', 'basictheme'),
-            'default' => '988782, Our Street, S State.',
+            'default' => '988782, Our Street, S State',
+            'required' => array('basictheme_opt_contact_us_show', '=', true),
         ),
 
         array(
@@ -335,6 +341,7 @@ Redux::set_section($basictheme_opt_name, array(
             'type' => 'text',
             'title' => esc_html__('Mail', 'basictheme'),
             'default' => 'info@domain.com',
+            'required' => array('basictheme_opt_contact_us_show', '=', true),
         ),
 
         array(
@@ -342,6 +349,7 @@ Redux::set_section($basictheme_opt_name, array(
             'type' => 'text',
             'title' => esc_html__('Phone', 'basictheme'),
             'default' => '+1 234 567 186',
+            'required' => array('basictheme_opt_contact_us_show', '=', true),
         ),
 
     )

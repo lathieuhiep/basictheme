@@ -1,7 +1,7 @@
 <?php
 global $basictheme_options;
 
-$basictheme_copyright = $basictheme_options ['basictheme_opt_footer_copyright_editor'] ? : 'Copyright &amp; DiepLK';
+$basictheme_copyright = $basictheme_options ['basictheme_opt_footer_copyright_editor'] ?? 'Copyright &amp; DiepLK';
 ?>
 
 <div class="site-footer__copyright">

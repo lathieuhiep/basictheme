@@ -3,7 +3,7 @@ get_header();
 
 global $basictheme_options;
 
-$basictheme_opt_single_post_sidebar = $basictheme_options['basictheme_opt_single_post_sidebar'] ? : 'right';
+$basictheme_opt_single_post_sidebar = $basictheme_options['basictheme_opt_single_post_sidebar'] ?? 'right';
 
 $basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_opt_single_post_sidebar, 'basictheme-sidebar-main' );
 

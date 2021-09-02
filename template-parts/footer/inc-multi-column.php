@@ -1,7 +1,7 @@
 <?php
 global $basictheme_options;
 
-$multi_column     =   $basictheme_options ["basictheme_opt_footer_multi_column"];
+$multi_column = $basictheme_options ["basictheme_opt_footer_multi_column"];
 
 if( is_active_sidebar( 'basictheme-sidebar-footer-multi-column-1' ) || is_active_sidebar( 'basictheme-sidebar-footer-multi-column-2' ) || is_active_sidebar( 'basictheme-sidebar-footer-multi-column-3' ) || is_active_sidebar( 'basictheme-sidebar-footer-multi-column-4' ) ) :
 

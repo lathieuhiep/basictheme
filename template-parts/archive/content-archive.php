@@ -1,9 +1,9 @@
 <?php
 global $basictheme_options;
 
-$basictheme_opt_blog_sidebar_archive = $basictheme_options['basictheme_opt_blog_sidebar_archive'] ?: 'right';
+$basictheme_opt_blog_sidebar_archive = $basictheme_options['basictheme_opt_blog_sidebar_archive'] ?? 'right';
 $basictheme_class_col_content = basictheme_col_use_sidebar($basictheme_opt_blog_sidebar_archive, 'basictheme-sidebar-main');
-$basictheme_opt_blog_per_row = $basictheme_options['basictheme_opt_blog_per_row'] ?: 3;
+$basictheme_opt_blog_per_row = $basictheme_options['basictheme_opt_blog_per_row'] ?? 3;
 ?>
 
 <div class="site-container site-blog">

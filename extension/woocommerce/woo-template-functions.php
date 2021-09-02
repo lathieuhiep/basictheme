@@ -1,5 +1,4 @@
 <?php
-
 /**
  * General functions used to integrate this theme with WooCommerce.
  */
@@ -21,29 +20,20 @@ add_filter('loop_shop_per_page', 'basictheme_show_products_per_page');
 function basictheme_show_products_per_page() {
     global $basictheme_options;
 
-    $basictheme_opt_shop_limit = $basictheme_options['basictheme_opt_shop_limit'];
-
-    return $basictheme_opt_shop_limit;
+    return $basictheme_options['basictheme_opt_shop_limit'];
 
 }
 /* End limit product */
 
-/* Start Change number or products per row */
+/* Start Change number of products per row */
 add_filter('loop_shop_columns', 'basictheme_loop_columns_product');
 
 function basictheme_loop_columns_product() {
     global $basictheme_options;
 
-    $basictheme_opt_shop_per_row = $basictheme_options['basictheme_opt_shop_per_row'];
-
-    if ( !empty( $basictheme_opt_shop_per_row ) ) :
-        return $basictheme_opt_shop_per_row;
-    else:
-        return 4;
-    endif;
-
+    return $basictheme_options['basictheme_opt_shop_per_row'] ?? 4;
 }
-/* End Change number or products per row */
+/* End Change number of products per row */
 
 /* Start get cart */
 if ( ! function_exists( 'basictheme_get_cart' ) ):
@@ -93,7 +83,7 @@ if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
     function basictheme_woo_get_sidebar() {
 
 	    global $basictheme_options;
-	    $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'];
+	    $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'] ?? 'left';
 
 
 	    if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
@@ -127,7 +117,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
      */
     function basictheme_woo_before_main_content() {
         global $basictheme_options;
-        $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'];
+        $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'] ?? 'left';
 
     ?>
 
@@ -159,17 +149,12 @@ if ( ! function_exists( 'basictheme_woo_after_main_content' ) ) :
      * Closes the wrapping divs
      */
     function basictheme_woo_after_main_content() {
-        global $basictheme_options;
-        $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'];
     ?>
-
                     </div><!-- .col-md-9 -->
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .site-shop -->
-
     <?php
-
     }
 
 endif;

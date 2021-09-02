@@ -40,7 +40,7 @@
 
             $basictheme_typo_selecter_1   =   $basictheme_options['basictheme_opt_custom_typography_1_selector'];
 
-            $basictheme_typo1_font_family   =   $basictheme_options['basictheme_opt_custom_typography_1']['font-family'] == '' ? '' : $basictheme_options['basictheme_opt_custom_typography_1']['font-family'];
+            $basictheme_typo1_font_family   =   $basictheme_options['basictheme_opt_custom_typography_1']['font-family'];
 
             $basictheme_css_style = '';
 
