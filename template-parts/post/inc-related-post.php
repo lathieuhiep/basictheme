@@ -1,7 +1,7 @@
 <?php
 global $basictheme_options;
 
-$limit = $basictheme_options ['basictheme_related_post_limit'];
+$limit = $basictheme_options ['basictheme_opt_single_related_limit'];
 $list_cate = get_the_terms(get_the_ID(), 'category');
 
 if (!empty($list_cate)):
@@ -10,14 +10,14 @@ if (!empty($list_cate)):
 
     foreach ($list_cate as $item) $list_cate_ids[] = $item->term_id;
 
-    $basictheme_post_related_arg = array(
+    $arg = array(
         'post_type' => 'post',
         'cat' => $list_cate_ids,
         'post__not_in' => array(get_the_ID()),
         'posts_per_page' => $limit,
     );
 
-    $query = new WP_Query($basictheme_post_related_arg);
+    $query = new WP_Query($arg);
 
     if ($query->have_posts()) :
         ?>

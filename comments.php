@@ -1,20 +1,4 @@
 <?php
-/**
- * The template for displaying comments
- *
- * The area of the page that contains both current comments
- * and the comment form.
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
-
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
- */
 if ( post_password_required() ) {
     return;
 }
@@ -92,35 +76,24 @@ if ( post_password_required() ) {
     <?php endif; ?>
 
     <?php
-
     $basictheme_commenter        =   wp_get_current_commenter();
     $basictheme_req              =   get_option( 'require_name_email' );
     $basictheme_comments_args    =   ( $basictheme_req ? " aria-required='true'" : '' );
 
     $basictheme_comments_args = array(
-
         'title_reply'       => '<span>'.esc_html__( 'Leave a comment','basictheme' ).'</span>',
-
         'fields' => apply_filters( 'comment_form_default_fields',
             array(
-
                 'comment_notes_before' => '<div class="comment-fields-row order-1"><div class="row">',
-
                 'author' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="author" placeholder="'.esc_html__('Full Name','basictheme').'" class="form-control" name="author" type="text" value="' . esc_attr( $basictheme_commenter['comment_author'] ) . '" size="30" ' . $basictheme_comments_args . ' /></div></div>',
-
                 'email' => '<div class="col-12 col-sm-6 col-md-6"><div class="form-comment-item"><input id="email" placeholder="'.esc_html__('Your Email','basictheme').'" class="form-control" name="email" type="text" value="' . esc_attr( $basictheme_commenter['comment_author_email'] ) . '" size="30" ' . $basictheme_comments_args . ' /></div></div>',
-
                 'comment_notes_after' => '</div></div>',
-
             )
         ),
-
         'comment_field' => '<div class="form-comment-item form-comment-field order-3"><textarea rows="7" id="comment" placeholder="'.esc_html__('Comment','basictheme').'" name="comment" class="form-control"></textarea></div>',
-
     );
 
     comment_form( $basictheme_comments_args );
-
     ?>
 
 </div><!-- .comments-area -->

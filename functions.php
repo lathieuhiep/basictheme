@@ -276,10 +276,10 @@ endif;
 function basictheme_get_social_url() {
 
 	global $basictheme_options;
-	$basictheme_social_networks = basictheme_get_social_network();
+	$basictheme_opt_social_networks = basictheme_get_social_network();
 
-	foreach ( $basictheme_social_networks as $basictheme_social ) :
-		$basictheme_social_url = $basictheme_options[ 'basictheme_social_network_' . $basictheme_social['id'] ];
+	foreach ( $basictheme_opt_social_networks as $basictheme_social ) :
+		$basictheme_social_url = $basictheme_options[ 'basictheme_opt_social_network_' . $basictheme_social['id'] ];
 
 		if ( $basictheme_social_url ) :
 			?>

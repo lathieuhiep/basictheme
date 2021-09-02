@@ -1,8 +1,8 @@
 <?php
 global $basictheme_options;
 
-$basictheme_on_off_share_single = $basictheme_options['basictheme_on_off_share_single'];
-$basictheme_on_off_related_post = $basictheme_options['basictheme_on_off_related_post'];
+$basictheme_opt_single_post_share = $basictheme_options['basictheme_opt_single_post_share'];
+$basictheme_opt_single_related_show = $basictheme_options['basictheme_opt_single_related_show'];
 
 $type_image = rwmb_meta( 'basictheme_meta_box_post_select_image' );
 ?>
@@ -64,7 +64,7 @@ $type_image = rwmb_meta( 'basictheme_meta_box_post_select_image' );
 
     <?php
 
-    if ( $basictheme_on_off_share_single == 1 || $basictheme_on_off_share_single == null ) :
+    if ( $basictheme_opt_single_post_share == 1 || $basictheme_opt_single_post_share == null ) :
 
         basictheme_post_share();
 
@@ -76,7 +76,7 @@ $type_image = rwmb_meta( 'basictheme_meta_box_post_select_image' );
 <?php
 basictheme_comment_form();
 
-if ( $basictheme_on_off_related_post == 1 ) :
+if ( $basictheme_opt_single_related_show == 1 ) :
     get_template_part( 'template-parts/post/inc','related-post' );
 endif;
 

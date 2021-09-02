@@ -1,7 +1,7 @@
 <?php
 global $basictheme_options;
 
-$basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['id'];
+$basictheme_opt_logo_image_id    =   $basictheme_options['basictheme_opt_logo_image']['id'];
 ?>
 
 <nav id="site-navigation" class="main-navigation">
@@ -11,8 +11,8 @@ $basictheme_logo_image_id    =   $basictheme_options['basictheme_logo_image']['i
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php
-                            if ( !empty( $basictheme_logo_image_id ) ) :
-                                echo wp_get_attachment_image( $basictheme_logo_image_id, 'full' );
+                            if ( !empty( $basictheme_opt_logo_image_id ) ) :
+                                echo wp_get_attachment_image( $basictheme_opt_logo_image_id, 'full' );
                             else :
                                 echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
                             endif;

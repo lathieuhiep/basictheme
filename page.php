@@ -8,11 +8,9 @@ $basictheme_class_elementor =   '';
 if ( $basictheme_check_elementor ) :
     $basictheme_class_elementor =   ' site-container-elementor';
 endif;
-
 ?>
 
     <main class="site-container<?php echo esc_attr( $basictheme_class_elementor ); ?>">
-
         <?php
         if ( $basictheme_check_elementor ) :
             get_template_part('template-parts/page/content','page-elementor');
@@ -20,7 +18,6 @@ endif;
             get_template_part('template-parts/page/content','page');
         endif;
         ?>
-
     </main>
 
 <?php 

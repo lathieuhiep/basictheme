@@ -1,12 +1,11 @@
 <?php
-
 global $basictheme_options;
 
-$basictheme_show_loading = $basictheme_options['basictheme_general_show_loading'] == '' ? '0' : $basictheme_options['basictheme_general_show_loading'];
+$basictheme_show_loading = $basictheme_options['basictheme_opt_loading_show'] == '' ? '0' : $basictheme_options['basictheme_opt_loading_show'];
 
 if(  $basictheme_show_loading == 1 ) :
 
-    $basictheme_loading_url  = $basictheme_options['basictheme_general_image_loading']['url'];
+    $basictheme_loading_url  = $basictheme_options['basictheme_opt_loading_image']['url'];
 ?>
 
     <div id="site-loadding" class="d-flex align-items-center justify-content-center">

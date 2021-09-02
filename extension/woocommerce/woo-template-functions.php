@@ -21,9 +21,9 @@ add_filter('loop_shop_per_page', 'basictheme_show_products_per_page');
 function basictheme_show_products_per_page() {
     global $basictheme_options;
 
-    $basictheme_product_limit = $basictheme_options['basictheme_product_limit'];
+    $basictheme_opt_shop_limit = $basictheme_options['basictheme_opt_shop_limit'];
 
-    return $basictheme_product_limit;
+    return $basictheme_opt_shop_limit;
 
 }
 /* End limit product */
@@ -34,10 +34,10 @@ add_filter('loop_shop_columns', 'basictheme_loop_columns_product');
 function basictheme_loop_columns_product() {
     global $basictheme_options;
 
-    $basictheme_products_per_row = $basictheme_options['basictheme_products_per_row'];
+    $basictheme_opt_shop_per_row = $basictheme_options['basictheme_opt_shop_per_row'];
 
-    if ( !empty( $basictheme_products_per_row ) ) :
-        return $basictheme_products_per_row;
+    if ( !empty( $basictheme_opt_shop_per_row ) ) :
+        return $basictheme_opt_shop_per_row;
     else:
         return 4;
     endif;
@@ -93,12 +93,12 @@ if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
     function basictheme_woo_get_sidebar() {
 
 	    global $basictheme_options;
-	    $basictheme_sidebar_woo_position = $basictheme_options['basictheme_sidebar_woo'];
+	    $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'];
 
 
 	    if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
 
-	        if ( $basictheme_sidebar_woo_position == 'left' ) :
+	        if ( $basictheme_opt_shop_sidebar_position == 'left' ) :
 		        $class_order = 'order-md-1';
 	        else:
 		        $class_order = 'order-md-2';
@@ -127,7 +127,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
      */
     function basictheme_woo_before_main_content() {
         global $basictheme_options;
-        $basictheme_sidebar_woo_position = $basictheme_options['basictheme_sidebar_woo'];
+        $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'];
 
     ?>
 
@@ -145,7 +145,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
 
                 ?>
 
-                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $basictheme_sidebar_woo_position != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
+                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $basictheme_opt_shop_sidebar_position != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
 
     <?php
 
@@ -160,7 +160,7 @@ if ( ! function_exists( 'basictheme_woo_after_main_content' ) ) :
      */
     function basictheme_woo_after_main_content() {
         global $basictheme_options;
-        $basictheme_sidebar_woo_position = $basictheme_options['basictheme_sidebar_woo'];
+        $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'];
     ?>
 
                     </div><!-- .col-md-9 -->
