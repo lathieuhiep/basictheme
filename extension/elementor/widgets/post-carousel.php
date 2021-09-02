@@ -21,7 +21,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fa fa-newspaper-o';
+        return 'eicon-slider-push';
     }
 
     public function get_script_depends() {
@@ -95,14 +95,15 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 'label'     =>  esc_html__( 'Show excerpt', 'basictheme' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
-                    '1' => [
-                        'title' =>  esc_html__( 'Yes', 'basictheme' ),
-                        'icon'  =>  'fa fa-check',
-                    ],
                     '0' => [
                         'title' =>  esc_html__( 'No', 'basictheme' ),
-                        'icon'  =>  'fa fa-ban',
-                    ]
+                        'icon'  =>  'eicon-ban',
+                    ],
+
+                    '1' => [
+                        'title' =>  esc_html__( 'Yes', 'basictheme' ),
+                        'icon'  =>  'eicon-check',
+                    ],
                 ],
                 'default' => '1'
             ]
@@ -380,19 +381,22 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 'options'   =>  [
                     'left'  =>  [
                         'title' =>  esc_html__( 'Left', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-left',
+                        'icon'  =>  'eicon-text-align-left',
                     ],
+
                     'center' => [
                         'title' =>  esc_html__( 'Center', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-center',
+                        'icon'  =>  'eicon-text-align-center',
                     ],
+
                     'right' => [
                         'title' =>  esc_html__( 'Right', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-right',
+                        'icon'  =>  'eicon-text-align-right',
                     ],
+
                     'justify'=> [
                         'title' =>  esc_html__( 'Justified', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-justify',
+                        'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
                 'toggle'    =>  true,
@@ -440,19 +444,19 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 'options'   =>  [
                     'left'  =>  [
                         'title' =>  esc_html__( 'Left', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-left',
+                        'icon'  =>  'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' =>  esc_html__( 'Center', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-center',
+                        'icon'  =>  'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' =>  esc_html__( 'Right', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-right',
+                        'icon'  =>  'eicon-text-align-right',
                     ],
                     'justify'=> [
                         'title' =>  esc_html__( 'Justified', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-justify',
+                        'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
                 'toggle'    =>  true,
@@ -501,86 +505,66 @@ class basictheme_widget_post_carousel extends Widget_Base {
 		    ],
 	    ];
 
-	    if ( !empty( $cat_post ) ) :
-
-            $args = array(
-                'post_type'             =>  'post',
-                'posts_per_page'        =>  $limit_post,
-                'orderby'               =>  $order_by_post,
-                'order'                 =>  $order_post,
-                'cat'                   =>  $cat_post,
-                'ignore_sticky_posts'   =>  1,
-            );
-
-        else:
-
-            $args = array(
-                'post_type'             =>  'post',
-                'posts_per_page'        =>  $limit_post,
-                'orderby'               =>  $order_by_post,
-                'order'                 =>  $order_post,
-                'ignore_sticky_posts'   =>  1,
-            );
-
-        endif;
+        // Query
+        $args = array(
+            'post_type'             =>  'post',
+            'posts_per_page'        =>  $limit_post,
+            'orderby'               =>  $order_by_post,
+            'order'                 =>  $order_post,
+            'cat'                   =>  $cat_post,
+            'ignore_sticky_posts'   =>  1,
+        );
 
         $query = new \ WP_Query( $args );
 
         if ( $query->have_posts() ) :
 
     ?>
+        <div class="element-post-carousel">
+            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+                <?php while ( $query->have_posts() ): $query->the_post(); ?>
 
-            <div class="element-post-carousel">
-                <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
-                    <?php while ( $query->have_posts() ): $query->the_post(); ?>
-
-                        <div class="item-post">
-                            <div class="item-post__thumbnail">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                    <?php
-                                    if ( has_post_thumbnail() ) :
-
-                                        the_post_thumbnail( 'large' );
-
-                                    else:
-
-                                    ?>
-
-                                        <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
-
-                                    <?php endif; ?>
-                                </a>
-                            </div>
-
-                            <div class="item-post_content">
-                                <h2 class="item-post__title">
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                        <?php the_title(); ?>
-                                    </a>
-                                </h2>
-
-                                <?php if ( $settings['show_excerpt'] == 1 ) : ?>
-
-                                    <div class="item-post__desc">
-                                        <p>
-                                            <?php
-                                            if ( has_excerpt() ) :
-                                                echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
-                                            else:
-                                                echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
-                                            endif;
-                                            ?>
-                                        </p>
-                                    </div>
-
+                    <div class="item-post">
+                        <div class="item-post__thumbnail">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <?php
+                                if ( has_post_thumbnail() ) :
+                                    the_post_thumbnail( 'large' );
+                                else:
+                                ?>
+                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
                                 <?php endif; ?>
-                            </div>
+                            </a>
                         </div>
 
-                    <?php endwhile; wp_reset_postdata(); ?>
-                </div>
-            </div>
+                        <div class="item-post_content">
+                            <h2 class="item-post__title">
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h2>
 
+                            <?php if ( $settings['show_excerpt'] == 1 ) : ?>
+
+                                <div class="item-post__desc">
+                                    <p>
+                                        <?php
+                                        if ( has_excerpt() ) :
+                                            echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
+                                        else:
+                                            echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
+                                        endif;
+                                        ?>
+                                    </p>
+                                </div>
+
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                <?php endwhile; wp_reset_postdata(); ?>
+            </div>
+        </div>
     <?php
 
         endif;

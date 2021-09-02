@@ -19,7 +19,7 @@ class basictheme_widget_post_grid extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'fa fa-newspaper-o';
+        return 'eicon-post-list';
     }
 
     protected function _register_controls() {
@@ -109,29 +109,21 @@ class basictheme_widget_post_grid extends Widget_Base {
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Image_Size::get_type(),
-            [
-                'name'      =>  'thumbnail',
-                'exclude'   =>  [ 'custom' ],
-                'default'   =>  'medium_large',
-            ]
-        );
-
         $this->add_control(
             'show_excerpt',
             [
                 'label'     =>  esc_html__( 'Show excerpt', 'basictheme' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
-                    '1' => [
-                        'title' =>  esc_html__( 'Yes', 'basictheme' ),
-                        'icon'  =>  'fa fa-check',
-                    ],
                     '0' => [
                         'title' =>  esc_html__( 'No', 'basictheme' ),
-                        'icon'  =>  'fa fa-ban',
-                    ]
+                        'icon'  =>  'eicon-ban',
+                    ],
+
+                    '1' => [
+                        'title' =>  esc_html__( 'Yes', 'basictheme' ),
+                        'icon'  =>  'eicon-check',
+                    ],
                 ],
                 'default' => '1'
             ]
@@ -210,19 +202,19 @@ class basictheme_widget_post_grid extends Widget_Base {
                 'options'   =>  [
                     'left'  =>  [
                         'title' =>  esc_html__( 'Left', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-left',
+                        'icon'  =>  'eicon-text-align-left',
                     ],
                     'center' => [
                         'title' =>  esc_html__( 'Center', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-center',
+                        'icon'  =>  'eicon-text-align-center',
                     ],
                     'right' => [
                         'title' =>  esc_html__( 'Right', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-right',
+                        'icon'  =>  'eicon-text-align-right',
                     ],
                     'justify'=> [
                         'title' =>  esc_html__( 'Justified', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-justify',
+                        'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
                 'toggle'    =>  true,
@@ -270,19 +262,22 @@ class basictheme_widget_post_grid extends Widget_Base {
                 'options'   =>  [
                     'left'  =>  [
                         'title' =>  esc_html__( 'Left', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-left',
+                        'icon'  =>  'eicon-text-align-left',
                     ],
+
                     'center' => [
                         'title' =>  esc_html__( 'Center', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-center',
+                        'icon'  =>  'eicon-text-align-center',
                     ],
+
                     'right' => [
                         'title' =>  esc_html__( 'Right', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-right',
+                        'icon'  =>  'eicon-text-align-right',
                     ],
+
                     'justify'=> [
                         'title' =>  esc_html__( 'Justified', 'basictheme' ),
-                        'icon'  =>  'fa fa-align-justify',
+                        'icon'  =>  'eicon-text-align-justify',
                     ],
                 ],
                 'toggle'    =>  true,
@@ -304,28 +299,15 @@ class basictheme_widget_post_grid extends Widget_Base {
         $order_by_post  =   $settings['order_by'];
         $order_post     =   $settings['order'];
 
-        if ( !empty( $cat_post ) ) :
-
-            $args = array(
-                'post_type'             =>  'post',
-                'posts_per_page'        =>  $limit_post,
-                'orderby'               =>  $order_by_post,
-                'order'                 =>  $order_post,
-                'cat'                   =>  $cat_post,
-                'ignore_sticky_posts'   =>  1,
-            );
-
-        else:
-
-            $args = array(
-                'post_type'             =>  'post',
-                'posts_per_page'        =>  $limit_post,
-                'orderby'               =>  $order_by_post,
-                'order'                 =>  $order_post,
-                'ignore_sticky_posts'   =>  1,
-            );
-
-        endif;
+        // Query
+        $args = array(
+            'post_type'             =>  'post',
+            'posts_per_page'        =>  $limit_post,
+            'orderby'               =>  $order_by_post,
+            'order'                 =>  $order_post,
+            'cat'                   =>  $cat_post,
+            'ignore_sticky_posts'   =>  1,
+        );
 
         $query = new \ WP_Query( $args );
 
@@ -341,14 +323,12 @@ class basictheme_widget_post_grid extends Widget_Base {
                             <div class="item-post">
                                 <div class="item-post__thumbnail">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                                        <?php if ( has_post_thumbnail() ) : ?>
-
-                                            <img src="<?php echo esc_url( Group_Control_Image_Size::get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail', $settings ) ); ?>" alt="<?php the_title(); ?>">
-
-                                        <?php else: ?>
-
+                                        <?php
+                                        if ( has_post_thumbnail() ) :
+                                            the_post_thumbnail('large');
+                                        else:
+                                        ?>
                                             <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="<?php the_title(); ?>" />
-
                                         <?php endif; ?>
                                     </a>
                                 </div>

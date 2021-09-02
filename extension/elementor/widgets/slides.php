@@ -19,7 +19,7 @@ class basictheme_widget_slides extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-slideshow';
+        return 'eicon-slides';
     }
 
     public function get_script_depends() {
@@ -275,17 +275,17 @@ class basictheme_widget_slides extends Widget_Base {
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
-                    'left' => [
-                        'title' => esc_html__( 'Left', 'basictheme' ),
-                        'icon' => 'fa fa-align-left',
+                    'left'  =>  [
+                        'title' =>  esc_html__( 'Left', 'basictheme' ),
+                        'icon'  =>  'eicon-text-align-left',
                     ],
                     'center' => [
-                        'title' => esc_html__( 'Center', 'basictheme' ),
-                        'icon' => 'fa fa-align-center',
+                        'title' =>  esc_html__( 'Center', 'basictheme' ),
+                        'icon'  =>  'eicon-text-align-center',
                     ],
                     'right' => [
-                        'title' => esc_html__( 'Right', 'basictheme' ),
-                        'icon' => 'fa fa-align-right',
+                        'title' =>  esc_html__( 'Right', 'basictheme' ),
+                        'icon'  =>  'eicon-text-align-right',
                     ],
                 ],
                 'selectors' => [
@@ -525,17 +525,19 @@ class basictheme_widget_slides extends Widget_Base {
                 'type' => Controls_Manager::CHOOSE,
                 'label_block' => false,
                 'options' => [
-                    'left' => [
-                        'title' => esc_html__( 'Left', 'basictheme' ),
-                        'icon' => 'fa fa-align-left',
+                    'left'  =>  [
+                        'title' =>  esc_html__( 'Left', 'basictheme' ),
+                        'icon'  =>  'eicon-text-align-left',
                     ],
+
                     'center' => [
-                        'title' => esc_html__( 'Center', 'basictheme' ),
-                        'icon' => 'fa fa-align-center',
+                        'title' =>  esc_html__( 'Center', 'basictheme' ),
+                        'icon'  =>  'eicon-text-align-center',
                     ],
+
                     'right' => [
-                        'title' => esc_html__( 'Right', 'basictheme' ),
-                        'icon' => 'fa fa-align-right',
+                        'title' =>  esc_html__( 'Right', 'basictheme' ),
+                        'icon'  =>  'eicon-text-align-right',
                     ],
                 ],
                 'default' => 'center',
