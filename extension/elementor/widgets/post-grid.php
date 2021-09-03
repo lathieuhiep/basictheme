@@ -24,11 +24,12 @@ class basictheme_widget_post_grid extends Widget_Base {
 
     protected function _register_controls() {
 
-        /* Section Query */
+        // Content query
         $this->start_controls_section(
-            'section_query',
+            'content_query',
             [
-                'label' =>  esc_html__( 'Query', 'basictheme' )
+                'label' => esc_html__( 'Query', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -86,11 +87,12 @@ class basictheme_widget_post_grid extends Widget_Base {
 
         $this->end_controls_section();
 
-        /* Section Layout */
+        // Content layout
         $this->start_controls_section(
-            'section_layout',
+            'content_layout',
             [
-                'label' =>  esc_html__( 'Layout Settings', 'basictheme' )
+                'label' => esc_html__( 'Layout Settings', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -101,10 +103,10 @@ class basictheme_widget_post_grid extends Widget_Base {
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  3,
                 'options'   =>  [
-                    4   =>  esc_html__( '4 Column', 'basictheme' ),
-                    3   =>  esc_html__( '3 Column', 'basictheme' ),
-                    2   =>  esc_html__( '2 Column', 'basictheme' ),
                     1   =>  esc_html__( '1 Column', 'basictheme' ),
+                    2   =>  esc_html__( '2 Column', 'basictheme' ),
+                    3   =>  esc_html__( '3 Column', 'basictheme' ),
+                    4   =>  esc_html__( '4 Column', 'basictheme' ),
                 ],
             ]
         );
@@ -115,17 +117,17 @@ class basictheme_widget_post_grid extends Widget_Base {
                 'label'     =>  esc_html__( 'Show excerpt', 'basictheme' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
-                    '0' => [
-                        'title' =>  esc_html__( 'No', 'basictheme' ),
-                        'icon'  =>  'eicon-ban',
-                    ],
-
-                    '1' => [
+                    'show' => [
                         'title' =>  esc_html__( 'Yes', 'basictheme' ),
                         'icon'  =>  'eicon-check',
                     ],
+
+                    'hide' => [
+                        'title' =>  esc_html__( 'No', 'basictheme' ),
+                        'icon'  =>  'eicon-ban',
+                    ]
                 ],
-                'default' => '1'
+                'default' => 'show'
             ]
         );
 
@@ -136,34 +138,24 @@ class basictheme_widget_post_grid extends Widget_Base {
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  '10',
                 'condition' =>  [
-                    'show_excerpt' => '1',
+                    'show_excerpt' => 'show',
                 ],
             ]
         );
 
         $this->end_controls_section();
 
-        /* Section style post */
+        // Style title
         $this->start_controls_section(
-            'section_style_post',
+            'style_title',
             [
-                'label' => esc_html__( 'Color & Typography', 'basictheme' ),
+                'label' => esc_html__( 'Title', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
-        // Style title post
         $this->add_control(
-            'title_post_options',
-            [
-                'label'     =>  esc_html__( 'Title Post', 'basictheme' ),
-                'type'      =>  Controls_Manager::HEADING,
-                'separator' =>  'before',
-            ]
-        );
-
-        $this->add_control(
-            'title_post_color',
+            'title_color',
             [
                 'label'     =>  esc_html__( 'Color', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
@@ -175,7 +167,7 @@ class basictheme_widget_post_grid extends Widget_Base {
         );
 
         $this->add_control(
-            'title_post_color_hover',
+            'title_color_hover',
             [
                 'label'     =>  esc_html__( 'Color Hover', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
@@ -189,13 +181,13 @@ class basictheme_widget_post_grid extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'title_post_typography',
+                'name' => 'title_typography',
                 'selector' => '{{WRAPPER}} .element-post-grid .item-post .item-post__title',
             ]
         );
 
         $this->add_control(
-            'title_post_alignment',
+            'title_alignment',
             [
                 'label'     =>  esc_html__( 'Title Alignment', 'basictheme' ),
                 'type'      =>  Controls_Manager::CHOOSE,
@@ -224,13 +216,17 @@ class basictheme_widget_post_grid extends Widget_Base {
             ]
         );
 
-        // Style excerpt post
-        $this->add_control(
-            'excerpt_post_options',
+        $this->end_controls_section();
+
+        // Style excerpt
+        $this->start_controls_section(
+            'style_excerpt',
             [
-                'label'     =>  esc_html__( 'Excerpt Post', 'basictheme' ),
-                'type'      =>  Controls_Manager::HEADING,
-                'separator' =>  'before',
+                'label' => esc_html__( 'Excerpt', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' =>  [
+                    'show_excerpt' => 'show',
+                ],
             ]
         );
 
@@ -241,7 +237,7 @@ class basictheme_widget_post_grid extends Widget_Base {
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
-                    '{{WRAPPER}} .element-post-grid .item-post .item-post__content p'   =>  'color: {{VALUE}};',
+                    '{{WRAPPER}} .element-post-grid .item-post .item-post__content p' => 'color: {{VALUE}};',
                 ],
             ]
         );
@@ -339,7 +335,7 @@ class basictheme_widget_post_grid extends Widget_Base {
                                     </a>
                                 </h2>
 
-                                <?php if ( $settings['show_excerpt'] == 1 ) : ?>
+                                <?php if ( $settings['show_excerpt'] == 'show' ) : ?>
 
                                     <div class="item-post__content">
                                         <p>

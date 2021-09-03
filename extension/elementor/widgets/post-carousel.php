@@ -30,11 +30,12 @@ class basictheme_widget_post_carousel extends Widget_Base {
 
     protected function _register_controls() {
 
-        /* Section Query */
+        // Content query
         $this->start_controls_section(
-            'section_query',
+            'content_query',
             [
-                'label' =>  esc_html__( 'Query', 'basictheme' )
+                'label' => esc_html__( 'Query', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -95,17 +96,17 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 'label'     =>  esc_html__( 'Show excerpt', 'basictheme' ),
                 'type'      =>  Controls_Manager::CHOOSE,
                 'options'   =>  [
-                    '0' => [
-                        'title' =>  esc_html__( 'No', 'basictheme' ),
-                        'icon'  =>  'eicon-ban',
-                    ],
-
-                    '1' => [
+                    'show' => [
                         'title' =>  esc_html__( 'Yes', 'basictheme' ),
                         'icon'  =>  'eicon-check',
                     ],
+
+                    'hide' => [
+                        'title' =>  esc_html__( 'No', 'basictheme' ),
+                        'icon'  =>  'eicon-ban',
+                    ],
                 ],
-                'default' => '1'
+                'default' => 'show'
             ]
         );
 
@@ -116,18 +117,19 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 'type'      =>  Controls_Manager::NUMBER,
                 'default'   =>  '10',
                 'condition' =>  [
-                    'show_excerpt' => '1',
+                    'show_excerpt' => 'show',
                 ],
             ]
         );
 
         $this->end_controls_section();
 
-        /* Section Layout */
+        // Content layout
         $this->start_controls_section(
-            'section_layout',
+            'content_layout',
             [
-                'label' =>  esc_html__( 'Layout Settings', 'basictheme' )
+                'label' => esc_html__( 'Layout Settings', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -322,45 +324,35 @@ class basictheme_widget_post_carousel extends Widget_Base {
 
         $this->end_controls_section();
 
-        /* Section style post */
+        // Style title
         $this->start_controls_section(
-            'section_style_post',
+            'style_title',
             [
-                'label' => esc_html__( 'Color & Typography', 'basictheme' ),
+                'label' => esc_html__( 'Title', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_STYLE
             ]
         );
 
-        // Style title post
         $this->add_control(
-            'title_post_options',
-            [
-                'label'     =>  esc_html__( 'Title Post', 'basictheme' ),
-                'type'      =>  Controls_Manager::HEADING,
-                'separator' =>  'before',
-            ]
-        );
-
-        $this->add_control(
-            'title_post_color',
+            'title_color',
             [
                 'label'     =>  esc_html__( 'Color', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post__title a'   =>  'color: {{VALUE}};',
+                    '{{WRAPPER}} .element-post-carousel .item-post__content .title a'   =>  'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->add_control(
-            'title_post_color_hover',
+            'title_color_hover',
             [
                 'label'     =>  esc_html__( 'Color Hover', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post__title a:hover'   =>  'color: {{VALUE}};',
+                    '{{WRAPPER}} .element-post-carousel .item-post__content .title a:hover'   =>  'color: {{VALUE}};',
                 ],
             ]
         );
@@ -368,13 +360,13 @@ class basictheme_widget_post_carousel extends Widget_Base {
         $this->add_group_control(
             Group_Control_Typography::get_type(),
             [
-                'name' => 'title_post_typography',
-                'selector' => '{{WRAPPER}} .element-post-carousel .item-post .item-post__title',
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .element-post-carousel .item-post__content .title',
             ]
         );
 
         $this->add_control(
-            'title_post_alignment',
+            'title_alignment',
             [
                 'label'     =>  esc_html__( 'Title Alignment', 'basictheme' ),
                 'type'      =>  Controls_Manager::CHOOSE,
@@ -401,18 +393,22 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 ],
                 'toggle'    =>  true,
                 'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post .item-post__title'   =>  'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .element-post-carousel .item-post__content .title'   =>  'text-align: {{VALUE}};',
                 ]
             ]
         );
 
-        // Style excerpt post
-        $this->add_control(
-            'excerpt_post_options',
+        $this->end_controls_section();
+
+        // Style excerpt
+        $this->start_controls_section(
+            'style_excerpt',
             [
-                'label'     =>  esc_html__( 'Excerpt Post', 'basictheme' ),
-                'type'      =>  Controls_Manager::HEADING,
-                'separator' =>  'before',
+                'label' => esc_html__( 'Excerpt', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE,
+                'condition' =>  [
+                    'show_excerpt' => 'show',
+                ],
             ]
         );
 
@@ -423,7 +419,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 'type'      =>  Controls_Manager::COLOR,
                 'default'   =>  '',
                 'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post .item-post__content p'   =>  'color: {{VALUE}};',
+                    '{{WRAPPER}} .element-post-carousel .item-post__content .desc p'   =>  'color: {{VALUE}};',
                 ],
             ]
         );
@@ -432,7 +428,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
             Group_Control_Typography::get_type(),
             [
                 'name' => 'excerpt_typography',
-                'selector' => '{{WRAPPER}} .element-post-carousel .item-post .item-post__content p',
+                'selector' => '{{WRAPPER}} .element-post-carousel .item-post__content .desc p',
             ]
         );
 
@@ -446,14 +442,17 @@ class basictheme_widget_post_carousel extends Widget_Base {
                         'title' =>  esc_html__( 'Left', 'basictheme' ),
                         'icon'  =>  'eicon-text-align-left',
                     ],
+
                     'center' => [
                         'title' =>  esc_html__( 'Center', 'basictheme' ),
                         'icon'  =>  'eicon-text-align-center',
                     ],
+
                     'right' => [
                         'title' =>  esc_html__( 'Right', 'basictheme' ),
                         'icon'  =>  'eicon-text-align-right',
                     ],
+
                     'justify'=> [
                         'title' =>  esc_html__( 'Justified', 'basictheme' ),
                         'icon'  =>  'eicon-text-align-justify',
@@ -461,7 +460,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
                 ],
                 'toggle'    =>  true,
                 'selectors' =>  [
-                    '{{WRAPPER}} .element-post-carousel .item-post .item-post__content p'   =>  'text-align: {{VALUE}};',
+                    '{{WRAPPER}} .element-post-carousel .item-post__content .desc p'   =>  'text-align: {{VALUE}};',
                 ]
             ]
         );
@@ -489,16 +488,20 @@ class basictheme_widget_post_carousel extends Widget_Base {
 				    'items'     =>  $settings['item_567'],
 				    'margin'    =>  $settings['margin_item_567']
 			    ),
+
 			    '576' => array(
 				    'items'     =>  $settings['item_568'],
 				    'margin'    =>  $settings['margin_item_568']
 			    ),
+
 			    '768' => array(
 				    'items'     =>  $settings['item_768']
 			    ),
+
 			    '992' => array(
 				    'items'     =>  $settings['item_992']
 			    ),
+
 			    '1200' => array(
 				    'items'     =>  $settings['item']
 			    ),
@@ -537,16 +540,16 @@ class basictheme_widget_post_carousel extends Widget_Base {
                             </a>
                         </div>
 
-                        <div class="item-post_content">
-                            <h2 class="item-post__title">
+                        <div class="item-post__content">
+                            <h2 class="title">
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                     <?php the_title(); ?>
                                 </a>
                             </h2>
 
-                            <?php if ( $settings['show_excerpt'] == 1 ) : ?>
+                            <?php if ( $settings['show_excerpt'] == 'show' ) : ?>
 
-                                <div class="item-post__desc">
+                                <div class="desc">
                                     <p>
                                         <?php
                                         if ( has_excerpt() ) :

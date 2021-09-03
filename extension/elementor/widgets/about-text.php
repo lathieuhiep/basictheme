@@ -24,10 +24,12 @@ class basictheme_widget_about_text extends Widget_Base {
 
     protected function _register_controls() {
 
+        // Content heading
         $this->start_controls_section(
-            'section_heading',
+            'content_heading',
             [
-                'label' => esc_html__( 'Heading', 'basictheme' ),
+                'label' => __( 'Heading', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -43,10 +45,12 @@ class basictheme_widget_about_text extends Widget_Base {
 
         $this->end_controls_section();
 
+        // Content description
         $this->start_controls_section(
-            'section_description',
+            'content_description',
             [
-                'label' => esc_html__( 'Description', 'basictheme' ),
+                'label' => __( 'description', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -61,11 +65,14 @@ class basictheme_widget_about_text extends Widget_Base {
 
         $this->end_controls_section();
 
-        /*STYLE TAB*/
-        $this->start_controls_section('style', array(
-            'label' =>  esc_html__( 'Style', 'basictheme' ),
-            'tab'   =>  Controls_Manager::TAB_STYLE,
-        ));
+        // Style Heading
+        $this->start_controls_section(
+            'style_heading',
+            [
+                'label' => esc_html__( 'Heading', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
 
         $this->add_control(
             'align',
@@ -102,7 +109,7 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label'     =>  __( 'Heading Color', 'basictheme' ),
+                'label'     =>  __( 'Color', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__title' => 'color: {{VALUE}}',
@@ -110,14 +117,43 @@ class basictheme_widget_about_text extends Widget_Base {
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'heading_typography',
+                'label' => __( 'Typography', 'basictheme' ),
+                'selector' => '{{WRAPPER}} .element-about-text__title',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Style Heading
+        $this->start_controls_section(
+            'style_description',
+            [
+                'label' => esc_html__( 'Description', 'basictheme' ),
+                'tab' => Controls_Manager::TAB_STYLE
+            ]
+        );
+
         $this->add_control(
             'description_color',
             [
-                'label'     =>  __( 'Description Color', 'basictheme' ),
+                'label'     =>  __( 'Color', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__description' => 'color: {{VALUE}}',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'description_typography',
+                'label' => __( 'Typography', 'basictheme' ),
+                'selector' => '{{WRAPPER}} .element-about-text__description',
             ]
         );
 
