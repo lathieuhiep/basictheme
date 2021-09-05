@@ -17,6 +17,9 @@
         /* Element post carousel */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-post-carousel.default', ElementCarouselSlider );
 
+        /* Element testimonial slider */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-testimonial-slider.default', ElementCarouselSlider );
+
     } );
 
 })( jQuery );

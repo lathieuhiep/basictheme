@@ -124,11 +124,11 @@ class basictheme_widget_post_carousel extends Widget_Base {
 
         $this->end_controls_section();
 
-        // Content layout
+        // Content additional options
         $this->start_controls_section(
-            'content_layout',
+            'content_additional_options',
             [
-                'label' => esc_html__( 'Layout Settings', 'basictheme' ),
+                'label' => esc_html__( 'Additional Options', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );

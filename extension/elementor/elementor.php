@@ -53,6 +53,7 @@ final class basictheme_plugin_elementor_widgets {
             'post-grid',
             'post-carousel',
             'slides',
+            'testimonial-slider'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :
