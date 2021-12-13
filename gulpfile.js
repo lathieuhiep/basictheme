@@ -1,5 +1,7 @@
-const gulp = require('gulp'),
-    sass = require('gulp-sass'),
+'use strict';
+
+let gulp = require('gulp'),
+    sass = require('gulp-sass')(require('sass')),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),

@@ -3,9 +3,9 @@ get_header();
 
 global $basictheme_options;
 
-$basictheme_title = $basictheme_options['basictheme_404_title'];
-$basictheme_content = $basictheme_options['basictheme_404_editor'];
-$basictheme_background = $basictheme_options['basictheme_404_background']['id'];
+$basictheme_title = $basictheme_options['basictheme_opt_404_title'];
+$basictheme_content = $basictheme_options['basictheme_opt_404_editor'];
+$basictheme_background = $basictheme_options['basictheme_opt_404_background']['id'];
 
 ?>
 

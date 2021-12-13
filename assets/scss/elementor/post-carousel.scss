@@ -4,15 +4,12 @@
     @include flex-direction(column);
     @include flex(1);
 
-    .item-post_content {
+    &__content {
       padding: 15px;
       border: 1px solid $border-color;
-      @include flexbox();
-      @include flex-direction(column);
-      @include flex(1);
 
-      .item-post__title {
-        @include flex(1);
+      .title {
+        font-size: 18px;
       }
     }
   }

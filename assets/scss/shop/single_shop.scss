@@ -33,6 +33,10 @@
             width: 50%;
             padding: 0 15px;
             margin: 0;
+
+            .woocommerce-product-details__short-description {
+              margin-bottom: 10px;
+            }
           }
         }
         .product_title {
@@ -50,6 +54,7 @@
         }
         .price {
           margin: 0 0 10px;
+          color: $color-hover;
         }
         form {
           &.cart {

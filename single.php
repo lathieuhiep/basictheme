@@ -3,9 +3,9 @@ get_header();
 
 global $basictheme_options;
 
-$basictheme_blog_sidebar_single = !empty( $basictheme_options['basictheme_blog_sidebar_single'] ) ? $basictheme_options['basictheme_blog_sidebar_single'] : 'right';
+$basictheme_opt_single_post_sidebar = $basictheme_options['basictheme_opt_single_post_sidebar'] ?? 'right';
 
-$basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_blog_sidebar_single, 'basictheme-sidebar-main' );
+$basictheme_class_col_content = basictheme_col_use_sidebar( $basictheme_opt_single_post_sidebar, 'basictheme-sidebar-main' );
 
 get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
@@ -27,7 +27,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
             </div>
 
             <?php
-            if ( $basictheme_blog_sidebar_single !== 'hide' ) :
+            if ( $basictheme_opt_single_post_sidebar !== 'hide' ) :
 	            get_sidebar();
             endif;
             ?>

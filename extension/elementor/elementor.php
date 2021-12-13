@@ -49,10 +49,11 @@ final class basictheme_plugin_elementor_widgets {
     public function init_widgets() {
 
         $build_widgets_filename = [
-            'slides',
+            'about-text',
             'post-grid',
             'post-carousel',
-            'about-text',
+            'slides',
+            'testimonial-slider'
         ];
         
         foreach ( $build_widgets_filename as $widget_filename ) :

@@ -50,12 +50,14 @@
 
     });
 
+    // loading
     $( window ).on( "load", function() {
 
         $( '#site-loadding' ).remove();
 
     });
 
+    // scroll event
     $( window ).scroll( function() {
 
         if ( timer_clear ) clearTimeout(timer_clear);
@@ -76,6 +78,7 @@
 
     });
 
+    // function call owlCarousel
     $.fn.general_owlCarousel_custom = function ( class_item ) {
 
         let class_item_owlCarousel   =   $( class_item );

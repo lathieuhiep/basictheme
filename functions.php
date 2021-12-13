@@ -52,12 +52,6 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 
 		/*  Post Type   */
 		add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio' ) );
-
-		/*
-		* This theme styles the visual editor to resemble the theme style,
-		* specifically font, colors, icons, and column width.
-		*/
-		add_editor_style( array( 'css/editor-style.css', basictheme_fonts_url() ) );
 	}
 
 	add_action( 'after_setup_theme', 'basictheme_setup' );
@@ -85,13 +79,14 @@ if ( class_exists( 'RW_Meta_Box' ) ) {
 	/*
 	 * Required: Meta Box Framework
 	 */
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-options.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
 
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
 
-	function rwmb_meta( $key, $args = '', $post_id = null ) {
+	function rwmb_meta( $key, $args = '', $post_id = null ): bool
+    {
 		return false;
 	}
 
@@ -114,6 +109,7 @@ if ( class_exists( 'Woocommerce' ) ) :
 	/*
 	 * Required: Woocommerce
 	 */
+    require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
@@ -129,19 +125,6 @@ require get_parent_theme_file_path( '/includes/register-sidebar.php' );
  * Required: Theme Scripts
  */
 require get_parent_theme_file_path( '/includes/theme-scripts.php' );
-
-/* post formats */
-function basictheme_post_formats() {
-
-	if ( has_post_format( 'audio' ) || has_post_format( 'video' ) ):
-		get_template_part( 'template-parts/post/content', 'video' );
-    elseif ( has_post_format( 'gallery' ) ):
-		get_template_part( 'template-parts/post/content', 'gallery' );
-	else:
-		get_template_part( 'template-parts/post/content', 'image' );
-	endif;
-
-}
 
 /**
  * Show full editor
@@ -293,10 +276,10 @@ endif;
 function basictheme_get_social_url() {
 
 	global $basictheme_options;
-	$basictheme_social_networks = basictheme_get_social_network();
+	$basictheme_opt_social_networks = basictheme_get_social_network();
 
-	foreach ( $basictheme_social_networks as $basictheme_social ) :
-		$basictheme_social_url = $basictheme_options[ 'basictheme_social_network_' . $basictheme_social['id'] ];
+	foreach ( $basictheme_opt_social_networks as $basictheme_social ) :
+		$basictheme_social_url = $basictheme_options[ 'basictheme_opt_social_network_' . $basictheme_social['id'] ] ?? '#';
 
 		if ( $basictheme_social_url ) :
 			?>
@@ -307,21 +290,19 @@ function basictheme_get_social_url() {
                 </a>
             </div>
 
-
 		<?php
 		endif;
 
 	endforeach;
 }
 
-function basictheme_get_social_network() {
+function basictheme_get_social_network(): array
+{
 	return array(
-
 		array( 'id' => 'facebook', 'icon' => 'fab fa-facebook-f' ),
 		array( 'id' => 'youtube', 'icon' => 'fab fa-youtube' ),
 		array( 'id' => 'twitter', 'icon' => 'fab fa-twitter' ),
 		array( 'id' => 'instagram', 'icon' => 'fab fa-instagram' ),
-
 	);
 }
 
@@ -376,13 +357,12 @@ function basictheme_sanitize_pagination( $basictheme_content ) {
 	$basictheme_content = str_replace( 'role="navigation"', '', $basictheme_content );
 
 	// Remove h2 tag
-	$basictheme_content = preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $basictheme_content );
-
-	return $basictheme_content;
+    return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $basictheme_content );
 }
 
 /* Start Get col global */
-function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
+function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ): string
+{
 
 	if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
 
@@ -400,10 +380,9 @@ function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ) {
 	return $class_col_content;
 }
 
-function basictheme_col_sidebar() {
-	$class_col_sidebar = 'col-12 col-md-4 col-lg-3';
-
-	return $class_col_sidebar;
+function basictheme_col_sidebar(): string
+{
+    return 'col-12 col-md-4 col-lg-3';
 }
 
 /* End Get col global */
@@ -467,7 +446,8 @@ function basictheme_comment_form() {
 /* End comment */
 
 /* Start get Category check box */
-function basictheme_check_get_cat( $type_taxonomy ) {
+function basictheme_check_get_cat( $type_taxonomy ): array
+{
 	$cat_check = array();
 	$category  = get_terms(
 		array(
@@ -494,21 +474,11 @@ function basictheme_post_share() {
 
 	?>
     <div class="site-post-share">
-        <div class="fb-like" data-href="<?php the_permalink(); ?>" data-width="" data-layout="button_count"
-             data-share="true" data-action="like" data-size="small"></div>
+        <iframe src="https://www.facebook.com/plugins/like.php?href=<?php the_permalink(); ?>&width=150&layout=button&action=like&size=large&share=true&height=30&appId=612555202942781" width="150" height="30" style="border:none;overflow:hidden" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
 	<?php
 
 }
-
-/* Start opengraph */
-function basictheme_doctype_opengraph( $output ) {
-	return $output . '
- xmlns:og="http://opengraphprotocol.org/schema/"
- xmlns:fb="http://www.facebook.com/2008/fbml"';
-}
-
-add_filter( 'language_attributes', 'basictheme_doctype_opengraph' );
 
 function basictheme_opengraph() {
 	global $post;
@@ -521,21 +491,21 @@ function basictheme_opengraph() {
 			$img_src = get_theme_file_uri( '/images/no-image.png' );
 		endif;
 
-		if ( $excerpt = $post->post_excerpt ) :
+        $excerpt = $post->post_excerpt;
+
+		if ( $excerpt ) :
 			$excerpt = strip_tags( $post->post_excerpt );
 			$excerpt = str_replace( "", "'", $excerpt );
 		else :
 			$excerpt = get_bloginfo( 'description' );
 		endif;
 
-		?>
-        <meta property="og:title" content="<?php the_title(); ?>"/>
-        <meta property="og:description" content="<?php echo esc_attr( $excerpt ); ?>"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:url" content="<?php the_permalink(); ?>"/>
-        <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo() ); ?>"/>
-        <meta property="og:image" content="<?php echo esc_url( $img_src ); ?>"/>
-
+    ?>
+        <meta property="og:url" content="<?php the_permalink(); ?>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="<?php the_title(); ?>" />
+        <meta property="og:description" content="<?php echo esc_attr( $excerpt ); ?>" />
+        <meta property="og:image" content="<?php echo esc_url( $img_src ); ?>" />
 	<?php
 
 	else :
@@ -546,30 +516,16 @@ function basictheme_opengraph() {
 add_action( 'wp_head', 'basictheme_opengraph', 5 );
 /* End opengraph */
 
-/* Start Facebook SDK */
-function basictheme_facebook_sdk() {
-	if ( is_single() ) :
-		?>
-        <div id="fb-root"></div>
-
-        <script async defer crossorigin="anonymous"
-                src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
-	<?php
-	endif;
-}
-
-add_action( 'wp_footer', 'basictheme_facebook_sdk' );
-/* End share */
-
 /**
  * This function modifies the main WordPress query to include an array of
  * post types instead of the default 'post' post type.
  *
  * @param object $query The main WordPress query.
  */
-function beecolor_include_custom_post_types_in_search_results( $query ) {
+function basictheme_include_custom_post_types_in_search_results( $query ) {
 	if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
 		$query->set( 'post_type', array( 'post' ) );
 	}
 }
-add_action( 'pre_get_posts', 'beecolor_include_custom_post_types_in_search_results' );
+add_action( 'pre_get_posts', 'basictheme_include_custom_post_types_in_search_results' );
+

@@ -38,7 +38,7 @@ class basictheme_recent_post_widget extends WP_Widget {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
 
-        $limit      =   isset( $instance['number'] ) ? $instance['number'] : 5;
+        $limit      = $instance['number'] ?? 5;
         $cat_ids    =   !empty( $instance['select_cat'] ) ? $instance['select_cat'] : array( '0' );
 
         if ( in_array( 0, $cat_ids ) ) :
@@ -126,10 +126,10 @@ class basictheme_recent_post_widget extends WP_Widget {
 
         $instance = wp_parse_args( (array) $instance, $defaults );
 
-        $number     =   isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-        $select_cat =   isset( $instance['select_cat'] ) ? $instance['select_cat'] : array( '0' );
-        $order      =   isset( $instance['order'] ) ? $instance['order'] : 'ASC';
-        $order_by   =   isset( $instance['order_by'] ) ? $instance['order_by'] : 'ID';
+        $number     = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
+        $select_cat = $instance['select_cat'] ?? array('0');
+        $order      = $instance['order'] ?? 'ASC';
+        $order_by   = $instance['order_by'] ?? 'ID';
 
         $terms = get_terms( array(
             'taxonomy'  =>  'category',

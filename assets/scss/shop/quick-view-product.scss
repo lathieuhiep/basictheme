@@ -1,12 +1,13 @@
 .btn-quick-view-product {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
+  padding: 5px;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
   text-align: center;
-  color: #ffffff;
-  @include border-radius(4px);
-  background-color: $background-primary;
+  color: $color-white;
+  background-color: $background-second;
+  visibility: hidden;
   @include transition();
 
   &:hover {
@@ -14,6 +15,7 @@
     background-color: $background-hover;
   }
 }
+
 .modal {
   &.mode-quick-view-product {
     .modal-dialog {
@@ -24,13 +26,71 @@
         min-height: 100px;
       }
     }
+
     .item-rating {
       .star-rating {
         float: none;
       }
     }
+
+    .content_product_detail {
+      .title-product {
+        font-size: 26px;
+      }
+
+      > div {
+        margin-bottom: 12px;
+      }
+
+      .item-price {
+        .price {
+          font-weight: 700;
+          color: $color-hover;
+          font-size: 15px;
+
+          del {
+            margin-right: 5px;
+            font-size: 12px;
+          }
+
+          ins {
+            text-decoration: none;
+          }
+        }
+      }
+
+      form {
+        .quantity {
+          margin-bottom: 16px;
+        }
+
+        button {
+          color: $color-white;
+          background-color: $background-primary;
+
+          &:hover {
+            background-color: $background-hover;
+          }
+        }
+
+        table {
+          width: 100%;
+
+          tr {
+            td {
+              padding-bottom: 10px;
+
+              .reset_variations {
+                margin-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
+
 .loading-body {
   position: absolute;
   width: 100%;
@@ -55,12 +115,38 @@
     animation: spin 2s linear infinite;
   }
 }
+
+.woocommerce {
+  ul {
+    &.products {
+      li {
+        &.product {
+          &:hover {
+            .btn-quick-view-product {
+              bottom: 0;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

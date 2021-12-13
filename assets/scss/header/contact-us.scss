@@ -1,4 +1,4 @@
-.information {
+.contact-us {
   line-height: 32px;
   border-bottom: 1px solid #eee;
 
@@ -11,11 +11,12 @@
       margin-right: 5px;
     }
   }
-}
-.information__social-network {
-  .social-network-item {
-    margin: 0;
-    width: 30px;
-    text-align: center;
+
+  &__social-network {
+    .social-network-item {
+      margin: 0;
+      width: 30px;
+      text-align: center;
+    }
   }
 }

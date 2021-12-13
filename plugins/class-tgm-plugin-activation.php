@@ -8,7 +8,7 @@
  * or theme author for support.
  *
  * @package   TGM-Plugin-Activation
- * @version   2.6.1
+ * @version   2.6.1 for parent theme Basictheme for publication on WordPress.org
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
@@ -610,7 +610,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				return;
 			}
 
-			$basictheme_opt_args = apply_filters(
+			$args = apply_filters(
 				'tgmpa_admin_menu_args',
 				array(
 					'parent_slug' => $this->parent_slug,                     // Parent Menu slug.
@@ -622,7 +622,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				)
 			);
 
-			$this->add_admin_menu( $basictheme_opt_args );
+			$this->add_admin_menu( $args );
 		}
 
 		/**
@@ -633,10 +633,10 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *
 		 * @since 2.5.0
 		 *
-		 * @param array $basictheme_opt_args Menu item configuration.
+		 * @param array $args Menu item configuration.
 		 */
-		protected function add_admin_menu( array $basictheme_opt_args ) {
-			$this->page_hook = add_theme_page( $basictheme_opt_args['page_title'], $basictheme_opt_args['menu_title'], $basictheme_opt_args['capability'], $basictheme_opt_args['menu_slug'], $basictheme_opt_args['function'] );
+		protected function add_admin_menu( array $args ) {
+			$this->page_hook = add_theme_page( $args['page_title'], $args['menu_title'], $args['capability'], $args['menu_slug'], $args['function'] );
 		}
 
 		/**
@@ -3200,17 +3200,17 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 					 * (@internal Last synced: Dec 31st 2015 against https://core.trac.wordpress.org/browser/trunk?rev=36134}}
 					 *
 					 * @param array $plugins The plugin sources needed for installation.
-					 * @param array $basictheme_opt_args    Arbitrary passed extra arguments.
+					 * @param array $args    Arbitrary passed extra arguments.
 					 * @return array|false   Install confirmation messages on success, false on failure.
 					 */
-					public function bulk_install( $plugins, $basictheme_opt_args = array() ) {
+					public function bulk_install( $plugins, $args = array() ) {
 						// [TGMPA + ] Hook auto-activation in.
 						add_filter( 'upgrader_post_install', array( $this, 'auto_activate' ), 10 );
 
 						$defaults    = array(
 							'clear_update_cache' => true,
 						);
-						$parsed_args = wp_parse_args( $basictheme_opt_args, $defaults );
+						$parsed_args = wp_parse_args( $args, $defaults );
 
 						$this->init();
 						$this->bulk = true;
@@ -3345,14 +3345,14 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 					 * @see Plugin_Upgrader::bulk_upgrade()
 					 *
 					 * @param array $plugins The local WP file_path's of the plugins which should be upgraded.
-					 * @param array $basictheme_opt_args    Arbitrary passed extra arguments.
+					 * @param array $args    Arbitrary passed extra arguments.
 					 * @return string|bool Install confirmation messages on success, false on failure.
 					 */
-					public function bulk_upgrade( $plugins, $basictheme_opt_args = array() ) {
+					public function bulk_upgrade( $plugins, $args = array() ) {
 
 						add_filter( 'upgrader_post_install', array( $this, 'auto_activate' ), 10 );
 
-						$result = parent::bulk_upgrade( $plugins, $basictheme_opt_args );
+						$result = parent::bulk_upgrade( $plugins, $args );
 
 						remove_filter( 'upgrader_post_install', array( $this, 'auto_activate' ), 10 );
 
@@ -3461,9 +3461,9 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 					 *
 					 * @since 2.2.0
 					 *
-					 * @param array $basictheme_opt_args Arguments to pass for use within the class.
+					 * @param array $args Arguments to pass for use within the class.
 					 */
-					public function __construct( $basictheme_opt_args = array() ) {
+					public function __construct( $args = array() ) {
 						// Get TGMPA class instance.
 						$this->tgmpa = call_user_func( array( get_class( $GLOBALS['tgmpa'] ), 'get_instance' ) );
 
@@ -3474,13 +3474,13 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 							'names'        => array(),
 							'install_type' => 'install',
 						);
-						$basictheme_opt_args     = wp_parse_args( $basictheme_opt_args, $defaults );
+						$args     = wp_parse_args( $args, $defaults );
 
 						// Set plugin names to $this->plugin_names property.
-						$this->plugin_names = $basictheme_opt_args['names'];
+						$this->plugin_names = $args['names'];
 
 						// Extract the new args.
-						parent::__construct( $basictheme_opt_args );
+						parent::__construct( $args );
 					}
 
 					/**

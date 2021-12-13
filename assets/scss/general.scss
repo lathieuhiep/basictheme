@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   line-height: 1.8em;
   overflow-x: hidden;
-  font-size: 14px;
+  font-size: $font-size-primary;
   color: $color-primary;
   font-family: $font-family-text;
   font-weight: $font-weight-regular;
@@ -44,12 +44,9 @@ h6 {
 }
 a {
   color: $color-primary;
+  text-decoration: none;
   @include transition();
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
   &:hover {
     color: $color-hover;
   }
