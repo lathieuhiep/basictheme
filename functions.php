@@ -130,43 +130,23 @@ require get_parent_theme_file_path( '/includes/theme-scripts.php' );
 /**
  * Show full editor
  */
-if ( ! function_exists( 'basictheme_ilc_mce_buttons' ) ) :
 
-	function basictheme_ilc_mce_buttons( $basictheme_buttons_TinyMCE ) {
 
-		array_push( $basictheme_buttons_TinyMCE,
-			"backcolor",
-			"anchor",
-			"hr",
-			"sub",
-			"sup",
-			"fontselect",
-			"fontsizeselect",
-			"styleselect",
-			"cleanup"
-		);
-
-		return $basictheme_buttons_TinyMCE;
-
+/*
+*
+* Walker for the main menu
+*
+*/
+add_filter( 'walker_nav_menu_start_el', 'basictheme_add_arrow',10,4);
+function basictheme_add_arrow( $output, $item, $depth, $args ){
+	if('primary' == $args->theme_location && $depth >= 0 ){
+		if (in_array("menu-item-has-children", $item->classes)) {
+			$output .='<span class="sub-menu-toggle"></span>';
+		}
 	}
 
-	add_filter( "mce_buttons_2", "basictheme_ilc_mce_buttons" );
-
-endif;
-
-// Start Customize mce editor font sizes
-if ( ! function_exists( 'basictheme_mce_text_sizes' ) ) :
-
-	function basictheme_mce_text_sizes( $basictheme_font_size_text ) {
-		$basictheme_font_size_text['fontsize_formats'] = "9px 10px 12px 13px 14px 16px 17px 18px 19px 20px 21px 24px 28px 32px 36px";
-
-		return $basictheme_font_size_text;
-	}
-
-	add_filter( 'tiny_mce_before_init', 'basictheme_mce_text_sizes' );
-
-endif;
-// End Customize mce editor font sizes
+	return $output;
+}
 
 /* callback comment list */
 function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
