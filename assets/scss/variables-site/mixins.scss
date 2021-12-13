@@ -1,49 +1,49 @@
 // Border radius
 @mixin border-radius( $radius ) {
   -webkit-border-radius: $radius;
-  -moz-border-radius:    $radius;
-  border-radius:         $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
 // Box shadow
 @mixin box-shadow( $box-shadow ) {
   -webkit-box-shadow: $box-shadow;
-  -moz-box-shadow:    $box-shadow;
-  box-shadow:         $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
 }
 
 // Transition
 @mixin transition( $transition: all 0.4s ease-in-out ) {
   -webkit-transition: $transition;
-  -moz-transition:    $transition;
-  -o-transition:      $transition;
-  transition:         $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
 }
 
 // Transition duration
 @mixin transition-duration( $transition-duration ) {
   -webkit-transition-duration: $transition-duration;
-  -moz-transition-duration:    $transition-duration;
-  -o-transition-duration:      $transition-duration;
-  transition-duration:         $transition-duration;
+  -moz-transition-duration: $transition-duration;
+  -o-transition-duration: $transition-duration;
+  transition-duration: $transition-duration;
 }
 
 // Transform
 @mixin transform( $transform ) {
   -webkit-transform: $transform;
-  -moz-transform:    $transform;
-  -o-transform:      $transform;
-  -ms-transform:     $transform;
-  transform:         $transform;
+  -moz-transform: $transform;
+  -o-transform: $transform;
+  -ms-transform: $transform;
+  transform: $transform;
 }
 
 // Rotate
 @mixin rotate( $rotate ) {
   -webkit-transform: rotate($rotate);
-  -moz-transform:    rotate($rotate);
-  -ms-transform:     rotate($rotate);
-  -o-transform:      rotate($rotate);
-  transform:         rotate($rotate);
+  -moz-transform: rotate($rotate);
+  -ms-transform: rotate($rotate);
+  -o-transform: rotate($rotate);
+  transform: rotate($rotate);
 }
 
 // Flexbox
@@ -59,9 +59,9 @@
 // - applies to: flex items
 // <positive-number>, initial, auto, or none
 @mixin flex( $flex ) {
-  -webkit-flex:     $flex;
-  -ms-flex:         $flex;
-  flex:             $flex;
+  -webkit-flex: $flex;
+  -ms-flex: $flex;
+  flex: $flex;
 }
 
 // Flex Flow Direction
@@ -69,8 +69,8 @@
 // row | row-reverse | column | column-reverse
 @mixin flex-direction( $direction ) {
   -webkit-flex-direction: $direction;
-  -ms-flex-direction:     $direction;
-  flex-direction:         $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
 }
 
 // Flex Line Wrapping
@@ -78,8 +78,8 @@
 // nowrap | wrap | wrap-reverse
 @mixin flex-wrap( $wrap ) {
   -webkit-flex-wrap: $wrap;
-  -ms-flex-wrap:     $wrap;
-  flex-wrap:         $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
 }
 
 // Flex Direction and Wrap
@@ -87,16 +87,16 @@
 // <flex-direction> || <flex-wrap>
 @mixin flex-flow( $flow ) {
   -webkit-flex-flow: $flow;
-  flex-flow:         $flow;
+  flex-flow: $flow;
 }
 
 // Display Order
 // - applies to: flex items
 // <integer>
 @mixin order( $order ) {
-  -moz-box-ordinal-group:    $order;
-  -ms-flex-order:            $order;
-  order:                     $order;
+  -moz-box-ordinal-group: $order;
+  -ms-flex-order: $order;
+  order: $order;
 }
 
 // Flex grow factor
@@ -104,7 +104,7 @@
 // <number>
 @mixin flex-grow( $flex-grow ) {
   -webkit-flex-grow: $flex-grow;
-  flex-grow:         $flex-grow;
+  flex-grow: $flex-grow;
 }
 
 // Flex shrink
@@ -112,7 +112,7 @@
 // <number>
 @mixin flex-shrink( $flex-shrink ) {
   -webkit-flex-shrink: $flex-shrink;
-  flex-shrink:         $flex-shrink;
+  flex-shrink: $flex-shrink;
 }
 
 // Flex basis
@@ -121,7 +121,7 @@
 // <width>
 @mixin flex-basis( $width ) {
   -webkit-flex-basis: $width;
-  flex-basis:         $width;
+  flex-basis: $width;
 }
 
 // Axis Alignment
@@ -129,7 +129,7 @@
 // flex-start | flex-end | center | space-between | space-around
 @mixin justify-content( $justify ) {
   -webkit-justify-content: $justify;
-  justify-content:         $justify;
+  justify-content: $justify;
 }
 
 // Packing Flex Lines
@@ -137,7 +137,7 @@
 // flex-start | flex-end | center | space-between | space-around | stretch
 @mixin align-content( $align ) {
   -webkit-align-content: $align;
-  align-content:         $align;
+  align-content: $align;
 }
 
 // Cross-axis Alignment
@@ -145,7 +145,7 @@
 // flex-start | flex-end | center | baseline | stretch
 @mixin align-items( $align ) {
   -webkit-align-items: $align;
-  align-items:         $align;
+  align-items: $align;
 }
 
 // Cross-axis Alignment
@@ -153,5 +153,5 @@
 // auto | flex-start | flex-end | center | baseline | stretch
 @mixin align-self( $align ) {
   -webkit-align-self: $align;
-  align-self:         $align;
+  align-self: $align;
 }

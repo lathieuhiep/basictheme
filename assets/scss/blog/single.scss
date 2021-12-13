@@ -3,18 +3,22 @@
   .page-links {
     margin-bottom: 30px;
   }
+
   .site-post-title {
     margin-bottom: 15px;
   }
+
   .site-post-excerpt {
     margin-bottom: 15px;
   }
 }
+
 .site-post-single-item {
   .site-post-meta {
     margin-bottom: 15px;
   }
 }
+
 .site-post-slides {
   position: relative;
   margin-bottom: 30px;
@@ -29,13 +33,16 @@
         top: 50%;
         @include transform(translateY(-50%));
       }
+
       .owl-prev {
         left: 10px;
       }
+
       .owl-next {
         right: 10px;
       }
     }
+
     .owl-dots {
       position: absolute;
       padding: 0;
@@ -54,6 +61,7 @@
     }
   }
 }
+
 .site-post-cat-tag {
   margin-bottom: 20px;
 
@@ -72,6 +80,7 @@
       &:first-child {
         margin-left: 10px;
       }
+
       &:hover {
         color: #fff;
         background: $background-hover;
@@ -80,9 +89,11 @@
     }
   }
 }
+
 .site-post-share {
   margin-bottom: 30px;
 }
+
 .site-single-post-related {
   .title {
     position: relative;
@@ -100,6 +111,7 @@
       background-color: $background-hover;
     }
   }
+
   .item {
     margin-bottom: 15px;
   }
