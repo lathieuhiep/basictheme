@@ -37,8 +37,7 @@ gulp.task('sass-library-theme', function () {
 // Task compress lib js & mini file
 gulp.task('compress-js', function () {
     return gulp.src( [
-        './node_modules/popper.js/dist/js/popper.js',
-        './node_modules/bootstrap/dist/js/bootstrap.js',
+        './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',
     ],  { allowEmpty: true } )
         .pipe(concat('library.min.js'))

@@ -14,18 +14,13 @@
 
         /* Start back top */
         $('#back-top').on( 'click', function (e) {
-
             e.preventDefault();
-            $( 'html, body' ).animate( {
-                scrollTop: 0
-            }, 700 );
-
+            $('html').scrollTop(0);
         } );
         /* End back top */
 
         /* btn mobile Start*/
-        let menu_item_has_children  =   $( '.site-menu .menu-item-has-children' ),
-            navbar_toggler          =   $( '.site-navbar .navbar-toggler' );
+        let menu_item_has_children  =   $( '.site-menu .menu-item-has-children' );
 
         if ( menu_item_has_children.length ) {
 
