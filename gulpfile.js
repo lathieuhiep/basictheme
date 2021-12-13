@@ -9,7 +9,7 @@ let gulp = require('gulp'),
     concatCss = require('gulp-concat-css'),
     rename = require('gulp-rename');
 
-sass.compiler = require('node-sass');
+// sass.compiler = require('node-sass');
 
 // Task sass style theme
 gulp.task('sass-style-theme', function () {
@@ -48,12 +48,12 @@ gulp.task('compress-js', function () {
 });
 
 // Task compress mini css
-// gulp.task('compress-css', function () {
-//     return gulp.src('/css/library/*.css')
-//         .pipe(concatCss("library.min.css"))
-//         .pipe(minifyCss({
-//             compatibility: 'ie8',
-//             level: {1: {specialComments: 0}}
-//         }))
-//         .pipe(gulp.dest('/css/library/minify'));
-// });
+gulp.task('compress-css', function () {
+    return gulp.src('/css/library/*.css')
+        .pipe(concatCss("library.min.css"))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(gulp.dest('/css/library/minify'));
+});
