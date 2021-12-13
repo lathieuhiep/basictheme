@@ -61,6 +61,7 @@ endif;
 /**
  * Required: Plugin Activation
  */
+require get_parent_theme_file_path( '/includes/class-tgm-plugin-activation.php' );
 require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
 /**
