@@ -1,7 +1,7 @@
 === Basic Theme ===
 
 Theme Name: Basic Theme
-Theme URI: http://hungkv.com/
+Theme URI: https://uxui.vn/
 Author: DiepLK
 Author URI: https://www.facebook.com/lathieuhiep
 Version: 1.0.0

@@ -9,7 +9,7 @@ let gulp = require('gulp'),
     concatCss = require('gulp-concat-css'),
     rename = require('gulp-rename');
 
-sass.compiler = require('node-sass');
+// sass.compiler = require('node-sass');
 
 // Task sass style theme
 gulp.task('sass-style-theme', function () {
@@ -39,9 +39,8 @@ gulp.task('sass-library-theme', function () {
 // Task compress lib js & mini file
 gulp.task('compress-js', function () {
     return gulp.src( [
-        './node_modules/@popperjs/core/dist/umd/popper.js',
-        './node_modules/bootstrap/dist/js/bootstrap.js',
-        './node_modules/owl.carousel/dist/owl.carousel.js'
+        './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+        './node_modules/owl.carousel/dist/owl.carousel.js',
     ],  { allowEmpty: true } )
         .pipe(concat('library.min.js'))
         .pipe(uglify())
@@ -49,12 +48,12 @@ gulp.task('compress-js', function () {
 });
 
 // Task compress mini css
-// gulp.task('compress-css', function () {
-//     return gulp.src('/css/library/*.css')
-//         .pipe(concatCss("library.min.css"))
-//         .pipe(minifyCss({
-//             compatibility: 'ie8',
-//             level: {1: {specialComments: 0}}
-//         }))
-//         .pipe(gulp.dest('/css/library/minify'));
-// });
+gulp.task('compress-css', function () {
+    return gulp.src('/css/library/*.css')
+        .pipe(concatCss("library.min.css"))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(gulp.dest('/css/library/minify'));
+});

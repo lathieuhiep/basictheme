@@ -2,7 +2,6 @@
 /**
  * Include the TGM_Plugin_Activation class.
  */
-require get_parent_theme_file_path( '/plugins/class-tgm-plugin-activation.php' );
 
 add_action( 'tgmpa_register', 'basictheme_register_required_plugins' );
 function basictheme_register_required_plugins() {

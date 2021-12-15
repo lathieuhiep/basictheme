@@ -14,36 +14,28 @@
 
         /* Start back top */
         $('#back-top').on( 'click', function (e) {
-
             e.preventDefault();
-            $( 'html, body' ).animate( {
-                scrollTop: 0
-            }, 700 );
-
+            $('html').scrollTop(0);
         } );
         /* End back top */
 
         /* btn mobile Start*/
-        let menu_item_has_children  =   $( '.site-menu .menu-item-has-children' ),
-            navbar_toggler          =   $( '.site-navbar .navbar-toggler' );
+        let subMenuToggle  =   $('.sub-menu-toggle');
 
-        if ( menu_item_has_children.length ) {
+        if ( subMenuToggle.length ) {
 
-            $('.site-menu .menu-item-has-children > a').after( "<span class='icon_menu_item_mobile'></span>" );
-
-            let icon_menu_item_mobile  =   $('.icon_menu_item_mobile');
-
-            icon_menu_item_mobile.each(function () {
-
+            subMenuToggle.each(function () {
                 $(this).on( 'click', function () {
+                    const widthScreen = $(window).width();
 
-                    $(this).toggleClass('icon_menu_item_mobile_active');
-                    $(this).parents( '.menu-item-has-children' ).siblings().find( '.icon_menu_item_mobile' ).removeClass( 'icon_menu_item_mobile_active' );
-                    $(this).parent().children( '.sub-menu' ).slideToggle();
-                    $(this).parents( '.menu-item-has-children' ).siblings().find( '.sub-menu' ).slideUp();
+                    if ( widthScreen < 992 ) {
+                        $(this).toggleClass('active');
+                        $(this).closest( '.menu-item-has-children' ).siblings().find( subMenuToggle ).removeClass( 'active' );
+                        $(this).parent().children( '.sub-menu' ).slideToggle();
+                        $(this).parents( '.menu-item-has-children' ).siblings().find( '.sub-menu' ).slideUp();
+                    }
 
                 } )
-
             })
 
         }
