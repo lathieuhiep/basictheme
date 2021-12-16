@@ -44,9 +44,10 @@
             e = n.children("#product-" + product_id),
             t = e.find("form.cart"),
             hasProductVariable = e.hasClass("product-type-variable"),
-            i = $("#et-quickview-slider");
+            i = $("#et-quickview-slider"),
+            quickViewOwl = e.find('.et-quickview-owl');
 
-        e.find('.et-quickview-owl').owlCarousel({
+        quickViewOwl.owlCarousel({
             items: 1,
             loop: true,
             nav: false,
@@ -63,7 +64,7 @@
                     i = $(".owl-item:not(.cloned)", i).eq(0);
                 }
 
-                a = $(".woocommerce-product-gallery__image", i).eq(0).find("img");
+                a = $(".item-image", i).eq(0).find("img");
                 e = a.attr("src");
 
                 if ( a.attr("data-src") ) {
@@ -71,10 +72,24 @@
                 }
 
                 t.on("show_variation", function (e, t) {
-                    t.hasOwnProperty("image") && t.image.src && t.image.src != a.attr("src") && (a.attr("src", t.image.src).attr("srcset", ""),
-                    i.hasClass("slick-initialized") && i.slick("slickGoTo", 0))
+                    const urlImage = t.image.url;
+
+                    if ( t.hasOwnProperty("image") && urlImage ) {
+                        const indexItem = $('.et-quickview-owl').find('.owl-item:not(.cloned) img[src="'+ urlImage +'"]').closest('.item-image').data('index');
+
+                        if ( indexItem !== undefined ) {
+                            quickViewOwl.trigger('to.owl.carousel', indexItem, [800]);
+                        } else {
+                            if ( urlImage !== a.attr("src") ) {
+                                a.attr("src", urlImage).attr("srcset", "");
+                                quickViewOwl.trigger('to.owl.carousel', 0, [800]);
+                            }
+                        }
+                    }
+
                 }).on("reset_image", function () {
-                    a.attr("src", e).attr("srcset", "")
+                    a.attr("src", e).attr("srcset", "");
+                    quickViewOwl.trigger('to.owl.carousel', 0, [800]);
                 })
             }
         }
