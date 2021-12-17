@@ -20,10 +20,8 @@
             url: woo_quick_view_product.url,
             type: 'POST',
             data: ({
-
                 action: 'basictheme_get_quick_view_product',
                 product_id: product_id
-
             }),
 
             success: function (data) {
@@ -37,6 +35,8 @@
                 a(product_id);
             },
         });
+
+        return false;
     });
 
     let a = function (product_id) {
@@ -106,18 +106,48 @@
     quick_view_product_body.on('click', '.single_add_to_cart_button', function (e) {
         e.preventDefault();
 
-        let $form = $(this).closest('form.cart'),
-            id = $(this).val(),
+        let $thisButton = $(this),
+            $form = $thisButton.closest('form.cart'),
+            id = $thisButton.val(),
             product_qty = $form.find('input[name=quantity]').val() || 1,
             product_id = $form.find('input[name=product_id]').val() || id,
             variation_id = $form.find('input[name=variation_id]').val() || 0;
 
-        console.log( {
-            id: id,
-            product_qty: product_qty,
+        const data = {
+            action: 'basictheme_woo_ajax_add_to_cart',
             product_id: product_id,
-            variation_id: variation_id
-        } )
+            product_sku: '',
+            quantity: product_qty,
+            variation_id: variation_id,
+        };
+
+        $(document.body).trigger('adding_to_cart', [$thisButton, data]);
+
+        $.ajax({
+            url: woo_quick_view_product.url,
+            type: 'POST',
+            data: data,
+            beforeSend: function (response) {
+                $thisButton.removeClass('added').addClass('loading');
+            },
+
+            complete: function (response) {
+                $thisButton.addClass('added').removeClass('loading');
+            },
+
+            success: function (response) {
+
+                if (response.error && response.product_url) {
+                    window.location = response.product_url;
+                } else {
+                    $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisButton]);
+                }
+
+            },
+
+        });
+
+        return false;
     })
 
 })(jQuery);
