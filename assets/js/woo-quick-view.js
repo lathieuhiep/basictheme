@@ -32,20 +32,21 @@
             },
 
             complete: function(){
-                a(product_id);
+                addToCartAjax(product_id);
             },
         });
 
         return false;
     });
 
-    let a = function (product_id) {
-        let n = $("#et-quickview"),
-            e = n.children("#product-" + product_id),
-            t = e.find("form.cart"),
-            hasProductVariable = e.hasClass("product-type-variable"),
-            i = $("#et-quickview-slider"),
-            quickViewOwl = e.find('.et-quickview-owl');
+    // add to cart ajax quick view
+    let addToCartAjax = function (product_id) {
+        let quickViewBox = $("#et-quickview"),
+            childrenProductId = quickViewBox.children("#product-" + product_id),
+            formCart = childrenProductId.find("form.cart"),
+            hasProductVariable = childrenProductId.hasClass("product-type-variable"),
+            quickViewSlider = $("#et-quickview-slider"),
+            quickViewOwl = childrenProductId.find('.et-quickview-owl');
 
         quickViewOwl.owlCarousel({
             items: 1,
@@ -57,21 +58,21 @@
         });
 
         if ( hasProductVariable ) {
-            t.wc_variation_form().find(".variations select:eq(0)").change();
+            formCart.wc_variation_form().find(".variations select:eq(0)").change();
 
-            if ( i.length ) {
-                if ( i.hasClass("owl-carousel") ) {
-                    i = $(".owl-item:not(.cloned)", i).eq(0);
+            if ( quickViewSlider.length ) {
+                if ( quickViewSlider.hasClass("owl-carousel") ) {
+                    quickViewSlider = $(".owl-item:not(.cloned)", quickViewSlider).eq(0);
                 }
 
-                a = $(".item-image", i).eq(0).find("img");
-                e = a.attr("src");
+                const itemImage = $(".item-image", quickViewSlider).eq(0).find("img");
+                childrenProductId = itemImage.attr("src");
 
-                if ( a.attr("data-src") ) {
-                    e = a.attr("data-src");
+                if ( itemImage.attr("data-src") ) {
+                    childrenProductId = itemImage.attr("data-src");
                 }
 
-                t.on("show_variation", function (e, t) {
+                formCart.on("show_variation", function (e, t) {
                     const urlImage = t.image.url;
 
                     if ( t.hasOwnProperty("image") && urlImage ) {
@@ -80,21 +81,22 @@
                         if ( indexItem !== undefined ) {
                             quickViewOwl.trigger('to.owl.carousel', indexItem, [800]);
                         } else {
-                            if ( urlImage !== a.attr("src") ) {
-                                a.attr("src", urlImage).attr("srcset", "");
+                            if ( urlImage !== itemImage.attr("src") ) {
+                                itemImage.attr("src", urlImage).attr("srcset", "");
                                 quickViewOwl.trigger('to.owl.carousel', 0, [800]);
                             }
                         }
                     }
 
                 }).on("reset_image", function () {
-                    a.attr("src", e).attr("srcset", "");
+                    itemImage.attr("src", childrenProductId).attr("srcset", "");
                     quickViewOwl.trigger('to.owl.carousel', 0, [800]);
                 })
             }
         }
     }
 
+    // method hidden modal
     mode_quick_view_product.on('hidden.bs.modal', function () {
 
         loading_body.fadeIn();
@@ -108,10 +110,20 @@
 
         let $thisButton = $(this),
             $form = $thisButton.closest('form.cart'),
-            id = $thisButton.val(),
-            product_qty = $form.find('input[name=quantity]').val() || 1,
-            product_id = $form.find('input[name=product_id]').val() || id,
+            hasClassGroupedForm = $form.hasClass('grouped_form'),
+            id = '',
+            product_qty = '',
+            product_id = '',
+            variation_id = '';
+
+        if ( hasClassGroupedForm ) {
+
+        } else {
+            id = $thisButton.val();
+            product_qty = $form.find('input[name=quantity]').val() || 1;
+            product_id = $form.find('input[name=product_id]').val() || id;
             variation_id = $form.find('input[name=variation_id]').val() || 0;
+        }
 
         const data = {
             action: 'basictheme_woo_ajax_add_to_cart',
@@ -127,11 +139,11 @@
             url: woo_quick_view_product.url,
             type: 'POST',
             data: data,
-            beforeSend: function (response) {
+            beforeSend: function () {
                 $thisButton.removeClass('added').addClass('loading');
             },
 
-            complete: function (response) {
+            complete: function () {
                 $thisButton.addClass('added').removeClass('loading');
             },
 

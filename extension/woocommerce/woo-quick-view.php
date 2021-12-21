@@ -69,6 +69,7 @@ function basictheme_quick_view_product_image() {
 }
 
 
+/* Add to cart quick view */
 add_action('wp_ajax_basictheme_woo_ajax_add_to_cart', 'basictheme_woo_ajax_add_to_cart');
 add_action('wp_ajax_nopriv_basictheme_woo_ajax_add_to_cart', 'basictheme_woo_ajax_add_to_cart');
 
