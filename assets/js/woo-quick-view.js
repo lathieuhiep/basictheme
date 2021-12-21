@@ -114,24 +114,56 @@
             id = '',
             product_qty = '',
             product_id = '',
-            variation_id = '';
+            variation_id = '',
+            data;
 
         if ( hasClassGroupedForm ) {
+            const dataForm = $form.serializeArray();
+            let items = []
+
+            if ( dataForm.length ) {
+
+                dataForm.map( function ( item ) {
+                    if ( item.name === 'add-to-cart' ) {
+                        product_id = item.value;
+                    } else {
+                        const product_id = parseInt(item.name.replace(/[^0-9.]/g, ""));
+                        const quantity = item.value;
+
+                        items.push({
+                            product_id: product_id,
+                            quantity: quantity
+                        });
+                    }
+                    // console.log(item.name.match(/\d+/));
+                } )
+
+            }
+
+            data = {
+                action: 'basictheme_woo_ajax_add_to_cart',
+                product_id: product_id,
+                product_sku: '',
+                items: items,
+                type_product: 'grouped'
+            };
 
         } else {
             id = $thisButton.val();
             product_qty = $form.find('input[name=quantity]').val() || 1;
             product_id = $form.find('input[name=product_id]').val() || id;
             variation_id = $form.find('input[name=variation_id]').val() || 0;
+
+            data = {
+                action: 'basictheme_woo_ajax_add_to_cart',
+                product_id: product_id,
+                product_sku: '',
+                quantity: product_qty,
+                variation_id: variation_id,
+                type_product: ''
+            };
         }
 
-        const data = {
-            action: 'basictheme_woo_ajax_add_to_cart',
-            product_id: product_id,
-            product_sku: '',
-            quantity: product_qty,
-            variation_id: variation_id,
-        };
 
         $(document.body).trigger('adding_to_cart', [$thisButton, data]);
 
