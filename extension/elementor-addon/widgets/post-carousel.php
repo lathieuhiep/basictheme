@@ -1,15 +1,15 @@
 <?php
 
-namespace Elementor;
+use Elementor\Group_Control_Typography;
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-use Elementor\Core\Schemes;
-
-class basictheme_widget_post_carousel extends Widget_Base {
+class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'mytheme' );
     }
 
     public function get_name() {
@@ -28,7 +28,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
         return ['basictheme-elementor-custom'];
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         // Content query
         $this->start_controls_section(
@@ -518,7 +518,7 @@ class basictheme_widget_post_carousel extends Widget_Base {
             'ignore_sticky_posts'   =>  1,
         );
 
-        $query = new \ WP_Query( $args );
+        $query = new \WP_Query( $args );
 
         if ( $query->have_posts() ) :
 
@@ -573,8 +573,4 @@ class basictheme_widget_post_carousel extends Widget_Base {
         endif;
     }
 
-    protected function _content_template() {}
-
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_post_carousel );

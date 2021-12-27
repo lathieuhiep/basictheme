@@ -97,7 +97,7 @@ if ( did_action( 'elementor/loaded' ) ) :
 	/*
 	 * Required: Elementor
 	 */
-	require get_parent_theme_file_path( '/extension/elementor/elementor.php' );
+    require get_parent_theme_file_path( '/extension/elementor-addon/elementor-addon.php' );
 
 endif;
 
