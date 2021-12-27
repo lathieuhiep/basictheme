@@ -20,10 +20,8 @@
             url: woo_quick_view_product.url,
             type: 'POST',
             data: ({
-
                 action: 'basictheme_get_quick_view_product',
                 product_id: product_id
-
             }),
 
             success: function (data) {
@@ -34,19 +32,23 @@
             },
 
             complete: function(){
-                a(product_id);
+                addToCartAjax(product_id);
             },
         });
+
+        return false;
     });
 
-    let a = function (product_id) {
-        let n = $("#et-quickview"),
-            e = n.children("#product-" + product_id),
-            t = e.find("form.cart"),
-            hasProductVariable = e.hasClass("product-type-variable"),
-            i = $("#et-quickview-slider");
+    // add to cart ajax quick view
+    let addToCartAjax = function (product_id) {
+        let quickViewBox = $("#et-quickview"),
+            childrenProductId = quickViewBox.children("#product-" + product_id),
+            formCart = childrenProductId.find("form.cart"),
+            hasProductVariable = childrenProductId.hasClass("product-type-variable"),
+            quickViewSlider = $("#et-quickview-slider"),
+            quickViewOwl = childrenProductId.find('.et-quickview-owl');
 
-        e.find('.et-quickview-owl').owlCarousel({
+        quickViewOwl.owlCarousel({
             items: 1,
             loop: true,
             nav: false,
@@ -56,30 +58,45 @@
         });
 
         if ( hasProductVariable ) {
-            t.wc_variation_form().find(".variations select:eq(0)").change();
+            formCart.wc_variation_form().find(".variations select:eq(0)").change();
 
-            if ( i.length ) {
-                if ( i.hasClass("owl-carousel") ) {
-                    i = $(".owl-item:not(.cloned)", i).eq(0);
+            if ( quickViewSlider.length ) {
+                if ( quickViewSlider.hasClass("owl-carousel") ) {
+                    quickViewSlider = $(".owl-item:not(.cloned)", quickViewSlider).eq(0);
                 }
 
-                a = $(".woocommerce-product-gallery__image", i).eq(0).find("img");
-                e = a.attr("src");
+                const itemImage = $(".item-image", quickViewSlider).eq(0).find("img");
+                childrenProductId = itemImage.attr("src");
 
-                if ( a.attr("data-src") ) {
-                    e = a.attr("data-src");
+                if ( itemImage.attr("data-src") ) {
+                    childrenProductId = itemImage.attr("data-src");
                 }
 
-                t.on("show_variation", function (e, t) {
-                    t.hasOwnProperty("image") && t.image.src && t.image.src != a.attr("src") && (a.attr("src", t.image.src).attr("srcset", ""),
-                    i.hasClass("slick-initialized") && i.slick("slickGoTo", 0))
+                formCart.on("show_variation", function (e, t) {
+                    const urlImage = t.image.url;
+
+                    if ( t.hasOwnProperty("image") && urlImage ) {
+                        const indexItem = $('.et-quickview-owl').find('.owl-item:not(.cloned) img[src="'+ urlImage +'"]').closest('.item-image').data('index');
+
+                        if ( indexItem !== undefined ) {
+                            quickViewOwl.trigger('to.owl.carousel', indexItem, [800]);
+                        } else {
+                            if ( urlImage !== itemImage.attr("src") ) {
+                                itemImage.attr("src", urlImage).attr("srcset", "");
+                                quickViewOwl.trigger('to.owl.carousel', 0, [800]);
+                            }
+                        }
+                    }
+
                 }).on("reset_image", function () {
-                    a.attr("src", e).attr("srcset", "")
+                    itemImage.attr("src", childrenProductId).attr("srcset", "");
+                    quickViewOwl.trigger('to.owl.carousel', 0, [800]);
                 })
             }
         }
     }
 
+    // method hidden modal
     mode_quick_view_product.on('hidden.bs.modal', function () {
 
         loading_body.fadeIn();
@@ -91,18 +108,90 @@
     quick_view_product_body.on('click', '.single_add_to_cart_button', function (e) {
         e.preventDefault();
 
-        let $form = $(this).closest('form.cart'),
-            id = $(this).val(),
-            product_qty = $form.find('input[name=quantity]').val() || 1,
-            product_id = $form.find('input[name=product_id]').val() || id,
+        let $thisButton = $(this),
+            $form = $thisButton.closest('form.cart'),
+            hasClassGroupedForm = $form.hasClass('grouped_form'),
+            id = '',
+            product_qty = '',
+            product_id = '',
+            variation_id = '',
+            data;
+
+        if ( hasClassGroupedForm ) {
+            const dataForm = $form.serializeArray();
+            let items = []
+
+            if ( dataForm.length ) {
+
+                dataForm.map( function ( item ) {
+                    if ( item.name === 'add-to-cart' ) {
+                        product_id = item.value;
+                    } else {
+                        const product_id = parseInt(item.name.replace(/[^0-9.]/g, ""));
+                        const quantity = item.value;
+
+                        items.push({
+                            product_id: product_id,
+                            quantity: quantity
+                        });
+                    }
+                    // console.log(item.name.match(/\d+/));
+                } )
+
+            }
+
+            data = {
+                action: 'basictheme_woo_ajax_add_to_cart',
+                product_id: product_id,
+                product_sku: '',
+                items: items,
+                type_product: 'grouped'
+            };
+
+        } else {
+            id = $thisButton.val();
+            product_qty = $form.find('input[name=quantity]').val() || 1;
+            product_id = $form.find('input[name=product_id]').val() || id;
             variation_id = $form.find('input[name=variation_id]').val() || 0;
 
-        console.log( {
-            id: id,
-            product_qty: product_qty,
-            product_id: product_id,
-            variation_id: variation_id
-        } )
+            data = {
+                action: 'basictheme_woo_ajax_add_to_cart',
+                product_id: product_id,
+                product_sku: '',
+                quantity: product_qty,
+                variation_id: variation_id,
+                type_product: ''
+            };
+        }
+
+
+        $(document.body).trigger('adding_to_cart', [$thisButton, data]);
+
+        $.ajax({
+            url: woo_quick_view_product.url,
+            type: 'POST',
+            data: data,
+            beforeSend: function () {
+                $thisButton.removeClass('added').addClass('loading');
+            },
+
+            complete: function () {
+                $thisButton.addClass('added').removeClass('loading');
+            },
+
+            success: function (response) {
+
+                if (response.error && response.product_url) {
+                    window.location = response.product_url;
+                } else {
+                    $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisButton]);
+                }
+
+            },
+
+        });
+
+        return false;
     })
 
 })(jQuery);
