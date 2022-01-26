@@ -7,7 +7,7 @@ function basictheme_register_front_end_woo() {
 
     if ( is_shop() || is_product_category() ) :
 
-        wp_enqueue_script( 'woo-quick-view', get_theme_file_uri( '/assets/js/woo-quick-view.js' ), array('jquery', 'wc-add-to-cart-variation'), '', true );
+        wp_enqueue_script( 'woo-quick-view', get_theme_file_uri( '/extension/woocommerce/assets/js/woo-quick-view.js' ), array('jquery', 'wc-add-to-cart-variation'), '', true );
 
         $basictheme_woo_quick_view_admin_url    =   admin_url( 'admin-ajax.php' );
         $basictheme_woo_quick_view_ajax         =   array( 'url' => $basictheme_woo_quick_view_admin_url );

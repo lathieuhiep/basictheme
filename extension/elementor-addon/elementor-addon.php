@@ -5,7 +5,7 @@ function basictheme_register_category_elementor_addon( $elements_manager ) {
 	$elements_manager->add_category(
 		'mytheme',
 		[
-			'title' => esc_html__( 'My Them', 'plugin-name' ),
+			'title' => esc_html__( 'My Them', 'basictheme' ),
 			'icon' => 'icon-goes-here',
 		]
 	);
@@ -17,17 +17,17 @@ add_action( 'elementor/elements/categories_registered', 'basictheme_register_cat
 function basictheme_register_widget_elementor_addon( $widgets_manager ) {
 
 	// include add on
+    require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/about-text.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-carousel.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-grid.php' );
-	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/slides.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/testimonial-slider.php' );
 
 	// register add on
+    $widgets_manager->register( new \BasicTheme_Elementor_Addon_Slides() );
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_About_Text() );
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Post_Carousel() );
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Post_Grid() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Slides() );
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Testimonial_Slider() );
 
 }

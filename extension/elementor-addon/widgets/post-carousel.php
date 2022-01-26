@@ -30,9 +30,9 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 
     protected function register_controls() {
 
-        // Content query
+        // Content section
         $this->start_controls_section(
-            'content_query',
+            'content_section',
             [
                 'label' => esc_html__( 'Query', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
@@ -126,7 +126,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 
         // Content additional options
         $this->start_controls_section(
-            'content_additional_options',
+            'additional_options_section',
             [
                 'label' => esc_html__( 'Additional Options', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
@@ -518,7 +518,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
             'ignore_sticky_posts'   =>  1,
         );
 
-        $query = new \WP_Query( $args );
+        $query = new WP_Query( $args );
 
         if ( $query->have_posts() ) :
 

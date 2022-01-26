@@ -30,9 +30,9 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
 
         // Content heading
         $this->start_controls_section(
-            'content_heading',
+            'content_section',
             [
-                'label' => __( 'Heading', 'basictheme' ),
+                'label' => esc_html__( 'Heading', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -44,17 +44,6 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
                 'type'          =>  Controls_Manager::TEXT,
                 'default'       =>  esc_html__( 'Heading About Text', 'basictheme' ),
                 'label_block'   =>  true
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Content description
-        $this->start_controls_section(
-            'content_description',
-            [
-                'label' => __( 'description', 'basictheme' ),
-                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -113,7 +102,7 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label'     =>  __( 'Color', 'basictheme' ),
+                'label'     =>  esc_html__( 'Color', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__title' => 'color: {{VALUE}}',
@@ -125,7 +114,7 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
 	        Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
-                'label' => __( 'Typography', 'basictheme' ),
+                'label' => esc_html__( 'Typography', 'basictheme' ),
                 'selector' => '{{WRAPPER}} .element-about-text__title',
             ]
         );

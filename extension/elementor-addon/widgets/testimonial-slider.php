@@ -33,9 +33,9 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
 
         // Content testimonial
         $this->start_controls_section(
-            'content_testimonial',
+            'content_section',
             [
-                'label' => __( 'Content', 'basictheme' ),
+                'label' => esc_html__( 'Content', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -91,10 +91,10 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'list_title' => __( 'Title #1', 'basictheme' ),
+                        'list_title' => esc_html__( 'Title #1', 'basictheme' ),
                     ],
                     [
-                        'list_title' => __( 'Title #2', 'basictheme' ),
+                        'list_title' => esc_html__( 'Title #2', 'basictheme' ),
                     ],
                 ],
                 'title_field' => '{{{ list_title }}}',
@@ -105,9 +105,9 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
 
         // Content additional options
         $this->start_controls_section(
-            'content_additional_options',
+            'additional_options_section',
             [
-                'label' => __( 'Additional Options', 'basictheme' ),
+                'label' => esc_html__( 'Additional Options', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );

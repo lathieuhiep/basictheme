@@ -3,10 +3,9 @@ get_header();
 
 global $basictheme_options;
 
-$basictheme_title = $basictheme_options['basictheme_opt_404_title'];
-$basictheme_content = $basictheme_options['basictheme_opt_404_editor'];
-$basictheme_background = $basictheme_options['basictheme_opt_404_background']['id'];
-
+$title = $basictheme_options['basictheme_opt_404_title'];
+$content = $basictheme_options['basictheme_opt_404_editor'];
+$background = $basictheme_options['basictheme_opt_404_background']['id'];
 ?>
 
 <div class="site-error text-center">
@@ -15,8 +14,8 @@ $basictheme_background = $basictheme_options['basictheme_opt_404_background']['i
             <div class="col-md-6">
                 <figure class="site-error__image404">
                     <?php
-                    if( !empty( $basictheme_background ) ):
-                        echo wp_get_attachment_image( $basictheme_background, 'full' );
+                    if( !empty( $background ) ):
+                        echo wp_get_attachment_image( $background, 'full' );
                     else:
                         echo'<img src="'.esc_url( get_theme_file_uri( '/assets/images/404.jpg' ) ).'" alt="'.get_bloginfo('title').'" />';
                     endif;
@@ -27,8 +26,8 @@ $basictheme_background = $basictheme_options['basictheme_opt_404_background']['i
             <div class="col-md-6">
                 <h1 class="site-title-404">
                     <?php
-                    if ( $basictheme_title != '' ):
-                        echo esc_html( $basictheme_title );
+                    if ( $title != '' ):
+                        echo esc_html( $title );
                     else:
                         esc_html_e( 'Awww...Do Not Cry', 'basictheme' );
                     endif;
@@ -37,8 +36,8 @@ $basictheme_background = $basictheme_options['basictheme_opt_404_background']['i
 
                 <div id="site-error-content">
                     <?php
-                    if ( $basictheme_content != '' ) :
-                        echo wp_kses_post( $basictheme_content );
+                    if ( $content != '' ) :
+                        echo wp_kses_post( $content );
                     else:
                     ?>
                         <p>

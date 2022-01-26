@@ -4,17 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- *constants
- */
+// Setup Theme
 if ( ! function_exists( 'basictheme_setup' ) ):
 
 	function basictheme_setup() {
-
-		/**
-		 * Set the content width based on the theme's design and stylesheet.
-		 */
+		// Set the content width based on the theme's design and stylesheet.
 		global $content_width;
+
 		if ( ! isset( $content_width ) ) {
 			$content_width = 900;
 		}
@@ -24,6 +20,11 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		 * Translations can be filed in the /languages/ directory.
 		 */
 		load_theme_textdomain( 'basictheme', get_parent_theme_file_path( '/languages' ) );
+
+        // Required: Redux Framework
+        if ( class_exists( 'ReduxFramework' ) ) {
+            require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
+        }
 
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
@@ -44,99 +45,65 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		add_theme_support( 'automatic-feed-links' );
 
 		// This theme uses wp_nav_menu() in two locations.
-		register_nav_menu( 'primary', 'Primary Menu' );
-		register_nav_menu( 'footer-menu', 'Footer Menu' );
+        register_nav_menus(
+            array(
+                'primary'   => esc_html__('Primary Menu', 'basictheme'),
+                'footer-menu' => esc_html__('Footer Menu', 'basictheme'),
+            )
+        );
 
-		// add theme support title-tag
+        // add theme support title-tag
 		add_theme_support( 'title-tag' );
-
-		/*  Post Type   */
-		add_theme_support( 'post-formats', array( 'gallery', 'video', 'audio' ) );
 	}
 
 	add_action( 'after_setup_theme', 'basictheme_setup' );
 
 endif;
 
-/**
- * Required: Plugin Activation
- */
+// Required: Plugin Activation
 require get_parent_theme_file_path( '/includes/class-tgm-plugin-activation.php' );
 require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
-/**
- * Required: include plugin theme scripts
- */
+// Required: include plugin theme scripts
 require get_parent_theme_file_path( '/extension/process-option.php' );
 
-if ( class_exists( 'ReduxFramework' ) ) {
-	/*
-	 * Required: Redux Framework
-	 */
-	require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
-}
-
+// Required: Meta Box Framework
 if ( class_exists( 'RW_Meta_Box' ) ) {
-	/*
-	 * Required: Meta Box Framework
-	 */
-	require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
-
+    require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
 }
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
-
 	function rwmb_meta( $key, $args = '', $post_id = null ): bool
     {
 		return false;
 	}
-
 }
 
+// Required: Elementor
 if ( did_action( 'elementor/loaded' ) ) :
-	/*
-	 * Required: Elementor
-	 */
     require get_parent_theme_file_path( '/extension/elementor-addon/elementor-addon.php' );
-
 endif;
 
-/* Require Widgets */
+// Require Widgets
 foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $basictheme_file_widgets ) {
 	require $basictheme_file_widgets;
 }
 
+// Require Woocommerce
 if ( class_exists( 'Woocommerce' ) ) :
-	/*
-	 * Required: Woocommerce
-	 */
     require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
-
 endif;
 
-/**
- * Required: Register Sidebar
- */
+// Require Register Sidebar
 require get_parent_theme_file_path( '/includes/register-sidebar.php' );
 
-/**
- * Required: Theme Scripts
- */
+// Require Theme Scripts
 require get_parent_theme_file_path( '/includes/theme-scripts.php' );
 
-/**
- * Show full editor
- */
-
-
-/*
-*
-* Walker for the main menu
-*
-*/
+// Walker for the main menu
 add_filter( 'walker_nav_menu_start_el', 'basictheme_add_arrow',10,4);
 function basictheme_add_arrow( $output, $item, $depth, $args ){
 	if('primary' == $args->theme_location && $depth >= 0 ){
@@ -148,7 +115,7 @@ function basictheme_add_arrow( $output, $item, $depth, $args ){
 	return $output;
 }
 
-/* callback comment list */
+// Callback Comment List
 function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
 
 	if ( 'div' === $basictheme_comment_args['style'] ) :
@@ -216,12 +183,7 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
 	<?php
 }
 
-/* callback comment list */
-
-/*
- * Content Nav
- */
-
+// Content Nav
 if ( ! function_exists( 'basictheme_comment_nav' ) ) :
 
 	function basictheme_comment_nav() {
@@ -253,9 +215,8 @@ if ( ! function_exists( 'basictheme_comment_nav' ) ) :
 
 endif;
 
-/* Start Social Network */
+// Social Network
 function basictheme_get_social_url() {
-
 	global $basictheme_options;
 	$basictheme_opt_social_networks = basictheme_get_social_network();
 
@@ -287,11 +248,8 @@ function basictheme_get_social_network(): array
 	);
 }
 
-/* End Social Network */
-
-/* Start pagination */
+// Pagination
 function basictheme_pagination() {
-
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
@@ -299,37 +257,32 @@ function basictheme_pagination() {
 		'next_text'          => esc_html__( 'Next', 'basictheme' ),
 		'screen_reader_text' => '&nbsp;',
 	) );
-
 }
 
-// pagination nav query
-function basictheme_paging_nav_query( $basictheme_querry ) {
+// Pagination Nav Query
+function basictheme_paging_nav_query( $query ) {
 
-	$basictheme_pagination_args = array(
-
-		'prev_text' => '<i class="fa fa-angle-double-left"></i>' . esc_html__( ' Previous', 'basictheme' ),
-		'next_text' => esc_html__( 'Next', 'basictheme' ) . '<i class="fa fa-angle-double-right"></i>',
+	$args = array(
+		'prev_text' => esc_html__( ' Previous', 'basictheme' ),
+		'next_text' => esc_html__( 'Next', 'basictheme' ),
 		'current'   => max( 1, get_query_var( 'paged' ) ),
-		'total'     => $basictheme_querry->max_num_pages,
+		'total'     => $query->max_num_pages,
 		'type'      => 'list',
-
 	);
 
-	$basictheme_paginate_links = paginate_links( $basictheme_pagination_args );
+	$paginate_links = paginate_links( $args );
 
-	if ( $basictheme_paginate_links ) :
+	if ( $paginate_links ) :
 
 		?>
         <nav class="pagination">
-			<?php echo $basictheme_paginate_links; ?>
+			<?php echo $paginate_links; ?>
         </nav>
 
 	<?php
 
 	endif;
 }
-
-/* End pagination */
 
 // Sanitize Pagination
 add_action( 'navigation_markup_template', 'basictheme_sanitize_pagination' );
@@ -341,7 +294,7 @@ function basictheme_sanitize_pagination( $basictheme_content ) {
     return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $basictheme_content );
 }
 
-/* Start Get col global */
+// Get col globa
 function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ): string
 {
 
@@ -366,9 +319,7 @@ function basictheme_col_sidebar(): string
     return 'col-12 col-md-4 col-lg-3';
 }
 
-/* End Get col global */
-
-/* Start Post Meta */
+// Post Meta
 function basictheme_post_meta() {
 	?>
 
@@ -396,9 +347,7 @@ function basictheme_post_meta() {
 	<?php
 }
 
-/* End Post Meta */
-
-/* Start Link Pages */
+// Link Pages
 function basictheme_link_page() {
 
 	wp_link_pages( array(
@@ -410,9 +359,7 @@ function basictheme_link_page() {
 
 }
 
-/* End Link Pages */
-
-/* Start comment */
+// Comment
 function basictheme_comment_form() {
 
 	if ( comments_open() || get_comments_number() ) :
@@ -424,9 +371,7 @@ function basictheme_comment_form() {
 	endif;
 }
 
-/* End comment */
-
-/* Start get Category check box */
+// Get Category Check Box
 function basictheme_check_get_cat( $type_taxonomy ): array
 {
 	$cat_check = array();
@@ -446,11 +391,7 @@ function basictheme_check_get_cat( $type_taxonomy ): array
 	return $cat_check;
 }
 
-/* End get Category check box */
-
-/**
- *Start share
- */
+// Share Facebook
 function basictheme_post_share() {
 
 	?>
@@ -461,6 +402,8 @@ function basictheme_post_share() {
 
 }
 
+// Opengraph
+add_action( 'wp_head', 'basictheme_opengraph', 5 );
 function basictheme_opengraph() {
 	global $post;
 
@@ -494,15 +437,7 @@ function basictheme_opengraph() {
 	endif;
 }
 
-add_action( 'wp_head', 'basictheme_opengraph', 5 );
-/* End opengraph */
-
-/**
- * This function modifies the main WordPress query to include an array of
- * post types instead of the default 'post' post type.
- *
- * @param object $query The main WordPress query.
- */
+// Custom Search Post
 function basictheme_include_custom_post_types_in_search_results( $query ) {
 	if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
 		$query->set( 'post_type', array( 'post' ) );
@@ -510,3 +445,18 @@ function basictheme_include_custom_post_types_in_search_results( $query ) {
 }
 add_action( 'pre_get_posts', 'basictheme_include_custom_post_types_in_search_results' );
 
+// Get Contact Form 7
+function basictheme_get_form_cf7(): array {
+    $contact_forms = array();
+    $query_cf7 = get_posts( 'post_type="wpcf7_contact_form"&numberposts=-1' );
+
+    if ( $query_cf7 ) :
+        foreach ( $query_cf7 as $item ) :
+            $contact_forms[ $item->ID ] = $item->post_title;
+        endforeach;
+    else :
+        $contact_forms[ esc_html__( "No contact forms found", "basictheme" ) ] = 0;
+    endif;
+
+    return $contact_forms;
+}
