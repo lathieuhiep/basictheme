@@ -78,9 +78,24 @@ function basictheme_woo_ajax_add_to_cart() {
     $type_product = $_POST['type_product'];
 
     if ( $type_product ) {
-        $grouped_product = $_POST['items'];
+        $items = $_POST['items'];
 
-        var_dump($grouped_product);
+        if ( !empty( $items ) ) {
+            $quantity_set = false;
+
+            foreach ( $items as $item => $quantity ) {
+                $quantity = wc_stock_amount( $quantity );
+
+                if ( $quantity <= 0 ) {
+                    continue;
+                }
+
+                $quantity_set = true;
+
+                // Add to cart validation.
+                $passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $item, $quantity );
+            }
+        }
 
     } else {
 	    $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));

@@ -22,6 +22,7 @@ function basictheme_register_widget_elementor_addon( $widgets_manager ) {
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-carousel.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/post-grid.php' );
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/testimonial-slider.php' );
+	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/carousel-images.php' );
 
 	// register add on
     $widgets_manager->register( new \BasicTheme_Elementor_Addon_Slides() );
@@ -29,6 +30,7 @@ function basictheme_register_widget_elementor_addon( $widgets_manager ) {
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Post_Carousel() );
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Post_Grid() );
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Testimonial_Slider() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Carousel_Images() );
 
 }
 add_action( 'elementor/widgets/register', 'basictheme_register_widget_elementor_addon' );

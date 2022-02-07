@@ -119,7 +119,8 @@
 
         if ( hasClassGroupedForm ) {
             const dataForm = $form.serializeArray();
-            let items = []
+            let keys = [];
+            let values = [];
 
             if ( dataForm.length ) {
 
@@ -130,14 +131,17 @@
                         const product_id = parseInt(item.name.replace(/[^0-9.]/g, ""));
                         const quantity = item.value;
 
-                        items.push({
-                            product_id: product_id,
-                            quantity: quantity
-                        });
+                        keys.push(product_id);
+                        values.push(quantity);
                     }
-                    // console.log(item.name.match(/\d+/));
                 } )
 
+            }
+
+            let items = {};
+
+            for( let i = 0; i < keys.length; i++ ) {
+                items[keys[i]] = values[i];
             }
 
             data = {

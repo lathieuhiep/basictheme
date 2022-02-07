@@ -27,13 +27,13 @@ if (!empty($list_cate)):
                 <?php esc_html_e('Related Post', 'basictheme'); ?>
             </h3>
 
-            <div class="row">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                 <?php
                 while ($query->have_posts()) :
                     $query->the_post();
                     ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 item">
+                    <div class="col item">
                         <div class="related-post-item">
                             <?php if (has_post_thumbnail()) : ?>
                                 <figure class="post-image mb-2">
