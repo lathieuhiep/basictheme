@@ -107,6 +107,8 @@
     // add product quick view
     quick_view_product_body.on('click', '.single_add_to_cart_button', function (e) {
         e.preventDefault();
+        const content_product_detail = $('.content_product_detail');
+        content_product_detail.find('.notice').addClass('d-none');
 
         let $thisButton = $(this),
             $form = $thisButton.closest('form.cart'),
@@ -168,7 +170,6 @@
             };
         }
 
-
         $(document.body).trigger('adding_to_cart', [$thisButton, data]);
 
         $.ajax({
@@ -183,10 +184,12 @@
                 $thisButton.addClass('added').removeClass('loading');
             },
 
-            success: function (response) {
+            success: function ( response ) {
 
-                if (response.error && response.product_url) {
+                if ( response.error && response.product_url ) {
                     window.location = response.product_url;
+                } else if ( response === '' ) {
+                    content_product_detail.find('.notice').removeClass('d-none');
                 } else {
                     $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisButton]);
                 }

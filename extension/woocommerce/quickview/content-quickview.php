@@ -34,6 +34,10 @@ global $product;
                     </div>
 
                     <?php woocommerce_template_single_add_to_cart(); ?>
+
+                    <div class="notice d-none">
+                        <?php esc_html_e( 'Please choose the quantity of items you wish to add to your cart…', 'basictheme' ); ?>
+                    </div>
                 </div>
             </div>
         </div>
