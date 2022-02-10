@@ -192,7 +192,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_favicon',
     'title' => esc_html__('Favicon', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
         array(
@@ -201,7 +200,6 @@ Redux::set_section($basictheme_opt_name, array(
             'url' => true,
             'title' => esc_html__('Upload Favicon Image', 'basictheme'),
             'subtitle' => esc_html__('Favicon image for your website', 'basictheme'),
-            'desc' => esc_html__('', 'basictheme'),
             'default' => false,
         ),
     )
@@ -211,7 +209,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_loading',
     'title' => esc_html__('Loading config', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
         array(
@@ -270,7 +267,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_logo',
     'title' => esc_html__('Logo', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
 
@@ -280,7 +276,6 @@ Redux::set_section($basictheme_opt_name, array(
             'url' => true,
             'title' => esc_html__('Upload logo', 'basictheme'),
             'subtitle' => esc_html__('logo image for your website', 'basictheme'),
-            'desc' => esc_html__('', 'basictheme'),
             'default' => false,
         ),
 
@@ -289,7 +284,6 @@ Redux::set_section($basictheme_opt_name, array(
             'type' => 'dimensions',
             'units' => array('em', 'px', '%'),
             'title' => esc_html__('Set width/height for logo', 'basictheme'),
-            'subtitle' => esc_html__('', 'basictheme'),
             'units_extended' => 'true',
             'default' => array(
                 'width' => '',
@@ -406,7 +400,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'title' => esc_html__('Single Post', 'basictheme'),
     'id' => 'basictheme_opt_single_post',
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
 
@@ -579,7 +572,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'title' => esc_html__('Body Typography', 'basictheme'),
     'id' => 'basictheme_opt_typography_body',
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
 
@@ -863,7 +855,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_footer_copyright',
     'title' => esc_html__('Copyright', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
         array(

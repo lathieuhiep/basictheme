@@ -24,6 +24,12 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		 * Translations can be filed in the /languages/ directory.
 		 */
 		load_theme_textdomain( 'basictheme', get_parent_theme_file_path( '/languages' ) );
+		if ( class_exists( 'ReduxFramework' ) ) {
+			/*
+			 * Required: Redux Framework
+			 */
+			require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
+		}
 
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
@@ -68,13 +74,6 @@ require get_parent_theme_file_path( '/includes/plugin-activation.php' );
  * Required: include plugin theme scripts
  */
 require get_parent_theme_file_path( '/extension/process-option.php' );
-
-if ( class_exists( 'ReduxFramework' ) ) {
-	/*
-	 * Required: Redux Framework
-	 */
-	require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
-}
 
 if ( class_exists( 'RW_Meta_Box' ) ) {
 	/*
