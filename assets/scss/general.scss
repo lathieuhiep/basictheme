@@ -243,25 +243,17 @@ pre {
     margin-top: 15px;
 
     button {
-      &.owl-next,
-      &.owl-prev {
-        display: inline-block;
-        margin: 0 5px;
-        padding: 5px 15px !important;
-        background-color: $background-hover;
-        @include border-radius(5px);
+      &.owl-prev,
+      &.owl-next {
+        margin: 0 6px;
+        color: $color-primary;
+        font-size: 20px;
+        line-height: normal;
         @include transition();
 
         &:hover {
-          background-color: #333333;
+          color: $color-hover;
         }
-      }
-
-      i.fa {
-        color: #ffffff;
-        font-size: 20px;
-        line-height: inherit;
-        @include transition();
       }
     }
   }

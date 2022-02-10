@@ -20,6 +20,9 @@
         /* Element testimonial slider */
         elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-testimonial-slider.default', ElementCarouselSlider );
 
+        /* Element carousel images */
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/basictheme-carousel-images.default', ElementCarouselSlider );
+
     } );
 
 })( jQuery );

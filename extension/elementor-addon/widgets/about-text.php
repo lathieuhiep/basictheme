@@ -1,13 +1,17 @@
 <?php
 
-namespace Elementor;
+use Elementor\Group_Control_Typography;
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
-class basictheme_widget_about_text extends Widget_Base {
+class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'mytheme' );
     }
 
     public function get_name() {
@@ -22,13 +26,13 @@ class basictheme_widget_about_text extends Widget_Base {
         return 'eicon-text-area';
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         // Content heading
         $this->start_controls_section(
-            'content_heading',
+            'content_section',
             [
-                'label' => __( 'Heading', 'basictheme' ),
+                'label' => esc_html__( 'Heading', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -40,17 +44,6 @@ class basictheme_widget_about_text extends Widget_Base {
                 'type'          =>  Controls_Manager::TEXT,
                 'default'       =>  esc_html__( 'Heading About Text', 'basictheme' ),
                 'label_block'   =>  true
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Content description
-        $this->start_controls_section(
-            'content_description',
-            [
-                'label' => __( 'description', 'basictheme' ),
-                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -109,7 +102,7 @@ class basictheme_widget_about_text extends Widget_Base {
         $this->add_control(
             'heading_color',
             [
-                'label'     =>  __( 'Color', 'basictheme' ),
+                'label'     =>  esc_html__( 'Color', 'basictheme' ),
                 'type'      =>  Controls_Manager::COLOR,
                 'selectors' =>  [
                     '{{WRAPPER}} .element-about-text__title' => 'color: {{VALUE}}',
@@ -118,10 +111,10 @@ class basictheme_widget_about_text extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
+	        Group_Control_Typography::get_type(),
             [
                 'name' => 'heading_typography',
-                'label' => __( 'Typography', 'basictheme' ),
+                'label' => esc_html__( 'Typography', 'basictheme' ),
                 'selector' => '{{WRAPPER}} .element-about-text__title',
             ]
         );
@@ -149,7 +142,7 @@ class basictheme_widget_about_text extends Widget_Base {
         );
 
         $this->add_group_control(
-            Group_Control_Typography::get_type(),
+	        Group_Control_Typography::get_type(),
             [
                 'name' => 'description_typography',
                 'label' => __( 'Typography', 'basictheme' ),
@@ -183,7 +176,7 @@ class basictheme_widget_about_text extends Widget_Base {
 
     }
 
-    protected function _content_template() {
+    protected function content_template() {
 
         ?>
         <div class="element-about-text">
@@ -204,5 +197,3 @@ class basictheme_widget_about_text extends Widget_Base {
     }
 
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_about_text );

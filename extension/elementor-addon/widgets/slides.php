@@ -1,13 +1,17 @@
 <?php
 
-namespace Elementor;
+use Elementor\Group_Control_Typography;
+use Elementor\Repeater;
+use Elementor\Utils;
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class basictheme_widget_slides extends Widget_Base {
+class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'mytheme' );
     }
 
     public function get_name() {
@@ -1113,5 +1117,3 @@ class basictheme_widget_slides extends Widget_Base {
     }
 
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_slides );

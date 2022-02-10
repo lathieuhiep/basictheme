@@ -1,13 +1,16 @@
 <?php
 
-namespace Elementor;
+use Elementor\Repeater;
+use Elementor\Utils;
+use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class basictheme_widget_testimonial_slider extends Widget_Base {
+class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
 
     public function get_categories() {
-        return array( 'basictheme_widgets' );
+        return array( 'mytheme' );
     }
 
     public function get_name() {
@@ -30,9 +33,9 @@ class basictheme_widget_testimonial_slider extends Widget_Base {
 
         // Content testimonial
         $this->start_controls_section(
-            'content_testimonial',
+            'content_section',
             [
-                'label' => __( 'Content', 'basictheme' ),
+                'label' => esc_html__( 'Content', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -88,10 +91,10 @@ class basictheme_widget_testimonial_slider extends Widget_Base {
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'list_title' => __( 'Title #1', 'basictheme' ),
+                        'list_title' => esc_html__( 'Title #1', 'basictheme' ),
                     ],
                     [
-                        'list_title' => __( 'Title #2', 'basictheme' ),
+                        'list_title' => esc_html__( 'Title #2', 'basictheme' ),
                     ],
                 ],
                 'title_field' => '{{{ list_title }}}',
@@ -102,9 +105,9 @@ class basictheme_widget_testimonial_slider extends Widget_Base {
 
         // Content additional options
         $this->start_controls_section(
-            'content_additional_options',
+            'additional_options_section',
             [
-                'label' => __( 'Additional Options', 'basictheme' ),
+                'label' => esc_html__( 'Additional Options', 'basictheme' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -214,5 +217,3 @@ class basictheme_widget_testimonial_slider extends Widget_Base {
     <?php
     }
 }
-
-Plugin::instance()->widgets_manager->register_widget_type( new basictheme_widget_testimonial_slider );
