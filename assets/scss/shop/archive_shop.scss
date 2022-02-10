@@ -251,7 +251,7 @@
             color: $color-hover;
             font-size: 14px;
             line-height: normal;
-            font-weight: $font-weight-bold;
+            font-weight: 700;
             margin: 0;
 
             del {
@@ -306,7 +306,7 @@
 
               &:after {
                 content: "\f054";
-                font-family: 'Font Awesome 5 Free';
+                font-family: 'Font Awesome 5 Free', serif;
                 font-weight: 900;
                 font-size: 9px;
                 margin-left: 5px;

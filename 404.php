@@ -10,8 +10,8 @@ $background = $basictheme_options['basictheme_opt_404_background']['id'];
 
 <div class="site-error text-center">
     <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-6">
+        <div class="row row-cols-1 row-cols-md-2 align-items-center justify-content-center">
+            <div class="col">
                 <figure class="site-error__image404">
                     <?php
                     if( !empty( $background ) ):
@@ -23,7 +23,7 @@ $background = $basictheme_options['basictheme_opt_404_background']['id'];
                 </figure>
             </div>
 
-            <div class="col-md-6">
+            <div class="col">
                 <h1 class="site-title-404">
                     <?php
                     if ( $title != '' ):

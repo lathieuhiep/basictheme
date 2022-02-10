@@ -4,14 +4,14 @@ global $basictheme_options;
 $basictheme_copyright = $basictheme_options ['basictheme_opt_footer_copyright_editor'] ?? 'Copyright &amp; DiepLK';
 ?>
 
-<div class="site-footer__copyright">
+<div class="site-footer__bottom">
     <div class="container">
-        <div class="site-copyright-menu d-flex align-items-center">
-            <div class="site-copyright">
+        <div class="bottom-warp">
+            <div class="copyright">
                 <?php echo wp_kses_post( $basictheme_copyright ); ?>
             </div>
 
-            <div class="site-footer__menu">
+            <div class="menu-footer">
                 <nav>
                     <?php
 

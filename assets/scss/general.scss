@@ -13,7 +13,7 @@ body {
   font-size: $font-size-primary;
   color: $color-primary;
   font-family: $font-family-text;
-  font-weight: $font-weight-regular;
+  font-weight:400;
   word-break: break-word;
   @include flexbox();
   @include flex-direction(column);
@@ -25,7 +25,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px;
-  font-weight: $font-weight-bold;
+  font-weight: 700;
   color: $color-title;
 }
 
