@@ -34,7 +34,7 @@ function basictheme_register_meta_boxes($basictheme_meta_boxes)
 
             array(
                 'id' => 'basictheme_meta_box_post_video',
-                'name' => 'Video Or Audio',
+                'name' => esc_html__('Video Or Audio', 'basictheme'),
                 'type' => 'oembed',
             ),
 

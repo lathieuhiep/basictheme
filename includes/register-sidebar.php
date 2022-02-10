@@ -17,23 +17,23 @@ function basictheme_widgets_init()
             'description' => esc_html__('Display sidebar on page shop.', 'basictheme')
         ),
 
-        'basictheme-sidebar-footer-multi-column-1' => array(
-            'name' => esc_html__('Sidebar Footer Multi Column 1', 'basictheme'),
+        'basictheme-sidebar-footer-column-1' => array(
+            'name' => esc_html__('Sidebar Footer Column 1', 'basictheme'),
             'description' => esc_html__('Display footer column 1 on all page.', 'basictheme')
         ),
 
-        'basictheme-sidebar-footer-multi-column-2' => array(
-            'name' => esc_html__('Sidebar Footer Multi Column 2', 'basictheme'),
+        'basictheme-sidebar-footer-column-2' => array(
+            'name' => esc_html__('Sidebar Footer Column 2', 'basictheme'),
             'description' => esc_html__('Display footer column 2 on all page.', 'basictheme')
         ),
 
-        'basictheme-sidebar-footer-multi-column-3' => array(
-            'name' => esc_html__('Sidebar Footer Multi Column 3', 'basictheme'),
+        'basictheme-sidebar-footer-column-3' => array(
+            'name' => esc_html__('Sidebar Footer Column 3', 'basictheme'),
             'description' => esc_html__('Display footer column 3 on all page.', 'basictheme')
         ),
 
-        'basictheme-sidebar-footer-multi-column-4' => array(
-            'name' => esc_html__('Sidebar Footer Multi Column 4', 'basictheme'),
+        'basictheme-sidebar-footer-column-4' => array(
+            'name' => esc_html__('Sidebar Footer Column 4', 'basictheme'),
             'description' => esc_html__('Display footer column 4 on all page.', 'basictheme')
         )
     );

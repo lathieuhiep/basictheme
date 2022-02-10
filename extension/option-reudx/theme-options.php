@@ -69,7 +69,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_favicon',
     'title' => esc_html__('Favicon', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
         array(
@@ -78,7 +77,6 @@ Redux::set_section($basictheme_opt_name, array(
             'url' => true,
             'title' => esc_html__('Upload Favicon Image', 'basictheme'),
             'subtitle' => esc_html__('Favicon image for your website', 'basictheme'),
-            'desc' => esc_html__('', 'basictheme'),
             'default' => false,
         ),
     )
@@ -88,7 +86,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_loading',
     'title' => esc_html__('Loading config', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
         array(
@@ -144,7 +141,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_logo',
     'title' => esc_html__('Logo', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
 
@@ -154,7 +150,6 @@ Redux::set_section($basictheme_opt_name, array(
             'url' => true,
             'title' => esc_html__('Upload logo', 'basictheme'),
             'subtitle' => esc_html__('logo image for your website', 'basictheme'),
-            'desc' => esc_html__('', 'basictheme'),
             'default' => false,
         ),
 
@@ -163,7 +158,6 @@ Redux::set_section($basictheme_opt_name, array(
             'type' => 'dimensions',
             'units' => array('em', 'px', '%'),
             'title' => esc_html__('Set width/height for logo', 'basictheme'),
-            'subtitle' => esc_html__('', 'basictheme'),
             'units_extended' => 'true',
             'default' => array(
                 'width' => '',
@@ -280,7 +274,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'title' => esc_html__('Single Post', 'basictheme'),
     'id' => 'basictheme_opt_single_post',
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
 
@@ -453,7 +446,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'title' => esc_html__('Body Typography', 'basictheme'),
     'id' => 'basictheme_opt_typography_body',
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
 
@@ -623,7 +615,7 @@ Redux::set_section($basictheme_opt_name, array(
     'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'basictheme_opt_footer_multi_column',
+            'id' => 'basictheme_opt_footer_column',
             'type' => 'image_select',
             'title' => esc_html__('Number of Footer Columns', 'basictheme'),
             'subtitle' => esc_html__('Controls the number of columns in the footer', 'basictheme'),
@@ -657,7 +649,7 @@ Redux::set_section($basictheme_opt_name, array(
         ),
 
         array(
-            'id' => 'basictheme_opt_footer_multi_column_1',
+            'id' => 'basictheme_opt_footer_column_1',
             'type' => 'slider',
             'title' => esc_html__('Column width 1', 'basictheme'),
             'subtitle' => esc_html__('Select the number of columns to display in the footer', 'basictheme'),
@@ -668,13 +660,13 @@ Redux::set_section($basictheme_opt_name, array(
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('basictheme_opt_footer_multi_column', 'equals', '1', '2', '3', '4'),
-                array('basictheme_opt_footer_multi_column', '!=', '0'),
+                array('basictheme_opt_footer_column', 'equals', '1', '2', '3', '4'),
+                array('basictheme_opt_footer_column', '!=', '0'),
             )
         ),
 
         array(
-            'id' => 'basictheme_opt_footer_multi_column_2',
+            'id' => 'basictheme_opt_footer_column_2',
             'type' => 'slider',
             'title' => esc_html__('Column width 2', 'basictheme'),
             'subtitle' => esc_html__('Select the number of columns to display in the footer', 'basictheme'),
@@ -685,14 +677,14 @@ Redux::set_section($basictheme_opt_name, array(
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('basictheme_opt_footer_multi_column', 'equals', '2', '3', '4'),
-                array('basictheme_opt_footer_multi_column', '!=', '1'),
-                array('basictheme_opt_footer_multi_column', '!=', '0'),
+                array('basictheme_opt_footer_column', 'equals', '2', '3', '4'),
+                array('basictheme_opt_footer_column', '!=', '1'),
+                array('basictheme_opt_footer_column', '!=', '0'),
             )
         ),
 
         array(
-            'id' => 'basictheme_opt_footer_multi_column_3',
+            'id' => 'basictheme_opt_footer_column_3',
             'type' => 'slider',
             'title' => esc_html__('Column width 3', 'basictheme'),
             'subtitle' => esc_html__('Select the number of columns to display in the footer', 'basictheme'),
@@ -703,15 +695,15 @@ Redux::set_section($basictheme_opt_name, array(
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('basictheme_opt_footer_multi_column', 'equals', '3', '4'),
-                array('basictheme_opt_footer_multi_column', '!=', '1'),
-                array('basictheme_opt_footer_multi_column', '!=', '2'),
-                array('basictheme_opt_footer_multi_column', '!=', '0'),
+                array('basictheme_opt_footer_column', 'equals', '3', '4'),
+                array('basictheme_opt_footer_column', '!=', '1'),
+                array('basictheme_opt_footer_column', '!=', '2'),
+                array('basictheme_opt_footer_column', '!=', '0'),
             )
         ),
 
         array(
-            'id' => 'basictheme_opt_footer_multi_column_4',
+            'id' => 'basictheme_opt_footer_column_4',
             'type' => 'slider',
             'title' => esc_html__('Column width 4', 'basictheme'),
             'subtitle' => esc_html__('Select the number of columns to display in the footer', 'basictheme'),
@@ -722,11 +714,11 @@ Redux::set_section($basictheme_opt_name, array(
             'max' => 12,
             'display_value' => 'label',
             'required' => array(
-                array('basictheme_opt_footer_multi_column', 'equals', '4'),
-                array('basictheme_opt_footer_multi_column', '!=', '1'),
-                array('basictheme_opt_footer_multi_column', '!=', '2'),
-                array('basictheme_opt_footer_multi_column', '!=', '3'),
-                array('basictheme_opt_footer_multi_column', '!=', '0'),
+                array('basictheme_opt_footer_column', 'equals', '4'),
+                array('basictheme_opt_footer_column', '!=', '1'),
+                array('basictheme_opt_footer_column', '!=', '2'),
+                array('basictheme_opt_footer_column', '!=', '3'),
+                array('basictheme_opt_footer_column', '!=', '0'),
             )
         ),
     )
@@ -737,7 +729,6 @@ Redux::set_section($basictheme_opt_name, array(
 Redux::set_section($basictheme_opt_name, array(
     'id' => 'basictheme_opt_footer_copyright',
     'title' => esc_html__('Copyright', 'basictheme'),
-    'desc' => esc_html__('', 'basictheme'),
     'subsection' => true,
     'fields' => array(
         array(

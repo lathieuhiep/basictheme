@@ -202,7 +202,7 @@
               &:before {
                 content: "\f111";
                 display: inline-block;
-                font-family: 'Font Awesome 5 Free';
+                font-family: 'Font Awesome 5 Free', serif;
                 font-style: normal;
                 font-weight: 400;
                 font-size: 10px;
@@ -241,6 +241,7 @@
       width: 100%;
     }
   }
+
   .woocommerce {
     ul {
       &.products {
@@ -264,6 +265,7 @@
   .site-sidebar {
     padding-top: 50px;
   }
+
   /* woocommerce */
   .woocommerce,
   .woocommerce-page {
@@ -310,6 +312,7 @@
       margin-bottom: 15px;
     }
   }
+
   .woocommerce {
     ul {
       &.products {
@@ -354,6 +357,7 @@
       }
     }
   }
+
   /* woocommerce */
   .woocommerce {
     ul {
