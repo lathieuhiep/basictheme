@@ -91,6 +91,9 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $b
 
 // Require Woocommerce
 if ( class_exists( 'Woocommerce' ) ) :
+    // product warranty
+	require get_parent_theme_file_path( '/extension/woocommerce/product-warranty/admin-menu.php' );
+
     require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );

@@ -26,7 +26,7 @@ class BasicTheme_Elementor_Addon_Post_Grid extends Widget_Base
 
     public function get_icon()
     {
-        return 'eicon-post-list';
+        return 'eicon-gallery-grid';
     }
 
     protected function register_controls()
