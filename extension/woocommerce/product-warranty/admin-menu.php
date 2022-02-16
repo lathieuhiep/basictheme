@@ -29,7 +29,24 @@ function basictheme_menu_page_product_warranty() {
 
 // callback parent menu
 function basictheme_show_product_warranty_content() {
-	echo '<h1>Đây là trang Plugin Options</h1>';
+?>
+
+    <div id="product-warranty-list" class="wrap">
+        <h1 class="wp-heading-inline">
+            <?php esc_html_e('Product warranty', 'basictheme'); ?>
+        </h1>
+
+        <?php if ( current_user_can( 'manage_options' ) ) : ?>
+            <a class="page-title-action" href="<?php echo esc_url( menu_page_url( 'product-warranty-new', false ) ); ?>">
+                <?php esc_html_e('Add New', 'basictheme'); ?>
+            </a>
+        <?php endif;?>
+
+        <hr class="wp-header-end">
+
+    </div>
+
+<?php
 }
 
 function show_general_setting_page()
