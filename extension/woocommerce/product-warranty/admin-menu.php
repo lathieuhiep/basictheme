@@ -49,8 +49,37 @@ function basictheme_show_product_warranty_content() {
 <?php
 }
 
+// callback sub menu
 function show_general_setting_page()
 {
-	echo '<h1>Đây là trang Plugin Options - General Settings</h1>';
+?>
+
+    <div class="warp">
+        <h1 class="wp-heading-inline">
+		    <?php esc_html_e('Add New Product warranty', 'basictheme'); ?>
+        </h1>
+
+        <hr class="wp-header-end">
+
+        <form id="post" method="post" action="">
+            <div id="poststuff">
+                <div id="post-body" class="metabox-holder columns-2">
+                    <div id="post-body-content">
+                        <div id="titlediv">
+                            <div id="titlewrap">
+                                <label class="screen-reader-text" id="title-prompt-text" for="title">
+                                    <?php esc_html_e('Tên khách hàng'); ?>
+                                </label>
+
+                                <input type="text" name="post_title" size="30" value="" id="title" spellcheck="true" autocomplete="off" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<?php
 }
 
