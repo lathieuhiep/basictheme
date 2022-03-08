@@ -14,17 +14,17 @@ function basictheme_register_required_plugins() {
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(
-			'name'      =>  'Redux Framework',
-			'slug'      =>  'redux-framework',
+			'name'      =>  'Kirki Customizer Framework',
+			'slug'      =>  'kirki',
 			'required'  =>  true,
 		),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Meta Box',
-			'slug'      =>  'meta-box',
-			'required'  =>  true,
-		),
+        array(
+            'name'      =>  'CMB2',
+            'slug'      =>  'cmb2',
+            'required'  =>  true,
+        ),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(

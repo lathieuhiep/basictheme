@@ -18,10 +18,7 @@ function basictheme_shop_setup() {
 add_filter('loop_shop_per_page', 'basictheme_show_products_per_page');
 
 function basictheme_show_products_per_page() {
-    global $basictheme_options;
-
-    return $basictheme_options['basictheme_opt_shop_limit'];
-
+    return get_theme_mod('basictheme_opt_limit_product', 12);
 }
 /* End limit product */
 
@@ -29,9 +26,7 @@ function basictheme_show_products_per_page() {
 add_filter('loop_shop_columns', 'basictheme_loop_columns_product');
 
 function basictheme_loop_columns_product() {
-    global $basictheme_options;
-
-    return $basictheme_options['basictheme_opt_shop_per_row'] ?? 4;
+    return get_theme_mod('basictheme_opt_per_row_product', '4');
 }
 /* End Change number of products per row */
 
@@ -81,14 +76,12 @@ endif;
 if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
 
     function basictheme_woo_get_sidebar() {
-
-	    global $basictheme_options;
-	    $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'] ?? 'left';
+	    $sidebar = get_theme_mod('basictheme_opt_sidebar_shop', 'left');
 
 
 	    if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
 
-	        if ( $basictheme_opt_shop_sidebar_position == 'left' ) :
+	        if ( $sidebar == 'left' ) :
 		        $class_order = 'order-md-1';
 	        else:
 		        $class_order = 'order-md-2';
@@ -116,8 +109,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
      * Wraps all WooCommerce content in wrappers which match the theme markup
      */
     function basictheme_woo_before_main_content() {
-        global $basictheme_options;
-        $basictheme_opt_shop_sidebar_position = $basictheme_options['basictheme_opt_shop_sidebar'] ?? 'left';
+        $sidebar = get_theme_mod('basictheme_opt_sidebar_shop', 'left');
 
     ?>
 
@@ -135,7 +127,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
 
                 ?>
 
-                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $basictheme_opt_shop_sidebar_position != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
+                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $sidebar != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
 
     <?php
 

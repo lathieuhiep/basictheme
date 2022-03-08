@@ -1,9 +1,8 @@
 <?php
-global $basictheme_options;
+$sidebar = get_theme_mod('basictheme_opt_sidebar_blog_post', 'right');
+$per_row = get_theme_mod('basictheme_opt_per_row_blog_post', '2');
 
-$sidebar_position = $basictheme_options['basictheme_opt_blog_sidebar_archive'] ?? 'right';
-$class_col_content = basictheme_col_use_sidebar($sidebar_position, 'basictheme-sidebar-main');
-$per_row = $basictheme_options['basictheme_opt_blog_per_row'] ?? 3;
+$class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-main');
 ?>
 
 <div class="site-container site-blog">
@@ -75,7 +74,7 @@ $per_row = $basictheme_options['basictheme_opt_blog_per_row'] ?? 3;
             </div>
 
             <?php
-            if ($sidebar_position !== 'hide') :
+            if ($sidebar !== 'hide') :
                 get_sidebar();
             endif;
             ?>

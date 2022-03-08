@@ -1,15 +1,18 @@
 <?php
-global $basictheme_options;
-
-$basictheme_copyright = $basictheme_options ['basictheme_opt_footer_copyright_editor'] ?? 'Copyright &amp; DiepLK';
+$show_copyright = get_theme_mod('basictheme_opt_show_copyright', 'show');
+$copyright = get_theme_mod('basictheme_opt_content_copyright', 'Copyright &amp; DiepLK');
 ?>
 
 <div class="site-footer__bottom">
     <div class="container">
         <div class="bottom-warp">
+            <?php if ( $show_copyright == 'show' ) : ?>
+
             <div class="copyright">
-                <?php echo wp_kses_post( $basictheme_copyright ); ?>
+                <?php echo wpautop( $copyright ); ?>
             </div>
+
+            <?php endif; ?>
 
             <div class="menu-footer">
                 <nav>

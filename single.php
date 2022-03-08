@@ -1,9 +1,8 @@
 <?php
 get_header();
 
-global $basictheme_options;
-$sidebar_position = $basictheme_options['basictheme_opt_single_post_sidebar'] ?? 'right';
-$class_col_content = basictheme_col_use_sidebar( $sidebar_position, 'basictheme-sidebar-main' );
+$sidebar = get_theme_mod('basictheme_opt_sidebar_single_post', 'right');
+$class_col_content = basictheme_col_use_sidebar( $sidebar, 'basictheme-sidebar-main' );
 
 get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
@@ -23,7 +22,7 @@ get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
             </div>
 
             <?php
-            if ( $sidebar_position !== 'hide' ) :
+            if ( $sidebar !== 'hide' ) :
 	            get_sidebar();
             endif;
             ?>

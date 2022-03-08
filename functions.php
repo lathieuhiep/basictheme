@@ -21,11 +21,6 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		 */
 		load_theme_textdomain( 'basictheme', get_parent_theme_file_path( '/languages' ) );
 
-        // Required: Redux Framework
-        if ( class_exists( 'ReduxFramework' ) ) {
-            require get_parent_theme_file_path( '/extension/option-reudx/theme-options.php' );
-        }
-
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
 		 *
@@ -64,19 +59,17 @@ endif;
 require get_parent_theme_file_path( '/includes/class-tgm-plugin-activation.php' );
 require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
-// Required: include plugin theme scripts
-require get_parent_theme_file_path( '/extension/process-option.php' );
+// Required: theme add_action
+require get_parent_theme_file_path( '/includes/theme-add-action.php' );
 
-// Required: Meta Box Framework
-if ( class_exists( 'RW_Meta_Box' ) ) {
-    require get_parent_theme_file_path( '/extension/meta-box/meta-box-post.php' );
+// Required: Kirki customizer
+if ( class_exists('Kirki') ) {
+    require get_theme_file_path( 'extension/theme-option/customizer.php' );
 }
 
-if ( ! function_exists( 'rwmb_meta' ) ) {
-	function rwmb_meta( $key, $args = '', $post_id = null ): bool
-    {
-		return false;
-	}
+// Required: CMB2
+if ( !class_exists('CMB2') ) {
+    require get_parent_theme_file_path( '/extension/meta-box/cmb_post.php' );
 }
 
 // Required: Elementor
@@ -91,9 +84,6 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $b
 
 // Require Woocommerce
 if ( class_exists( 'Woocommerce' ) ) :
-    // product warranty
-	require get_parent_theme_file_path( '/extension/woocommerce/product-warranty/admin-menu.php' );
-
     require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
 	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
@@ -220,24 +210,19 @@ endif;
 
 // Social Network
 function basictheme_get_social_url() {
-	global $basictheme_options;
-	$basictheme_opt_social_networks = basictheme_get_social_network();
+	$social_networks = basictheme_get_social_network();
 
-	foreach ( $basictheme_opt_social_networks as $basictheme_social ) :
-		$basictheme_social_url = $basictheme_options[ 'basictheme_opt_social_network_' . $basictheme_social['id'] ] ?? '#';
-
-		if ( $basictheme_social_url ) :
-			?>
-
-            <div class="social-network-item item-<?php echo esc_attr( $basictheme_social['id'] ); ?>">
-                <a href="<?php echo esc_url( $basictheme_social_url ); ?>">
-                    <i class="<?php echo esc_attr( $basictheme_social['icon'] ); ?>" aria-hidden="true"></i>
-                </a>
-            </div>
-
-		<?php
+	foreach ( $social_networks as $item ) :
+		$social_url = get_theme_mod('basictheme_opt_url_social_' . $item['id'], '#');
+		if ( $social_url ) :
+    ?>
+        <div class="social-network-item item-<?php echo esc_attr( $item['id'] ); ?>">
+            <a href="<?php echo esc_url( $social_url ); ?>">
+                <i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+            </a>
+        </div>
+    <?php
 		endif;
-
 	endforeach;
 }
 

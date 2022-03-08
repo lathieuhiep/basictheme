@@ -1,7 +1,6 @@
 <?php
-global $basictheme_options;
-
-$footer_column = $basictheme_options ["basictheme_opt_footer_column"];
+$footer_column = get_theme_mod('basictheme_opt_column_footer', 'column-4');
+$number_column = (int) substr( $footer_column, -1 );
 
 if( is_active_sidebar( 'basictheme-sidebar-footer-column-1' ) || is_active_sidebar( 'basictheme-sidebar-footer-column-2' ) || is_active_sidebar( 'basictheme-sidebar-footer-column-3' ) || is_active_sidebar( 'basictheme-sidebar-footer-column-4' ) ) :
 
@@ -11,9 +10,9 @@ if( is_active_sidebar( 'basictheme-sidebar-footer-column-1' ) || is_active_sideb
         <div class="container">
             <div class="row">
                 <?php
-                for( $i = 0; $i < $footer_column; $i++ ):
+                for( $i = 0; $i < $number_column; $i++ ):
                     $j = $i +1;
-                    $basictheme_col = $basictheme_options ["basictheme_opt_footer_column_" . $j];
+                    $basictheme_col = get_theme_mod( 'basictheme_opt_column_width_footer_' .  $j, 3);
 
                     if( is_active_sidebar( 'basictheme-sidebar-footer-column-'.$j ) ):
                 ?>

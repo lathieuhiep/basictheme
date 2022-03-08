@@ -1,31 +1,29 @@
 <?php
-global $basictheme_options;
+$show_contact_us = get_theme_mod('basictheme_opt_show_contact_us', 'show');
 
-$contact_us_show_hide = $basictheme_options['basictheme_opt_contact_us_show'] ?? true;
-
-if ( $contact_us_show_hide ) :
-$contact_us_address   =   $basictheme_options['basictheme_opt_contact_us_address'] ?? '988782, Our Street, S State';
-$contact_us_mail      =   $basictheme_options['basictheme_opt_contact_us_mail'] ?? 'info@domain.com';
-$contact_us_phone     =   $basictheme_options['basictheme_opt_contact_us_phone'] ?? '+1 234 567 186';
-
+if ( $show_contact_us == 'show' ) :
+    $address = get_theme_mod('basictheme_opt_address_contact_us', '');
+    $mail = get_theme_mod('basictheme_opt_mail_contact_us', '');
+    $phone = get_theme_mod('basictheme_opt_phone_contact_us', '');
 ?>
+
 <div class="contact-us">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-12 col-lg-7">
                  <span>
                     <i class="fas fa-map-marker" aria-hidden="true"></i>
-                    <?php echo esc_html( $contact_us_address ); ?>
+                    <?php echo esc_html( $address ); ?>
                 </span>
 
                 <span>
                     <i class="fas fa-envelope"></i>
-                    <?php echo esc_html( $contact_us_mail ); ?>
+                    <?php echo esc_html( $mail ); ?>
                 </span>
 
                 <span>
                     <i class="fas fa-mobile-alt"></i>
-                    <?php echo esc_html( $contact_us_phone ); ?>
+                    <?php echo esc_html( $phone ); ?>
                 </span>
             </div>
 
@@ -39,5 +37,4 @@ $contact_us_phone     =   $basictheme_options['basictheme_opt_contact_us_phone']
 </div>
 
 <?php
-
 endif;

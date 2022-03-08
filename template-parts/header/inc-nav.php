@@ -1,19 +1,18 @@
 <?php
-global $basictheme_options;
-
-$nav_top_sticky   =   $basictheme_options['basictheme_opt_nav_sticky'] ?? 1;
-$basictheme_opt_logo_image_id    =   $basictheme_options['basictheme_opt_logo_image']['id'];
+$sticky_menu = get_theme_mod( 'basictheme_opt_sticky_menu', 'on' );
+$logo = get_theme_mod( 'basictheme_opt_image_logo', '' );
+$cart = get_theme_mod( 'basictheme_opt_cart_menu', 'show' );
 ?>
 
-<nav id="site-navigation" class="main-navigation<?php echo esc_attr( $nav_top_sticky == 1 ? ' active-sticky-nav' : '' ); ?>">
+<nav id="site-navigation" class="main-navigation<?php echo esc_attr( $sticky_menu == 'on' ? ' active-sticky-nav' : '' ); ?>">
     <div class="site-navbar navbar-expand-lg">
         <div class="container">
             <div class="site-navigation_warp d-flex justify-content-lg-end">
                 <div class="site-logo d-flex align-items-center">
                     <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                         <?php
-                            if ( !empty( $basictheme_opt_logo_image_id ) ) :
-                                echo wp_get_attachment_image( $basictheme_opt_logo_image_id, 'full' );
+                            if ( !empty( $logo ) ) :
+                                echo wp_get_attachment_image( $logo, 'full' );
                             else :
                                 echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
                             endif;
@@ -53,7 +52,7 @@ $basictheme_opt_logo_image_id    =   $basictheme_options['basictheme_opt_logo_im
 
                 </div>
 
-                <?php if ( class_exists('Woocommerce') ) : ?>
+                <?php if ( class_exists('Woocommerce') && $cart == 'show' ) : ?>
 
                     <div class="shop-cart-view d-flex align-items-center">
                         <?php
