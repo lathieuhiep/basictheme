@@ -1,7 +1,7 @@
 <?php
-add_action('cmb2_admin_init', 'basictheme_product_metaboxes');
+add_action('cmb2_admin_init', 'basictheme_post_metaboxes');
 
-function basictheme_product_metaboxes()
+function basictheme_post_metaboxes()
 {
     $cmb = new_cmb2_box(array(
         'id' => 'basictheme_cmb_post',
@@ -18,5 +18,4 @@ function basictheme_product_metaboxes()
         'type' => 'title',
         'desc' => esc_html__( 'This is a title description', 'basictheme' ),
     ) );
-
 }
