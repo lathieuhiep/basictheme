@@ -360,7 +360,7 @@ new Repeater(
 		'settings'  => 'basictheme_opt_social_list',
 		'label'     => esc_html__( 'Create Social Links', 'basictheme' ),
 		'section'   => 'basictheme_opt_section_social_network',
-		'tooltip'   => esc_html__( 'Use Font Awesome Free', 'basictheme' ),
+		'tooltip'   => esc_html__( 'Use Font Awesome Free 6', 'basictheme' ),
 		'row_label' => array(
 			'type'  => 'field',
 			'value' => esc_html__( 'Social link', 'basictheme' ),
