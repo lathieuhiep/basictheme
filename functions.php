@@ -210,15 +210,18 @@ endif;
 
 // Social Network
 function basictheme_get_social_url() {
-	$social_networks = basictheme_get_social_network();
+    $defaults = basictheme_get_social_defaults();
+
+	$social_networks = get_theme_mod('basictheme_opt_social_list', $defaults);
 
 	foreach ( $social_networks as $item ) :
-		$social_url = get_theme_mod('basictheme_opt_url_social_' . $item['id'], '#');
+		$social_url = $item['url'];
+
 		if ( $social_url ) :
     ?>
-        <div class="social-network-item item-<?php echo esc_attr( $item['id'] ); ?>">
-            <a href="<?php echo esc_url( $social_url ); ?>">
-                <i class="<?php echo esc_attr( $item['icon'] ); ?>" aria-hidden="true"></i>
+        <div class="social-network-item">
+            <a href="<?php echo esc_url( $social_url ); ?>" target="<?php echo esc_attr( $item['target'] ); ?>">
+                <i class="<?php echo $item['icon']; ?>"></i>
             </a>
         </div>
     <?php
@@ -226,14 +229,34 @@ function basictheme_get_social_url() {
 	endforeach;
 }
 
-function basictheme_get_social_network(): array
+function basictheme_get_social_defaults(): array
 {
-	return array(
-		array( 'id' => 'facebook', 'icon' => 'fab fa-facebook-f' ),
-		array( 'id' => 'youtube', 'icon' => 'fab fa-youtube' ),
-		array( 'id' => 'twitter', 'icon' => 'fab fa-twitter' ),
-		array( 'id' => 'instagram', 'icon' => 'fab fa-instagram' ),
-	);
+	return [
+        [
+            'title' => 'Facebook',
+            'icon' => 'fab fa-facebook-f',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+        [
+            'title' => 'Youtube',
+            'icon' => 'fab fa-youtube',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+        [
+            'title' => 'Twitter',
+            'icon' => 'fab fa-twitter',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+        [
+            'title' => 'Instagram',
+            'icon' => 'fab fa-instagram',
+            'url' => '#',
+            'target' => '_blank'
+        ],
+    ];
 }
 
 // Pagination

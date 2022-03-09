@@ -14,9 +14,11 @@ $cart = get_theme_mod( 'basictheme_opt_cart_menu', 'show' );
                             if ( !empty( $logo ) ) :
                                 echo wp_get_attachment_image( $logo, 'full' );
                             else :
-                                echo'<img class="logo-default" src="'.esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ).'" alt="'.get_bloginfo('title').'" />';
-                            endif;
                         ?>
+
+                            <img class="logo-default" src="<?php echo esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo('title') ); ?>" width="64" height="64" />
+
+                        <?php endif; ?>
                     </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-menu" aria-controls="site-menu" aria-expanded="false" aria-label="Toggle navigation">
