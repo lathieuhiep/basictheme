@@ -2,9 +2,9 @@
 $show_contact_us = get_theme_mod('basictheme_opt_show_contact_us', 'show');
 
 if ( $show_contact_us == 'show' ) :
-    $address = get_theme_mod('basictheme_opt_address_contact_us', '');
-    $mail = get_theme_mod('basictheme_opt_mail_contact_us', '');
-    $phone = get_theme_mod('basictheme_opt_phone_contact_us', '');
+    $address = get_theme_mod('basictheme_opt_address_contact_us', '988782, Our Street, S State');
+    $mail = get_theme_mod('basictheme_opt_mail_contact_us', 'info@domain.com');
+    $phone = get_theme_mod('basictheme_opt_phone_contact_us', '+1 234 567 186');
 ?>
 
 <div class="contact-us">
@@ -28,7 +28,7 @@ if ( $show_contact_us == 'show' ) :
             </div>
 
             <div class="col-12 col-md-12 col-lg-5 d-none d-lg-block">
-                <div class="contact-us__social-network social-network-toTopFromBottom d-lg-flex justify-content-lg-end">
+                <div class="contact-us__social-network d-lg-flex justify-content-lg-end">
                     <?php basictheme_get_social_url(); ?>
                 </div>
             </div>
