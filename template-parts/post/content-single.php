@@ -1,6 +1,6 @@
 <?php
-$share_post = get_theme_mod('basictheme_opt_share_single_post', 'show');
-$show_related = get_theme_mod('basictheme_opt_related_single_post', 'show');
+$share_post = get_theme_mod('paint_opt_share_single_post', 'show');
+$show_related = get_theme_mod('paint_opt_related_single_post', 'show');
 ?>
 
 <div id="post-<?php the_ID() ?>" <?php post_class( 'site-post-single-item' ); ?>>
@@ -17,13 +17,13 @@ $show_related = get_theme_mod('basictheme_opt_related_single_post', 'show');
             <?php the_title(); ?>
         </h2>
 
-        <?php basictheme_post_meta(); ?>
+        <?php paint_post_meta(); ?>
 
         <div class="site-post-excerpt">
             <?php
             the_content();
 
-            basictheme_link_page();
+            paint_link_page();
             ?>
         </div>
 
@@ -33,7 +33,7 @@ $show_related = get_theme_mod('basictheme_opt_related_single_post', 'show');
 
                 <p class="site-post-category">
                     <?php
-                    esc_html_e('Category: ','basictheme');
+                    esc_html_e('Category: ','paint');
                     the_category( ' ' );
                     ?>
                 </p>
@@ -48,7 +48,7 @@ $show_related = get_theme_mod('basictheme_opt_related_single_post', 'show');
 
                 <p class="site-post-tag">
                     <?php
-                    esc_html_e( 'Tag: ','basictheme' );
+                    esc_html_e( 'Tag: ','paint' );
                     the_tags('',' ');
                     ?>
                 </p>
@@ -61,14 +61,14 @@ $show_related = get_theme_mod('basictheme_opt_related_single_post', 'show');
     <?php
 
     if ( $share_post == 'show' ) :
-        basictheme_post_share();
+        paint_post_share();
     endif;
 
     ?>
 </div>
 
 <?php
-basictheme_comment_form();
+paint_comment_form();
 
 if ( $show_related == 'show' ) :
     get_template_part( 'template-parts/post/inc','related-post' );

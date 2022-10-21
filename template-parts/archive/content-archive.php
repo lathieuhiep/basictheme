@@ -1,8 +1,8 @@
 <?php
-$sidebar = get_theme_mod('basictheme_opt_sidebar_blog_post', 'right');
-$per_row = get_theme_mod('basictheme_opt_per_row_blog_post', '2');
+$sidebar = get_theme_mod('paint_opt_sidebar_blog_post', 'right');
+$per_row = get_theme_mod('paint_opt_per_row_blog_post', '2');
 
-$class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-main');
+$class_col_content = paint_col_use_sidebar($sidebar, 'paint-sidebar-main');
 ?>
 
 <div class="site-container site-blog">
@@ -32,7 +32,7 @@ $class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-ma
                                         <?php
                                         get_template_part('template-parts/post/content', 'image');
 
-                                        basictheme_post_meta();
+                                        paint_post_meta();
                                         ?>
 
                                         <div class="site-post-excerpt">
@@ -47,10 +47,10 @@ $class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-ma
                                             </p>
 
                                             <a href="<?php the_permalink(); ?>" class="text-read-more">
-                                                <?php esc_html_e('Read more', 'basictheme'); ?>
+                                                <?php esc_html_e('Read more', 'paint'); ?>
                                             </a>
 
-                                            <?php basictheme_link_page(); ?>
+                                            <?php paint_link_page(); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@ $class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-ma
                         </div>
 
                         <?php
-                        basictheme_pagination();
+                        paint_pagination();
 
                     else:
 

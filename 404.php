@@ -1,9 +1,9 @@
 <?php
 get_header();
 
-$title = get_theme_mod('basictheme_opt_title_404', '');
-$content = get_theme_mod('basictheme_opt_content_404', '');
-$image = get_theme_mod('basictheme_opt_image_404', '');
+$title = get_theme_mod('paint_opt_title_404', '');
+$content = get_theme_mod('paint_opt_content_404', '');
+$image = get_theme_mod('paint_opt_image_404', '');
 ?>
 
 <div class="site-error text-center">
@@ -27,7 +27,7 @@ $image = get_theme_mod('basictheme_opt_image_404', '');
                     if ( $title != '' ):
                         echo esc_html( $title );
                     else:
-                        esc_html_e( 'Awww...Do Not Cry', 'basictheme' );
+                        esc_html_e( 'Awww...Do Not Cry', 'paint' );
                     endif;
                     ?>
                 </h1>
@@ -39,18 +39,18 @@ $image = get_theme_mod('basictheme_opt_image_404', '');
                     else:
                     ?>
                         <p>
-                            <?php esc_html_e( 'It is just a 404 Error!', 'basictheme' ); ?>
+                            <?php esc_html_e( 'It is just a 404 Error!', 'paint' ); ?>
                             <br />
-                            <?php esc_html_e( 'What you are looking for may have been misplaced', 'basictheme' ); ?>
+                            <?php esc_html_e( 'What you are looking for may have been misplaced', 'paint' ); ?>
                             <br />
-                            <?php esc_html_e( 'in Long Term Memory.', 'basictheme' ); ?>
+                            <?php esc_html_e( 'in Long Term Memory.', 'paint' ); ?>
                         </p>
                     <?php endif; ?>
                 </div>
 
                 <div id="site-error-back-home">
-                    <a href="<?php echo esc_url( get_home_url('/') ); ?>" title="<?php echo esc_html__('Go to the Home Page', 'basictheme'); ?>">
-                        <?php esc_html_e('Go to the Home Page', 'basictheme'); ?>
+                    <a href="<?php echo esc_url( get_home_url('/') ); ?>" title="<?php echo esc_html__('Go to the Home Page', 'paint'); ?>">
+                        <?php esc_html_e('Go to the Home Page', 'paint'); ?>
                     </a>
                 </div>
             </div>

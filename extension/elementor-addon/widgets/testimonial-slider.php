@@ -7,18 +7,18 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
+class paint_Elementor_Addon_Testimonial_Slider extends Widget_Base {
 
     public function get_categories() {
         return array( 'mytheme' );
     }
 
     public function get_name() {
-        return 'basictheme-testimonial-slider';
+        return 'paint-testimonial-slider';
     }
 
     public function get_title() {
-        return esc_html__( 'Testimonial Slider', 'basictheme' );
+        return esc_html__( 'Testimonial Slider', 'paint' );
     }
 
     public function get_icon() {
@@ -26,7 +26,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['basictheme-elementor-custom'];
+        return ['paint-elementor-custom'];
     }
 
     protected function _register_controls() {
@@ -35,7 +35,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-                'label' => esc_html__( 'Content', 'basictheme' ),
+                'label' => esc_html__( 'Content', 'paint' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -44,9 +44,9 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
 
         $repeater->add_control(
             'list_title', [
-                'label' => esc_html__( 'Name', 'basictheme' ),
+                'label' => esc_html__( 'Name', 'paint' ),
                 'type' => Controls_Manager::TEXT,
-                'default' => esc_html__( 'John Doe' , 'basictheme' ),
+                'default' => esc_html__( 'John Doe' , 'paint' ),
                 'label_block' => true,
             ]
         );
@@ -54,9 +54,9 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $repeater->add_control(
             'list_position',
             [
-                'label'         =>  esc_html__( 'Position', 'basictheme' ),
+                'label'         =>  esc_html__( 'Position', 'paint' ),
                 'type'          =>  Controls_Manager::TEXT,
-                'default'       =>  esc_html__( 'Codetic', 'basictheme' ),
+                'default'       =>  esc_html__( 'Codetic', 'paint' ),
                 'label_block'   =>  true
             ]
         );
@@ -64,7 +64,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $repeater->add_control(
             'list_image',
             [
-                'label' => esc_html__( 'Choose Image', 'basictheme' ),
+                'label' => esc_html__( 'Choose Image', 'paint' ),
                 'type' => Controls_Manager::MEDIA,
                 'default' => [
                     'url' => Utils::get_placeholder_image_src(),
@@ -75,26 +75,26 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $repeater->add_control(
             'list_description',
             [
-                'label' => esc_html__( 'Description', 'basictheme' ),
+                'label' => esc_html__( 'Description', 'paint' ),
                 'type' => Controls_Manager::TEXTAREA,
                 'rows' => 10,
-                'default' => esc_html__( 'GEMs are robotics algorithm for modules that built & optimized for NVIDIA AGX Data should underlie every business decision. Data should underlie every business Yet too often some very down the certain routes.', 'basictheme' ),
-                'placeholder' => esc_html__( 'Type your description here', 'basictheme' ),
+                'default' => esc_html__( 'GEMs are robotics algorithm for modules that built & optimized for NVIDIA AGX Data should underlie every business decision. Data should underlie every business Yet too often some very down the certain routes.', 'paint' ),
+                'placeholder' => esc_html__( 'Type your description here', 'paint' ),
             ]
         );
 
         $this->add_control(
             'list',
             [
-                'label' => esc_html__( 'List', 'basictheme' ),
+                'label' => esc_html__( 'List', 'paint' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                 'default' => [
                     [
-                        'list_title' => esc_html__( 'Title #1', 'basictheme' ),
+                        'list_title' => esc_html__( 'Title #1', 'paint' ),
                     ],
                     [
-                        'list_title' => esc_html__( 'Title #2', 'basictheme' ),
+                        'list_title' => esc_html__( 'Title #2', 'paint' ),
                     ],
                 ],
                 'title_field' => '{{{ list_title }}}',
@@ -107,7 +107,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $this->start_controls_section(
             'additional_options_section',
             [
-                'label' => esc_html__( 'Additional Options', 'basictheme' ),
+                'label' => esc_html__( 'Additional Options', 'paint' ),
                 'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -116,9 +116,9 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
             'loop',
             [
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label'         =>  esc_html__('Loop Slider ?', 'basictheme'),
-                'label_off'     =>  esc_html__('No', 'basictheme'),
-                'label_on'      =>  esc_html__('Yes', 'basictheme'),
+                'label'         =>  esc_html__('Loop Slider ?', 'paint'),
+                'label_off'     =>  esc_html__('No', 'paint'),
+                'label_on'      =>  esc_html__('Yes', 'paint'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -127,10 +127,10 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $this->add_control(
             'autoplay',
             [
-                'label'         =>  esc_html__('Autoplay?', 'basictheme'),
+                'label'         =>  esc_html__('Autoplay?', 'paint'),
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label_off'     =>  esc_html__('No', 'basictheme'),
-                'label_on'      =>  esc_html__('Yes', 'basictheme'),
+                'label_off'     =>  esc_html__('No', 'paint'),
+                'label_on'      =>  esc_html__('Yes', 'paint'),
                 'return_value'  =>  'yes',
                 'default'       =>  'no',
             ]
@@ -139,10 +139,10 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $this->add_control(
             'nav',
             [
-                'label'         =>  esc_html__('Nav Slider', 'basictheme'),
+                'label'         =>  esc_html__('Nav Slider', 'paint'),
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label_on'      =>  esc_html__('Yes', 'basictheme'),
-                'label_off'     =>  esc_html__('No', 'basictheme'),
+                'label_on'      =>  esc_html__('Yes', 'paint'),
+                'label_off'     =>  esc_html__('No', 'paint'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]
@@ -151,10 +151,10 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         $this->add_control(
             'dots',
             [
-                'label'         =>  esc_html__('Dots Slider', 'basictheme'),
+                'label'         =>  esc_html__('Dots Slider', 'paint'),
                 'type'          =>  Controls_Manager::SWITCHER,
-                'label_on'      =>  esc_html__('Yes', 'basictheme'),
-                'label_off'     =>  esc_html__('No', 'basictheme'),
+                'label_on'      =>  esc_html__('Yes', 'paint'),
+                'label_off'     =>  esc_html__('No', 'paint'),
                 'return_value'  =>  'yes',
                 'default'       =>  'yes',
             ]

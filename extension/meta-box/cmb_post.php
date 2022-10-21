@@ -1,11 +1,11 @@
 <?php
-add_action('cmb2_admin_init', 'basictheme_post_metaboxes');
+add_action('cmb2_admin_init', 'paint_post_metaboxes');
 
-function basictheme_post_metaboxes()
+function paint_post_metaboxes()
 {
     $cmb = new_cmb2_box(array(
-        'id' => 'basictheme_cmb_post',
-        'title' => esc_html__('Option metabox', 'basictheme'),
+        'id' => 'paint_cmb_post',
+        'title' => esc_html__('Option metabox', 'paint'),
         'object_types' => array('post'),
         'context' => 'normal',
         'priority' => 'low',
@@ -13,9 +13,9 @@ function basictheme_post_metaboxes()
     ));
 
     $cmb->add_field( array(
-        'id'   => 'basictheme_cmb_post_title',
-        'name' => esc_html__( 'Test Title', 'basictheme' ),
+        'id'   => 'paint_cmb_post_title',
+        'name' => esc_html__( 'Test Title', 'paint' ),
         'type' => 'title',
-        'desc' => esc_html__( 'This is a title description', 'basictheme' ),
+        'desc' => esc_html__( 'This is a title description', 'paint' ),
     ) );
 }

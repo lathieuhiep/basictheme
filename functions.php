@@ -5,9 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Setup Theme
-if ( ! function_exists( 'basictheme_setup' ) ):
+if ( ! function_exists( 'paint_setup' ) ):
 
-	function basictheme_setup() {
+	function paint_setup() {
 		// Set the content width based on the theme's design and stylesheet.
 		global $content_width;
 
@@ -19,7 +19,7 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		load_theme_textdomain( 'basictheme', get_parent_theme_file_path( '/languages' ) );
+		load_theme_textdomain( 'paint', get_parent_theme_file_path( '/languages' ) );
 
 		/**
 		 * Set up theme defaults and registers support for various WordPress features.
@@ -42,8 +42,8 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		// This theme uses wp_nav_menu() in two locations.
         register_nav_menus(
             array(
-                'primary'   => esc_html__('Primary Menu', 'basictheme'),
-                'footer-menu' => esc_html__('Footer Menu', 'basictheme'),
+                'primary'   => esc_html__('Primary Menu', 'paint'),
+                'footer-menu' => esc_html__('Footer Menu', 'paint'),
             )
         );
 
@@ -51,7 +51,7 @@ if ( ! function_exists( 'basictheme_setup' ) ):
 		add_theme_support( 'title-tag' );
 	}
 
-	add_action( 'after_setup_theme', 'basictheme_setup' );
+	add_action( 'after_setup_theme', 'paint_setup' );
 
 endif;
 
@@ -78,8 +78,8 @@ if ( did_action( 'elementor/loaded' ) ) :
 endif;
 
 // Require Widgets
-foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $basictheme_file_widgets ) {
-	require $basictheme_file_widgets;
+foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $paint_file_widgets ) {
+	require $paint_file_widgets;
 }
 
 // Require Woocommerce
@@ -97,8 +97,8 @@ require get_parent_theme_file_path( '/includes/register-sidebar.php' );
 require get_parent_theme_file_path( '/includes/theme-scripts.php' );
 
 // Walker for the main menu
-add_filter( 'walker_nav_menu_start_el', 'basictheme_add_arrow',10,4);
-function basictheme_add_arrow( $output, $item, $depth, $args ){
+add_filter( 'walker_nav_menu_start_el', 'paint_add_arrow',10,4);
+function paint_add_arrow( $output, $item, $depth, $args ){
 	if('primary' == $args->theme_location && $depth >= 0 ){
 		if (in_array("menu-item-has-children", $item->classes)) {
 			$output .='<span class="sub-menu-toggle"></span>';
@@ -109,39 +109,39 @@ function basictheme_add_arrow( $output, $item, $depth, $args ){
 }
 
 // Callback Comment List
-function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
+function paint_comments( $paint_comment, $paint_comment_args, $paint_comment_depth ) {
 
-	if ( 'div' === $basictheme_comment_args['style'] ) :
+	if ( 'div' === $paint_comment_args['style'] ) :
 
-		$basictheme_comment_tag       = 'div';
-		$basictheme_comment_add_below = 'comment';
+		$paint_comment_tag       = 'div';
+		$paint_comment_add_below = 'comment';
 
 	else :
 
-		$basictheme_comment_tag       = 'li';
-		$basictheme_comment_add_below = 'div-comment';
+		$paint_comment_tag       = 'li';
+		$paint_comment_add_below = 'div-comment';
 
 	endif;
 
 	?>
-    <<?php echo $basictheme_comment_tag ?><?php comment_class( empty( $basictheme_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+    <<?php echo $paint_comment_tag ?><?php comment_class( empty( $paint_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
 
-	<?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
+	<?php if ( 'div' != $paint_comment_args['style'] ) : ?>
 
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 
 	<?php endif; ?>
 
     <div class="comment-author vcard">
-		<?php if ( $basictheme_comment_args['avatar_size'] != 0 ) {
-			echo get_avatar( $basictheme_comment, $basictheme_comment_args['avatar_size'] );
+		<?php if ( $paint_comment_args['avatar_size'] != 0 ) {
+			echo get_avatar( $paint_comment, $paint_comment_args['avatar_size'] );
 		} ?>
 
     </div>
 
-	<?php if ( $basictheme_comment->comment_approved == '0' ) : ?>
+	<?php if ( $paint_comment->comment_approved == '0' ) : ?>
         <em class="comment-awaiting-moderation">
-			<?php esc_html_e( 'Your comment is awaiting moderation.', 'basictheme' ); ?>
+			<?php esc_html_e( 'Your comment is awaiting moderation.', 'paint' ); ?>
         </em>
 	<?php endif; ?>
 
@@ -154,12 +154,12 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
                 <?php comment_date(); ?>
             </span>
 
-			<?php edit_comment_link( esc_html__( 'Edit ', 'basictheme' ) ); ?>
+			<?php edit_comment_link( esc_html__( 'Edit ', 'paint' ) ); ?>
 
-			<?php comment_reply_link( array_merge( $basictheme_comment_args, array(
-				'add_below' => $basictheme_comment_add_below,
-				'depth'     => $basictheme_comment_depth,
-				'max_depth' => $basictheme_comment_args['max_depth']
+			<?php comment_reply_link( array_merge( $paint_comment_args, array(
+				'add_below' => $paint_comment_add_below,
+				'depth'     => $paint_comment_depth,
+				'max_depth' => $paint_comment_args['max_depth']
 			) ) ); ?>
 
         </div>
@@ -169,7 +169,7 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
         </div>
     </div>
 
-	<?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
+	<?php if ( 'div' != $paint_comment_args['style'] ) : ?>
         </div>
 	<?php endif; ?>
 
@@ -177,25 +177,25 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
 }
 
 // Content Nav
-if ( ! function_exists( 'basictheme_comment_nav' ) ) :
+if ( ! function_exists( 'paint_comment_nav' ) ) :
 
-	function basictheme_comment_nav() {
+	function paint_comment_nav() {
 		// Are there comments to navigate through?
 		if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 
 			?>
             <nav class="navigation comment-navigation">
                 <h2 class="screen-reader-text">
-					<?php esc_html_e( 'Comment navigation', 'basictheme' ); ?>
+					<?php esc_html_e( 'Comment navigation', 'paint' ); ?>
                 </h2>
 
                 <div class="nav-links">
 					<?php
-					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'basictheme' ) ) ) :
+					if ( $prev_link = get_previous_comments_link( esc_html__( 'Older Comments', 'paint' ) ) ) :
 						printf( '<div class="nav-previous">%s</div>', $prev_link );
 					endif;
 
-					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'basictheme' ) ) ) :
+					if ( $next_link = get_next_comments_link( esc_html__( 'Newer Comments', 'paint' ) ) ) :
 						printf( '<div class="nav-next">%s</div>', $next_link );
 					endif;
 					?>
@@ -209,10 +209,10 @@ if ( ! function_exists( 'basictheme_comment_nav' ) ) :
 endif;
 
 // Social Network
-function basictheme_get_social_url() {
-    $defaults = basictheme_get_social_defaults();
+function paint_get_social_url() {
+    $defaults = paint_get_social_defaults();
 
-	$social_networks = get_theme_mod('basictheme_opt_social_list', $defaults);
+	$social_networks = get_theme_mod('paint_opt_social_list', $defaults);
 
 	foreach ( $social_networks as $item ) :
 		$social_url = $item['url'];
@@ -229,7 +229,7 @@ function basictheme_get_social_url() {
 	endforeach;
 }
 
-function basictheme_get_social_defaults(): array
+function paint_get_social_defaults(): array
 {
 	return [
         [
@@ -260,22 +260,22 @@ function basictheme_get_social_defaults(): array
 }
 
 // Pagination
-function basictheme_pagination() {
+function paint_pagination() {
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
-		'prev_text'          => esc_html__( 'Previous', 'basictheme' ),
-		'next_text'          => esc_html__( 'Next', 'basictheme' ),
+		'prev_text'          => esc_html__( 'Previous', 'paint' ),
+		'next_text'          => esc_html__( 'Next', 'paint' ),
 		'screen_reader_text' => '&nbsp;',
 	) );
 }
 
 // Pagination Nav Query
-function basictheme_paging_nav_query( $query ) {
+function paint_paging_nav_query( $query ) {
 
 	$args = array(
-		'prev_text' => esc_html__( ' Previous', 'basictheme' ),
-		'next_text' => esc_html__( 'Next', 'basictheme' ),
+		'prev_text' => esc_html__( ' Previous', 'paint' ),
+		'next_text' => esc_html__( 'Next', 'paint' ),
 		'current'   => max( 1, get_query_var( 'paged' ) ),
 		'total'     => $query->max_num_pages,
 		'type'      => 'list',
@@ -296,17 +296,17 @@ function basictheme_paging_nav_query( $query ) {
 }
 
 // Sanitize Pagination
-add_action( 'navigation_markup_template', 'basictheme_sanitize_pagination' );
-function basictheme_sanitize_pagination( $basictheme_content ) {
+add_action( 'navigation_markup_template', 'paint_sanitize_pagination' );
+function paint_sanitize_pagination( $paint_content ) {
 	// Remove role attribute
-	$basictheme_content = str_replace( 'role="navigation"', '', $basictheme_content );
+	$paint_content = str_replace( 'role="navigation"', '', $paint_content );
 
 	// Remove h2 tag
-    return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $basictheme_content );
+    return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $paint_content );
 }
 
 // Get col global
-function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ): string
+function paint_col_use_sidebar( $option_sidebar, $active_sidebar ): string
 {
 
 	if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
@@ -325,18 +325,18 @@ function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ): string
 	return $class_col_content;
 }
 
-function basictheme_col_sidebar(): string
+function paint_col_sidebar(): string
 {
     return 'col-12 col-md-4 col-lg-3';
 }
 
 // Post Meta
-function basictheme_post_meta() {
+function paint_post_meta() {
 	?>
 
     <div class="site-post-meta">
         <span class="site-post-author">
-            <?php esc_html_e( 'Author:', 'basictheme' ); ?>
+            <?php esc_html_e( 'Author:', 'paint' ); ?>
 
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
                 <?php the_author(); ?>
@@ -344,13 +344,13 @@ function basictheme_post_meta() {
         </span>
 
         <span class="site-post-date">
-            <?php esc_html_e( 'Post date: ', 'basictheme' );
+            <?php esc_html_e( 'Post date: ', 'paint' );
             the_date(); ?>
         </span>
 
         <span class="site-post-comments">
             <?php
-            comments_popup_link( '0 ' . esc_html__( 'Comment', 'basictheme' ), '1 ' . esc_html__( 'Comment', 'basictheme' ), '% ' . esc_html__( 'Comments', 'basictheme' ) );
+            comments_popup_link( '0 ' . esc_html__( 'Comment', 'paint' ), '1 ' . esc_html__( 'Comment', 'paint' ), '% ' . esc_html__( 'Comments', 'paint' ) );
             ?>
         </span>
     </div>
@@ -359,10 +359,10 @@ function basictheme_post_meta() {
 }
 
 // Link Pages
-function basictheme_link_page() {
+function paint_link_page() {
 
 	wp_link_pages( array(
-		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'basictheme' ),
+		'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'paint' ),
 		'after'       => '</div>',
 		'link_before' => '<span class="page-number">',
 		'link_after'  => '</span>',
@@ -371,7 +371,7 @@ function basictheme_link_page() {
 }
 
 // Comment
-function basictheme_comment_form() {
+function paint_comment_form() {
 
 	if ( comments_open() || get_comments_number() ) :
 		?>
@@ -383,7 +383,7 @@ function basictheme_comment_form() {
 }
 
 // Get Category Check Box
-function basictheme_check_get_cat( $type_taxonomy ): array
+function paint_check_get_cat( $type_taxonomy ): array
 {
 	$cat_check = array();
 	$category  = get_terms(
@@ -403,7 +403,7 @@ function basictheme_check_get_cat( $type_taxonomy ): array
 }
 
 // Share Facebook
-function basictheme_post_share() {
+function paint_post_share() {
 
 	?>
     <div class="site-post-share">
@@ -414,8 +414,8 @@ function basictheme_post_share() {
 }
 
 // Opengraph
-add_action( 'wp_head', 'basictheme_opengraph', 5 );
-function basictheme_opengraph() {
+add_action( 'wp_head', 'paint_opengraph', 5 );
+function paint_opengraph() {
 	global $post;
 
 	if ( is_single() ) :
@@ -449,15 +449,15 @@ function basictheme_opengraph() {
 }
 
 // Custom Search Post
-function basictheme_include_custom_post_types_in_search_results( $query ) {
+function paint_include_custom_post_types_in_search_results( $query ) {
 	if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
 		$query->set( 'post_type', array( 'post' ) );
 	}
 }
-add_action( 'pre_get_posts', 'basictheme_include_custom_post_types_in_search_results' );
+add_action( 'pre_get_posts', 'paint_include_custom_post_types_in_search_results' );
 
 // Get Contact Form 7
-function basictheme_get_form_cf7(): array {
+function paint_get_form_cf7(): array {
     $options = array();
 
     if ( function_exists('wpcf7') ) {
@@ -467,14 +467,14 @@ function basictheme_get_form_cf7(): array {
 		    'numberposts' => -1,
         ) );
 
-	    $options[0] = esc_html__('Select a Contact Form', 'basictheme');
+	    $options[0] = esc_html__('Select a Contact Form', 'paint');
 
 	    if ( !empty($wpcf7_form_list) && !is_wp_error($wpcf7_form_list) ) :
 		    foreach ( $wpcf7_form_list as $item ) :
 			    $options[$item->ID] = $item->post_title;
 		    endforeach;
 	    else :
-		    $options[0] = esc_html__('Create a Form First', 'basictheme');
+		    $options[0] = esc_html__('Create a Form First', 'paint');
 	    endif;
 
     }

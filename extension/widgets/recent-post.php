@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class basictheme_recent_post_widget extends WP_Widget {
+class paint_recent_post_widget extends WP_Widget {
 
     /**
      * Widget setup.
@@ -16,11 +16,11 @@ class basictheme_recent_post_widget extends WP_Widget {
     public function __construct() {
 
         $widget_ops = array(
-            'classname'     =>  'basictheme_recent_post_widget',
-            'description'   =>  esc_html__( 'A widget show post', 'basictheme' ),
+            'classname'     =>  'paint_recent_post_widget',
+            'description'   =>  esc_html__( 'A widget show post', 'paint' ),
         );
 
-        parent::__construct( 'basictheme_recent_post_widget', 'Basic Theme: Recent Post', $widget_ops );
+        parent::__construct( 'paint_recent_post_widget', 'Basic Theme: Recent Post', $widget_ops );
 
     }
 
@@ -141,7 +141,7 @@ class basictheme_recent_post_widget extends WP_Widget {
         <!-- Widget Title: Text Input -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
-                <?php esc_html_e( 'Title:', 'basictheme' ); ?>
+                <?php esc_html_e( 'Title:', 'paint' ); ?>
             </label>
 
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
@@ -150,13 +150,13 @@ class basictheme_recent_post_widget extends WP_Widget {
         <!-- Start Select Event Cat -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'select_cat' ) ); ?>">
-                <?php esc_attr_e( 'Select Categories:', 'basictheme' ); ?>
+                <?php esc_attr_e( 'Select Categories:', 'paint' ); ?>
             </label>
 
             <select id="<?php echo esc_attr( $this->get_field_id( 'select_cat' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'select_cat' ) ) . '[]'; ?>" class="widefat" size="10" multiple>
 
                 <option value="0" <?php echo ( in_array( 0, $select_cat ) ? 'selected="selected"' : '' ); ?>>
-                    <?php esc_html_e( 'All Category', 'basictheme' ); ?>
+                    <?php esc_html_e( 'All Category', 'paint' ); ?>
                 </option>
 
                 <?php
@@ -179,16 +179,16 @@ class basictheme_recent_post_widget extends WP_Widget {
         <!-- Start Order -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>">
-                <?php esc_html_e( 'Order:', 'basictheme' ); ?>
+                <?php esc_html_e( 'Order:', 'paint' ); ?>
             </label>
 
             <select id="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>" name="<?php echo $this->get_field_name('order') ?>" class="widefat">
                 <option value="ASC" <?php echo ( $order == 'ASC' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'ASC', 'basictheme' ); ?>
+                    <?php esc_html_e( 'ASC', 'paint' ); ?>
                 </option>
 
                 <option value="DESC" <?php echo ( $order == 'DESC' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'DESC', 'basictheme' ); ?>
+                    <?php esc_html_e( 'DESC', 'paint' ); ?>
                 </option>
             </select>
         </p>
@@ -196,24 +196,24 @@ class basictheme_recent_post_widget extends WP_Widget {
         <!-- Start OrderBy -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'order_by' ) ); ?>">
-                <?php esc_html_e( 'Order:', 'basictheme' ); ?>
+                <?php esc_html_e( 'Order:', 'paint' ); ?>
             </label>
 
             <select id="<?php echo esc_attr( $this->get_field_id( 'order_by' ) ); ?>" name="<?php echo $this->get_field_name('order_by') ?>" class="widefat">
                 <option value="ID" <?php echo ( $order_by == 'ID' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'ID', 'basictheme' ); ?>
+                    <?php esc_html_e( 'ID', 'paint' ); ?>
                 </option>
 
                 <option value="date" <?php echo ( $order_by == 'date' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'Date', 'basictheme' ); ?>
+                    <?php esc_html_e( 'Date', 'paint' ); ?>
                 </option>
 
                 <option value="title" <?php echo ( $order_by == 'title' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'Title', 'basictheme' ); ?>
+                    <?php esc_html_e( 'Title', 'paint' ); ?>
                 </option>
 
                 <option value="rand" <?php echo ( $order_by == 'rand' ) ? 'selected' : ''; ?>>
-                    <?php esc_html_e( 'Rand', 'basictheme' ); ?>
+                    <?php esc_html_e( 'Rand', 'paint' ); ?>
                 </option>
             </select>
         </p>
@@ -221,7 +221,7 @@ class basictheme_recent_post_widget extends WP_Widget {
         <!-- Start Number Post Show -->
         <p>
             <label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>">
-                <?php esc_html_e( 'Number of posts to show:', 'basictheme' ); ?>
+                <?php esc_html_e( 'Number of posts to show:', 'paint' ); ?>
             </label>
 
             <input id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" class="tiny-text" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" step="1" min="1" value="<?php echo esc_attr( $number ); ?>" size="3" />
@@ -254,8 +254,8 @@ class basictheme_recent_post_widget extends WP_Widget {
 }
 
 // Register widget
-function basictheme_recent_post_widget_register() {
-    register_widget( 'basictheme_recent_post_widget' );
+function paint_recent_post_widget_register() {
+    register_widget( 'paint_recent_post_widget' );
 }
 
-add_action( 'widgets_init', 'basictheme_recent_post_widget_register' );
+add_action( 'widgets_init', 'paint_recent_post_widget_register' );

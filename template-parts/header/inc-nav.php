@@ -1,7 +1,7 @@
 <?php
-$sticky_menu = get_theme_mod( 'basictheme_opt_sticky_menu', 'on' );
-$logo = get_theme_mod( 'basictheme_opt_image_logo', '' );
-$cart = get_theme_mod( 'basictheme_opt_cart_menu', 'show' );
+$sticky_menu = get_theme_mod( 'paint_opt_sticky_menu', 'on' );
+$logo = get_theme_mod( 'paint_opt_image_logo', '' );
+$cart = get_theme_mod( 'paint_opt_cart_menu', 'show' );
 ?>
 
 <nav id="site-navigation" class="main-navigation<?php echo esc_attr( $sticky_menu == 'on' ? ' active-sticky-nav' : '' ); ?>">
@@ -45,7 +45,7 @@ $cart = get_theme_mod( 'basictheme_opt_cart_menu', 'show' );
                         <ul class="main-menu">
                             <li>
                                 <a href="<?php echo get_admin_url().'/nav-menus.php'; ?>">
-                                    <?php esc_html_e( 'ADD TO MENU','basictheme' ); ?>
+                                    <?php esc_html_e( 'ADD TO MENU','paint' ); ?>
                                 </a>
                             </li>
                         </ul>
@@ -58,7 +58,7 @@ $cart = get_theme_mod( 'basictheme_opt_cart_menu', 'show' );
 
                     <div class="shop-cart-view d-flex align-items-center">
                         <?php
-                        do_action( 'basictheme_woo_shopping_cart' );
+                        do_action( 'paint_woo_shopping_cart' );
 
                         the_widget( 'WC_Widget_Cart', '' );
                         ?>

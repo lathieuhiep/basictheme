@@ -1,5 +1,5 @@
 <?php
-$limit = get_theme_mod('basictheme_opt_related_limit_single_post', 3);
+$limit = get_theme_mod('paint_opt_related_limit_single_post', 3);
 $list_cate = get_the_terms(get_the_ID(), 'category');
 
 if (!empty($list_cate)):
@@ -22,7 +22,7 @@ if (!empty($list_cate)):
 
         <div class="site-single-post-related">
             <h3 class="title">
-                <?php esc_html_e('Related Post', 'basictheme'); ?>
+                <?php esc_html_e('Related Post', 'paint'); ?>
             </h3>
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">

@@ -1,8 +1,8 @@
 <?php
 get_header();
 
-$sidebar = get_theme_mod('basictheme_opt_sidebar_single_post', 'right');
-$class_col_content = basictheme_col_use_sidebar( $sidebar, 'basictheme-sidebar-main' );
+$sidebar = get_theme_mod('paint_opt_sidebar_single_post', 'right');
+$class_col_content = paint_col_use_sidebar( $sidebar, 'paint-sidebar-main' );
 
 get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>

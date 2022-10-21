@@ -1,8 +1,8 @@
 <?php
-$footer_column = get_theme_mod('basictheme_opt_column_footer', 'column-4');
+$footer_column = get_theme_mod('paint_opt_column_footer', 'column-4');
 $number_column = (int) substr( $footer_column, -1 );
 
-if( is_active_sidebar( 'basictheme-sidebar-footer-column-1' ) || is_active_sidebar( 'basictheme-sidebar-footer-column-2' ) || is_active_sidebar( 'basictheme-sidebar-footer-column-3' ) || is_active_sidebar( 'basictheme-sidebar-footer-column-4' ) ) :
+if( is_active_sidebar( 'paint-sidebar-footer-column-1' ) || is_active_sidebar( 'paint-sidebar-footer-column-2' ) || is_active_sidebar( 'paint-sidebar-footer-column-3' ) || is_active_sidebar( 'paint-sidebar-footer-column-4' ) ) :
 
 ?>
 
@@ -12,14 +12,14 @@ if( is_active_sidebar( 'basictheme-sidebar-footer-column-1' ) || is_active_sideb
                 <?php
                 for( $i = 0; $i < $number_column; $i++ ):
                     $j = $i +1;
-                    $basictheme_col = get_theme_mod( 'basictheme_opt_column_width_footer_' .  $j, 3);
+                    $paint_col = get_theme_mod( 'paint_opt_column_width_footer_' .  $j, 3);
 
-                    if( is_active_sidebar( 'basictheme-sidebar-footer-column-'.$j ) ):
+                    if( is_active_sidebar( 'paint-sidebar-footer-column-'.$j ) ):
                 ?>
 
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( $basictheme_col ); ?>">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-<?php echo esc_attr( $paint_col ); ?>">
 
-                        <?php dynamic_sidebar( 'basictheme-sidebar-footer-column-'.$j ); ?>
+                        <?php dynamic_sidebar( 'paint-sidebar-footer-column-'.$j ); ?>
 
                     </div>
 

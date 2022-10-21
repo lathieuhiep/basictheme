@@ -2,7 +2,7 @@
 add_action('wp_head', 'intellect_favicon', 1);
 
 function intellect_favicon() {
-    $favicon = get_theme_mod( 'basictheme_opt_favicon', '' );
+    $favicon = get_theme_mod( 'paint_opt_favicon', '' );
 
     if ( empty( $favicon ) ) :
         $favicon = get_theme_file_uri('/assets/images/favicon.png' );

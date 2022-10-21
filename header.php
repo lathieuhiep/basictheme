@@ -18,7 +18,7 @@ get_template_part('template-parts/header/inc','header');
 
 <!--Start back top top-->
 <?php
-$show_back_to_top = get_theme_mod( 'basictheme_opt_back_to_top', 'on' );
+$show_back_to_top = get_theme_mod( 'paint_opt_back_to_top', 'on' );
 
 if ( $show_back_to_top == 'on' ) :
 ?>
