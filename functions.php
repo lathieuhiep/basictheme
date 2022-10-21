@@ -82,14 +82,6 @@ foreach ( glob( get_parent_theme_file_path( '/extension/widgets/*.php' ) ) as $p
 	require $paint_file_widgets;
 }
 
-// Require Woocommerce
-if ( class_exists( 'Woocommerce' ) ) :
-    require get_parent_theme_file_path( '/extension/woocommerce/woo-scripts.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-quick-view.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-hooks.php' );
-	require get_parent_theme_file_path( '/extension/woocommerce/woo-template-functions.php' );
-endif;
-
 // Require Register Sidebar
 require get_parent_theme_file_path( '/includes/register-sidebar.php' );
 

@@ -424,64 +424,6 @@ new Repeater(
 );
 
 /*
- * Section Shop
- * */
-new Section(
-	'paint_opt_section_shop',
-	[
-		'title'       => esc_html__( 'Shop', 'paint' ),
-		'description' => esc_html__( 'Settings WooCommerce', 'paint' ),
-		'panel'       => 'paint_opt_panel',
-		'priority'    => 10,
-	]
-);
-
-// Field Limit Product
-new Slider(
-	[
-		'settings' => 'paint_opt_limit_product',
-		'label'    => esc_html__( 'Limit Product', 'paint' ),
-		'section'  => 'paint_opt_section_shop',
-		'default'  => 12,
-		'choices'  => [
-			'min'  => 1,
-			'max'  => 100,
-			'step' => 1,
-		],
-	]
-);
-
-// Field Products Per Row
-new Radio_Buttonset(
-	[
-		'settings' => 'paint_opt_per_row_product',
-		'label'    => esc_html__( 'Products Per Row', 'paint' ),
-		'section'  => 'paint_opt_section_shop',
-		'default'  => '4',
-		'choices'  => [
-			'3' => esc_html__( '3 Column', 'paint' ),
-			'4' => esc_html__( '4 Column', 'paint' ),
-			'5' => esc_html__( '5 Column', 'paint' ),
-		],
-	]
-);
-
-// Field Sidebar Shop
-new Radio_Buttonset(
-	[
-		'settings' => 'paint_opt_sidebar_shop',
-		'label'    => esc_html__( 'Shop Sidebar', 'paint' ),
-		'section'  => 'paint_opt_section_shop',
-		'default'  => 'left',
-		'choices'  => [
-			'hide'  => esc_html__( 'Hide', 'paint' ),
-			'left'  => esc_html__( 'Left', 'paint' ),
-			'right' => esc_html__( 'Right', 'paint' ),
-		],
-	]
-);
-
-/*
  * Section Footer
  * */
 new Section(

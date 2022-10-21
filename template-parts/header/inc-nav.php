@@ -27,9 +27,7 @@ $cart = get_theme_mod( 'paint_opt_cart_menu', 'show' );
                 </div>
 
                 <div id="site-menu" class="site-menu collapse navbar-collapse d-lg-flex justify-content-lg-end">
-
                     <?php
-
                     if ( has_nav_menu('primary') ) :
 
                         wp_nav_menu( array(
@@ -39,9 +37,7 @@ $cart = get_theme_mod( 'paint_opt_cart_menu', 'show' );
                         ) ) ;
 
                     else:
-
                     ?>
-
                         <ul class="main-menu">
                             <li>
                                 <a href="<?php echo get_admin_url().'/nav-menus.php'; ?>">
@@ -49,22 +45,8 @@ $cart = get_theme_mod( 'paint_opt_cart_menu', 'show' );
                                 </a>
                             </li>
                         </ul>
-
                     <?php endif; ?>
-
                 </div>
-
-                <?php if ( class_exists('Woocommerce') && $cart == 'show' ) : ?>
-
-                    <div class="shop-cart-view d-flex align-items-center">
-                        <?php
-                        do_action( 'paint_woo_shopping_cart' );
-
-                        the_widget( 'WC_Widget_Cart', '' );
-                        ?>
-                    </div>
-
-                <?php endif; ?>
             </div>
         </div>
     </div>
