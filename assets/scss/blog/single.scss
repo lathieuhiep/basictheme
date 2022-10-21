@@ -73,8 +73,8 @@
       display: inline-block;
       padding: 3px 7px;
       margin: 0 5px 5px 0;
-      border: 1px solid $border-color;
-      font-size: 12px;
+      border: 1px solid $border-color-primary;
+      font-size: 1.2rem;
       @include border-radius(3px);
 
       &:first-child {
@@ -97,7 +97,7 @@
 .site-single-post-related {
   .title {
     position: relative;
-    font-size: 18px;
+    font-size: 1.8rem;
     margin-bottom: 30px;
     padding-bottom: 15px;
 

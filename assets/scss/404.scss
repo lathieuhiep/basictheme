@@ -3,15 +3,14 @@
 }
 
 #site-error-content {
-  font-size: 16px;
-  line-height: 1.5em;
-  color: #000000;
+  font-size: 1.6rem;
+  color: $color-secondary;
   margin-bottom: 30px;
 }
 
 #site-error-back-home {
   a {
     color: $color-hover;
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 }

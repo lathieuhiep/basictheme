@@ -35,7 +35,7 @@
 
     .content_product_detail {
       .title-product {
-        font-size: 26px;
+        font-size: 2.6rem;
       }
 
       > div {
@@ -46,11 +46,11 @@
         .price {
           font-weight: 700;
           color: $color-hover;
-          font-size: 15px;
+          font-size: 1.5rem;
 
           del {
             margin-right: 5px;
-            font-size: 12px;
+            font-size: 1.2rem;
           }
 
           ins {

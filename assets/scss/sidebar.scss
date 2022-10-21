@@ -1,9 +1,9 @@
 .search-form {
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .search-field {
-  border: 1px solid $border-color;
+  border: 1px solid $border-color-primary;
   height: auto;
   padding: 9px 10px;
   @include border-radius(3px);
@@ -31,7 +31,7 @@ section {
     .widget-title {
       text-transform: uppercase;
       margin-bottom: 20px;
-      font-size: 16px;
+      font-size: 1.6rem;
     }
 
     ul {
@@ -70,7 +70,6 @@ section {
     select {
       width: 100%;
       padding: 9px 10px;
-      font-size: 12px;
     }
 
     &.widget_search {
@@ -110,7 +109,7 @@ section {
         }
 
         tr {
-          border-bottom: 1px solid $border-color;
+          border-bottom: 1px solid $border-color-primary;
 
           th {
             text-align: center;
@@ -146,10 +145,6 @@ section {
         li {
           padding-bottom: 20px;
           margin-bottom: 20px;
-
-          .rssSummary {
-            font-size: 12px;
-          }
         }
       }
     }
@@ -159,7 +154,6 @@ section {
       .tagcloud {
         a {
           display: inline-block;
-          font-size: 13px !important;
           border: 1px solid #eee;
           padding: 5px 10px;
           margin: 0 2px 5px;
@@ -200,13 +194,12 @@ section {
         }
 
         .item-title {
-          font-size: 14px;
           margin-bottom: 10px;
           overflow: hidden;
         }
 
         .item-meta {
-          font-size: 12px;
+          font-size: 1.2rem;
 
           i.fa {
             margin-right: 5px;
@@ -226,7 +219,7 @@ section {
       }
 
       .search-field {
-        border: 1px solid $border-color;
+        border: 1px solid $border-color-primary;
         height: auto;
         padding: 9px 10px;
         cursor: pointer;
@@ -279,8 +272,7 @@ section {
           }
 
           .price_label {
-            font-size: 14px;
-            color: #000000;
+            color: $color-secondary;
           }
         }
       }

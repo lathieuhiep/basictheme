@@ -16,6 +16,7 @@ Text Domain: basictheme
 *
 # General
 # WordPress Core
+# Custom Bootstrap
 # Header
   ## Information
   ## Nav
@@ -53,6 +54,10 @@ Text Domain: basictheme
 /* WordPress Core
 -------------------------------------------------------------- */
 @import "wp-core";
+
+/* Custom Bootstrap
+-------------------------------------------------------------- */
+@import "custom-bootstrap";
 
 /**
 # Header

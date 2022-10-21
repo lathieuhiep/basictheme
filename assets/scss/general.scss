@@ -4,16 +4,17 @@
 
 html {
   min-height: 100%;
+  font-size: 62.5%;
 }
 
 body {
   min-height: 100vh;
-  line-height: 1.8em;
+  line-height: 1.5;
   overflow-x: hidden;
-  font-size: $font-size-primary;
+  font-size: 1.4rem;
   color: $color-primary;
-  font-family: $font-family-text;
-  font-weight:400;
+  font-family: $font-primary;
+  font-weight: 400;
   word-break: break-word;
   @include flexbox();
   @include flex-direction(column);
@@ -24,33 +25,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 15px;
+  margin: 0 0 12px;
   font-weight: 700;
-  color: $color-title;
-}
-
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 20px;
-}
-
-h5 {
-  font-size: 18px;
-}
-
-h6 {
-  font-size: 16px;
+  color: $color-secondary;
 }
 
 a {
@@ -177,7 +154,7 @@ pre {
       &.owl-next {
         margin: 0 6px;
         color: $color-primary;
-        font-size: 20px;
+        font-size: 2rem;
         line-height: normal;
         @include transition();
 

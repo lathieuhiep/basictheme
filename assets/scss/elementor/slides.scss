@@ -26,7 +26,7 @@
         }
 
         i.fa {
-          font-size: 30px;
+          font-size: 3rem;
 
           &:hover {
             color: $color-hover;
@@ -83,20 +83,19 @@
   }
 
   .element-slides__item--heading {
-    font-size: 30px;
+    font-size: 3rem;
     margin-bottom: 30px;
     color: #ffffff;
   }
 
   .element-slides__item--description {
-    font-size: 17px;
+    font-size: 1.6rem;
     color: #ffffff;
     margin-bottom: 30px;
   }
 
   .element-slides__item--link {
     display: inline-block;
-    font-size: 15px;
     color: #ffffff;
     padding: 12px 24px;
     border-style: solid;

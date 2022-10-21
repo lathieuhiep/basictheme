@@ -7,14 +7,14 @@
     cursor: pointer;
 
     i {
-      font-size: 18px;
+      font-size: 1.8rem;
       padding-right: 15px;
     }
 
     .number-cart-product {
       display: inline-block;
       position: absolute;
-      font-size: 12px;
+      font-size: 1.2rem;
       color: #ffffff;
       top: -12px;
       right: 0;
@@ -65,7 +65,7 @@
               right: 0;
               width: auto;
               height: auto;
-              font-size: 35px;
+              font-size: 3.5rem;
               color: $color-primary !important;
               line-height: inherit;
               background-color: transparent;
@@ -161,13 +161,13 @@
 
     select {
       padding: 5px 10px;
-      border: 1px solid $border-color;
+      border: 1px solid $border-color-primary;
     }
   }
 
   .star-rating {
     width: 7em;
-    font-size: 14px;
+    font-size: 1.4rem;
 
     > span {
       color: $color-hover;
@@ -175,7 +175,7 @@
 
     &:before,
     > span:before {
-      letter-spacing: 3.5px;
+      letter-spacing: 4px;
     }
   }
 
@@ -249,14 +249,14 @@
 
           .price {
             color: $color-hover;
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: normal;
             font-weight: 700;
             margin: 0;
 
             del {
               display: inline-block;
-              font-size: 12px;
+              font-size: 1.2rem;
             }
 
             ins {
@@ -308,7 +308,7 @@
                 content: "\f054";
                 font-family: 'Font Awesome 5 Free', serif;
                 font-weight: 900;
-                font-size: 9px;
+                font-size: 0.9rem;
                 margin-left: 5px;
               }
             }
@@ -340,7 +340,7 @@
           a {
             display: block;
             cursor: pointer;
-            border: 1px solid $border-color;
+            border: 1px solid $border-color-primary;
             padding: 5px 12px;
             line-height: inherit;
             min-width: inherit;
@@ -350,7 +350,7 @@
           a {
             &:focus {
               background-color: transparent;
-              color: $color-title;
+              color: $color-secondary;
             }
           }
 
@@ -400,7 +400,7 @@
 
               a {
                 padding: 0;
-                font-size: 15px;
+                font-size: 1.5rem;
                 font-weight: 400;
                 color: #ffffff;
               }
@@ -420,7 +420,7 @@
         }
 
         h2 {
-          font-size: 18px;
+          font-size: 1.8rem;
           margin-bottom: 30px;
         }
       }
@@ -429,7 +429,7 @@
 
   #reviews {
     .woocommerce-Reviews-title {
-      font-size: 18px;
+      font-size: 1.8rem;
     }
 
     #comments {
