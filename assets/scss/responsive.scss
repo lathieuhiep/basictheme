@@ -1,8 +1,15 @@
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1013px;
+  }
+}
+
 @media (max-width: 1199px) {
 
   .container {
     max-width: none;
   }
+
   .element-post-carousel {
     .owl-carousel {
       .owl-nav {
@@ -120,11 +127,6 @@
 }
 
 @media (max-width: 991px) {
-
-  .site-navigation_warp {
-    display: block;
-  }
-
   .site-logo {
     @include flexbox();
     @include justify-content(space-between);

@@ -1,9 +1,18 @@
+.site-header {
+  height: 97px;
+}
+
 .main-navigation {
-  background-color: #ffffff;
-  @include box-shadow(0 3px 3px -3px rgba(0, 0, 0, 0.3));
+  height: inherit;
 
   .site-navbar {
     position: relative;
+    max-width: 660px;
+    height: inherit;
+    margin: 0 auto;
+    display: grid;
+    grid-column-gap: 24px;
+    grid-template-columns: minmax(auto, max-content) 1fr;
   }
 
   button {
@@ -23,7 +32,6 @@
 
   a {
     display: inline-block;
-    padding: 15px 0;
   }
 }
 
@@ -33,7 +41,7 @@
   > ul {
     > li {
       > a {
-        padding: 0 15px;
+        padding: 0 11px;
       }
     }
   }
@@ -46,8 +54,9 @@
       position: relative;
 
       a {
-        text-shadow: none;
         display: block;
+        font-size: 1.2rem;
+        font-weight: 600;
 
         &:hover {
           background-color: transparent;
