@@ -40,9 +40,7 @@
 
   > ul {
     > li {
-      > a {
-        padding: 0 11px;
-      }
+      padding: 0 11px;
     }
   }
 
@@ -122,7 +120,8 @@
 }
 
 .sub-menu-toggle {
-  font-size: 1.4rem;
+  margin-left: 9px;
+  font-size: 0.85rem;
   cursor: pointer;
 
   &:after {
