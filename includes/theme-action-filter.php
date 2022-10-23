@@ -58,13 +58,15 @@ function paint_add_arrow( $output, $item, $depth, $args ){
 }
 
 // add favicon
-add_action('wp_head', 'paint_favicon', 1);
-function paint_favicon(): void {
-	$favicon = get_theme_mod( 'paint_opt_favicon', '' );
+add_action('wp_head', 'paint_get_favicon', 1);
+function paint_get_favicon(): void {
+	$opt_favicon = paint_get_option( 'general_opt_favicon', '' );
 
-	if ( empty( $favicon ) ) :
-		$favicon = get_theme_file_uri('/assets/images/favicon.png' );
-	endif;
+    if ( empty($opt_favicon['url']) ) {
+	    $favicon = get_theme_file_uri('/assets/images/favicon.png');
+    } else {
+	    $favicon = $opt_favicon['url'];
+    }
 
 	echo '<link rel="shortcut icon" href="' . esc_url( $favicon ) . '" type="image/x-icon" sizes="16x16" />';
 }

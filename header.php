@@ -16,11 +16,11 @@ get_template_part('template-parts/header/inc','header');
 ?>
 <!--End Loading Template-->
 
-<!--Start back top top-->
+<!--Start back to top-->
 <?php
-$show_back_to_top = get_theme_mod( 'paint_opt_back_to_top', 'on' );
+$show_back_to_top = paint_get_option( 'general_opt_back_to_top', true );
 
-if ( $show_back_to_top == 'on' ) :
+if ( $show_back_to_top ) :
 ?>
     <div id="back-top">
         <a href="#">

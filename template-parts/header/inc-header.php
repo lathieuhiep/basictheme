@@ -1,20 +1,18 @@
 <?php
-$sticky_menu = get_theme_mod( 'paint_opt_sticky_menu', 'on' );
-$logo = get_theme_mod( 'paint_opt_image_logo', '' );
-$cart = get_theme_mod( 'paint_opt_cart_menu', 'show' );
+$sticky_menu = paint_get_option( 'general_option_menu_sticky', true );
+$logo = paint_get_option( 'general_opt_logo', '' );
 ?>
 
-<header class="site-header<?php echo esc_attr( $sticky_menu == 'on' ? ' active-sticky-nav' : '' ); ?>">
+<header class="site-header<?php echo esc_attr( $sticky_menu ? ' active-sticky-nav' : '' ); ?>">
     <nav class="main-navigation container">
         <div class="site-navbar">
             <div class="site-logo d-flex align-items-center">
                 <a href="<?php echo esc_url( get_home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
                     <?php
-                    if ( !empty( $logo ) ) :
-                        echo wp_get_attachment_image( $logo, 'full' );
+                    if ( !empty( $logo['id'] ) ) :
+                        echo wp_get_attachment_image( $logo['id'], 'full' );
                     else :
-                        ?>
-
+                    ?>
                         <img class="logo-default" src="<?php echo esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo('title') ); ?>" width="95" height="31" />
 
                     <?php endif; ?>

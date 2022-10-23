@@ -14,6 +14,9 @@ require get_parent_theme_file_path( '/includes/theme-function.php' );
 require get_parent_theme_file_path( '/includes/class-tgm-plugin-activation.php' );
 require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
+// Required: options theme
+require get_theme_file_path( 'extension/theme-option/options.php' );
+
 // Required: Post type
 require get_parent_theme_file_path( '/extension/post-type/faq.php' );
 

@@ -21,6 +21,8 @@ Text Domain: paint
   ## Information
   ## Nav
 # Page
+# Components
+  ## Banner
 # Sidebar
 # Blog
   ## Single
@@ -62,6 +64,11 @@ Text Domain: paint
 # Page
 -----------------------------------------------------------------------------*/
 @import "page";
+
+/**
+# Components
+-----------------------------------------------------------------------------*/
+@import "components/components";
 
 /**
 # Sidebar

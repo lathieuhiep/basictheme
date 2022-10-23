@@ -97,53 +97,21 @@ function paint_comment_nav(): void {
 
 // Social Network
 function paint_get_social_url(): void {
-	$defaults = paint_get_social_defaults();
+	$opt_social_networks = paint_get_option('paint_opt_social_network', '');
 
-	$social_networks = get_theme_mod('paint_opt_social_list', $defaults);
+	foreach ( $opt_social_networks as $item ) :
+		$link = $item['link'];
 
-	foreach ( $social_networks as $item ) :
-		$social_url = $item['url'];
-
-		if ( $social_url ) :
-			?>
+		if ( !empty( $link['url'] ) ) :
+        ?>
 			<div class="social-network-item">
-				<a href="<?php echo esc_url( $social_url ); ?>" target="<?php echo esc_attr( $item['target'] ); ?>">
+				<a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" title="<?php echo esc_attr( $link['text'] ); ?>">
 					<i class="<?php echo $item['icon']; ?>"></i>
 				</a>
 			</div>
 		<?php
 		endif;
 	endforeach;
-}
-
-function paint_get_social_defaults(): array
-{
-	return [
-		[
-			'title' => 'Facebook',
-			'icon' => 'fab fa-facebook-f',
-			'url' => '#',
-			'target' => '_blank'
-		],
-		[
-			'title' => 'Youtube',
-			'icon' => 'fab fa-youtube',
-			'url' => '#',
-			'target' => '_blank'
-		],
-		[
-			'title' => 'Twitter',
-			'icon' => 'fab fa-twitter',
-			'url' => '#',
-			'target' => '_blank'
-		],
-		[
-			'title' => 'Instagram',
-			'icon' => 'fab fa-instagram',
-			'url' => '#',
-			'target' => '_blank'
-		],
-	];
 }
 
 // Pagination

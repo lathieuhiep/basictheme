@@ -49,9 +49,9 @@
 
     // loading
     $( window ).on( "load", function() {
-
-        $( '#site-loadding' ).remove();
-
+        setTimeout(function() {
+            $( '#site-loadding' ).remove();
+        }, 300);
     });
 
     // scroll event
