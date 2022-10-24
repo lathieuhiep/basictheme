@@ -51,11 +51,6 @@ function paint_register_front_end(): void {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( is_page_template('templates/home.php') ) {
-		wp_enqueue_script( 'waypoints', get_theme_file_uri( '/assets/js/jquery.waypoints.min.js' ), array('jquery'), '4.0.0', true );
-		wp_enqueue_script( 'countup', get_theme_file_uri( '/assets/js/jquery.countup.min.js' ), array('jquery'), '', true );
-	}
-
 	wp_enqueue_script( 'paint-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
 
 	/*
