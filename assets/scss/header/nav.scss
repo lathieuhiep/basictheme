@@ -1,5 +1,5 @@
 .site-header {
-  height: 97px;
+  height: 108px;
   background-color: #ffffff;
 }
 
@@ -8,12 +8,12 @@
 
   .site-navbar {
     position: relative;
-    max-width: 660px;
+    max-width: 990px;
     height: inherit;
     margin: 0 auto;
     display: grid;
-    grid-column-gap: 24px;
-    grid-template-columns: minmax(auto, 95px) 1fr;
+    grid-column-gap: 25px;
+    grid-template-columns: minmax(auto, 128px) 1fr;
   }
 
   button {
@@ -41,7 +41,7 @@
 
   > ul {
     > li {
-      padding: 0 11px;
+      padding: 0 25px;
     }
   }
 
@@ -54,7 +54,6 @@
 
       a {
         display: block;
-        font-size: 1.2rem;
         font-weight: 600;
 
         &:hover {

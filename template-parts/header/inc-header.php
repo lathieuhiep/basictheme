@@ -13,7 +13,7 @@ $logo = paint_get_option( 'general_opt_logo', '' );
                         echo wp_get_attachment_image( $logo['id'], 'full' );
                     else :
                     ?>
-                        <img class="logo-default" src="<?php echo esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo('title') ); ?>" width="95" height="31" />
+                        <img class="logo-default" src="<?php echo esc_url( get_theme_file_uri( '/assets/images/logo.png' ) ) ?>" alt="<?php echo esc_attr( get_bloginfo('title') ); ?>" width="auto" height="auto" />
 
                     <?php endif; ?>
                 </a>

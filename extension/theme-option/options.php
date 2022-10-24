@@ -111,15 +111,97 @@ if ( class_exists( 'CSF' ) ) {
 		'title'  => esc_html__( 'Trang chủ', 'paint' ),
 		'description' => esc_html__('Cài đặt cho template home page', 'paint'),
 		'fields' => array(
-			// Banner
+			// Banner 1
 			array(
 				'id'      => 'template_opt_home_banner',
 				'type'    => 'media',
-				'title'   => esc_html__( 'Banner', 'paint' ),
+				'title'   => esc_html__( 'Banner 1', 'paint' ),
 				'library' => 'image',
 				'url' => false,
 				'preview_size' => 'full'
 			),
+
+			// Banner 2
+			array(
+				'id'      => 'template_opt_home_banner_2',
+				'type'    => 'media',
+				'title'   => esc_html__( 'Banner 2', 'paint' ),
+				'library' => 'image',
+				'url' => false,
+				'preview_size' => 'full'
+			),
+		)
+	) );
+	// End section templates
+
+	// Create a section menu
+	CSF::createSection( $paint_prefix, array(
+		'title'  => esc_html__( 'Châm ngôn của chúng tôi', 'paint' ),
+		'fields' => array(
+			// Heading
+			array(
+				'id'     => 'our_maxim_opt_heading',
+				'type'   => 'fieldset',
+				'title'  => 'Fieldset',
+				'fields' => array(
+					array(
+						'id'    => 'title',
+						'type'    => 'text',
+						'title'   => esc_html__('Tiêu đề', 'paint'),
+						'default' => esc_html__('CHÂM NGÔN CỦA CHÚNG TÔI', 'paint')
+					),
+
+					array(
+						'id'          => 'align',
+						'type'        => 'select',
+						'title'       => esc_html__('Căn chỉnh', 'paint'),
+						'options'     => array(
+							'start' => esc_html__('Căn lề trái', 'paint'),
+							'center' => esc_html__('Căn giữa', 'paint'),
+							'end' => esc_html__('Căn phải', 'paint'),
+						),
+						'default'     => 'left'
+					),
+
+				),
+			),
+
+
+			// content
+			array(
+				'id'    => 'our_maxim_opt_describe',
+				'type'  => 'wp_editor',
+				'title' => esc_html__('Mô tả'),
+			),
+
+			// group
+			array(
+				'id'        => 'our_maxim_opt_group',
+				'type'      => 'group',
+				'title'     => esc_html__('Danh sách', 'paint'),
+				'fields'    => array(
+					array(
+						'id'      => 'title',
+						'type'    => 'text',
+						'title'   => esc_html__('Tiêu đề', 'paint'),
+					),
+
+					array(
+						'id'      => 'image',
+						'type'    => 'media',
+						'title'   => esc_html__( 'Ảnh icon', 'paint' ),
+						'library' => 'image',
+						'url' => false,
+					),
+
+					array(
+						'id'    => 'content',
+						'type'  => 'textarea',
+						'title' => esc_html__('Nội dung', 'paint'),
+					),
+				),
+			),
+
 		)
 	) );
 

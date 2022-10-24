@@ -1,7 +1,6 @@
 <?php
-$opt_banner = paint_get_option('template_opt_home_banner', '');
-
-if ( !empty( $opt_banner ) ) :
+if ( !empty( $args['opt_banner'] ) ) :
+	$opt_banner = $args['opt_banner'];
 	$id_image = $opt_banner['id'];
 ?>
 	<div class="element-banner">
