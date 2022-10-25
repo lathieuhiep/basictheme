@@ -1,6 +1,6 @@
 <?php
-$opt_result_count_top = paint_get_option('template_opt_result_count_top', '');
-$opt_result_count_bottom = paint_get_option('template_opt_result_count_bottom', '');
+$opt_result_count_top = paint_get_option('template_home_opt_result_count_top', '');
+$opt_result_count_bottom = paint_get_option('template_home_opt_result_count_bottom', '');
 ?>
 
 <div class="element-count-up element-spacer background-color-white">

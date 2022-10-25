@@ -42,6 +42,10 @@
         $( document ).general_owlCarousel_custom( '.site-post-slides' );
         /* End Gallery Single */
 
+        /* Start custom owl carousel */
+        $( document ).general_owlCarousel_custom( '.custom-owl-carousel' );
+        /* End Gallery Single */
+
     });
 
     // loading
@@ -75,7 +79,7 @@
 
         // handle count up
         if ( elementCountUp.length ) {
-            const oTop = $('.element-count-up').offset().top - window.innerHeight;
+            const oTop = $('.element-count-up .content-warp').offset().top - window.innerHeight;
 
             if (start === 0 && $(window).scrollTop() > oTop) {
                 $('.number-counter').each(function () {

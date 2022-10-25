@@ -180,6 +180,22 @@ pre {
   padding-bottom: 70px;
 }
 
+.element-background-image {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.12;
+    background: url("assets/images/element-background.png") no-repeat center;
+    background-size: cover;
+  }
+}
+
 .background-color-white {
   background-color: #fff;
 }
