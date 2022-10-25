@@ -1,18 +1,19 @@
 <?php
-$heading = paint_get_option('our_maxim_opt_heading', '');
-$describe = paint_get_option('our_maxim_opt_describe', '');
+$opt_top = paint_get_option('our_maxim_opt_top', '');
 $list = paint_get_option('our_maxim_opt_group', '');
 ?>
 
 <div class="element-our-maxim element-spacer">
 	<div class="container">
-		<h2 class="heading text-<?php echo esc_attr( $heading['align'] ); ?>">
-			<?php echo esc_html( $heading['title'] ); ?>
+        <?php if ( !empty( $opt_top ) ) : ?>
+		<h2 class="heading text-<?php echo esc_attr( $opt_top['align'] ); ?>">
+			<?php echo esc_html( $opt_top['title'] ); ?>
 		</h2>
 
-		<div class="describe">
-			<?php echo wpautop( $describe ); ?>
+		<div class="describe text-<?php echo esc_attr( $opt_top['align'] ); ?>">
+			<?php echo wpautop( $opt_top['describe'] ); ?>
 		</div>
+        <?php endif; ?>
 
 		<?php if ( $list ) : ?>
 		<div class="list row row-cols-1 row-cols-sm-2 row-cols-lg-4">

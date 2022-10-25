@@ -5,10 +5,7 @@
  */
 
 ( function( $ ) {
-
     "use strict";
-
-    let timer_clear;
 
     $( document ).ready( function () {
 
@@ -55,10 +52,13 @@
     });
 
     // scroll event
+    let timer_clear;
+    let start = 0;
+    const elementCountUp = $('.element-count-up');
+
     $( window ).scroll( function() {
-
+        // handle show back to top
         if ( timer_clear ) clearTimeout(timer_clear);
-
         timer_clear = setTimeout( function() {
 
             /* Start scroll back top */
@@ -73,44 +73,40 @@
 
         }, 100 );
 
-    });
+        // handle count up
+        if ( elementCountUp.length ) {
+            const oTop = $('.element-count-up').offset().top - window.innerHeight;
 
-    var a = 0;
-    $(window).scroll(function () {
-        var oTop = $("#counter-box").offset().top - window.innerHeight;
-        if (a == 0 && $(window).scrollTop() > oTop) {
-            $(".counter").each(function () {
-                var $this = $(this),
-                    countTo = $this.attr("data-number");
-                $({
-                    countNum: $this.text()
-                }).animate(
-                    {
-                        countNum: countTo
-                    },
+            if (start === 0 && $(window).scrollTop() > oTop) {
+                $('.number-counter').each(function () {
+                    const $this = $(this);
+                    const countTo = $this.attr("data-number");
 
-                    {
-                        duration: 850,
-                        easing: "swing",
-                        step: function () {
-                            //$this.text(Math.ceil(this.countNum));
-                            $this.text(
-                                Math.ceil(this.countNum).toLocaleString("en")
-                            );
+                    $({ countNum: $this.text() }).animate(
+                        {
+                            countNum: countTo
                         },
-                        complete: function () {
-                            $this.text(
-                                Math.ceil(this.countNum).toLocaleString("en")
-                            );
-                            //alert('finished');
+                        {
+                            duration: 850,
+                            easing: "swing",
+                            step: function () {
+                                $this.text(
+                                    Math.ceil(this.countNum)
+                                );
+                            },
+                            complete: function () {
+                                $this.text(
+                                    Math.ceil(this.countNum)
+                                );
+                            }
                         }
-                    }
-                );
-            });
-            a = 1;
+                    );
+                });
+
+                start = 1;
+            }
         }
     });
-
 
     // function call owlCarousel
     $.fn.general_owlCarousel_custom = function ( class_item ) {
