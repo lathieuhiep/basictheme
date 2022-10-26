@@ -25,7 +25,8 @@ exports.watch = function () {
 function compressLibraryCssMin() {
     return gulp.src([
         './node_modules/bootstrap/dist/css/bootstrap.css',
-        './node_modules/owl.carousel/dist/assets/owl.carousel.css'
+        './node_modules/owl.carousel/dist/assets/owl.carousel.css',
+        './node_modules/slick-carousel/slick/slick.css'
     ]).pipe(concatCss("library.min.css"))
         .pipe(minifyCss({
             compatibility: 'ie8',
@@ -40,6 +41,7 @@ function compressLibraryJsMin() {
     return gulp.src([
         './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
         './node_modules/owl.carousel/dist/owl.carousel.js',
+        './node_modules/slick-carousel/slick/slick.js',
     ], {allowEmpty: true})
         .pipe(concat('library.min.js'))
         .pipe(uglify())

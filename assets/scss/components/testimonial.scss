@@ -1,21 +1,65 @@
 .element-testimonial {
   background-color: $background-hover;
 
+  .slick-list {
+    margin: 0 -32px;
+  }
+
+  .slick-slide {
+    margin: 0 32px 8px;
+  }
+
   .item {
+    position: relative;
+    margin-top: 80px;
+    padding-top: 92px;
     text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 50%;
+      width: 174px;
+      height: 87px; /* as the half of the width */
+      background-color: $background-hover;
+      border-bottom-left-radius: 85px;
+      border-bottom-right-radius: 85px;
+      @include transform(translateX(-50%));
+    }
 
     &__image {
-      display: inline-block;
-      padding: 8px;
+      position: absolute;
+      top: -80px;
+      left: 50%;
       width: 160px;
       height: 160px;
+      padding: 8px;
       overflow: hidden;
       border-radius: 50%;
       background-color: #ffffff;
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
+      @include transform(translateX(-50%));
 
       img {
+        width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    .start {
+      color: $color-hover;
+
+      i {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
   }

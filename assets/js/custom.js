@@ -43,7 +43,7 @@
         /* End Gallery Single */
 
         /* Start custom owl carousel */
-        $( document ).general_owlCarousel_custom( '.custom-owl-carousel' );
+        generalSlickCarousel('.custom-slick-carousel');
         /* End Gallery Single */
 
     });
@@ -111,6 +111,31 @@
             }
         }
     });
+
+    // function slick carousel
+    const generalSlickCarousel = (classSelector) => {
+        const sliderCarousel = $(classSelector);
+
+        if ( sliderCarousel.length ) {
+            sliderCarousel.each(function () {
+                const slider = $(this);
+
+                if ( !slider.hasClass('slick-carousel-init') ) {
+                    const defaults = {
+                        lazyLoad: 'ondemand',
+                        speed: 800,
+                        autoplaySpeed: 2000,
+                        prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
+                        nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-left" aria-hidden="true"></i></button>'
+                    };
+
+                    const config = $.extend( defaults, slider.data( 'config-slick') );
+
+                    slider.slick( config ).addClass( 'slick-carousel-init' );
+                }
+            })
+        }
+    }
 
     // function call owlCarousel
     $.fn.general_owlCarousel_custom = function ( class_item ) {

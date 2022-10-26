@@ -3,36 +3,25 @@ $opt_heading   = paint_get_option( 'template_home_opt_testimonial_heading', '' )
 $opt_customers = paint_get_option( 'template_home_opt_testimonial_customers', '' );
 
 $data_settings_owl = [
-	'loop'       => true,
-	'nav'        => false,
-	'dots'       => false,
-	'autoplay'   => false,
-	'responsive' => [
-		'0' => array(
-			'items'  => 1,
-			'margin' => 0
-		),
-
-		'576' => array(
-			'items'  => 2,
-			'margin' => 12
-		),
-
-		'768' => array(
-			'items'  => 3,
-			'margin' => 24
-		),
-
-		'992' => array(
-			'margin' => 36,
-		),
-
-		'1200' => array(
-			'margin' => 65,
-		),
+	'infinite'       => true,
+	'slidesToShow'   => 3,
+	'slidesToScroll' => 1,
+	'arrows'         => false,
+	'responsive'     => [
+		[
+			'breakpoint' => 575,
+			'settings'   => [
+				'slidesToShow' => 1,
+			]
+		],
+		[
+			'breakpoint' => 991,
+			'settings'   => [
+				'slidesToShow' => 2,
+			]
+		],
 	],
 ];
-
 ?>
 
 <div class="element-testimonial element-spacer element-background-image">
@@ -46,13 +35,13 @@ $data_settings_owl = [
 
 		if ( ! empty( $opt_customers ) ) :
 		?>
-	        <div class="custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
+	        <div class="custom-slick-carousel" data-config-slick='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
 				<?php
 				foreach ( $opt_customers as $item ) :
 					$imageId = $item['image']['id'];
 				?>
 
-	                <div class="item text-center elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
+	                <div class="item text-center">
 	                    <div class="item__image">
 							<?php echo wp_get_attachment_image( $imageId, 'full' ); ?>
 	                    </div>
