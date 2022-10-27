@@ -1,6 +1,7 @@
 .site-header {
   height: 108px;
   background-color: #ffffff;
+  @include box-shadow();
 }
 
 .main-navigation {
@@ -77,13 +78,14 @@
       .sub-menu {
         min-width: 160px;
         border-top: 1px solid $color-hover;
-        background-color: $border-color-primary;
+        background-color: #fff;
         position: absolute;
         top: 120%;
         left: 0;
         z-index: -1;
         visibility: hidden;
         opacity: 0;
+        @include box-shadow();
         @include transition();
 
         li {

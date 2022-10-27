@@ -283,3 +283,41 @@ pre {
     border-bottom: 1px solid #eeeeee;
   }
 }
+
+/* Slick Slider */
+.slick-dots {
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+
+  li {
+    margin: 0 5px;
+    padding: 0;
+
+    button {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      border-radius: 50%;
+      outline: none;
+      background: $background-primary;
+      @include transition();
+    }
+
+    &:hover,
+    &.slick-active {
+      button {
+        background-color: $background-hover;
+      }
+    }
+  }
+}

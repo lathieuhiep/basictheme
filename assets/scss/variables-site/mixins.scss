@@ -6,9 +6,7 @@
 }
 
 // Box shadow
-@mixin box-shadow( $box-shadow ) {
-  -webkit-box-shadow: $box-shadow;
-  -moz-box-shadow: $box-shadow;
+@mixin box-shadow( $box-shadow : 0 4px 4px rgba(0, 0, 0, 0.25) ) {
   box-shadow: $box-shadow;
 }
 

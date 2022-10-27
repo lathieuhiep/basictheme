@@ -33,6 +33,9 @@ get_header();
 
     // include testimonial
     get_template_part( 'components/inc', 'testimonial' );
+
+    // include posts slider
+    get_template_part( 'components/inc', 'post-slider');
     ?>
 </div>
 

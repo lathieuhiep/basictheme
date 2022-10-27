@@ -1,6 +1,10 @@
 .element-testimonial {
   background-color: $background-hover;
 
+  .heading {
+    margin-bottom: 60px;
+  }
+
   .slick-list {
     margin: 0 -32px;
   }
@@ -12,11 +16,11 @@
   .item {
     position: relative;
     margin-top: 80px;
-    padding-top: 92px;
+    padding: 100px 40px 60px;
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    @include box-shadow();
 
     &::before {
       position: absolute;
@@ -51,16 +55,34 @@
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        @include box-shadow();
       }
     }
 
     .start {
+      margin-bottom: 10px;
       color: $color-hover;
 
       i {
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin-right: 12px;
+        font-size: 3rem;
+        filter: drop-shadow( 0 4px 4px rgba(0, 0, 0, 0.25) );
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
+    }
+
+    .name {
+      margin-bottom: 18px;
+      font-size: 1.6rem;
+    }
+
+    .content {
+      text-align: left;
+      font-size: 1.2rem;
+      color: #9A9A9A;
     }
   }
 }

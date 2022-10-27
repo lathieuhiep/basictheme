@@ -7,6 +7,7 @@ $data_settings_owl = [
 	'slidesToShow'   => 3,
 	'slidesToScroll' => 1,
 	'arrows'         => false,
+    'autoplay'       => true,
 	'responsive'     => [
 		[
 			'breakpoint' => 575,
