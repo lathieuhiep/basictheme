@@ -16,19 +16,19 @@ if ( class_exists( 'CSF' ) ) {
 
 	// Create options
 	CSF::createOptions( $paint_prefix, array(
-		'menu_title'      => esc_html__( 'Theme Options', 'paint' ),
-		'menu_slug'       => 'theme-options',
-		'menu_position'   => 2,
+		'menu_title'          => esc_html__( 'Theme Options', 'paint' ),
+		'menu_slug'           => 'theme-options',
+		'menu_position'       => 2,
 		'admin_bar_menu_icon' => 'dashicons-admin-generic',
-		'framework_title' => $paint_my_theme->get( 'Name' ) . ' ' . esc_html__( 'Options', 'paint' ),
-		'footer_text'     => esc_html__( 'Thank you for using my theme', 'paint' ),
-		'footer_after'    => '<pre>Contact me:<br />Zalo/Phone: 0975458209 - Skype: lathieuhiep - facebook: <a href="https://www.facebook.com/lathieuhiep" target="_blank">lathieuhiep</a></pre>',
+		'framework_title'     => $paint_my_theme->get( 'Name' ) . ' ' . esc_html__( 'Options', 'paint' ),
+		'footer_text'         => esc_html__( 'Thank you for using my theme', 'paint' ),
+		'footer_after'        => '<pre>Contact me:<br />Zalo/Phone: 0975458209 - Skype: lathieuhiep - facebook: <a href="https://www.facebook.com/lathieuhiep" target="_blank">lathieuhiep</a></pre>',
 	) );
 
 	// Create a section general
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Cài đặt chung', 'paint' ),
-		'icon' => 'fas fa-cog',
+		'icon'   => 'fas fa-cog',
 		'fields' => array(
 			// favicon
 			array(
@@ -85,7 +85,7 @@ if ( class_exists( 'CSF' ) ) {
 	// Create a section menu
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Menu', 'paint' ),
-		'icon' => 'fas fa-bars',
+		'icon'   => 'fas fa-bars',
 		'fields' => array(
 			// Sticky menu
 			array(
@@ -103,7 +103,7 @@ if ( class_exists( 'CSF' ) ) {
 	// -> Create a section template home
 	CSF::createSection( $paint_prefix, array(
 		'id'    => 'template_home_opt',
-		'icon' => 'fas fa-home',
+		'icon'  => 'fas fa-home',
 		'title' => esc_html__( 'Home Page', 'paint' ),
 	) );
 
@@ -457,7 +457,7 @@ if ( class_exists( 'CSF' ) ) {
 	// Create a section our maxim
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Châm ngôn của chúng tôi', 'paint' ),
-		'icon' => 'fas fa-window-maximize',
+		'icon'   => 'fas fa-window-maximize',
 		'fields' => array(
 			// Top box
 			array(
@@ -524,10 +524,62 @@ if ( class_exists( 'CSF' ) ) {
 		)
 	) );
 
+	//
+	// -> Create a section template introduce
+	CSF::createSection( $paint_prefix, array(
+		'id'    => 'template_introduce_opt',
+		'icon'  => 'fas fa-address-card',
+		'title' => esc_html__( 'Trang Giới Thiệu', 'paint' ),
+	) );
+
+	// About Us
+	CSF::createSection( $paint_prefix, array(
+		'parent' => 'template_introduce_opt',
+		'title'  => esc_html__( 'Về chúng tôi', 'paint' ),
+		'fields' => array(
+			array(
+				'id'      => 'template_introduce_opt_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Tiêu đề', 'paint' ),
+				'default' => esc_html__( 'VỀ CHÚNG TÔI', 'paint' )
+			),
+
+			array(
+				'id'      => 'template_introduce_opt_image',
+				'type'    => 'media',
+				'title'   => esc_html__( 'Chọn ảnh', 'paint' ),
+				'library' => 'image',
+				'url'     => false,
+			),
+
+			array(
+				'id'    => 'template_introduce_opt_desc',
+				'type'  => 'wp_editor',
+				'title' => esc_html__( 'Nội dung', 'paint' ),
+			),
+		)
+	) );
+
+	// Gallery
+	CSF::createSection( $paint_prefix, array(
+		'parent' => 'template_introduce_opt',
+		'title'  => esc_html__( 'Gallery', 'paint' ),
+		'fields' => array(
+			array(
+				'id'    => 'template_introduce_opt_gallery',
+				'type'  => 'gallery',
+				'title' => esc_html__( 'Gallery', 'paint' )
+			)
+		)
+	) );
+
+	// -> End section template introduce
+
+	//
 	// Create a section social network
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Mạng xã hội', 'paint' ),
-		'icon' => 'fab fa-hive',
+		'icon'   => 'fab fa-hive',
 		'fields' => array(
 			array(
 				'id'      => 'paint_opt_social_network',
@@ -568,12 +620,11 @@ if ( class_exists( 'CSF' ) ) {
 		)
 	) );
 
-	/*
-	 * Create a section footer
-	 * */
+	//
+	// -> Create a section footer
 	CSF::createSection( $paint_prefix, array(
 		'id'    => 'parent_footer',
-		'icon' => 'fas fa-stream',
+		'icon'  => 'fas fa-stream',
 		'title' => esc_html__( 'Chân trang', 'paint' ),
 	) );
 
@@ -643,7 +694,7 @@ if ( class_exists( 'CSF' ) ) {
 		)
 	) );
 
-	/* End create a section footer */
+	// -> End create a section footer
 
 }
 

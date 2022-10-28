@@ -277,10 +277,28 @@ pre {
 }
 
 /* Breadcrumbs */
-.breadcrumbs {
-  .breadcrumbs-col {
-    padding: 15px 0;
-    border-bottom: 1px solid #eeeeee;
+.breadcrumbs-title {
+  margin-bottom: 4rem;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+
+  .breadcrumbs {
+    font-size: 1.2rem;
+    color: $color-primary;
+
+    a {
+      color: #959595;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .right-box {
+    text-align: center;
   }
 }
 
