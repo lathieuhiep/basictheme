@@ -19,6 +19,7 @@ if ( class_exists( 'CSF' ) ) {
 		'menu_title'      => esc_html__( 'Theme Options', 'paint' ),
 		'menu_slug'       => 'theme-options',
 		'menu_position'   => 2,
+		'admin_bar_menu_icon' => 'dashicons-admin-generic',
 		'framework_title' => $paint_my_theme->get( 'Name' ) . ' ' . esc_html__( 'Options', 'paint' ),
 		'footer_text'     => esc_html__( 'Thank you for using my theme', 'paint' ),
 		'footer_after'    => '<pre>Contact me:<br />Zalo/Phone: 0975458209 - Skype: lathieuhiep - facebook: <a href="https://www.facebook.com/lathieuhiep" target="_blank">lathieuhiep</a></pre>',
@@ -27,6 +28,7 @@ if ( class_exists( 'CSF' ) ) {
 	// Create a section general
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Cài đặt chung', 'paint' ),
+		'icon' => 'fas fa-cog',
 		'fields' => array(
 			// favicon
 			array(
@@ -83,6 +85,7 @@ if ( class_exists( 'CSF' ) ) {
 	// Create a section menu
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Menu', 'paint' ),
+		'icon' => 'fas fa-bars',
 		'fields' => array(
 			// Sticky menu
 			array(
@@ -100,6 +103,7 @@ if ( class_exists( 'CSF' ) ) {
 	// -> Create a section template home
 	CSF::createSection( $paint_prefix, array(
 		'id'    => 'template_home_opt',
+		'icon' => 'fas fa-home',
 		'title' => esc_html__( 'Home Page', 'paint' ),
 	) );
 
@@ -453,6 +457,7 @@ if ( class_exists( 'CSF' ) ) {
 	// Create a section our maxim
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Châm ngôn của chúng tôi', 'paint' ),
+		'icon' => 'fas fa-window-maximize',
 		'fields' => array(
 			// Top box
 			array(
@@ -522,6 +527,7 @@ if ( class_exists( 'CSF' ) ) {
 	// Create a section social network
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Mạng xã hội', 'paint' ),
+		'icon' => 'fab fa-hive',
 		'fields' => array(
 			array(
 				'id'      => 'paint_opt_social_network',
@@ -567,6 +573,7 @@ if ( class_exists( 'CSF' ) ) {
 	 * */
 	CSF::createSection( $paint_prefix, array(
 		'id'    => 'parent_footer',
+		'icon' => 'fas fa-stream',
 		'title' => esc_html__( 'Chân trang', 'paint' ),
 	) );
 
