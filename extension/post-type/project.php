@@ -39,38 +39,10 @@ function paint_create_project() {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+		'supports'           => array( 'title', 'editor', 'thumbnail', 'author', 'excerpt' ),
 	);
 
 	register_post_type('paint_project', $args );
 	/* End post type */
-
-	/* Start taxonomy */
-	$taxonomy_labels = array(
-		'name'              => _x( 'Danh mục dự án', 'taxonomy general name', 'paint' ),
-		'singular_name'     => _x( 'Danh mục dự án', 'taxonomy singular name', 'paint' ),
-		'search_items'      => __( 'Tìm kiếm danh mục', 'paint' ),
-		'all_items'         => __( 'Tất cả danh mục', 'paint' ),
-		'parent_item'       => __( 'Danh mục cha', 'paint' ),
-		'parent_item_colon' => __( 'Danh mục cha:', 'paint' ),
-		'edit_item'         => __( 'Sửa danh mục', 'paint' ),
-		'update_item'       => __( 'Cập nhật danh mục', 'paint' ),
-		'add_new_item'      => __( 'Thêm mới danh mục', 'paint' ),
-		'new_item_name'     => __( 'Tên danh mục mới', 'paint' ),
-		'menu_name'         => __( 'Danh mục', 'paint' ),
-	);
-
-	$taxonomy_args = array(
-		'labels'            => $taxonomy_labels,
-		'hierarchical'      => true,
-		'public'            => true,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'danh-muc-du-an' ),
-	);
-
-	register_taxonomy( 'paint_project_cat', array( 'paint_project' ), $taxonomy_args );
-	/* End taxonomy */
 
 }

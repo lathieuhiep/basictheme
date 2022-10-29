@@ -127,10 +127,9 @@ function paint_pagination(): void {
 
 // Pagination Nav Query
 function paint_paging_nav_query( $query ): void {
-
 	$args = array(
-		'prev_text' => esc_html__( ' Previous', 'paint' ),
-		'next_text' => esc_html__( 'Next', 'paint' ),
+		'prev_text' => '<i class="fa-solid fa-left-long"></i>',
+		'next_text' => '<i class="fa-solid fa-right-long"></i>',
 		'current'   => max( 1, get_query_var( 'paged' ) ),
 		'total'     => $query->max_num_pages,
 		'type'      => 'list',

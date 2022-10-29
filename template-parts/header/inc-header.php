@@ -23,7 +23,7 @@ $logo = paint_get_option( 'general_opt_logo', '' );
                 </button>
             </div>
 
-            <div id="site-menu" class="site-menu collapse navbar-collapse d-lg-block">
+            <div id="site-menu" class="site-menu collapse navbar-collapse d-lg-flex">
                 <?php
                 if ( has_nav_menu('primary') ) :
 

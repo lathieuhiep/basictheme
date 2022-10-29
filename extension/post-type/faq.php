@@ -39,7 +39,7 @@ function paint_create_post_type_faq(): void {
         'has_archive'        => true,
         'hierarchical'       => true,
         'menu_position'      => 5,
-        'supports'           => array( 'title', 'editor' ),
+        'supports'           => array( 'title', 'editor', 'author' ),
     );
 
     register_post_type('paint_faq', $args );

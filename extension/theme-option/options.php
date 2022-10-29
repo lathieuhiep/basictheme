@@ -576,6 +576,91 @@ if ( class_exists( 'CSF' ) ) {
 	// -> End section template introduce
 
 	//
+	// -> Create a section template faq
+	CSF::createSection( $paint_prefix, array(
+		'id'     => 'template_faq_opt',
+		'icon'   => 'fas fa-question-circle',
+		'title'  => esc_html__( 'Trang FAQ', 'paint' ),
+		'fields' => array(
+			// Limit
+			array(
+				'id'      => 'template_faq_opt_limit',
+				'type'    => 'number',
+				'title'   => esc_html__( 'Số bài viêt cần lấy', 'paint' ),
+				'default' => 10,
+			),
+
+			// order by
+			array(
+				'id'      => 'template_faq_opt_order_by',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Lấy bài viết theo', 'paint' ),
+				'options' => array(
+					'id'    => esc_html__( 'ID', 'beecolor' ),
+					'title' => esc_html__( 'Tiêu đề', 'paint' ),
+					'date'  => esc_html__( 'Ngày tạo', 'paint' ),
+				),
+				'default' => 'id'
+			),
+
+			// order
+			array(
+				'id'      => 'template_faq_opt_order',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Sắp xếp bài viết', 'paint' ),
+				'options' => array(
+					'ASC'  => esc_html__( 'Trên xuống dưới', 'paint' ),
+					'DESC' => esc_html__( 'Dưới lên trên', 'paint' ),
+				),
+				'default' => 'ASC'
+			)
+		)
+	) );
+	// -> End section template faq
+
+	//
+	// -> Create a section template project
+	CSF::createSection( $paint_prefix, array(
+		'icon'   => 'fas fa-folder-open',
+		'title'  => esc_html__( 'Trang Dự Án', 'paint' ),
+		'fields' => array(
+			// Limit
+			array(
+				'id'      => 'template_project_opt_limit',
+				'type'    => 'number',
+				'title'   => esc_html__( 'Số bài viêt cần lấy', 'paint' ),
+				'default' => 12,
+			),
+
+			// order by
+			array(
+				'id'      => 'template_project_opt_order_by',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Lấy bài viết theo', 'paint' ),
+				'options' => array(
+					'id'    => esc_html__( 'ID', 'beecolor' ),
+					'title' => esc_html__( 'Tiêu đề', 'paint' ),
+					'date'  => esc_html__( 'Ngày tạo', 'paint' ),
+				),
+				'default' => 'id'
+			),
+
+			// order
+			array(
+				'id'      => 'template_project_opt_order',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Sắp xếp bài viết', 'paint' ),
+				'options' => array(
+					'ASC'  => esc_html__( 'Trên xuống dưới', 'paint' ),
+					'DESC' => esc_html__( 'Dưới lên trên', 'paint' ),
+				),
+				'default' => 'ASC'
+			)
+		)
+	) );
+	// -> End section template faq
+
+	//
 	// Create a section social network
 	CSF::createSection( $paint_prefix, array(
 		'title'  => esc_html__( 'Mạng xã hội', 'paint' ),
