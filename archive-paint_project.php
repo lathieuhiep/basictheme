@@ -1,8 +1,4 @@
 <?php
-/*
- Template Name: Project Page
- */
-
 get_header();
 
 get_template_part('template-parts/project/inc', 'content');

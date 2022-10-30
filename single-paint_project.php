@@ -1,5 +1,46 @@
 <?php
 get_header();
+
+$gallery = get_post_meta(get_the_ID(), 'paint_cmb_project_gallery', true);
+
+$config_feature = [
+	'infinite'       => true,
+	'slidesToShow'   => 1,
+	'slidesToScroll' => 1,
+	'arrows'         => false,
+	'fade'           => true,
+	'asNavFor'       => '.slider-nav'
+];
+
+$config_nav_thumbnail = [
+	'infinite'       => true,
+	'slidesToShow'   => 5,
+	'slidesToScroll' => 1,
+	'arrows'         => false,
+	'asNavFor'       => '.slider-for',
+	'focusOnSelect' => true,
+	'responsive'     => [
+		[
+			'breakpoint' => 991,
+			'settings'   => [
+				'slidesToShow' => 3,
+			]
+		],
+		[
+			'breakpoint' => 767,
+			'settings'   => [
+				'slidesToShow' => 2,
+			]
+		],
+		[
+			'breakpoint' => 575,
+			'settings'   => [
+				'slidesToShow' => 1,
+			]
+		],
+	],
+]
+
 ?>
 
 <div class="site-container site-single-project element-background-image">
@@ -20,9 +61,29 @@ get_header();
 
 		<div class="entry-content">
 			<div class="post-image">
-				<div class="post-image__feature">
-					<?php the_post_thumbnail('full'); ?>
+				<div class="post-image__feature custom-slick-carousel slider-for" data-config-slick='<?php echo wp_json_encode( $config_feature ); ?>'>
+                    <div class="item">
+	                    <?php the_post_thumbnail('full'); ?>
+                    </div>
+
+                    <?php foreach ( $gallery as $key => $item ) : ?>
+                        <div class="item">
+		                    <?php echo wp_get_attachment_image($key, 'full') ?>
+                        </div>
+                    <?php endforeach; ?>
 				</div>
+
+                <div class="post-image__gallery custom-slick-carousel slider-nav" data-config-slick='<?php echo wp_json_encode( $config_nav_thumbnail ); ?>'>
+                    <div class="item">
+                        <?php the_post_thumbnail(); ?>
+                    </div>
+
+                    <?php foreach ( $gallery as $key => $item ) : ?>
+                        <div class="item">
+                            <?php echo wp_get_attachment_image($key) ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
 			</div>
 
 			<div class="post-content">
@@ -30,7 +91,11 @@ get_header();
 			</div>
 		</div>
 
-		<?php endwhile; ?>
+		<?php
+        endwhile;
+
+        get_template_part('template-parts/project/inc', 'related-project');
+        ?>
 	</div>
 </div>
 <?php

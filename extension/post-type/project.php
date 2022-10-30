@@ -37,7 +37,7 @@ function paint_create_project() {
 		'rewrite'            => array('slug' => 'du-an' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
-		'hierarchical'       => true,
+		'hierarchical'       => false,
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'thumbnail', 'author', 'excerpt' ),
 	);
