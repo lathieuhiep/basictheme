@@ -1,4 +1,4 @@
-<div class="element-products element-spacer element-background-image text-center">
+<div class="element-products">
 	<h2>Sản phẩm</h2>
 
 	<h3>coming soon</h3>

@@ -200,6 +200,15 @@ pre {
   background-color: #fff;
 }
 
+.background-color-yellow {
+  background-color: $background-hover;
+}
+
+.element-section-project {
+  padding-top: 42px;
+  padding-bottom: 16px;
+}
+
 /* Social network */
 .social-network-item {
   display: inline-block;

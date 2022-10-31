@@ -133,7 +133,7 @@ if ( class_exists( 'CSF' ) ) {
 				'library'      => 'image',
 				'url'          => false,
 				'preview_size' => 'full'
-			)
+			),
 		)
 	) );
 
@@ -214,6 +214,34 @@ if ( class_exists( 'CSF' ) ) {
 		'parent' => 'template_home_opt',
 		'title'  => esc_html__( 'Dự án', 'paint' ),
 		'fields' => array(
+			// Heading
+			array(
+				'id'     => 'template_home_opt_project_heading',
+				'type'   => 'fieldset',
+				'title'  => esc_html__( 'Mục trên', 'paint' ),
+				'fields' => array(
+					array(
+						'id'      => 'title',
+						'type'    => 'text',
+						'title'   => esc_html__( 'Tiêu đề', 'paint' ),
+						'default' => esc_html__( 'DỰ ÁN', 'paint' )
+					),
+
+					// align
+					array(
+						'id'      => 'align',
+						'type'    => 'select',
+						'title'   => esc_html__( 'Căn chỉnh', 'paint' ),
+						'options' => array(
+							'start'  => esc_html__( 'Căn lề trái', 'paint' ),
+							'center' => esc_html__( 'Căn giữa', 'paint' ),
+							'end'    => esc_html__( 'Căn phải', 'paint' ),
+						),
+						'default' => 'center'
+					),
+				),
+			),
+
 			// Select category
 			array(
 				'id'          => 'template_home_opt_project_cat',
@@ -258,7 +286,7 @@ if ( class_exists( 'CSF' ) ) {
 					'ASC'  => esc_html__( 'Trên xuống dưới', 'paint' ),
 					'DESC' => esc_html__( 'Dưới lên trên', 'paint' ),
 				),
-				'default' => 'ASC'
+				'default' => 'DESC'
 			)
 		)
 	) );

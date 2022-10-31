@@ -7,36 +7,64 @@ get_header();
 ?>
 
 <div class="content-warp">
-    <?php
-    // include banner
-    $opt_banner = paint_get_option('template_home_opt_banner_1', '');
-    get_template_part( 'components/inc', 'banner', array('opt_banner' => $opt_banner) );
+    <!-- banner 1 -->
+    <div class="element-section">
+        <?php get_template_part( 'components/inc', 'banner', array('opt' => 'template_home_opt_banner_1') ); ?>
+    </div>
 
-    // include our maxim
-    get_template_part( 'components/inc', 'our-maxim' );
+    <!-- our maxim -->
+    <section class="element-section element-spacer background-color-white">
+        <div class="container">
+	        <?php get_template_part( 'components/inc', 'our-maxim' ); ?>
+        </div>
+    </section>
 
-    // include banner 2
-    $opt_banner_2 = paint_get_option('template_home_opt_banner_2', '');
-    get_template_part( 'components/inc', 'banner', array('opt_banner' => $opt_banner_2) );
+    <!-- banner 2 -->
+    <div class="element-section">
+		<?php get_template_part( 'components/inc', 'banner', array('opt' => 'template_home_opt_banner_2') ); ?>
+    </div>
 
-    // include products
-    get_template_part( 'components/inc', 'products' );
+    <!-- products -->
+    <section class="element-section element-spacer element-background-image text-center">
+        <div class="container">
+            <?php get_template_part( 'components/inc', 'products' ); ?>
+        </div>
+    </section>
 
-    // include count up
-    get_template_part( 'components/inc', 'count-up' );
+    <!-- count up -->
+    <section class="element-section element-spacer background-color-white">
+        <div class="container">
+			<?php get_template_part( 'components/inc', 'count-up' ); ?>
+        </div>
+    </section>
 
-    // include project
-    get_template_part( 'components/inc', 'project' );
+    <!-- project -->
+    <section class="element-section element-section-project element-background-image">
+        <div class="container">
+			<?php get_template_part( 'components/inc', 'project' ); ?>
+        </div>
+    </section>
 
-    // include services
-    get_template_part( 'components/inc', 'services' );
+    <!-- services -->
+    <section class="element-section background-color-white">
+        <div class="container">
+			<?php get_template_part( 'components/inc', 'services' ); ?>
+        </div>
+    </section>
 
-    // include testimonial
-    get_template_part( 'components/inc', 'testimonial' );
+    <!-- testimonial -->
+    <section class="element-section element-spacer element-background-image background-color-yellow">
+        <div class="container">
+			<?php get_template_part( 'components/inc', 'testimonial' ); ?>
+        </div>
+    </section>
 
-    // include posts slider
-    get_template_part( 'components/inc', 'post-slider');
-    ?>
+    <!-- posts slider -->
+    <section class="element-section element-spacer">
+        <div class="container">
+			<?php get_template_part( 'components/inc', 'post-slider'); ?>
+        </div>
+    </section>
 </div>
 
 <?php
