@@ -18,6 +18,7 @@ require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 require get_theme_file_path( 'extension/theme-option/options.php' );
 
 // Required: Post type
+require get_parent_theme_file_path( '/extension/post-type/product.php' );
 require get_parent_theme_file_path( '/extension/post-type/project.php' );
 require get_parent_theme_file_path( '/extension/post-type/faq.php' );
 
@@ -29,6 +30,7 @@ if ( class_exists('Kirki') ) {
 // Required: CMB2
 if ( !class_exists('CMB2') ) {
     require get_parent_theme_file_path( '/extension/meta-box/cmb_post.php' );
+	require get_parent_theme_file_path( '/extension/meta-box/cmb_product.php' );
 	require get_parent_theme_file_path( '/extension/meta-box/cmb_project.php' );
 }
 
