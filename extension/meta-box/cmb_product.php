@@ -28,6 +28,8 @@ function paint_cmb_product(): void {
 			),
 		),
 		'preview_size' => 'large',
+		'escape_cb'     => false,
+		'sanitization_cb'   => false
 	) );
 
 	$cmb_options = new_cmb2_box( array(

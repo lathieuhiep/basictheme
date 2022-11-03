@@ -25,9 +25,12 @@ get_header();
     </div>
 
     <!-- products -->
-    <section class="element-section element-spacer element-background-image text-center">
+    <section class="element-section element-section-products element-background-image">
         <div class="container">
-            <?php get_template_part( 'components/inc', 'products' ); ?>
+            <?php
+            get_template_part('components/inc', 'heading', array('opt' => 'template_home_opt_product_heading'));
+            get_template_part( 'components/inc', 'products' );
+            ?>
         </div>
     </section>
 

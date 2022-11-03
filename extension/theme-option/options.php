@@ -137,6 +137,88 @@ if ( class_exists( 'CSF' ) ) {
 		)
 	) );
 
+	// Products
+	CSF::createSection( $paint_prefix, array(
+		'parent' => 'template_home_opt',
+		'title'  => esc_html__( 'Sản phẩm', 'paint' ),
+		'fields' => array(
+			// Heading
+			array(
+				'id'     => 'template_home_opt_product_heading',
+				'type'   => 'fieldset',
+				'title'  => esc_html__( 'Mục trên', 'paint' ),
+				'fields' => array(
+					array(
+						'id'      => 'title',
+						'type'    => 'text',
+						'title'   => esc_html__( 'Tiêu đề', 'paint' ),
+						'default' => esc_html__( 'Sản phẩm', 'paint' )
+					),
+
+					// align
+					array(
+						'id'      => 'align',
+						'type'    => 'select',
+						'title'   => esc_html__( 'Căn chỉnh', 'paint' ),
+						'options' => array(
+							'start'  => esc_html__( 'Căn lề trái', 'paint' ),
+							'center' => esc_html__( 'Căn giữa', 'paint' ),
+							'end'    => esc_html__( 'Căn phải', 'paint' ),
+						),
+						'default' => 'center'
+					),
+				),
+			),
+
+			// Select category
+			array(
+				'id'          => 'template_home_opt_product_cat',
+				'type'        => 'select',
+				'title'       => esc_html__( 'Chọn danh mục dự án', 'paint' ),
+				'placeholder' => esc_html__( 'Chọn danh mục dự án', 'paint' ),
+				'options'     => 'categories',
+				'multiple'    => true,
+				'chosen'      => true,
+				'query_args'  => array(
+					'taxonomy' => 'paint_product_cat',
+				),
+			),
+
+			// Limit
+			array(
+				'id'      => 'template_home_opt_product_limit',
+				'type'    => 'number',
+				'title'   => esc_html__( 'Số bài viêt cần lấy', 'paint' ),
+				'default' => 6,
+			),
+
+			// order by
+			array(
+				'id'      => 'template_home_opt_product_order_by',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Lấy bài viết theo', 'paint' ),
+				'options' => array(
+					'id'    => esc_html__( 'ID', 'beecolor' ),
+					'title' => esc_html__( 'Tiêu đề', 'paint' ),
+					'date'  => esc_html__( 'Ngày tạo', 'paint' ),
+				),
+				'default' => 'id'
+			),
+
+			// order
+			array(
+				'id'      => 'template_home_opt_product_order',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Sắp xếp bài viết', 'paint' ),
+				'options' => array(
+					'ASC'  => esc_html__( 'Trên xuống dưới', 'paint' ),
+					'DESC' => esc_html__( 'Dưới lên trên', 'paint' ),
+				),
+				'default' => 'DESC'
+			)
+		)
+	) );
+
 	// Result_count
 	CSF::createSection( $paint_prefix, array(
 		'parent' => 'template_home_opt',
