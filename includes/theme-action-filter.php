@@ -123,3 +123,23 @@ function paint_include_custom_post_types_in_search_results( $query ): void {
 		$query->set( 'post_type', array( 'post' ) );
 	}
 }
+
+// add column products
+add_filter( 'manage_paint_product_posts_columns', 'paint_custom_product_columns' );
+function paint_custom_product_columns($columns) {
+	$columns['taxonomy-paint_product_tag'] = esc_html__('Thẻ', 'paint');
+
+	return $columns;
+}
+
+// order column products
+add_filter( 'manage_paint_product_posts_columns', 'paint_order_product_columns' );
+function paint_order_product_columns($columns): array {
+	return array(
+        'title' => $columns['title'],
+        'author' => $columns['author'],
+        'taxonomy-paint_product_cat' => $columns['taxonomy-paint_product_cat'],
+		'taxonomy-paint_product_tag' => $columns['taxonomy-paint_product_tag'],
+		'date' => $columns['date']
+	);
+}

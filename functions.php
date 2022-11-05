@@ -19,6 +19,7 @@ require get_theme_file_path( 'extension/theme-option/options.php' );
 
 // Required: Post type
 require get_parent_theme_file_path( '/extension/post-type/product.php' );
+require get_parent_theme_file_path( '/extension/post-type/tool.php' );
 require get_parent_theme_file_path( '/extension/post-type/project.php' );
 require get_parent_theme_file_path( '/extension/post-type/faq.php' );
 
