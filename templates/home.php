@@ -24,12 +24,15 @@ get_header();
 		<?php get_template_part( 'components/inc', 'banner', array('opt' => 'template_home_opt_banner_2') ); ?>
     </div>
 
-    <!-- products -->
-    <section class="element-section element-section-products element-background-image">
+    <!-- products add tool -->
+    <section class="element-section element-spacer element-section-products element-background-image">
         <div class="container">
             <?php
             get_template_part('components/inc', 'heading', array('opt' => 'template_home_opt_product_heading'));
             get_template_part( 'components/inc', 'products' );
+
+            get_template_part('components/inc', 'heading', array('opt' => 'template_home_opt_tool_heading'));
+            get_template_part( 'components/inc', 'tool' );
             ?>
         </div>
     </section>

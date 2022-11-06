@@ -11,8 +11,8 @@ $data_config_slider = [
 	'slidesToShow'   => 4,
 	'slidesToScroll' => 4,
 	'arrows'         => false,
-	'autoplay'       => false,
-    'dots'           => true,
+	'autoplay'       => true,
+    'dots'           => false,
 	'responsive'     => [
 		[
 			'breakpoint' => 1199,

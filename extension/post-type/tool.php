@@ -73,4 +73,33 @@ function paint_create_tool(): void {
 	register_taxonomy( 'paint_tool_cat', array( 'paint_tool' ), $taxonomy_args );
 	/* End taxonomy */
 
+	/* Start taxonomy tag */
+	$label_tag_args = array(
+		'name' => _x( 'Thẻ', 'taxonomy general name', 'paint' ),
+		'singular_name' => _x( 'Thẻ', 'taxonomy singular name', 'paint' ),
+		'search_items' =>  esc_html__( 'Tìm Thẻ', 'paint' ),
+		'popular_items' => esc_html__( 'Thẻ phổ biến', 'paint' ),
+		'all_items' => esc_html__( 'Tất cả thẻ', 'paint' ),
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => esc_html__( 'Sửa thẻ', 'paint' ),
+		'update_item' => esc_html__( 'Cập nhập', 'paint' ),
+		'add_new_item' => esc_html__( 'Thêm thẻ', 'paint' ),
+		'new_item_name' => esc_html__( 'Tên thẻ mới', 'paint' ),
+		'separate_items_with_commas' => esc_html__( 'Phân tách bởi dấu phẩy hoặc phím Enter.', 'paint' ),
+		'add_or_remove_items' => esc_html__( 'Thêm hoặc xoá thẻ', 'paint' ),
+		'choose_from_most_used' => esc_html__( 'Các thẻ được sử dụng nhiều nhất', 'paint' ),
+		'menu_name' => esc_html__( 'Thẻ', 'paint' ),
+	);
+
+	register_taxonomy('paint_tool_tag','paint_tool',array(
+		'hierarchical' => false,
+		'labels' => $label_tag_args,
+		'show_ui' => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'the-dung-cu' ),
+	));
+	/* End taxonomy tag */
+
 }

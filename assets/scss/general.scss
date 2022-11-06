@@ -285,6 +285,35 @@ pre {
   }
 }
 
+.slick-slider {
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    z-index: 1;
+    line-height: 42px;
+    color: #ffffff;
+    border: 0;
+    border-radius: 50%;
+    background-color: #D3D3D3;
+    @include transition();
+    @include transform(translateY(-50%));
+
+    &:hover {
+      background-color: $background-hover;
+    }
+
+    &.slick-prev {
+      left: -6rem;
+    }
+
+    &.slick-next {
+      right: -6rem;
+    }
+  }
+}
+
 /* Breadcrumbs */
 .breadcrumbs-title {
   margin-bottom: 4rem;

@@ -1,20 +1,8 @@
 /* metabox option */
-#univn_option_template_home {
-    display: none;
+.custom-column-display-price {
+    color: #ff0000;
 }
 
-.rwmb-field.rwmb-heading-wrapper {
-    margin-bottom: 30px !important;
-}
-
-.rwmb-field.rwmb-heading-wrapper h4 {
-    background-color: #000000;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    margin: 0;
-}
-
-.rwmb-field.rwmb-heading-wrapper p.description {
-    margin: 10px 0 0;
+.cmb2-postbox .cmb2-wrap input.cmb2-text-medium {
+    width: 25em;
 }

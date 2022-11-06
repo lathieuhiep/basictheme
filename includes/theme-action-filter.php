@@ -143,3 +143,23 @@ function paint_order_product_columns($columns): array {
 		'date' => $columns['date']
 	);
 }
+
+// add column post type tool
+add_filter( 'manage_paint_tool_posts_columns', 'paint_custom_tool_columns' );
+function paint_custom_tool_columns($columns) {
+	$columns['taxonomy-paint_tool_tag'] = esc_html__('Thẻ', 'paint');
+
+	return $columns;
+}
+
+// order column post type tool
+add_filter( 'manage_paint_tool_posts_columns', 'paint_order_tool_columns' );
+function paint_order_tool_columns($columns): array {
+	return array(
+		'title' => $columns['title'],
+		'author' => $columns['author'],
+		'taxonomy-paint_tool_cat' => $columns['taxonomy-paint_tool_cat'],
+		'taxonomy-paint_tool_tag' => $columns['taxonomy-paint_tool_tag'],
+		'date' => $columns['date']
+	);
+}
