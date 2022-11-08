@@ -8,30 +8,36 @@ function paint_cmb_render_fieldset_color( $field, $value, $object_id, $object_ty
 		'color' => ''
 	) );
 ?>
-	<div class="item">
+	<div class="cmb-label">
         <label for="<?php echo $field_type->_id( '_name' ); ?>">
 			<?php esc_html_e('Tên màu', 'paint'); ?>
         </label>
 
-		<?php echo $field_type->input( array(
+	</div>
+
+    <div class="cmb-field">
+        <?php
+        echo $field_type->input( array(
 			'name'  => $field_type->_name( '[name]' ),
 			'id'    => $field_type->_id( '_name' ),
 			'value' => $value['name']
-		) ); ?>
-	</div>
+		) );
+        ?>
+    </div>
 
-	<div class="item">
+	<div class="cmb-label">
         <label for="<?php echo $field_type->_id( '_color' ); ?>">
 			<?php esc_html_e('Mã màu', 'paint'); ?>
         </label>
-
-		<?php echo $field_type->input( array(
-            'type' => 'color',
-			'name'  => $field_type->_name( '[color]' ),
-			'id'    => $field_type->_id( '_color' ),
-			'value' => $value['color']
-		) ); ?>
 	</div>
+
+    <div class="cmb-field">
+	    <?php echo $field_type->colorpicker( array(
+		    'name'  => $field_type->_name( '[color]' ),
+		    'id'    => $field_type->_id( '_color' ),
+		    'value' => $value['color']
+	    ) ); ?>
+    </div>
 
 <?php
 	echo $field_type->_desc( true );

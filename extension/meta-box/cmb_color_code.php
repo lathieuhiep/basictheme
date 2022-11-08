@@ -22,6 +22,12 @@ function paint_cmb_color_code(): void {
 		),
 	) );
 
+	$cmb->add_field( array(
+		'name' => esc_html__('Tên hiệu', 'paint'),
+		'id'   => 'paint_cmb_color_code_name',
+		'type' => 'text',
+	) );
+
 
 	// type standard
 	$type_standard = $cmb->add_field( array(
@@ -33,21 +39,44 @@ function paint_cmb_color_code(): void {
 			'add_button'     => esc_html__( 'Thêm', 'paint' ),
 			'remove_button'  => esc_html__( 'Xoá', 'paint' ),
 			'sortable'       => true,
-			'closed'         => false,
+			'closed'         => true,
 			'remove_confirm' => esc_html__( 'Bạn thật sự muốn xoá?', 'paint' ),
 		),
+		'classes' => 'group-color-code-standard',
 	) );
 
 	$cmb->add_group_field( $type_standard, array(
-		'name' => 'Mã sơn',
-		'id'   => 'paint_color_code',
+		'name' => esc_html__('Số hiệu', 'paint'),
+		'id'   => 'paint_number',
 		'type' => 'text',
+	) );
+
+	$cmb->add_group_field( $type_standard, array(
+		'name'         => esc_html__( 'Ảnh mã màu', 'paint' ),
+		'id'           => 'image',
+		'type'         => 'file',
+		'options'      => array(
+			'url' => false,
+		),
+		'text'         => array(
+			'add_upload_file_text' => esc_html__( 'Chọn ảnh', 'paint' )
+		),
+		'query_args'   => array(
+			'type' => array(
+				'image/gif',
+				'image/jpeg',
+				'image/png',
+			),
+		),
 	) );
 
 	$cmb->add_group_field( $type_standard, array(
 		'name' => 'Phối màu',
 		'id'   => 'color_mix',
 		'type' => 'fieldset_color',
-		'repeatable' => true
+		'repeatable' => true,
+		'text' => array(
+			'add_row_text' => esc_html__('Thêm màu', 'paint'),
+		),
 	) );
 }

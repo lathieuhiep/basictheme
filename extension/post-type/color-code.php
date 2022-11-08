@@ -39,7 +39,7 @@ function paint_create_post_type_color_code(): void {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'author' ),
+		'supports'           => array( 'title', 'thumbnail', 'author' ),
 	);
 
 	register_post_type('paint_color_code', $args );

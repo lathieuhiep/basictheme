@@ -37,8 +37,21 @@ function paint_cmb_product(): void {
 		'title'        => esc_html__( 'Thông tin bổ sung', 'paint' ),
 		'object_types' => array( 'paint_product' ),
 		'context'      => 'normal',
-		'priority'     => 'low',
+		'priority'     => 'high',
 		'show_names'   => true
+	) );
+
+	$cmb_options->add_field( array(
+		'name'           => esc_html__('Chọn bảng màu', 'paint'),
+		'desc'           => esc_html__('Chọn danh mục chứa bảng màu, nếu danh mục nhiều hơn 1 bảng màu trở lên sẽ hiển thị dạng kiểu vân. Bảng màu được tạo ở mục "Mã màu sơn', 'paint'),
+		'id'             => 'paint_cmb_options_product_color',
+		'taxonomy'       => 'paint_color_code_cat',
+		'type'           => 'taxonomy_select',
+		'remove_default' => 'true',
+		'query_args' => array(
+			// 'orderby' => 'slug',
+			// 'hide_empty' => true,
+		),
 	) );
 
 	$cmb_options->add_field( array(
