@@ -28,6 +28,10 @@ add_action('wp_enqueue_scripts', 'paint_register_front_end');
 
 function paint_register_front_end(): void {
 
+	if ( is_singular('paint_product') ) {
+		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap', array(), null );
+	}
+
 	/* Start main Css */
 	wp_enqueue_style( 'paint-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
 	/* End main Css */

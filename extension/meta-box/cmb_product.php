@@ -18,7 +18,7 @@ function paint_cmb_product(): void {
 			'url' => false,
 		),
 		'text'         => array(
-			'add_upload_file_text' => esc_html__( 'Đặt ảnh thay đổi' )
+			'add_upload_file_text' => esc_html__( 'Đặt ảnh thay đổi', 'paint' )
 		),
 		'query_args'   => array(
 			'type' => array(
@@ -32,6 +32,7 @@ function paint_cmb_product(): void {
 		'sanitization_cb'   => false
 	) );
 
+	//
 	$cmb_options = new_cmb2_box( array(
 		'id'           => 'paint_cmb_options_product',
 		'title'        => esc_html__( 'Thông tin bổ sung', 'paint' ),
@@ -39,6 +40,26 @@ function paint_cmb_product(): void {
 		'context'      => 'normal',
 		'priority'     => 'high',
 		'show_names'   => true
+	) );
+
+	$cmb_options->add_field( array(
+		'id'           => 'paint_cmb_product_banner',
+		'name'         => esc_html__( 'Banner', 'paint' ),
+		'type'         => 'file',
+		'options'      => array(
+			'url' => false,
+		),
+		'text'         => array(
+			'add_upload_file_text' => esc_html__( 'Chọn ảnh', 'paint' )
+		),
+		'query_args'   => array(
+			'type' => array(
+				'image/gif',
+				'image/jpeg',
+				'image/png',
+			),
+		),
+		'preview_size' => 'large'
 	) );
 
 	$cmb_options->add_field( array(

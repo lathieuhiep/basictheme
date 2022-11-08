@@ -322,21 +322,21 @@ pre {
   grid-template-columns: max-content 1fr;
   align-items: center;
 
-  .breadcrumbs {
-    font-size: 1.2rem;
-    color: $color-primary;
-
-    a {
-      color: #959595;
-
-      &:hover {
-        color: $color-primary;
-      }
-    }
-  }
-
   .right-box {
     text-align: center;
+  }
+}
+
+.breadcrumbs {
+  font-size: 1.2rem;
+  color: $color-primary;
+
+  a {
+    color: #959595;
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 }
 

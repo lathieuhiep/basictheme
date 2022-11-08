@@ -12,17 +12,6 @@ function paint_cmb_color_code(): void {
 	) );
 
 	$cmb->add_field( array(
-		'name'             => esc_html__('Kiểu mã màu', 'paint'),
-		'id'               => 'paint_cmb_color_code_type',
-		'type'             => 'select',
-		'default'          => 'standard',
-		'options'          => array(
-			'standard' => __( 'Bình thường', 'cmb2' ),
-			'custom'   => __( 'Có vân', 'cmb2' ),
-		),
-	) );
-
-	$cmb->add_field( array(
 		'name' => esc_html__('Tên hiệu', 'paint'),
 		'id'   => 'paint_cmb_color_code_name',
 		'type' => 'text',

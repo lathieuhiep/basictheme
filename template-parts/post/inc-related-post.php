@@ -29,7 +29,7 @@ if (!empty($list_cate)):
                 <?php
                 while ($query->have_posts()) :
                     $query->the_post();
-                    ?>
+                ?>
 
                     <div class="col item">
                         <div class="related-post-item">

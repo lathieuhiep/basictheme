@@ -29,7 +29,7 @@ function paint_create_post_type_color_code(): void {
 
 	$args = array(
 		'labels'             => $labels,
-		'public'             => false,
+		'public'             => true,
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
