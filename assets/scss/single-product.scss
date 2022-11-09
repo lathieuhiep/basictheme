@@ -98,7 +98,7 @@
 
   .tabs-warp {
     .nav-pills {
-      margin-bottom: 3.6rem;
+      margin-bottom: 4.6rem;
 
       .nav-item {
         padding: 0 33px;
@@ -133,6 +133,95 @@
         &:hover {
           &::after {
             opacity: 1;
+          }
+        }
+      }
+    }
+
+    .product-color {
+      .pattern {
+        &__title {
+          margin-bottom: 3.8rem;
+          font-size: 1.6rem;
+          text-transform: uppercase;
+        }
+
+        &__posts {
+          margin-bottom: 50px;
+          display: grid;
+          grid-gap: 24px 48px;
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .item-pattern {
+          cursor: pointer;
+        }
+
+        &__style {
+          margin-bottom: 4.8rem;
+          padding-left: 3rem;
+          font-size: 1.6rem;
+          text-transform: uppercase;
+        }
+      }
+
+      .list-color {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+
+        .item {
+          position: relative;
+          overflow: hidden;
+
+          &__content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            .color-mix {
+              padding: 12px 32px;
+              opacity: 0;
+              visibility: hidden;
+              @include transition();
+
+              &__item {
+                margin: 0 0 10px;
+
+                span {
+                  padding: 2px 10px;
+                  display: inline-block;
+                  color: #fff;
+                  font-size: 1rem;
+                  font-weight: 300;
+                  text-align: center;
+                  border-radius: 24px;
+                  border: 1px solid #ffffff;
+                }
+              }
+            }
+
+            .info {
+              padding: 12px 32px;
+              background-color: rgba(0, 0, 0, 0.4);
+              @include flexbox();
+              @include justify-content(space-between);
+
+              p {
+                margin: 0;
+                font-size: 1.4rem;
+                color: #ffffff;
+                font-weight: 600;
+              }
+            }
+          }
+
+          &:hover {
+            .color-mix {
+              opacity: 1;
+              visibility: visible;
+            }
           }
         }
       }

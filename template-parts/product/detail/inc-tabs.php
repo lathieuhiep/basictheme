@@ -20,7 +20,9 @@
 	</ul>
 
 	<div class="tab-content" id="pills-tabContent">
-		<div class="tab-pane fade show active" id="color-code" role="tabpanel" aria-labelledby="color-code-tab" tabindex="0">...</div>
+		<div class="tab-pane fade show active" id="color-code" role="tabpanel" aria-labelledby="color-code-tab" tabindex="0">
+			<?php get_template_part('template-parts/product/detail/inc', 'product-color'); ?>
+        </div>
 
 		<div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab" tabindex="0">
 			<?php get_template_part('template-parts/product/detail/inc', 'product-gallery'); ?>

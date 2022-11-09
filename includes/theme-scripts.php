@@ -61,6 +61,9 @@ function paint_register_front_end(): void {
 
 	if ( is_singular('paint_product') ) {
 		wp_enqueue_script( 'product-detail', get_theme_file_uri( '/assets/js/product-detail.js' ), array(), '1.0.0', true );
+
+		$paint_admin_url_ajax = admin_url( 'admin-ajax.php' );
+		wp_localize_script( 'product-detail', 'productDetailAjax', array( 'url' => $paint_admin_url_ajax ));
 	}
 
 	/*

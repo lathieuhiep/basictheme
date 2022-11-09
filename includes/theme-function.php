@@ -1,5 +1,7 @@
 <?php
 // Callback Comment List
+use JetBrains\PhpStorm\NoReturn;
+
 function paint_comments( $paint_comment, $paint_comment_args, $paint_comment_depth ): void {
 
 	if ( 'div' === $paint_comment_args['style'] ) :
@@ -281,4 +283,30 @@ function paint_get_form_cf7(): array {
 	}
 
 	return $options;
+}
+
+// action ajax get color code
+add_action( 'wp_ajax_nopriv_paint_get_color_code', 'paint_get_color_code' );
+add_action( 'wp_ajax_paint_get_color_code', 'paint_get_color_code' );
+
+function paint_get_color_code() {
+	$postId = (int) $_POST['postId'];
+
+	$args = array(
+		'post_type' => 'paint_color_code',
+		'post__in' => array($postId),
+	);
+
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ):
+		while ( $query->have_posts() ): $query->the_post();
+			get_template_part('template-parts/product/detail/inc', 'content-color');
+		endwhile;
+		wp_reset_postdata();
+    else:
+        esc_html_e('Không có dữ liệu', 'paint');
+	endif;
+
+	wp_die();
 }

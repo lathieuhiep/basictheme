@@ -64,7 +64,7 @@ function paint_cmb_product(): void {
 
 	$cmb_options->add_field( array(
 		'name'           => esc_html__( 'Chọn bảng màu', 'paint' ),
-		'desc'           => esc_html__( 'Chọn danh mục chứa bảng màu, nếu danh mục nhiều hơn 1 bảng màu trở lên sẽ hiển thị dạng kiểu vân. Bảng màu được tạo ở mục "Mã màu sơn', 'paint' ),
+		'desc'           => esc_html__( 'Chọn danh mục chứa bảng màu, nếu danh mục nhiều hơn 1 bảng màu trở lên sẽ hiển thị dạng kiểu vân. Bảng màu được tạo ở mục "Mã màu sơn"', 'paint' ),
 		'id'             => 'paint_cmb_options_product_color',
 		'type'           => 'select',
 		'remove_default' => 'true',
@@ -89,7 +89,7 @@ function paint_cmb_product(): void {
 			'add_button'     => esc_html__( 'Thêm', 'paint' ),
 			'remove_button'  => esc_html__( 'Xoá', 'paint' ),
 			'sortable'       => true,
-			'closed'         => true,
+			'closed'         => false,
 			'remove_confirm' => esc_html__( 'Bạn thật sự muốn xoá?', 'paint' ),
 		),
 	) );
