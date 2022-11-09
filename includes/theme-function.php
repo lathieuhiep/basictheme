@@ -239,7 +239,7 @@ function paint_check_get_cat( $type_taxonomy ): array
 
 	if ( isset( $category ) && ! empty( $category ) ):
 		foreach ( $category as $item ) {
-			$cat_check[ $item->term_id ] = $item->name;
+			$cat_check[ $item->term_id ] = $item->name . ' ('. $item->count .')';
 		}
 	endif;
 

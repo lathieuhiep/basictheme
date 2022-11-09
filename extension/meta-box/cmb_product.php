@@ -12,24 +12,24 @@ function paint_cmb_product(): void {
 	) );
 
 	$cmb_image_hover->add_field( array(
-		'id'           => 'paint_cmb_product_image_feature_hover',
-		'type'         => 'file',
-		'options'      => array(
+		'id'              => 'paint_cmb_product_image_feature_hover',
+		'type'            => 'file',
+		'options'         => array(
 			'url' => false,
 		),
-		'text'         => array(
+		'text'            => array(
 			'add_upload_file_text' => esc_html__( 'Đặt ảnh thay đổi', 'paint' )
 		),
-		'query_args'   => array(
+		'query_args'      => array(
 			'type' => array(
 				'image/gif',
 				'image/jpeg',
 				'image/png',
 			),
 		),
-		'preview_size' => 'large',
-		'escape_cb'     => false,
-		'sanitization_cb'   => false
+		'preview_size'    => 'large',
+		'escape_cb'       => false,
+		'sanitization_cb' => false
 	) );
 
 	//
@@ -63,16 +63,12 @@ function paint_cmb_product(): void {
 	) );
 
 	$cmb_options->add_field( array(
-		'name'           => esc_html__('Chọn bảng màu', 'paint'),
-		'desc'           => esc_html__('Chọn danh mục chứa bảng màu, nếu danh mục nhiều hơn 1 bảng màu trở lên sẽ hiển thị dạng kiểu vân. Bảng màu được tạo ở mục "Mã màu sơn', 'paint'),
+		'name'           => esc_html__( 'Chọn bảng màu', 'paint' ),
+		'desc'           => esc_html__( 'Chọn danh mục chứa bảng màu, nếu danh mục nhiều hơn 1 bảng màu trở lên sẽ hiển thị dạng kiểu vân. Bảng màu được tạo ở mục "Mã màu sơn', 'paint' ),
 		'id'             => 'paint_cmb_options_product_color',
-		'taxonomy'       => 'paint_color_code_cat',
-		'type'           => 'taxonomy_select',
+		'type'           => 'select',
 		'remove_default' => 'true',
-		'query_args' => array(
-			// 'orderby' => 'slug',
-			// 'hide_empty' => true,
-		),
+		'options'        => paint_check_get_cat( 'paint_color_code_cat' )
 	) );
 
 	$cmb_options->add_field( array(

@@ -59,6 +59,10 @@ function paint_register_front_end(): void {
 
 	wp_enqueue_script( 'paint-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
 
+	if ( is_singular('paint_product') ) {
+		wp_enqueue_script( 'product-detail', get_theme_file_uri( '/assets/js/product-detail.js' ), array(), '1.0.0', true );
+	}
+
 	/*
    * End Get Js Front End
    * */

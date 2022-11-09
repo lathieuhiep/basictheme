@@ -15,17 +15,25 @@ $banner = get_post_meta(get_the_ID(), 'paint_cmb_product_banner_id', true);
         <div class="container">
 			<?php
 			get_template_part( 'components/inc', 'breadcrumbs' );
-			get_template_part( 'template-parts/product/detail/inc', 'nav' );
+
+			get_template_part( 'template-parts/product/detail/inc', 'nav-cat' );
+
+			get_template_part( 'template-parts/product/detail/inc', 'nav-related' );
 			?>
         </div>
     </div>
 
     <div class="entry-content">
-	    <?php while ( have_posts() ) : the_post(); ?>
-            <div class="container">
+        <div class="container">
+            <?php
+            while ( have_posts() ) :
+                the_post();
 
-            </div>
-	    <?php endwhile; ?>
+	            get_template_part( 'template-parts/product/detail/inc', 'tabs' );
+
+             endwhile;
+             ?>
+        </div>
     </div>
 </div>
 
