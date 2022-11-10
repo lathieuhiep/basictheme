@@ -248,6 +248,25 @@ function paint_check_get_cat( $type_taxonomy ): array
 	return $cat_check;
 }
 
+// Get all custom post
+function paint_get_post_types($post_type): array {
+	$args = array(
+		'post_type'   => $post_type,
+		'posts_per_page' => -1
+	);
+
+	$posts = get_posts($args);
+	$postsList = array();
+
+    if ( $posts ) {
+	    foreach ($posts as $post) {
+		    $postsList[$post->ID] = $post->post_title;
+	    }
+    }
+
+	return $postsList;
+}
+
 // Share Facebook
 function paint_post_share(): void {
 

@@ -58,7 +58,7 @@ if ( $query->have_posts() ) :
 ?>
 
 <div class="element-tool element-tool-slider">
-	<div class="custom-slick-carousel" data-config-slick='<?php echo wp_json_encode( $data_settings_slide ); ?>'>
+	<div class="tool-list-grid custom-slick-carousel" data-config-slick='<?php echo wp_json_encode( $data_settings_slide ); ?>'>
 		<?php
         while ( $query->have_posts() ):
             $query->the_post();

@@ -35,6 +35,8 @@ $banner = get_post_meta(get_the_ID(), 'paint_cmb_product_banner_id', true);
              ?>
         </div>
     </div>
+
+    <?php get_template_part( 'template-parts/product/detail/inc', 'suggestion-tool' ); ?>
 </div>
 
 <?php

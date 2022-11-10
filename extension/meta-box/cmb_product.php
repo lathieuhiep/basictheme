@@ -2,6 +2,7 @@
 add_action( 'cmb2_admin_init', 'paint_cmb_product' );
 
 function paint_cmb_product(): void {
+	// --> options side
 	$cmb_image_hover = new_cmb2_box( array(
 		'id'           => 'paint_cmb_product_image_hover',
 		'title'        => esc_html__( 'Ảnh thay đổi', 'paint' ),
@@ -32,7 +33,7 @@ function paint_cmb_product(): void {
 		'sanitization_cb' => false
 	) );
 
-	//
+	// --> options product info
 	$cmb_options = new_cmb2_box( array(
 		'id'           => 'paint_cmb_options_product',
 		'title'        => esc_html__( 'Thông tin bổ sung', 'paint' ),
@@ -80,6 +81,7 @@ function paint_cmb_product(): void {
 		)
 	) );
 
+	// group field
 	$gallery_field = $cmb_options->add_field( array(
 		'id'          => 'paint_cmb_product_gallery',
 		'type'        => 'group',
@@ -124,4 +126,29 @@ function paint_cmb_product(): void {
 		),
 		'preview_size' => 'large',
 	) );
+
+	// options suggestion tool
+	$cmb_suggestion_tool = new_cmb2_box( array(
+		'id'           => 'paint_cmb_product_suggestion_tool',
+		'title'        => esc_html__( 'Dụng cụ gợi ý', 'paint' ),
+		'object_types' => array( 'paint_product' ),
+		'context'      => 'normal',
+		'priority'     => 'high',
+		'show_names'   => true
+	) );
+
+	$cmb_suggestion_tool->add_field( array(
+		'id'      => 'paint_cmb_product_suggestion_tool_title',
+		'name'    => esc_html__('Tiêu đề', 'paint'),
+		'default' => esc_html__('Dụng cụ thi công liên quan', 'paint'),
+		'type'    => 'text',
+	) );
+
+	$cmb_suggestion_tool->add_field( array(
+		'name'    => esc_html__('Chọn dụng đi kèm', 'paint'),
+		'id'      => 'paint_cmb_product_suggestion_tool_check',
+		'type'    => 'multicheck',
+		'options' => paint_get_post_types('paint_tool'),
+	) );
+
 }

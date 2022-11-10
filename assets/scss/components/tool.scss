@@ -1,4 +1,4 @@
-.element-tool-slider {
+.tool-list-grid {
   .slick-list {
     margin: 0 -2.25rem;
   }
@@ -6,9 +6,7 @@
   .slick-slide {
     margin: 0 2.25rem 0.8rem;
   }
-}
 
-.element-tool {
   .item {
     background-color: #ffffff;
     @include box-shadow();
