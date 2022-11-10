@@ -47,7 +47,7 @@ function paint_create_post_type_color_code(): void {
 
 	/* Start taxonomy cat */
 	$labels_cat = array(
-		'name'              => _x( 'Danh mục', 'taxonomy general name', 'paint' ),
+		'name'              => _x( 'Danh mục mã màu', 'taxonomy general name', 'paint' ),
 		'singular_name'     => _x( 'Danh mục', 'taxonomy singular name', 'paint' ),
 		'search_items'      => esc_html__( 'Tìm kiếm danh mục', 'paint' ),
 		'all_items'         => esc_html__( 'Tất cả danh mục', 'paint' ),

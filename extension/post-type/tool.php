@@ -75,7 +75,7 @@ function paint_create_tool(): void {
 
 	/* Start taxonomy tag */
 	$label_tag_args = array(
-		'name' => _x( 'Thẻ', 'taxonomy general name', 'paint' ),
+		'name' => _x( 'Thẻ dụng cụ', 'taxonomy general name', 'paint' ),
 		'singular_name' => _x( 'Thẻ', 'taxonomy singular name', 'paint' ),
 		'search_items' =>  esc_html__( 'Tìm Thẻ', 'paint' ),
 		'popular_items' => esc_html__( 'Thẻ phổ biến', 'paint' ),

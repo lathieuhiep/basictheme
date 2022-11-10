@@ -47,7 +47,7 @@ function paint_create_product(): void {
 
 	/* Start taxonomy */
 	$taxonomy_labels = array(
-		'name'              => _x( 'Danh mục', 'taxonomy general name', 'paint' ),
+		'name'              => _x( 'Danh mục sản phẩm', 'taxonomy general name', 'paint' ),
 		'singular_name'     => _x( 'Danh mục', 'taxonomy singular name', 'paint' ),
 		'search_items'      => esc_html__( 'Tìm kiếm danh mục', 'paint' ),
 		'all_items'         => esc_html__( 'Tất cả danh mục', 'paint' ),
@@ -75,7 +75,7 @@ function paint_create_product(): void {
 
 	/* Start taxonomy tag */
 	$tag_labels = array(
-		'name' => _x( 'Thẻ', 'taxonomy general name', 'paint' ),
+		'name' => _x( 'Thẻ sản phẩm', 'taxonomy general name', 'paint' ),
 		'singular_name' => _x( 'Thẻ', 'taxonomy singular name', 'paint' ),
 		'search_items' =>  esc_html__( 'Tìm Thẻ', 'paint' ),
 		'popular_items' => esc_html__( 'Thẻ phổ biến', 'paint' ),
