@@ -36,8 +36,9 @@ Text Domain: paint
   ## Single
   ## Pagination
   ## Comment
-# Single Project
-# Single Product
+## Post Type Project
+## Post Type Product
+## Post Type Tool
 # Elementor
   ## Slider
   ## Posts Grid
@@ -91,14 +92,19 @@ Text Domain: paint
 @import "blog/blog";
 
 /**
-# Single Project
+# Post Type Project
 -----------------------------------------------------------------------------*/
-@import "single-project";
+@import "post-type/project";
 
 /**
-# Single Product
+# Post Type Product
 -----------------------------------------------------------------------------*/
-@import "single-product";
+@import "post-type/product";
+
+/**
+# Post Type Tool
+-----------------------------------------------------------------------------*/
+@import "post-type/tool";
 
 /**
 # Elementor

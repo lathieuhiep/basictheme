@@ -12,6 +12,11 @@ function paint_widgets_init()
             'description' => esc_html__('Display sidebar right or left on all page.', 'paint')
         ),
 
+        'paint-sidebar-tool' => array(
+	        'name' => esc_html__('Sidebar Detail Tool', 'paint'),
+	        'description' => esc_html__('Display sidebar detail tool.', 'paint')
+        ),
+
         'paint-sidebar-footer-column-1' => array(
             'name' => esc_html__('Sidebar Footer Column 1', 'paint'),
             'description' => esc_html__('Display footer column 1 on all page.', 'paint')
