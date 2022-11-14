@@ -50,7 +50,7 @@ if ( !empty( $list_cate_ids ) ) :
 ?>
 
 <div class="tool-related">
-	<h2 class="title text-center">
+	<h2 class="heading text-center">
 		<?php esc_html_e('Sản phẩm liên quan', 'paint'); ?>
 	</h2>
 
