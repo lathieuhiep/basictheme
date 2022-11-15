@@ -21,6 +21,7 @@
                         // int masonry
                         const $grid = productGallery.masonry({
                             percentPosition: true,
+                            horizontalOrder: true,
                             columnWidth: '.grid-sizer-normal',
                             itemSelector: '.item'
                         });

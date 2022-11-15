@@ -1,4 +1,4 @@
-<div class="grid-discover__item">
+<div class="grid-discover__item grid-sizer">
 	<figure class="thumbnail-image">
 		<?php the_post_thumbnail('large'); ?>
 	</figure>

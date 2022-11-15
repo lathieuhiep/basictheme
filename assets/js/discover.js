@@ -12,6 +12,7 @@
             // int masonry
             const $grid = discoverGallery.masonry({
                 percentPosition: true,
+                horizontalOrder: true,
                 columnWidth: '.grid-discover__item',
                 itemSelector: '.grid-discover__item'
             });
