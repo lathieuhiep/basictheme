@@ -22,6 +22,7 @@ require get_parent_theme_file_path( '/extension/post-type/product.php' );
 require get_parent_theme_file_path( '/extension/post-type/color-code.php' );
 require get_parent_theme_file_path( '/extension/post-type/tool.php' );
 require get_parent_theme_file_path( '/extension/post-type/project.php' );
+require get_parent_theme_file_path( '/extension/post-type/discover.php' );
 require get_parent_theme_file_path( '/extension/post-type/faq.php' );
 
 // Required: Kirki customizer
