@@ -191,6 +191,7 @@ pre {
     bottom: 0;
     left: 0;
     opacity: 0.12;
+    z-index: -1;
     background: url("assets/images/element-background.png") no-repeat center;
     background-size: cover;
   }
@@ -337,6 +338,17 @@ pre {
     &:hover {
       color: $color-primary;
     }
+  }
+}
+
+.site-has-breadcrumbs {
+  padding-bottom: 3rem;
+
+  .breadcrumbs {
+    margin-bottom: 4rem;
+    padding-top: 4.8rem;
+    padding-bottom: 3.2rem;
+    border-bottom: 1px solid #808080;
   }
 }
 

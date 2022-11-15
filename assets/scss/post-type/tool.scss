@@ -1,13 +1,65 @@
-// Single tool
-.site-single-tool {
+// Tool cat
+.site-tool-warp {
   .grid-warp {
     &.active-sidebar {
       display: grid;
       grid-gap: 25px;
       grid-template-columns: 1fr 75%;
     }
+
+    .sidebar {
+      .widget {
+        margin-bottom: 20px;
+        padding: 23px 20px 28px;
+        @include box-shadow();
+        background-color: #ffffff;
+
+        .widget-title {
+          margin-bottom: 1.8rem;
+          padding-bottom: 1.8rem;
+          text-align: center;
+          font-size: 2rem;
+          font-weight: 400;
+          border-bottom: 1px solid #DBDBDB;
+        }
+
+        ul {
+          li {
+            &:not(:last-child) {
+              margin-bottom: 24px;
+              padding-bottom: 24px;
+              border-bottom: 1px solid #DBDBDB;
+            }
+
+            a {
+              color: #464646;
+
+              &:hover {
+                color: $color-hover;
+              }
+            }
+
+            &.cat-tool-item {
+              display: grid;
+              grid-gap: 12px;
+              grid-template-columns: 1fr auto;
+            }
+          }
+        }
+      }
+    }
   }
 
+  .tools-warp {
+    .tool-list-grid {
+      display: grid;
+      grid-gap: 26px 34px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+// Single tool
+.site-single-tool {
   .entry-post {
     &__box {
       display: grid;

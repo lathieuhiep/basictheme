@@ -850,7 +850,24 @@ if ( class_exists( 'CSF' ) ) {
 			)
 		)
 	) );
-	// -> End section template faq
+	// -> End section template project
+
+	//
+	// -> Create a section post type tool
+	CSF::createSection( $paint_prefix, array(
+		'title'  => esc_html__( 'Dụng cụ', 'paint' ),
+		'icon'   => 'fas fa-tools',
+		'fields' => array(
+			array(
+				'id'           => 'paint_opt_tool_banner',
+				'type'         => 'media',
+				'library'      => 'image',
+				'url'          => false,
+				'preview_size' => 'full',
+				'after' => esc_html__('Sử dụng ở danh mục và chi tiết dụng cụ', 'paint')
+			)
+		)
+	) );
 
 	//
 	// Create a section social network

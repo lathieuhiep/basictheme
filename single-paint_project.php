@@ -43,57 +43,49 @@ $config_nav_thumbnail = [
 
 ?>
 
-<div class="site-container site-single-project element-background-image">
+<div class="site-has-breadcrumbs site-single-project element-background-image">
 	<div class="container">
+		<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+
 		<?php while ( have_posts() ) : the_post(); ?>
+            <h1 class="title text-center">
+                <?php the_title() ?>
+            </h1>
 
-		<div class="breadcrumbs-title">
-			<div class="left-box">
-				<?php get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' ); ?>
-			</div>
+            <div class="entry-content">
+                <div class="post-image">
+                    <div class="post-image__feature custom-slick-carousel slider-for" data-config-slick='<?php echo wp_json_encode( $config_feature ); ?>'>
+                        <div class="item">
+                            <?php the_post_thumbnail('full'); ?>
+                        </div>
 
-			<div class="right-box">
-				<h1 class="title">
-					<?php the_title(); ?>
-				</h1>
-			</div>
-		</div>
-
-		<div class="entry-content">
-			<div class="post-image">
-				<div class="post-image__feature custom-slick-carousel slider-for" data-config-slick='<?php echo wp_json_encode( $config_feature ); ?>'>
-                    <div class="item">
-	                    <?php the_post_thumbnail('full'); ?>
+                        <?php foreach ( $gallery as $key => $item ) : ?>
+                            <div class="item">
+                                <?php echo wp_get_attachment_image($key, 'full') ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
 
-                    <?php foreach ( $gallery as $key => $item ) : ?>
+                    <div class="post-image__gallery custom-slick-carousel slider-nav" data-config-slick='<?php echo wp_json_encode( $config_nav_thumbnail ); ?>'>
                         <div class="item">
-		                    <?php echo wp_get_attachment_image($key, 'full') ?>
+                            <?php the_post_thumbnail('thumbnail'); ?>
                         </div>
-                    <?php endforeach; ?>
-				</div>
 
-                <div class="post-image__gallery custom-slick-carousel slider-nav" data-config-slick='<?php echo wp_json_encode( $config_nav_thumbnail ); ?>'>
-                    <div class="item">
-                        <?php the_post_thumbnail(); ?>
+                        <?php foreach ( $gallery as $key => $item ) : ?>
+                            <div class="item">
+                                <?php echo wp_get_attachment_image($key) ?>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-
-                    <?php foreach ( $gallery as $key => $item ) : ?>
-                        <div class="item">
-                            <?php echo wp_get_attachment_image($key) ?>
-                        </div>
-                    <?php endforeach; ?>
                 </div>
-			</div>
 
-			<div class="post-content">
-				<?php the_content(); ?>
-			</div>
-		</div>
-
+                <div class="post-content">
+                    <?php the_content(); ?>
+                </div>
+            </div>
 		<?php
         endwhile;
-
+        wp_reset_postdata();
         get_template_part('template-parts/project/inc', 'related-project');
         ?>
 	</div>

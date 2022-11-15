@@ -76,7 +76,7 @@ if ( $query->have_posts() ) :
 				<?php the_post_thumbnail('large'); ?>
 			</div>
 
-            <div class="item__info">
+            <div class="item__info<?php echo esc_attr( has_term('' , 'paint_tool_tag' ) ? ' align-items-center' : '' ); ?>"">
                 <div class="left-box">
                     <h2 class="title">
                         <a href="<?php the_permalink(); ?>" title="<?php the_title() ?>">
@@ -84,9 +84,11 @@ if ( $query->have_posts() ) :
                         </a>
                     </h2>
 
-                    <div class="meta">
-	                    <?php the_terms( get_the_ID(), 'paint_tool_tag', '', ', ' ); ?>
-                    </div>
+	                <?php if ( has_term('' , 'paint_tool_tag' ) ) : ?>
+                        <div class="meta">
+			                <?php the_terms( get_the_ID(), 'paint_tool_tag', '', ', ' ); ?>
+                        </div>
+	                <?php endif; ?>
                 </div>
 
                 <div class="right-box">
