@@ -72,8 +72,4 @@
         })
     });
 
-    const galleryProduct = () => {
-
-    }
-
 })( jQuery );

@@ -1,0 +1,51 @@
+.site-discover-warp {
+  .search-warp {
+    .list-terms {
+      margin: 20px 0 0 0;
+      padding: 0;
+      list-style: none;
+      text-align: right;
+
+      .item {
+        display: inline-block;
+        margin-right: 12px;
+        overflow: hidden;
+        border-radius: 15px;
+        background-color: #EAEAEA;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          display: block;
+          padding: 8px 26px;
+
+          &.active,
+          &:hover {
+            color: #ffffff;
+            background-color: $background-primary;
+          }
+        }
+      }
+    }
+  }
+
+  .content-warp {
+    margin-top: 5.5rem;
+  }
+}
+
+.grid-discover {
+  margin: 0 -12px;
+
+  &__item {
+    margin-bottom: 24px;
+    padding: 0 12px;
+    width: 10%;
+
+    img {
+      width: 100%;
+    }
+  }
+}

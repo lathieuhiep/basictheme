@@ -39,6 +39,7 @@ Text Domain: paint
 ## Post Type Project
 ## Post Type Product
 ## Post Type Tool
+## Post Type Discover
 # Elementor
   ## Slider
   ## Posts Grid
@@ -105,6 +106,11 @@ Text Domain: paint
 # Post Type Tool
 -----------------------------------------------------------------------------*/
 @import "post-type/tool";
+
+/**
+# Post Type Discover
+-----------------------------------------------------------------------------*/
+@import "post-type/discover";
 
 /**
 # Elementor

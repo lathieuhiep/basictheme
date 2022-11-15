@@ -163,3 +163,13 @@ function paint_order_tool_columns($columns): array {
 		'date' => $columns['date']
 	);
 }
+
+// Set limit custom post type
+add_action( 'pre_get_posts', 'paint_set_limit_custom_post_type' );
+function paint_set_limit_custom_post_type( $query ) {
+	$limitDiscover = 30;
+
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'paint_discover' ) ) {
+		$query->set( 'posts_per_page', $limitDiscover );
+	}
+}
