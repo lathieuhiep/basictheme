@@ -173,3 +173,16 @@ function paint_set_limit_custom_post_type( $query ) {
 		$query->set( 'posts_per_page', $limitDiscover );
 	}
 }
+
+// load template search custom post type
+add_filter('template_include', 'paint_template_search_post_type');
+function paint_template_search_post_type( $template ) {
+	global $wp_query;
+	$post_type = !empty( $_GET['post_type'] ) ? $_GET['post_type'] : 'post';
+
+	if( $wp_query->is_search && $post_type == 'paint_discover' ) {
+		return locate_template('search-discover.php');
+	}
+
+	return $template;
+}

@@ -1,16 +1,16 @@
 .search-form {
-  position: relative;
-  border: 1px solid #B9B9B9;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #FCFCFC;
-  @include flexbox();
+  .group-search {
+    position: relative;
+  }
 
   .search-field {
     padding: 12px 12px 12px 50px;
-    border: none;
-    @include box-shadow(none);
-    @include flex(1);
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #B9B9B9;
+    overflow: hidden;
+    box-shadow: none;
+    background-color: #FCFCFC;
   }
 
   .search-submit {
@@ -22,11 +22,35 @@
     width: 50px;
     color: $color-primary;
     border: none;
-    background-color: #ffffff;
+    background-color: transparent;
+  }
+
+  .group-check {
+    margin: 20px -6px 0;
+    text-align: right;
+
+    .btn {
+      margin: 0 6px 12px;
+      padding: 8px 26px;
+      color: #5C5C5C;
+      font-size: 1.6rem;
+      border: none;
+      border-radius: 15px;
+      background-color: #EAEAEA;
+      @include transition();
+
+      &:hover {
+        color: #ffffff;
+        background-color: $background-primary;
+      }
+    }
+
+    .btn-check:checked + .btn {
+      color: #ffffff;
+      background-color: $background-primary;
+    }
   }
 }
-
-
 
 section {
   &.widget {

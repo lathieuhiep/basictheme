@@ -1,11 +1,15 @@
 <div class="grid-discover__item grid-sizer">
 	<figure class="thumbnail-image">
-		<?php the_post_thumbnail('large'); ?>
+        <a href="<?php the_permalink(); ?>">
+	        <?php the_post_thumbnail('large'); ?>
+        </a>
 	</figure>
 
-	<h4 class="title">
-		<?php the_title() ?>
-	</h4>
+	<h2 class="title view-detail">
+        <a href="<?php the_permalink(); ?>">
+	        <?php the_title() ?>
+        </a>
+	</h2>
 
 	<?php if ( has_term('' , 'paint_discover_cat' ) ) : ?>
 		<div class="meta">

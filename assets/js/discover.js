@@ -22,6 +22,12 @@
                 $grid.masonry('layout');
             });
         }
+
+        // handle history back
+        $('.history-back-discover').on('click', function (event) {
+            event.preventDefault();
+            history.back(1);
+        })
     });
 
 })( jQuery );
