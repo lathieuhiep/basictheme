@@ -5,6 +5,8 @@ $terms = get_terms( array(
 	'taxonomy' => 'paint_discover_cat',
 	'hide_empty' => false,
 ) );
+
+$cat = $_GET['cat'];
 ?>
 
 <form role="search" method="get" class="search-form search-form-discover" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -18,13 +20,13 @@ $terms = get_terms( array(
 
 	<?php if ( $terms ) :?>
         <div class="group-check">
-            <input type="radio" class="btn-check" name="cat" id="all-cat" value="" autocomplete="off" checked>
+            <input type="radio" class="btn-check" name="cat" id="all-cat" value="" autocomplete="off" <?php echo esc_attr( empty( $cat ) ? 'checked' : '' ); ?>>
             <label class="btn btn-secondary" for="all-cat">
                 <?php esc_html_e('Tất cả', 'paint'); ?>
             </label>
 
             <?php foreach ( $terms as $term ) : ?>
-                <input type="radio" class="btn-check" name="cat" id="<?php echo esc_attr( $term->slug ); ?>" value="<?php echo esc_attr( $term->slug ); ?>" autocomplete="off">
+                <input type="radio" class="btn-check" name="cat" id="<?php echo esc_attr( $term->slug ); ?>" value="<?php echo esc_attr( $term->slug ); ?>" autocomplete="off" <?php echo esc_attr( !empty( $cat ) && $cat == $term->slug ? 'checked' : '' ); ?>>
                 <label class="btn btn-secondary" for="<?php echo esc_attr( $term->slug ); ?>">
                     <?php echo esc_html( $term->name ); ?>
                 </label>

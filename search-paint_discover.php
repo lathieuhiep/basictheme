@@ -1,6 +1,7 @@
 <?php
 get_header();
 
+$search_query = get_search_query();
 $s = $_GET['s'];
 $cat = $_GET['cat'];
 
@@ -31,13 +32,16 @@ $query = new WP_Query( $args );
 		<?php
 		get_template_part( 'components/inc', 'breadcrumbs' );
 		get_template_part( 'template-parts/discover/inc', 'search-form' );
+
+        if ( $search_query ) :
 		?>
 
         <header class="heading">
             <h1 class="page-title">
-				<?php _e( 'Tìm kiếm cho', 'paint' ); ?>: "<?php the_search_query(); ?>"
+				<?php _e( 'Tìm kiếm cho', 'paint' ); ?>: "<?php echo esc_html( $search_query ); ?>"
             </h1>
         </header>
+        <?php endif; ?>
 	</div>
 
 	<div class="result-discover-warp content-warp">

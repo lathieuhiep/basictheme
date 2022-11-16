@@ -181,7 +181,7 @@ function paint_template_search_post_type( $template ) {
 	$post_type = !empty( $_GET['post_type'] ) ? $_GET['post_type'] : 'post';
 
 	if( $wp_query->is_search && $post_type == 'paint_discover' ) {
-		return locate_template('search-discover.php');
+		return locate_template('search-paint_discover.php');
 	}
 
 	return $template;

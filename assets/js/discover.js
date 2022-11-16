@@ -30,4 +30,10 @@
         })
     });
 
+    $(window).scroll(function(){
+        if ( $(window).scrollTop() + $(window).height()  >= $(document).height() ){
+           console.log($(document).height())
+        }
+    });
+
 })( jQuery );

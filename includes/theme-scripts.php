@@ -66,7 +66,7 @@ function paint_register_front_end(): void {
 		wp_localize_script( 'product-detail', 'productDetailAjax', array( 'url' => $paint_admin_url_ajax ));
 	}
 
-	if ( is_post_type_archive( 'paint_discover' ) || is_singular('paint_discover') ) {
+	if ( is_post_type_archive( 'paint_discover' ) || is_singular('paint_discover') || ( is_search() && $_GET['post_type'] == 'paint_discover' ) ) {
 		wp_enqueue_script( 'discover', get_theme_file_uri( '/assets/js/discover.js' ), array(), '1.0.0', true );
 	}
 
