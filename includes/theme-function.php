@@ -329,3 +329,48 @@ function paint_get_color_code() {
 
 	wp_die();
 }
+
+// action ajax pagination discover
+add_action( 'wp_ajax_nopriv_paint_pagination_discover', 'paint_pagination_discover' );
+add_action( 'wp_ajax_paint_pagination_discover', 'paint_pagination_discover' );
+
+function paint_pagination_discover() {
+    $keyWord = $_POST['keyWord'];
+    $limit = (int) $_POST['limit'];
+    $paged = (int) $_POST['paged'];
+    $cat = $_POST['cat'];
+
+	$tax_query = array();
+	if ( !empty( $cat ) ) {
+		$tax_query = array(
+			array(
+				'taxonomy' => 'paint_discover_cat',
+				'field'    => 'slug',
+				'terms'    => $cat
+			),
+		);
+	}
+
+	$args = array(
+		'post_type' => 'paint_discover',
+		'ignore_sticky_posts' => 1,
+		'posts_per_page' => $limit,
+		's' => $keyWord,
+        'paged' => $paged,
+		'tax_query' => $tax_query
+	);
+
+	$query = new WP_Query( $args );
+
+    if ( $query->have_posts() ) {
+	    while ( $query->have_posts() ):
+            $query->the_post();
+
+            get_template_part('template-parts/discover/inc', 'render-item');
+
+	    endwhile;
+	    wp_reset_postdata();
+    }
+
+	wp_die();
+}

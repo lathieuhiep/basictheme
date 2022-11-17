@@ -165,9 +165,10 @@ function paint_order_tool_columns($columns): array {
 }
 
 // Set limit custom post type
+const posts_per_page_discover = 10;
 add_action( 'pre_get_posts', 'paint_set_limit_custom_post_type' );
-function paint_set_limit_custom_post_type( $query ) {
-	$limitDiscover = 30;
+function paint_set_limit_custom_post_type( $query ): void {
+	$limitDiscover = posts_per_page_discover;
 
 	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'paint_discover' ) ) {
 		$query->set( 'posts_per_page', $limitDiscover );

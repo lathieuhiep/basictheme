@@ -51,6 +51,9 @@ function paint_register_front_end(): void {
 	/*
 	* Start Get Js Front End
 	* */
+	// url ajax
+	$paint_admin_url_ajax = admin_url( 'admin-ajax.php' );
+
     wp_enqueue_script( 'paint-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -61,13 +64,12 @@ function paint_register_front_end(): void {
 
 	if ( is_singular('paint_product') ) {
 		wp_enqueue_script( 'product-detail', get_theme_file_uri( '/assets/js/product-detail.js' ), array(), '1.0.0', true );
-
-		$paint_admin_url_ajax = admin_url( 'admin-ajax.php' );
 		wp_localize_script( 'product-detail', 'productDetailAjax', array( 'url' => $paint_admin_url_ajax ));
 	}
 
 	if ( is_post_type_archive( 'paint_discover' ) || is_singular('paint_discover') || ( is_search() && $_GET['post_type'] == 'paint_discover' ) ) {
 		wp_enqueue_script( 'discover', get_theme_file_uri( '/assets/js/discover.js' ), array(), '1.0.0', true );
+		wp_localize_script( 'discover', 'discoverAjax', array( 'url' => $paint_admin_url_ajax ));
 	}
 
 	/*

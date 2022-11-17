@@ -7,9 +7,17 @@ $terms = get_terms( array(
 ) );
 
 $cat = $_GET['cat'];
+
+if ( is_singular('paint_discover') ) {
+    $get_terms_post = wp_get_post_terms( get_the_ID(), 'paint_discover_cat', array( 'fields' => 'slugs' ) );
+
+    if ( $get_terms_post ) {
+	    $cat = $get_terms_post[0];
+    }
+}
 ?>
 
-<form role="search" method="get" class="search-form search-form-discover" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+<form role="search" method="get" class="search-form search-form-discover" action="<?php echo esc_url( home_url( '/' ) ); ?>" data-limit="<?php echo esc_attr(posts_per_page_discover) ?>">
     <div class="group-search">
         <input type="search" id="<?php echo $paint_unique_id; ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Tìm kiếm', 'placeholder', 'paint' ); ?>" value="<?php echo get_search_query(); ?>" name="s" aria-label="" />
 

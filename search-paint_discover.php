@@ -18,10 +18,10 @@ if ( !empty( $cat ) ) {
 
 $args = array(
 	'post_type' => 'paint_discover',
-	'posts_per_page' => 30,
-	'ignore_sticky_posts'   =>  1,
+	'ignore_sticky_posts' => 1,
 	's' => $s,
-	'tax_query' => $tax_query
+	'posts_per_page' => posts_per_page_discover,
+	'tax_query' => $tax_query,
 );
 
 $query = new WP_Query( $args );
@@ -56,6 +56,12 @@ $query = new WP_Query( $args );
 				endwhile;
 				wp_reset_postdata();
 				?>
+            </div>
+
+            <div class="spinner-warp text-center d-none">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         <?php endif; ?>
 	</div>
