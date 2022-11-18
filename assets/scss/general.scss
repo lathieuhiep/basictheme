@@ -62,7 +62,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 12px;
+  margin: 0 0 1.2rem;
   font-weight: 700;
   line-height: 1.25;
   color: $color-primary;
@@ -87,7 +87,7 @@ a {
 }
 
 p {
-  margin: 0 0 15px;
+  margin: 0 0 1.2rem;
 
   &:last-child {
     margin-bottom: 0;
@@ -176,8 +176,16 @@ pre {
 }
 
 .element-spacer {
-  padding-top: 60px;
-  padding-bottom: 70px;
+  padding-top: 6rem;
+  padding-bottom: 6.8rem;
+}
+
+.element-spacer-pb {
+  padding-bottom: 6.8rem;
+}
+
+.spacer-pt-breadcrumbs {
+  padding-top: 3.2rem;
 }
 
 .element-background-image {
@@ -329,8 +337,11 @@ pre {
 }
 
 .breadcrumbs {
+  margin-bottom: 4rem;
+  padding-bottom: 2.2rem;
   font-size: 1.2rem;
   color: $color-primary;
+  border-bottom: 1px solid #C2C2C2;
 
   a {
     color: #959595;
@@ -338,17 +349,6 @@ pre {
     &:hover {
       color: $color-primary;
     }
-  }
-}
-
-.site-has-breadcrumbs {
-  padding-bottom: 3rem;
-
-  .breadcrumbs {
-    margin-bottom: 4rem;
-    padding-top: 4.8rem;
-    padding-bottom: 3.2rem;
-    border-bottom: 1px solid #808080;
   }
 }
 

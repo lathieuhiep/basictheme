@@ -35,11 +35,13 @@ $config_slider_nav = [
 ];
 ?>
 
-<div class="site-tool-warp site-single-tool site-has-breadcrumbs element-background-image">
+<div class="site-tool-warp site-single-tool element-spacer-pb element-background-image">
 	<?php get_template_part( 'components/inc', 'banner', array('opt' => 'paint_opt_tool_banner') ); ?>
 
 	<div class="container">
-		<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        <div class="spacer-pt-breadcrumbs">
+			<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        </div>
 
         <div class="grid-warp <?php echo esc_attr( is_active_sidebar( 'paint-sidebar-tool' ) ? 'active-sidebar' : '' ); ?>">
             <?php if ( is_active_sidebar( 'paint-sidebar-tool' ) ) : ?>

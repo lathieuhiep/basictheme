@@ -2,12 +2,12 @@
 $limit = 3;
 
 $arg = array(
-    'post_type' => 'paint_project',
-    'post__not_in' => array(get_the_ID()),
-    'posts_per_page' => $limit,
-	'orderby' => 'id',
-	'order' => 'DESC',
-    'ignore_sticky_posts'   =>  1
+	'post_type'           => 'paint_project',
+	'post__not_in'        => array( get_the_ID() ),
+	'posts_per_page'      => $limit,
+	'orderby'             => 'id',
+	'order'               => 'DESC',
+	'ignore_sticky_posts' => 1
 );
 
 $query = new WP_Query( $arg );

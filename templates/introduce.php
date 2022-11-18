@@ -7,16 +7,29 @@ get_header();
 ?>
 
 <div class="content-warp">
-    <?php
-    // include about
-    get_template_part( 'template-parts/introduce/inc', 'about' );
+    <div class="element-section spacer-pt-breadcrumbs">
+        <div class="container">
+            <?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        </div>
+    </div>
+    <!-- include about -->
+    <div class="element-section element-spacer-pb">
+        <div class="container">
+		    <?php get_template_part( 'template-parts/introduce/inc', 'about' ); ?>
+        </div>
+    </div>
 
-    // include our maxim
-    get_template_part( 'components/inc', 'our-maxim' );
+    <!-- our maxim -->
+    <section class="element-section element-spacer background-color-white">
+        <div class="container">
+			<?php get_template_part( 'components/inc', 'our-maxim' ); ?>
+        </div>
+    </section>
 
-    // include gallery
-    get_template_part( 'template-parts/introduce/inc', 'gallery' );
-    ?>
+    <!-- include gallery -->
+    <div class="element-section">
+	    <?php get_template_part( 'template-parts/introduce/inc', 'gallery' ); ?>
+    </div>
 </div>
 
 <?php

@@ -1,15 +1,9 @@
 // Page Default
 .site-container {
-  padding: 50px 0;
+  padding: 3.2rem 0 5.2rem;
 
   &.site-container-elementor {
     padding: 0;
-  }
-
-  .breadcrumbs {
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid #C2C2C2;
   }
 }
 
@@ -25,15 +19,10 @@
 
 // Page FAQ
 .page-template-faq {
-  .breadcrumbs-title {
-    margin-bottom: 42px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #C2C2C2;
-
-    .title {
-      font-weight: 400;
-      font-size: 2.4rem;
-    }
+  .page-title {
+    margin-bottom: 3.6rem;
+    font-weight: 400;
+    font-size: 2.4rem;
   }
 
   .heading {
@@ -87,6 +76,14 @@
 }
 
 // Page Project
+.site-project-cat {
+  .heading {
+    margin-bottom: 3.2rem;
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+}
+
 .project-grid {
   .item {
     margin-bottom: 46px;

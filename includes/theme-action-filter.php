@@ -187,3 +187,13 @@ function paint_template_search_post_type( $template ) {
 
 	return $template;
 }
+
+// remove prefix title archive
+add_filter( 'get_the_archive_title', 'paint_child_filter_archive_title' );
+function paint_child_filter_archive_title() {
+
+	if ( is_post_type_archive() ) {
+		return post_type_archive_title( '', false );
+	}
+
+}

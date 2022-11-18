@@ -1,9 +1,10 @@
-<div class="site-discover-warp site-discover-cat site-has-breadcrumbs">
+<div class="site-discover-warp site-discover-cat element-spacer-pb">
 	<div class="container">
-		<?php
-        get_template_part( 'components/inc', 'breadcrumbs' );
-		get_template_part( 'template-parts/discover/inc', 'search-form' );
-        ?>
+        <div class="spacer-pt-breadcrumbs">
+			<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        </div>
+
+		<?php get_template_part( 'template-parts/discover/inc', 'search-form' ); ?>
 	</div>
 
     <div class="content-warp">

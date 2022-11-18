@@ -16,6 +16,10 @@ $class_col_content = paint_col_use_sidebar($sidebar, 'paint-sidebar-main');
 
                             <div id="post-<?php the_ID(); ?>" class="col site-post-item">
                                 <div class="site-post-content">
+                                    <figure class="post-image">
+                                        <?php the_post_thumbnail('large'); ?>
+                                    </figure>
+
                                     <h2 class="site-post-title">
                                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                             <?php if (is_sticky() && is_home()) : ?>
@@ -27,12 +31,6 @@ $class_col_content = paint_col_use_sidebar($sidebar, 'paint-sidebar-main');
                                             ?>
                                         </a>
                                     </h2>
-
-                                    <?php
-                                    get_template_part('template-parts/post/content', 'image');
-
-                                    paint_post_meta();
-                                    ?>
 
                                     <div class="site-post-excerpt">
                                         <p>
@@ -46,7 +44,7 @@ $class_col_content = paint_col_use_sidebar($sidebar, 'paint-sidebar-main');
                                         </p>
 
                                         <a href="<?php the_permalink(); ?>" class="text-read-more">
-                                            <?php esc_html_e('Read more', 'paint'); ?>
+                                            <?php esc_html_e('Xem thêm', 'paint'); ?>
                                         </a>
 
                                         <?php paint_link_page(); ?>

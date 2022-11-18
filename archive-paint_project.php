@@ -1,12 +1,16 @@
 <?php get_header(); ?>
 
-	<div class="site-project-cat site-has-breadcrumbs">
+	<div class="site-project-cat element-spacer-pb">
 		<div class="container">
-			<?php
-			get_template_part( 'components/inc', 'breadcrumbs' );
+            <div class="spacer-pt-breadcrumbs">
+				<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+            </div>
 
-			if ( have_posts() ) :
-			?>
+            <h1 class="heading text-center">
+                <?php echo get_the_archive_title(); ?>
+            </h1>
+
+			<?php if ( have_posts() ) :?>
 				<div class="entry-pots">
 					<div class="project-grid">
 						<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
@@ -30,10 +34,11 @@
 							?>
 						</div>
 					</div>
-
-					<?php wp_reset_postdata(); ?>
 				</div>
-			<?php endif; ?>
+			<?php
+				paint_pagination();
+			endif;
+            ?>
 		</div>
 	</div>
 

@@ -27,20 +27,22 @@ $args = array(
 $query = new WP_Query( $args );
 ?>
 
-<div class="site-result-discover site-discover-warp site-has-breadcrumbs">
+<div class="site-result-discover site-discover-warp element-spacer-pb">
 	<div class="container">
+        <div class="spacer-pt-breadcrumbs">
+			<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        </div>
+
 		<?php
-		get_template_part( 'components/inc', 'breadcrumbs' );
-		get_template_part( 'template-parts/discover/inc', 'search-form' );
+        get_template_part( 'template-parts/discover/inc', 'search-form' );
 
         if ( $search_query ) :
 		?>
-
-        <header class="heading">
-            <h1 class="page-title">
-				<?php _e( 'Tìm kiếm cho', 'paint' ); ?>: "<?php echo esc_html( $search_query ); ?>"
-            </h1>
-        </header>
+            <header class="heading">
+                <h1 class="page-title">
+                    <?php _e( 'Tìm kiếm cho', 'paint' ); ?>: "<?php echo esc_html( $search_query ); ?>"
+                </h1>
+            </header>
         <?php endif; ?>
 	</div>
 

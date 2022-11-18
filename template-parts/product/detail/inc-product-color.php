@@ -53,11 +53,11 @@ if ( $id_color_code_cat ) :
                     <span class="text"><?php esc_html_e('Mã màu - Kiểu vân', 'paint'); ?></span>
                     <span class="stt">1</span>
                 </h4>
-            </div>
 
-            <div class="spinner-box text-center d-none">
-                <div class="spinner-border text-warning" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div class="spinner-box text-center d-none">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
         <?php
@@ -70,7 +70,7 @@ if ( $id_color_code_cat ) :
 			$queryOnePost = new WP_Query(array(
 				'post_type' => 'paint_color_code',
 				'posts_per_page' => 1,
-				'ignore_sticky_posts'   =>  1,
+				'ignore_sticky_posts' => 1,
 				'orderby' => $order_by,
 				'order' => $order,
 				'tax_query' => array(

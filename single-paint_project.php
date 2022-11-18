@@ -43,9 +43,11 @@ $config_nav_thumbnail = [
 
 ?>
 
-<div class="site-has-breadcrumbs site-single-project element-background-image">
+<div class="site-single-project element-spacer-pb element-background-image">
 	<div class="container">
-		<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        <div class="spacer-pt-breadcrumbs">
+			<?php get_template_part( 'components/inc', 'breadcrumbs' ); ?>
+        </div>
 
 		<?php while ( have_posts() ) : the_post(); ?>
             <h1 class="title text-center">
@@ -86,6 +88,7 @@ $config_nav_thumbnail = [
 		<?php
         endwhile;
         wp_reset_postdata();
+
         get_template_part('template-parts/project/inc', 'related-project');
         ?>
 	</div>

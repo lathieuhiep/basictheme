@@ -13,11 +13,9 @@ $show_related = get_theme_mod('paint_opt_related_single_post', 'show');
     <?php endif; ?>
 
     <div class="site-post-content">
-        <h2 class="site-post-title">
+        <h2 class="title">
             <?php the_title(); ?>
         </h2>
-
-        <?php paint_post_meta(); ?>
 
         <div class="site-post-excerpt">
             <?php
@@ -26,44 +24,12 @@ $show_related = get_theme_mod('paint_opt_related_single_post', 'show');
             paint_link_page();
             ?>
         </div>
-
-        <div class="site-post-cat-tag">
-
-            <?php if( get_the_category() != false ): ?>
-
-                <p class="site-post-category">
-                    <?php
-                    esc_html_e('Category: ','paint');
-                    the_category( ' ' );
-                    ?>
-                </p>
-
-            <?php
-
-            endif;
-
-            if( get_the_tags() != false ):
-
-            ?>
-
-                <p class="site-post-tag">
-                    <?php
-                    esc_html_e( 'Tag: ','paint' );
-                    the_tags('',' ');
-                    ?>
-                </p>
-
-            <?php endif; ?>
-
-        </div>
     </div>
 
     <?php
-
     if ( $share_post == 'show' ) :
         paint_post_share();
     endif;
-
     ?>
 </div>
 

@@ -3,12 +3,12 @@ get_header();
 
 $sidebar = get_theme_mod('paint_opt_sidebar_single_post', 'right');
 $class_col_content = paint_col_use_sidebar( $sidebar, 'paint-sidebar-main' );
-
-get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
 ?>
 
 <div class="site-container site-single">
     <div class="container">
+        <?php get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' ); ?>
+
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">
                 <?php
