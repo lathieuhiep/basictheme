@@ -13,18 +13,11 @@ function paint_register_required_plugins(): void {
 	$paint_plugins = array(
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Kirki Customizer Framework',
-			'slug'      =>  'kirki',
-			'required'  =>  true,
-		),
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Customizer Reset',
-			'slug'      =>  'customizer-reset',
-			'required'  =>  true,
-		),
+        array(
+            'name'      =>  'Codestar Framework',
+            'slug'      =>  'codestar-framework',
+            'required'  =>  true,
+        ),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
         array(
@@ -32,13 +25,6 @@ function paint_register_required_plugins(): void {
             'slug'      =>  'cmb2',
             'required'  =>  true,
         ),
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Elementor',
-			'slug'      =>  'elementor',
-			'required'  =>  true,
-		),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(
