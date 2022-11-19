@@ -38,6 +38,10 @@
       grid-template-columns: 166px 1fr;
       background-color: rgba(0, 0, 0, 0.1);
 
+      .left-box {
+        overflow: hidden;
+      }
+
       .title {
         margin-bottom: 0;
         font-size: 1.2rem;

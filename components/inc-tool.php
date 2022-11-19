@@ -12,23 +12,32 @@ $data_settings_slide = [
 	'autoplay'       => false,
 	'responsive'     => [
 		[
-			'breakpoint' => 575,
+			'breakpoint' => 1199,
 			'settings'   => [
-				'slidesToShow' => 1,
+				'slidesToShow' => 4,
+				'slidesToScroll' => 4,
+				'arrows' => false,
+				'dots' => true
 			]
 		],
 		[
 			'breakpoint' => 767,
 			'settings'   => [
-				'slidesToShow' => 2,
+				'slidesToShow' => 3,
+				'slidesToScroll' => 3,
+				'arrows' => false,
+				'dots' => true
 			]
 		],
 		[
-			'breakpoint' => 1199,
+			'breakpoint' => 575,
 			'settings'   => [
-				'slidesToShow' => 3,
+				'slidesToShow' => 2,
+				'slidesToScroll' => 2,
+				'arrows' => false,
+				'dots' => true
 			]
-		],
+		]
 	],
 ];
 

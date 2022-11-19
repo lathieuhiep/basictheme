@@ -9,7 +9,7 @@ $opt_desc = paint_get_option('template_introduce_opt_desc', '');
         <?php echo esc_html( $opt_title ); ?>
     </h2>
 
-    <div class="row row-cols-1 row-cols-sm-2">
+    <div class="row row-cols-1 row-cols-md-2">
         <div class="col">
             <?php
             if ( $opt_image ) :

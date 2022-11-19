@@ -165,13 +165,27 @@ function paint_order_tool_columns($columns): array {
 }
 
 // Set limit custom post type
-const posts_per_page_discover = 10;
+define('posts_per_page_discover',paint_get_option( 'discover_opt_limit', 30 ));
+
 add_action( 'pre_get_posts', 'paint_set_limit_custom_post_type' );
 function paint_set_limit_custom_post_type( $query ): void {
-	$limitDiscover = posts_per_page_discover;
+	if ( !is_admin() && $query->is_main_query() ) {
+        // custom query archive post type discover
+        if ( is_post_type_archive( 'paint_discover' ) ) {
+	        $query->set( 'posts_per_page', posts_per_page_discover );
+        }
 
-	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'paint_discover' ) ) {
-		$query->set( 'posts_per_page', $limitDiscover );
+		// custom query archive & cat post type project
+        if ( is_post_type_archive('paint_project') ) {
+	        $opt_project_limit = paint_get_option( 'template_project_opt_limit', 12 );
+	        $opt_project_order_by = paint_get_option( 'template_project_opt_order_by', 'id' );
+	        $opt_project_order = paint_get_option( 'template_project_opt_order', 'ASC' );
+
+	        $query->set( 'posts_per_page', $opt_project_limit );
+	        $query->set( 'orderby', $opt_project_order_by );
+	        $query->set( 'order', $opt_project_order );
+        }
+
 	}
 }
 

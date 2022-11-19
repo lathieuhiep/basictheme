@@ -28,7 +28,7 @@ $query = new WP_Query( $args );
     ?>
 
         <div class="project-content project-grid">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+            <div class="row row-cols-2 row-cols-md-3">
 				<?php while ( $query->have_posts() ): $query->the_post(); ?>
                     <div class="col item">
                         <div class="thumbnail">

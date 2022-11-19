@@ -13,7 +13,7 @@
 			<?php if ( have_posts() ) :?>
 				<div class="entry-pots">
 					<div class="project-grid">
-						<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+						<div class="row row-cols-2 row-cols-md-3">
 							<?php while ( have_posts() ) : the_post(); ?>
 								<div class="col item">
 									<div class="thumbnail">

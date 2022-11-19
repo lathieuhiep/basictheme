@@ -104,7 +104,7 @@ if ( class_exists( 'CSF' ) ) {
 	CSF::createSection( $paint_prefix, array(
 		'id'    => 'template_home_opt',
 		'icon'  => 'fas fa-home',
-		'title' => esc_html__( 'Home Page', 'paint' ),
+		'title' => esc_html__( 'Trang chủ', 'paint' ),
 	) );
 
 	// Banner 1
@@ -814,7 +814,8 @@ if ( class_exists( 'CSF' ) ) {
 	// -> Create a section template project
 	CSF::createSection( $paint_prefix, array(
 		'icon'   => 'fas fa-folder-open',
-		'title'  => esc_html__( 'Trang Dự Án', 'paint' ),
+		'title'  => esc_html__( 'Dự Án', 'paint' ),
+		'description' => esc_html__('Thiết lập cho danh mục và lưu trữ'),
 		'fields' => array(
 			// Limit
 			array(
@@ -866,6 +867,23 @@ if ( class_exists( 'CSF' ) ) {
 				'preview_size' => 'full',
 				'after' => esc_html__('Sử dụng ở danh mục và chi tiết dụng cụ', 'paint')
 			)
+		)
+	) );
+
+	//
+	// -> Create a section post type discover
+	CSF::createSection( $paint_prefix, array(
+		'title'  => esc_html__( 'Khám phá', 'paint' ),
+		'icon'   => 'fas fa-images',
+		'description' => esc_html__('Thiết lập cho danh mục, trang tìm kiếm và trang lưu trữ'),
+		'fields' => array(
+			// Limit
+			array(
+				'id'      => 'discover_opt_limit',
+				'type'    => 'number',
+				'title'   => esc_html__( 'Số bài viêt cần lấy', 'paint' ),
+				'default' => 30,
+			),
 		)
 	) );
 

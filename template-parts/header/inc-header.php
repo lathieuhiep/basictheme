@@ -29,7 +29,7 @@ $logo = paint_get_option( 'general_opt_logo', '' );
 
                     wp_nav_menu( array(
                         'theme_location' => 'primary',
-                        'menu_class'     => 'navbar-nav flex-row',
+                        'menu_class'     => 'navbar-nav flex-lg-row',
                         'container'      => false,
                     ) ) ;
 

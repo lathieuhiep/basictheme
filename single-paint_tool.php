@@ -20,17 +20,11 @@ $config_slider_nav = [
     'focusOnSelect'  => true,
 	'responsive'     => [
 		[
-			'breakpoint' => 575,
+			'breakpoint' => 480,
 			'settings'   => [
-				'slidesToShow' => 1,
+				'slidesToShow' => 3
 			]
-		],
-		[
-			'breakpoint' => 991,
-			'settings'   => [
-				'slidesToShow' => 2,
-			]
-		],
+		]
 	],
 ];
 ?>

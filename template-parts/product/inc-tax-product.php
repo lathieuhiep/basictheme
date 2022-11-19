@@ -2,7 +2,7 @@
 if ( have_posts() ) :
 ?>
 	<div class="element-products">
-		<div class="row row-cols-1 row-cols-md-3">
+		<div class="row row-cols-2 row-cols-md-3">
 			<?php
 			while ( have_posts() ) :
 				the_post();

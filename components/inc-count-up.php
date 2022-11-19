@@ -20,7 +20,7 @@ $opt_result_count_bottom = paint_get_option('template_home_opt_result_count_bott
     if ( $opt_result_count_bottom ) :
     ?>
 
-    <div class="content-warp row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+    <div class="content-warp row row-cols-1 row-cols-sm-3 row-cols-lg-3">
         <?php foreach ( $opt_result_count_bottom as $item) : ?>
         <div class="col">
             <div class="item">

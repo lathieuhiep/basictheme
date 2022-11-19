@@ -4,9 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Required: Theme action filter
-require get_parent_theme_file_path( '/includes/theme-action-filter.php' );
-
 // Required: Theme Function
 require get_parent_theme_file_path( '/includes/theme-function.php' );
 
@@ -16,6 +13,9 @@ require get_parent_theme_file_path( '/includes/plugin-activation.php' );
 
 // Required: options theme
 require get_theme_file_path( 'extension/theme-option/options.php' );
+
+// Required: Theme action filter
+require get_parent_theme_file_path( '/includes/theme-action-filter.php' );
 
 // Required: Post type
 require get_parent_theme_file_path( '/extension/post-type/product.php' );

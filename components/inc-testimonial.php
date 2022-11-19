@@ -10,15 +10,15 @@ $data_settings_owl = [
     'autoplay'       => true,
 	'responsive'     => [
 		[
-			'breakpoint' => 575,
+			'breakpoint' => 767,
 			'settings'   => [
-				'slidesToShow' => 1,
+				'slidesToShow' => 2,
 			]
 		],
 		[
-			'breakpoint' => 991,
+			'breakpoint' => 575,
 			'settings'   => [
-				'slidesToShow' => 2,
+				'slidesToShow' => 1,
 			]
 		],
 	],

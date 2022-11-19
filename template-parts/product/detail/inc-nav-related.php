@@ -6,17 +6,28 @@ $config_slider = [
 	'arrows'         => true,
 	'responsive'     => [
 		[
-			'breakpoint' => 575,
+			'breakpoint' => 1199,
 			'settings'   => [
-				'slidesToShow' => 1,
+				'arrows' => false,
+				'autoplay' => true,
 			]
 		],
 		[
 			'breakpoint' => 991,
 			'settings'   => [
 				'slidesToShow' => 2,
+				'arrows' => false,
+				'autoplay' => true,
 			]
 		],
+		[
+			'breakpoint' => 575,
+			'settings'   => [
+				'slidesToShow' => 1,
+				'arrows' => false,
+				'autoplay' => true,
+			]
+		]
 	],
 ];
 

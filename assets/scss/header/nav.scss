@@ -39,20 +39,6 @@
 .site-menu {
   @include flex(1);
 
-  > ul {
-    > li {
-      padding: 0 25px;
-
-      &:first-child {
-        padding-left: 0;
-      }
-
-      &:last-child {
-        padding-right: 0;
-      }
-    }
-  }
-
   ul {
     padding: 0;
     margin: 0;
@@ -79,49 +65,6 @@
       .sub-menu-toggle {
         &:after {
           @include transition();
-        }
-      }
-
-      .sub-menu {
-        min-width: 160px;
-        border-top: 1px solid $color-hover;
-        background-color: #fff;
-        position: absolute;
-        top: 120%;
-        left: 0;
-        z-index: -1;
-        visibility: hidden;
-        opacity: 0;
-        @include box-shadow();
-        @include transition();
-
-        li {
-          padding: 6px 8px;
-          display: block;
-
-          a {
-            white-space: nowrap;
-          }
-
-          .sub-menu {
-            left: 90%;
-            top: -1px;
-          }
-
-          &:hover {
-            > .sub-menu {
-              left: 100%;
-            }
-          }
-        }
-      }
-
-      &:hover {
-        > .sub-menu {
-          top: 100%;
-          z-index: 999;
-          opacity: 1;
-          visibility: visible;
         }
       }
 
