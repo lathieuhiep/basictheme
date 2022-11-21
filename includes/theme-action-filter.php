@@ -81,12 +81,12 @@ function paint_sanitize_pagination( $paint_content ): string {
 	return preg_replace( '#<h2.*?>(.*?)<\/h2>#si', '', $paint_content );
 }
 
-// Opengraph
+// add meta opengraph
 add_action( 'wp_head', 'paint_opengraph', 5 );
 function paint_opengraph(): void {
 	global $post;
 
-	if ( is_single() ) :
+	if ( is_singular('post') || is_singular('paint_discover') ) :
 
 		if ( has_post_thumbnail( $post->ID ) ) :
 			$img_src = get_the_post_thumbnail_url( get_the_ID(), 'full' );
@@ -103,17 +103,27 @@ function paint_opengraph(): void {
 			$excerpt = get_bloginfo( 'description' );
 		endif;
 
-		?>
+    ?>
 		<meta property="og:url" content="<?php the_permalink(); ?>" />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="<?php the_title(); ?>" />
 		<meta property="og:description" content="<?php echo esc_attr( $excerpt ); ?>" />
 		<meta property="og:image" content="<?php echo esc_url( $img_src ); ?>" />
 	<?php
-
-	else :
-		return;
 	endif;
+}
+
+// add scrip footer
+add_action('wp_footer', 'paint_add_scrip_footer');
+function paint_add_scrip_footer (): void {
+    // SDK facebook
+    if ( is_singular('post') || is_singular('paint_discover') ) :
+        $facebookAppId = paint_get_option('social_sharing_facebook_app_id');
+    ?>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=<?php echo esc_attr( $facebookAppId ); ?>&autoLogAppEvents=1" nonce="bsmdVU7y"></script>
+    <?php
+    endif;
 }
 
 // Custom Search Post

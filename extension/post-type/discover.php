@@ -39,7 +39,7 @@ function paint_create_discover(): void {
 		'has_archive'        => true,
 		'hierarchical'       => true,
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor', 'thumbnail', 'author'),
+		'supports'           => array( 'title', 'editor', 'thumbnail', 'author', 'excerpt'),
 	);
 
 	register_post_type('paint_discover', $args );

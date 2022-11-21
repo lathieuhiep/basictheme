@@ -932,6 +932,19 @@ if ( class_exists( 'CSF' ) ) {
 		)
 	) );
 
+	// Create a section social sharing
+	CSF::createSection( $paint_prefix, array(
+		'title'  => esc_html__( 'Chia sẻ mạng xã hội', 'paint' ),
+		'icon'   => 'fab fa-hive',
+		'fields' => array(
+			array(
+				'id'      => 'social_sharing_facebook_app_id',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Facebook App Id', 'paint' ),
+			),
+		)
+	) );
+
 	//
 	// -> Create a section footer
 	CSF::createSection( $paint_prefix, array(

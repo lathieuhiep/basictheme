@@ -74,10 +74,10 @@
     grid-template-columns: repeat(2, 1fr);
 
     .post-info {
-      padding: 30px;
+      padding: 30px 30px 22px;
       display: grid;
-      grid-gap: 12px 32px;
-      grid-template-columns: 1fr auto;
+      grid-row-gap: 12px;
+      grid-template-rows: 1fr auto;
 
       .title {
         margin-bottom: 12px;
@@ -87,6 +87,13 @@
       .desc {
         font-size: 1.4rem;
         color: #5C5C5C;
+      }
+
+      &__right {
+        > div {
+          display: inline-block;
+          margin-bottom: 8px;
+        }
       }
     }
   }
