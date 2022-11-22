@@ -811,12 +811,90 @@ if ( class_exists( 'CSF' ) ) {
 	// -> End section template faq
 
 	//
+	// -> Create a section blog
+	CSF::createSection( $paint_prefix, array(
+		'id'    => 'paint_opt_blog',
+		'icon'  => 'fas fa-blog',
+		'title' => esc_html__( 'Bài viết', 'paint' ),
+	) );
+
+	// Category Post
+	CSF::createSection( $paint_prefix, array(
+		'parent' => 'paint_opt_blog',
+		'title'  => esc_html__( 'Chuyên mục', 'paint' ),
+		'fields' => array(
+			array(
+				'id'      => 'paint_opt_blog_cat_sidebar',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Vị trí sidebar', 'paint' ),
+				'options' => array(
+					'hide'  => esc_html__( 'Hide', 'paint' ),
+					'left'  => esc_html__( 'Left', 'paint' ),
+					'right' => esc_html__( 'Right', 'paint' ),
+				),
+				'default' => 'right'
+			),
+
+			array(
+				'id'      => 'paint_opt_blog_per_row',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Bài viết trên 1 hàng', 'paint' ),
+				'options' => array(
+					'2' => esc_html__( '2 Bài', 'paint' ),
+					'3' => esc_html__( '3 Bài', 'paint' ),
+					'4' => esc_html__( '4 Bài', 'paint' ),
+				),
+				'default' => '3'
+			),
+		)
+	) );
+
+	// Single Post
+	CSF::createSection( $paint_prefix, array(
+		'parent' => 'paint_opt_blog',
+		'title'  => esc_html__( 'Chi tiết', 'paint' ),
+		'fields' => array(
+			array(
+				'id'      => 'paint_opt_single_sidebar',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Vị trí sidebar', 'paint' ),
+				'options' => array(
+					'hide'  => esc_html__( 'Hide', 'paint' ),
+					'left'  => esc_html__( 'Left', 'paint' ),
+					'right' => esc_html__( 'Right', 'paint' ),
+				),
+				'default' => 'right'
+			),
+
+			array(
+				'id'         => 'paint_opt_single_share',
+				'type'       => 'switcher',
+				'title'      => esc_html__( 'Chia sẻ bài viết', 'paint' ),
+				'text_on'    => esc_html__( 'Có', 'paint' ),
+				'text_off'   => esc_html__( 'Không', 'paint' ),
+				'default'    => true,
+				'text_width' => 80
+			),
+
+			array(
+				'id'         => 'paint_opt_single_related',
+				'type'       => 'switcher',
+				'title'      => esc_html__( 'Hiển thị bài viết liên quan', 'paint' ),
+				'text_on'    => esc_html__( 'Có', 'paint' ),
+				'text_off'   => esc_html__( 'Không', 'paint' ),
+				'default'    => true,
+				'text_width' => 80
+			),
+		)
+	) );
+
+	//
 	// -> Create a section template project
 	CSF::createSection( $paint_prefix, array(
-		'icon'   => 'fas fa-folder-open',
-		'title'  => esc_html__( 'Dự Án', 'paint' ),
-		'description' => esc_html__('Thiết lập cho danh mục và lưu trữ'),
-		'fields' => array(
+		'icon'        => 'fas fa-folder-open',
+		'title'       => esc_html__( 'Dự Án', 'paint' ),
+		'description' => esc_html__( 'Thiết lập cho danh mục và lưu trữ' ),
+		'fields'      => array(
 			// Limit
 			array(
 				'id'      => 'template_project_opt_limit',
@@ -865,7 +943,7 @@ if ( class_exists( 'CSF' ) ) {
 				'library'      => 'image',
 				'url'          => false,
 				'preview_size' => 'full',
-				'after' => esc_html__('Sử dụng ở danh mục và chi tiết dụng cụ', 'paint')
+				'after'        => esc_html__( 'Sử dụng ở danh mục và chi tiết dụng cụ', 'paint' )
 			)
 		)
 	) );
@@ -873,10 +951,10 @@ if ( class_exists( 'CSF' ) ) {
 	//
 	// -> Create a section post type discover
 	CSF::createSection( $paint_prefix, array(
-		'title'  => esc_html__( 'Khám phá', 'paint' ),
-		'icon'   => 'fas fa-images',
-		'description' => esc_html__('Thiết lập cho danh mục, trang tìm kiếm và trang lưu trữ'),
-		'fields' => array(
+		'title'       => esc_html__( 'Khám phá', 'paint' ),
+		'icon'        => 'fas fa-images',
+		'description' => esc_html__( 'Thiết lập cho danh mục, trang tìm kiếm và trang lưu trữ' ),
+		'fields'      => array(
 			// Limit
 			array(
 				'id'      => 'discover_opt_limit',
@@ -938,9 +1016,9 @@ if ( class_exists( 'CSF' ) ) {
 		'icon'   => 'fab fa-hive',
 		'fields' => array(
 			array(
-				'id'      => 'social_sharing_facebook_app_id',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Facebook App Id', 'paint' ),
+				'id'    => 'social_sharing_facebook_app_id',
+				'type'  => 'text',
+				'title' => esc_html__( 'Facebook App Id', 'paint' ),
 			),
 		)
 	) );

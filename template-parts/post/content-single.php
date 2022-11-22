@@ -1,6 +1,6 @@
 <?php
-$share_post = get_theme_mod('paint_opt_share_single_post', 'show');
-$show_related = get_theme_mod('paint_opt_related_single_post', 'show');
+$share_post = paint_get_option('paint_opt_single_share', true);
+$show_related = paint_get_option('paint_opt_single_related', true);
 ?>
 
 <div id="post-<?php the_ID() ?>" <?php post_class( 'site-post-single-item' ); ?>>
@@ -27,7 +27,7 @@ $show_related = get_theme_mod('paint_opt_related_single_post', 'show');
     </div>
 
     <?php
-    if ( $share_post == 'show' ) :
+    if ( $share_post ) :
         paint_post_share();
     endif;
     ?>
@@ -36,7 +36,7 @@ $show_related = get_theme_mod('paint_opt_related_single_post', 'show');
 <?php
 paint_comment_form();
 
-if ( $show_related == 'show' ) :
+if ( $show_related ) :
     get_template_part( 'template-parts/post/inc','related-post' );
 endif;
 

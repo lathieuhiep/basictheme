@@ -1,5 +1,4 @@
 <?php
-$limit = get_theme_mod('paint_opt_related_limit_single_post', 3);
 $list_cate = get_the_terms(get_the_ID(), 'category');
 
 $term_ids  = wp_get_post_terms( get_the_ID(), 'category', array( 'fields' => 'ids' ) );
@@ -9,7 +8,7 @@ if ( !empty( $term_ids ) ):
         'post_type' => 'post',
         'cat' => $term_ids,
         'post__not_in' => array( get_the_ID() ),
-        'posts_per_page' => $limit,
+        'posts_per_page' => 3,
     );
 
     $query = new WP_Query($arg);

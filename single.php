@@ -1,7 +1,7 @@
 <?php
 get_header();
 
-$sidebar = get_theme_mod('paint_opt_sidebar_single_post', 'right');
+$sidebar = paint_get_option('paint_opt_single_sidebar', 'right');
 $class_col_content = paint_col_use_sidebar( $sidebar, 'paint-sidebar-main' );
 ?>
 

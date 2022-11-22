@@ -676,6 +676,14 @@
     }
   }
 
+  .site-error {
+    &__content {
+      .heading {
+        font-size: 12rem;
+      }
+    }
+  }
+
 }
 
 @media (min-width: 480px) and (max-width: 991px) {
