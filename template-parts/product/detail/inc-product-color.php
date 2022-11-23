@@ -7,46 +7,45 @@ if ( $id_color_code_cat ) :
 	$count = $term->count;
 	$order_by = 'date';
     $order = 'ASC';
-?>
-	<div class="product-color">
-        <?php
-        if ( $count > 1 ) :
-	        $queryMultiPost = new WP_Query(array(
-		        'post_type' => 'paint_color_code',
-		        'posts_per_page' => -1,
-		        'ignore_sticky_posts'   =>  1,
-		        'orderby' => $order_by,
-		        'order' => $order,
-		        'tax_query' => array(
-			        array(
-				        'taxonomy' => 'paint_color_code_cat',
-				        'field'    => 'term_id',
-				        'terms'    => $term_id
-			        )
-		        )
-	        ));
 
-            if ( $queryMultiPost->have_posts() ) :
-        ?>
+	$query = new WP_Query(array(
+		'post_type' => 'paint_color_code',
+		'posts_per_page' => -1,
+		'ignore_sticky_posts'   =>  1,
+		'orderby' => $order_by,
+		'order' => $order,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'paint_color_code_cat',
+				'field'    => 'term_id',
+				'terms'    => $term_id
+			)
+		)
+	));
+?>
+    <div class="product-color">
+        <?php if ( $query->have_posts() ) :?>
+            <?php if ( $count > 1 ) : ?>
+
             <div class="pattern">
                 <h4 class="pattern__title">
                     <?php esc_html_e('Kiểu vân', 'paint'); ?>
                 </h4>
 
                 <div class="pattern__posts">
-                    <?php $stt = 1; while ( $queryMultiPost->have_posts() ): $queryMultiPost->the_post(); ?>
+                    <?php $stt = 1; while ( $query->have_posts() ): $query->the_post(); ?>
 
-                    <figure class="item-pattern<?php echo esc_attr( $stt == 1 ? ' active' : '' ); ?>" data-id="<?php the_ID(); ?>" data-stt="<?php echo esc_attr( $stt ) ?>">
-                        <?php
-                        if ( has_post_thumbnail() ) :
-                            the_post_thumbnail('large');
-                        else:
-                        ?>
-                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="pattern" width="auto" height="auto">
-                        <?php endif; ?>
-                    </figure>
+                        <figure class="item-pattern<?php echo esc_attr( $stt == 1 ? ' active' : '' ); ?>" data-id="<?php the_ID(); ?>" data-stt="<?php echo esc_attr( $stt ) ?>">
+                            <?php
+                            if ( has_post_thumbnail() ) :
+                                the_post_thumbnail('large');
+                            else:
+                            ?>
+                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="pattern" width="auto" height="auto">
+                            <?php endif; ?>
+                        </figure>
 
-                    <?php $stt++; endwhile; wp_reset_postdata(); ?>
+                        <?php $stt++; endwhile; wp_reset_postdata(); ?>
                 </div>
 
                 <h4 class="pattern__style">
@@ -60,39 +59,23 @@ if ( $id_color_code_cat ) :
                     </div>
                 </div>
             </div>
-        <?php
-            endif;
-        endif;
-        ?>
 
-		<div class="list-color">
-			<?php
-			$queryOnePost = new WP_Query(array(
-				'post_type' => 'paint_color_code',
-				'posts_per_page' => 1,
-				'ignore_sticky_posts' => 1,
-				'orderby' => $order_by,
-				'order' => $order,
-				'tax_query' => array(
-					array(
-						'taxonomy' => 'paint_color_code_cat',
-						'field'    => 'term_id',
-						'terms'    => $term_id
-					)
-				)
-			));
+            <?php endif; ?>
 
-	        if ( $queryOnePost->have_posts() ) :
-                while ( $queryOnePost->have_posts() ): $queryOnePost->the_post();
+            <div class="list-color">
+		        <?php
+		        while ( $query->have_posts() ): $query->the_post();
 
-                get_template_part('template-parts/product/detail/inc', 'content-color');
+			        get_template_part('template-parts/product/detail/inc', 'content-color');
 
-                endwhile;
-            endif;
+			        if( $wp_query->current_post == 0 ) break;
+		        endwhile;
+                wp_reset_postdata();
+		        ?>
+            </div>
+        <?php endif; ?>
 
-			wp_reset_postdata();
-			?>
-		</div>
+
 	</div>
 <?php
 endif;
