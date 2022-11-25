@@ -88,16 +88,13 @@
   .item {
     margin-bottom: 46px;
   }
+
   .thumbnail {
     position: relative;
     @include transition();
 
     img {
       width: 100%;
-    }
-
-    &:hover {
-      @include box-shadow(0px 20px 30px rgb(0,0,0,0.5));
     }
 
     .link-image {
