@@ -10,6 +10,7 @@
 
     .thumbnail {
       position: relative;
+      overflow: hidden;
 
       img {
         width: 100%;
@@ -28,6 +29,7 @@
         .img-feature-hover {
           opacity: 1;
           visibility: visible;
+          @include transform(scale(1.2));
         }
       }
     }

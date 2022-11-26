@@ -98,7 +98,28 @@
     }
 
     .link-image {
+      position: relative;
       display: block;
+
+      &:before,
+      &:after {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 50%;
+        transform-origin: left;
+        transform: scaleX(0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.5s cubic-bezier(0.66, 0.08, 0.19, 0.97);
+      }
+
+      &:after{
+        top: auto;
+        bottom: 0;
+        transition-delay: 0.15s;
+      }
     }
 
     .title {
@@ -109,11 +130,44 @@
       margin: 0;
       padding: 12px 21px;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 51.19%);
+      @include transition();
 
       a {
+        position: relative;
         display: inline-block;
         line-height: 1.4;
         color: #ffffff;
+        @include transition();
+
+        &:before {
+          position: absolute;
+          content: '';
+          left: 0;
+          bottom: -3px;
+          width: 0;
+          height: 2px;
+          background: $background-hover;
+          @include transition();
+        }
+      }
+    }
+
+    &:hover {
+      .link-image {
+        &:before,
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+
+      .title {
+        padding-bottom: 30px;
+
+        a {
+          &:before {
+            width: 100%;
+          }
+        }
       }
     }
   }

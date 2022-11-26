@@ -6,7 +6,7 @@ $list = paint_get_option('our_maxim_opt_group', '');
 <div class="element-our-maxim">
     <?php if ( !empty( $opt_top ) ) : ?>
     <h2 class="heading text-<?php echo esc_attr( $opt_top['align'] ); ?>">
-        <?php echo esc_html( $opt_top['title'] ); ?>
+	    <?php echo esc_html( $opt_top['title'] ); ?>
     </h2>
 
     <div class="describe text-<?php echo esc_attr( $opt_top['align'] ); ?>">
@@ -26,7 +26,7 @@ $list = paint_get_option('our_maxim_opt_group', '');
                 <?php endif; ?>
 
                 <h3 class="item__title">
-                    <?php echo esc_html( $item['title'] ); ?>
+                    <span><?php echo esc_html( $item['title'] ); ?></span>
                 </h3>
 
                 <p class="item__content">

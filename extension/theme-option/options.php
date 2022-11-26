@@ -745,6 +745,13 @@ if ( class_exists( 'CSF' ) ) {
 			),
 
 			array(
+				'id'    => 'template_introduce_opt_link',
+				'type'  => 'link',
+				'title' => esc_html__('Link', 'paint'),
+			),
+
+
+			array(
 				'id'    => 'template_introduce_opt_desc',
 				'type'  => 'wp_editor',
 				'title' => esc_html__( 'Nội dung', 'paint' ),
