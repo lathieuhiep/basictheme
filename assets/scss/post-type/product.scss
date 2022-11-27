@@ -33,15 +33,19 @@
         display: block;
         padding: 9px 16px;
         text-align: center;
-        color: $color-primary;
+        color: #848484;
         font-size: 2.4rem;
         font-weight: 700;
         font-family: $font-secondary;
         overflow: hidden;
         border-radius: 14px;
         background-color: #E8E8E8;
+        border: 1px solid #CACACA;
 
+        &.active,
         &:hover {
+          color: $color-primary;
+          border-color: $background-btn;
           background-color: $background-btn;
         }
       }
@@ -157,7 +161,9 @@
         }
 
         .item-pattern {
+          position: relative;
           cursor: pointer;
+          border: 3px solid transparent;
           @include transition();
 
           img {
@@ -166,9 +172,33 @@
             object-fit: cover;
           }
 
-          &.active,
+          .item-name {
+            position: absolute;
+            top: 50%;
+            left: 25px;
+            right: 25px;
+            padding: 8px 0;
+            font-weight: 600;
+            font-size: 2rem;
+            color: #ffffff;
+            opacity: 0;
+            text-align: center;
+            background-color: rgba(0,0,0,0.3);
+            @include transform(translateY(-50%));
+            @include transition();
+          }
+
           &:hover {
-            @include box-shadow(0px 20px 30px rgba(0, 0, 0, 0.5))
+            border-color: $background-hover;
+            @include box-shadow();
+
+            .item-name {
+              opacity: 1;
+            }
+          }
+
+          &.active {
+            border-color: $background-hover;
           }
         }
 
@@ -199,52 +229,64 @@
 
           img {
             width: 100%;
+            @include transition();
           }
 
-          &__content {
+          .info {
             position: absolute;
             left: 0;
             right: 0;
             bottom: 0;
+            padding: 12px 32px;
+            background-color: rgba(0, 0, 0, 0.4);
+            @include flexbox();
+            @include justify-content(space-between);
+            @include transition();
 
-            .color-mix {
-              padding: 12px 32px;
-              opacity: 0;
-              visibility: hidden;
-              @include transition();
-
-              &__item {
-                margin: 0 0 10px;
-
-                span {
-                  padding: 2px 10px;
-                  display: inline-block;
-                  color: #fff;
-                  font-size: 1rem;
-                  font-weight: 300;
-                  text-align: center;
-                  border-radius: 24px;
-                  border: 1px solid #ffffff;
-                }
-              }
+            p {
+              margin: 0;
+              font-size: 1.4rem;
+              color: #ffffff;
+              font-weight: 600;
             }
+          }
 
-            .info {
-              padding: 12px 32px;
-              background-color: rgba(0, 0, 0, 0.4);
-              @include flexbox();
-              @include justify-content(space-between);
+          .color-mix {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 12px 32px;
+            opacity: 0;
+            visibility: hidden;
+            @include transition();
 
-              p {
-                margin: 0;
-                font-size: 1.4rem;
-                color: #ffffff;
-                font-weight: 600;
+            &__item {
+              margin: 0 0 10px;
+
+              span {
+                padding: 2px 10px;
+                display: inline-block;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 300;
+                text-align: center;
+                border-radius: 24px;
+                border: 1px solid #ffffff;
               }
             }
           }
 
           &:hover {
+            img {
+              @include transform(scale(1.2));
+            }
+
+            .info {
+              opacity: 0;
+              visibility: hidden;
+            }
+
             .color-mix {
               opacity: 1;
               visibility: visible;

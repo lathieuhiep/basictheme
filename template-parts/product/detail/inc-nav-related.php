@@ -51,7 +51,7 @@ if ( !empty( $cate_product ) ) {
 // query product
 $query = new WP_Query(array(
 	'post_type' => 'paint_product',
-	'posts_per_page' => 9,
+	'posts_per_page' => 10,
 	'post__not_in' => array(get_the_ID()),
 	'ignore_sticky_posts'   =>  1,
 	'tax_query' => $tax_query
@@ -60,10 +60,6 @@ $query = new WP_Query(array(
 <div class="nav-post">
     <div class="nav-post__box">
         <div class="custom-slick-carousel" data-config-slick='<?php echo wp_json_encode( $config_slider ); ?>'>
-            <div class="item">
-                <h2 class="post-title active"><?php the_title(); ?></h2>
-            </div>
-
             <?php
             if ( $query->have_posts() ) :
                 while ($query->have_posts()) :

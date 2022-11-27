@@ -36,19 +36,27 @@ $terms = get_terms( array(
 	'taxonomy' => 'paint_product_cat',
 	'hide_empty' => false,
 ) );
+
+if ( !empty( $terms ) ) :
+$productTerms = get_the_terms( get_the_ID() , 'paint_product_cat' );
+
+$slugTerm = '';
+if ( $productTerms ) {
+    $slugTerm = $productTerms[0]->slug;
+}
 ?>
 <div class="nav-cat">
     <div class="nav-cat__box">
-	    <?php if ( !empty( $terms ) ) : ?>
-            <div class="custom-slick-carousel" data-config-slick='<?php echo wp_json_encode( $config_slider ); ?>'>
-			    <?php foreach ( $terms as $term ): ?>
-                    <div class="item">
-                        <a href="<?php echo esc_url( get_term_link( $term->slug, 'paint_product_cat' ) ); ?>">
-						    <?php echo esc_html( $term->name ); ?>
-                        </a>
-                    </div>
-			    <?php endforeach; ?>
-            </div>
-	    <?php endif; ?>
+        <div class="custom-slick-carousel" data-config-slick='<?php echo wp_json_encode( $config_slider ); ?>'>
+            <?php foreach ( $terms as $term ): ?>
+                <div class="item">
+                    <a class="item__link<?php echo esc_attr( !empty( $slugTerm ) && $slugTerm == $term->slug ? ' active' : '' ); ?>" href="<?php echo esc_url( get_term_link( $term->slug, 'paint_product_cat' ) ); ?>">
+                        <?php echo esc_html( $term->name ); ?>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
+
+<?php endif; ?>

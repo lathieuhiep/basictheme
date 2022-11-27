@@ -43,6 +43,10 @@ if ( $id_color_code_cat ) :
                             ?>
                                 <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>" alt="pattern" width="auto" height="auto">
                             <?php endif; ?>
+
+                            <figcaption class="item-name">
+	                            <?php esc_html_e('Vân' , 'paint'); echo ' ' . esc_html( $stt ); ?>
+                            </figcaption>
                         </figure>
 
                         <?php $stt++; endwhile; wp_reset_postdata(); ?>
