@@ -33,27 +33,14 @@
     &__title {
       position: relative;
       margin-bottom: 15px;
-
-      span {
-        background-image: linear-gradient(to right, $color-hover, $color-hover 50%, #000 50%);
-        background-size: 200% 100%;
-        background-position: 100%;
-        display: inline-block;
-        padding: 5px 0;
-        position: relative;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        @include transition();
-      }
+      @include transition();
     }
 
     &:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
       .item__title {
-        span {
-          background-position: 0;
-        }
+        color: $color-hover;
       }
     }
   }

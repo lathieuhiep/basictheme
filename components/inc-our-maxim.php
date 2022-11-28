@@ -26,7 +26,7 @@ $list = paint_get_option('our_maxim_opt_group', '');
                 <?php endif; ?>
 
                 <h3 class="item__title">
-                    <span><?php echo esc_html( $item['title'] ); ?></span>
+	                <?php echo esc_html( $item['title'] ); ?>
                 </h3>
 
                 <p class="item__content">
