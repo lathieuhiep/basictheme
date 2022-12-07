@@ -36,7 +36,7 @@ function basictheme_register_front_end() {
 	/* End main Css */
 
     /* Start main Css */
-    wp_enqueue_style( 'fontawesome-5', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '5.12.1' );
+    wp_enqueue_style( 'fontawesome-6', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '6.2.1' );
     /* End main Css */
 
 	/*  Start Style Css   */
