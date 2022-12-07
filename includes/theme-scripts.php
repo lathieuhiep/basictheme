@@ -17,7 +17,7 @@ add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
 function basictheme_register_back_end_scripts(){
 
 	/* Start Get CSS Admin */
-	wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/extension/assets/css/admin-styles.css' ) );
+	wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/admin/assets/css/admin-styles.css' ) );
 
 }
 

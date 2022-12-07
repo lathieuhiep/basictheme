@@ -1,10 +1,10 @@
 <?php
-$show_contact_us = get_theme_mod('basictheme_opt_show_contact_us', 'show');
+$show_contact_us = basictheme_get_option('contact_us_opt_show', '1');
 
-if ( $show_contact_us == 'show' ) :
-    $address = get_theme_mod('basictheme_opt_address_contact_us', '988782, Our Street, S State');
-    $mail = get_theme_mod('basictheme_opt_mail_contact_us', 'info@domain.com');
-    $phone = get_theme_mod('basictheme_opt_phone_contact_us', '+1 234 567 186');
+if ( $show_contact_us == '1' ) :
+    $address = basictheme_get_option('contact_us_opt_address', '988782, Our Street, S State');
+    $mail = basictheme_get_option('contact_us_opt_email', 'info@domain.com');
+    $phone = basictheme_get_option('contact_us_opt_phone', '+1 234 567 186');
 ?>
 
 <div class="contact-us">

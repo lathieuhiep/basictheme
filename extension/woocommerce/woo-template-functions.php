@@ -18,7 +18,7 @@ function basictheme_shop_setup() {
 add_filter('loop_shop_per_page', 'basictheme_show_products_per_page');
 
 function basictheme_show_products_per_page() {
-    return get_theme_mod('basictheme_opt_limit_product', 12);
+    return basictheme_get_option('shop_opt_limit', 12);
 }
 /* End limit product */
 
@@ -26,7 +26,7 @@ function basictheme_show_products_per_page() {
 add_filter('loop_shop_columns', 'basictheme_loop_columns_product');
 
 function basictheme_loop_columns_product() {
-    return get_theme_mod('basictheme_opt_per_row_product', '4');
+    return basictheme_get_option('shop_opt_per_row', '4');
 }
 /* End Change number of products per row */
 
@@ -76,7 +76,7 @@ endif;
 if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
 
     function basictheme_woo_get_sidebar() {
-	    $sidebar = get_theme_mod('basictheme_opt_sidebar_shop', 'left');
+	    $sidebar = basictheme_get_option('shop_opt_sidebar', 'left');
 
 
 	    if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
@@ -109,10 +109,9 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
      * Wraps all WooCommerce content in wrappers which match the theme markup
      */
     function basictheme_woo_before_main_content() {
-        $sidebar = get_theme_mod('basictheme_opt_sidebar_shop', 'left');
+        $sidebar = basictheme_get_option('shop_opt_sidebar', 'left');
 
     ?>
-
         <div class="site-shop">
             <div class="container">
                 <div class="row">
@@ -126,7 +125,6 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
                     do_action( 'basictheme_woo_sidebar' );
 
                 ?>
-
                     <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $sidebar != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
 
     <?php

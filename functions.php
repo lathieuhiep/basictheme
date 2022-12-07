@@ -73,11 +73,6 @@ require get_parent_theme_file_path( '/includes/theme-add-action.php' );
 // Required: options theme
 require get_theme_file_path( '/admin/options.php' );
 
-// Required: Kirki customizer
-if ( class_exists('Kirki') ) {
-    require get_theme_file_path( '/extension/theme-option/customizer.php' );
-}
-
 // Required: CMB2
 if ( !class_exists('CMB2') ) {
     require get_parent_theme_file_path( '/extension/meta-box/cmb_post.php' );

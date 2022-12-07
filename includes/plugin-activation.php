@@ -20,20 +20,6 @@ function basictheme_register_required_plugins() {
 		),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Kirki Customizer Framework',
-			'slug'      =>  'kirki',
-			'required'  =>  true,
-		),
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Customizer Reset',
-			'slug'      =>  'customizer-reset',
-			'required'  =>  true,
-		),
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
         array(
             'name'      =>  'CMB2',
             'slug'      =>  'cmb2',

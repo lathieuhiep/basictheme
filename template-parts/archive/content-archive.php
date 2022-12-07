@@ -1,6 +1,6 @@
 <?php
-$sidebar = get_theme_mod('basictheme_opt_sidebar_blog_post', 'right');
-$per_row = get_theme_mod('basictheme_opt_per_row_blog_post', '2');
+$sidebar = basictheme_get_option('blog_cat_opt_sidebar', 'right');
+$per_row = basictheme_get_option('blog_cat_opt_per_row', '2');
 
 $class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-main');
 ?>
@@ -12,9 +12,10 @@ $class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-ma
                 <div class="site-post-content">
                     <?php if ( have_posts() ) : ?>
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-<?php echo esc_attr( $per_row ); ?>">
-
-                            <?php while ( have_posts() ) : the_post(); ?>
-
+                            <?php
+                            while ( have_posts() ) :
+                                the_post();
+                            ?>
                                 <div id="post-<?php the_ID(); ?>" class="col site-post-item">
                                     <div class="site-post-content">
                                         <h2 class="site-post-title">
@@ -54,27 +55,25 @@ $class_col_content = basictheme_col_use_sidebar($sidebar, 'basictheme-sidebar-ma
                                         </div>
                                     </div>
                                 </div>
-
-                            <?php endwhile;
-                            wp_reset_postdata(); ?>
+                            <?php
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
                         </div>
 
-                        <?php
+                    <?php
                         basictheme_pagination();
-
                     else:
-
-                        if (is_search()) :
+                        if ( is_search() ) :
                             get_template_part('template-parts/search/content', 'no-data');
                         endif;
-
                     endif;
                     ?>
                 </div>
             </div>
 
             <?php
-            if ($sidebar !== 'hide') :
+            if ( $sidebar !== 'hide' ) :
                 get_sidebar();
             endif;
             ?>

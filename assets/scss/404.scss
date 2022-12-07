@@ -1,17 +1,38 @@
 .site-error {
-  padding: 30px 0;
-}
+  height: 100vh;
+  padding: 30px;
+  background-color: #222;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
 
-#site-error-content {
-  font-size: 16px;
-  line-height: 1.5em;
-  color: #000000;
-  margin-bottom: 30px;
-}
+  &__content {
+    max-width: 460px;
+    text-align: center;
+    color: #ffffff;
 
-#site-error-back-home {
-  a {
-    color: $color-hover;
-    font-size: 18px;
+    .heading {
+      font-size: 16rem;
+      color: #222;
+      line-height: 1;
+      text-shadow: 2px 2px 0 #c9c9c9, -2px -2px 0 #c9c9c9;
+    }
+
+    p {
+      color: #c9c9c9;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px 25px;
+      color: #c9c9c9;
+      text-transform: uppercase;
+      border: 2px solid #c9c9c9;
+
+      &:hover {
+        color: #ffab00;
+        border-color: #ffab00;
+      }
+    }
   }
 }

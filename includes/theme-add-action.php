@@ -2,13 +2,15 @@
 // setting favicon
 add_action('wp_head', 'basictheme_favicon', 1);
 function basictheme_favicon(): void {
-    $favicon = get_theme_mod( 'basictheme_opt_favicon', '' );
+    $opt_favicon = basictheme_get_option( 'general_opt_favicon' );
 
-    if ( empty( $favicon ) ) :
-        $favicon = get_theme_file_uri('/assets/images/favicon.png' );
+    if ( empty( $opt_favicon['url'] ) ) :
+        $favicon_url = get_theme_file_uri('/assets/images/favicon.png' );
+    else:
+	    $favicon_url = $opt_favicon['url'];
     endif;
 
-    echo '<link rel="shortcut icon" href="' . esc_url( $favicon ) . '" type="image/x-icon" sizes="16x16" />';
+    echo '<link rel="shortcut icon" href="' . esc_url( $favicon_url ) . '" type="image/x-icon" sizes="16x16" />';
 }
 
 // add property

@@ -85,57 +85,6 @@ function basictheme_comment_nav(): void {
 	endif;
 }
 
-// Social Network
-function basictheme_get_social_url(): void {
-	$defaults = basictheme_get_social_defaults();
-
-	$social_networks = get_theme_mod('basictheme_opt_social_list', $defaults);
-
-	foreach ( $social_networks as $item ) :
-		$social_url = $item['url'];
-
-		if ( $social_url ) :
-			?>
-			<div class="social-network-item">
-				<a href="<?php echo esc_url( $social_url ); ?>" target="<?php echo esc_attr( $item['target'] ); ?>">
-					<i class="<?php echo $item['icon']; ?>"></i>
-				</a>
-			</div>
-		<?php
-		endif;
-	endforeach;
-}
-
-function basictheme_get_social_defaults(): array
-{
-	return [
-		[
-			'title' => 'Facebook',
-			'icon' => 'fab fa-facebook-f',
-			'url' => '#',
-			'target' => '_blank'
-		],
-		[
-			'title' => 'Youtube',
-			'icon' => 'fab fa-youtube',
-			'url' => '#',
-			'target' => '_blank'
-		],
-		[
-			'title' => 'Twitter',
-			'icon' => 'fab fa-twitter',
-			'url' => '#',
-			'target' => '_blank'
-		],
-		[
-			'title' => 'Instagram',
-			'icon' => 'fab fa-instagram',
-			'url' => '#',
-			'target' => '_blank'
-		],
-	];
-}
-
 // Pagination
 function basictheme_pagination(): void {
 	the_posts_pagination( array(
@@ -175,7 +124,6 @@ function basictheme_paging_nav_query( $query ): void {
 // Get col global
 function basictheme_col_use_sidebar( $option_sidebar, $active_sidebar ): string
 {
-
 	if ( $option_sidebar != 'hide' && is_active_sidebar( $active_sidebar ) ):
 
 		if ( $option_sidebar == 'left' ) :
@@ -304,4 +252,24 @@ function basictheme_post_share(): void {
 	</div>
 	<?php
 
+}
+
+// Social Network
+function basictheme_get_social_url(): void {
+	$opt_social_networks = basictheme_get_option('social_network_opt_list', '');
+
+    if ( !empty( $opt_social_networks ) ) :
+	    foreach ( $opt_social_networks as $item ) :
+		    $link = $item['link'];
+		    if ( !empty( $link['url'] ) ) :
+        ?>
+            <div class="social-network-item">
+                <a href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_attr( $link['target'] ); ?>" title="<?php echo esc_attr( $link['text'] ); ?>">
+                    <i class="<?php echo $item['icon']; ?>"></i>
+                </a>
+            </div>
+        <?php
+            endif;
+        endforeach;
+    endif;
 }

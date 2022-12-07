@@ -330,6 +330,14 @@
     }
   }
 
+  .site-error {
+    &__content {
+      .heading {
+        font-size: 9rem;
+      }
+    }
+  }
+
 }
 
 @media (max-width: 480px) {

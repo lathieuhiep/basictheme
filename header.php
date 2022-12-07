@@ -12,15 +12,18 @@
 <!--Include Loading Template-->
 <?php
 get_template_part('template-parts/inc','loading');
-get_template_part('template-parts/header/inc','header');
+
+if ( !is_404() ) {
+	get_template_part('template-parts/header/inc','header');
+}
 ?>
 <!--End Loading Template-->
 
-<!--Start back top top-->
+<!--Start back top-->
 <?php
-$show_back_to_top = get_theme_mod( 'basictheme_opt_back_to_top', 'on' );
+$opt_back_to_top = basictheme_get_option( 'general_opt_back_to_top', '1' );
 
-if ( $show_back_to_top == 'on' ) :
+if ( $opt_back_to_top == '1' ) :
 ?>
     <div id="back-top">
         <a href="#">
@@ -28,7 +31,7 @@ if ( $show_back_to_top == 'on' ) :
         </a>
     </div>
 <?php endif; ?>
-<!--End back top top-->
+<!--End back top-->
 
 <!--Start Sticky Footer-->
 <div class="sticky-footer">

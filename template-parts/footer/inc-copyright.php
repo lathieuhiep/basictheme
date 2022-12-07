@@ -1,12 +1,12 @@
 <?php
-$show_copyright = get_theme_mod('basictheme_opt_show_copyright', 'show');
-$copyright = get_theme_mod('basictheme_opt_content_copyright', 'Copyright &amp; DiepLK');
+$show_copyright = basictheme_get_option('copyright_opt_show', '1');
+$copyright = basictheme_get_option('copyright_opt_content', 'Copyright &amp; DiepLK');
 ?>
 
 <div class="site-footer__bottom">
     <div class="container">
         <div class="bottom-warp">
-            <?php if ( $show_copyright == 'show' ) : ?>
+            <?php if ( $show_copyright == '1' ) : ?>
 
             <div class="copyright">
                 <?php echo wpautop( $copyright ); ?>
