@@ -1,5 +1,4 @@
 <?php
-
 // Remove jquery migrate
 add_action( 'wp_default_scripts', 'basictheme_remove_jquery_migrate' );
 function basictheme_remove_jquery_migrate( $scripts ) {
@@ -11,55 +10,44 @@ function basictheme_remove_jquery_migrate( $scripts ) {
 	}
 }
 
-//Register Back-End script
-add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
-
-function basictheme_register_back_end_scripts(){
-
-	/* Start Get CSS Admin */
-	wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/admin/assets/css/admin-styles.css' ) );
-
-}
-
-//Register Front-End Styles
+// Register Front-End Styles
 add_action('wp_enqueue_scripts', 'basictheme_register_front_end');
-
 function basictheme_register_front_end() {
-
 	/*
-	* Start font google
+	* Load css
 	* */
-    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap', array(), null );
 
-	/* Start main Css */
+	/* load font google */
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap', array(), null );
+
+	/* library css */
 	wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
-	/* End main Css */
 
-    /* Start main Css */
-    wp_enqueue_style( 'fontawesome-6', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '6.2.1' );
-    /* End main Css */
+	/* fontawesome */
+	wp_enqueue_style( 'fontawesome-6', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '6.2.1' );
 
-	/*  Start Style Css   */
+	/* style */
 	wp_enqueue_style( 'basictheme-style', get_stylesheet_uri() );
-	/*  Start Style Css   */
 
 	/*
-	* End Get Css Front End
+	* Load js
 	* */
 
-	/*
-	* Start Get Js Front End
-	* */
-    wp_enqueue_script( 'basictheme-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
+	/* library js */
+	wp_enqueue_script( 'basictheme-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
 
+	/* comment reply */
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// custom js
 	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
+}
 
-	/*
-   * End Get Js Front End
-   * */
-
+// Register Back-End script
+add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
+function basictheme_register_back_end_scripts(){
+	/* Start Get CSS Admin */
+	wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/admin/assets/css/admin-styles.css' ) );
 }
