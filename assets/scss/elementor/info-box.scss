@@ -1,8 +1,8 @@
 .element-info-box {
-  @include flexbox();
+  display: flex;
 
   &__icon {
-    @include flex(0 0 auto);
+    flex: 0 0 auto;
 
     .icon-box {
       i, svg {
@@ -12,16 +12,16 @@
   }
 
   &__content {
-    @include flex(1);
+    flex: 1;
   }
 
   &.icon-on-top {
-    @include flex-direction(column);
+    flex-direction: column;
   }
 
   &.icon-on-right {
     text-align: right;
-    @include flex-direction(row-reverse);
+    flex-direction: row-reverse;
   }
 }
 

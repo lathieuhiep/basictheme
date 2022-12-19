@@ -76,7 +76,7 @@
       > li {
         display: inline-flex;
         height: 100%;
-        @include align-items(center);
+        align-items: center;
       }
     }
 
@@ -89,7 +89,7 @@
             display: flex;
 
             a {
-              @include flex(1);
+              flex: 1;
             }
 
             .sub-menu-toggle {
@@ -99,7 +99,7 @@
             &:hover {
               > .sub-menu-toggle {
                 &:after {
-                  @include transform(rotate(-90deg));
+                  transform: rotate(-90deg);
                 }
               }
             }
@@ -126,9 +126,9 @@
   }
 
   .site-logo {
-    @include flexbox();
-    @include justify-content(space-between);
-    @include flex(1);
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
   }
 
   .navbar-toggle {
@@ -178,7 +178,7 @@
 
           &.active {
             &:after {
-              @include transform(rotate(180deg));
+              transform: rotate(180deg);
             }
           }
         }
@@ -190,7 +190,7 @@
           visibility: visible;
           border-top: 0;
           background-color: transparent;
-          @include transition-duration(0s);
+          transition-duration: 0s;
 
           li {
             border-bottom: 0;
@@ -229,7 +229,7 @@
 
   .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item,
   .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) {
-    @include flex-direction(column);
+    flex-direction: column;
   }
   .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item--image,
   .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) .recent_posts_thumbs_widget_item--image {
@@ -249,7 +249,7 @@
         &.columns-5 {
           li {
             &.product {
-              @include flex(0 0 33.33333333%);
+              flex: 0 0 33.33333333%;
               width: 33.33333333%;
             }
           }
@@ -272,7 +272,7 @@
     .col2-set {
       .col-1,
       .col-2 {
-        @include flex(0 0 100%);
+        flex: 0 0 100%;
         max-width: 100%;
       }
     }
@@ -290,7 +290,7 @@
         &.columns-5 {
           li {
             &.product {
-              @include flex(0 0 33.33333333%);
+              flex: 0 0 33.33333333%;
               width: 33.33333333%;
             }
           }
@@ -321,7 +321,7 @@
         &.columns-5 {
           li {
             &.product {
-              @include flex(0 0 50%);
+              flex: 0 0 50%;
               width: 50%;
             }
           }
@@ -375,7 +375,7 @@
         &.columns-5 {
           li {
             &.product {
-              @include flex(0 0 50%);
+              flex: 0 0 50%;
               width: 50%;
             }
           }

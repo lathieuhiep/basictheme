@@ -1,8 +1,7 @@
 .element-post-carousel {
   .item-post {
-    @include flexbox();
-    @include flex-direction(column);
-    @include flex(1);
+    @include flex-column;
+    flex: 1;
 
     &__content {
       padding: 15px;

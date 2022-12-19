@@ -4,95 +4,26 @@
 
 html {
   min-height: 100%;
+  font-size: 62.5%;
 }
 
 body {
   min-height: 100vh;
   line-height: 1.8em;
   overflow-x: hidden;
-  font-size: $font-size-primary;
+  font-size: 1.6rem;
   color: $color-primary;
-  font-family: $font-family-text;
+  font-family: $font-primary;
   font-weight:400;
   word-break: break-word;
-  @include flexbox();
-  @include flex-direction(column);
+  @include flex-column;
 }
 
 .sticky-footer {
   flex: 1 0 auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 15px;
-  font-weight: 700;
-  color: $color-title;
-}
 
-h1 {
-  font-size: 36px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 20px;
-}
-
-h5 {
-  font-size: 18px;
-}
-
-h6 {
-  font-size: 16px;
-}
-
-a {
-  color: $color-primary;
-  text-decoration: none;
-  @include transition();
-
-  &:hover {
-    color: $color-hover;
-  }
-}
-
-p {
-  margin: 0 0 15px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-figure {
-  margin: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-iframe {
-  max-width: 100%;
-}
-
-blockquote {
-  border-left: 1px solid $color-hover;
-  padding-left: 30px;
-}
-
-pre {
-  white-space: pre-wrap;
-  margin-bottom: 30px;
-}
 
 .nav {
   > li {
@@ -107,7 +38,7 @@ pre {
 .form-control {
   &:focus {
     border-color: $color-hover;
-    @include box-shadow(none);
+    box-shadow: none;
   }
 }
 
@@ -190,9 +121,7 @@ pre {
 
   .owl-dots {
     margin-top: 30px;
-    @include flexbox();
-    @include align-items(center);
-    @include justify-content(center);
+    @include flex-center;
 
     .owl-dot {
       display: inline-block;
@@ -203,7 +132,7 @@ pre {
         width: 10px;
         height: 10px;
         background-color: #000000;
-        @include border-radius(50%);
+        border-radius: 50%;
         @include transition(all 0.2s ease-in-out);
       }
 
@@ -219,11 +148,11 @@ pre {
 
 .custom-equal-height-owl {
   .owl-stage {
-    @include flexbox();
+    display: flex;
 
     .owl-item {
-      @include flexbox();
-      @include flex(1 0 auto);
+      display: flex;
+      flex: 1 0 auto;
     }
   }
 }

@@ -6,16 +6,16 @@ section {
           li {
             a {
               margin-bottom: 15px;
-              @include flexbox();
+              display: flex;
 
               img {
                 width: 70px;
                 margin: 0 15px 0 0;
-                @include flex(0 0 auto)
+                flex: 0 0 auto;
               }
 
               .product-title {
-                @include flex(1);
+                flex: 1;
               }
             }
 

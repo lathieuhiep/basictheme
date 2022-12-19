@@ -18,11 +18,11 @@
 .woocommerce-page {
   .col2-set {
     margin: 0 -15px;
-    @include flex-flow(wrap);
+    flex-flow: wrap;
 
     .col-1,
     .col-2 {
-      @include flex(0 0 50%);
+      flex: 0 0 50%;
       max-width: 50%;
       width: 100%;
     }
@@ -63,7 +63,7 @@
 
               .select2-selection__arrow {
                 top: 50%;
-                @include transform(translateY(-50%));
+                transform: translateY(-50%);
               }
             }
           }
@@ -71,8 +71,8 @@
       }
 
       &.place-order {
-        @include flex-direction(column);
-        @include align-items(flex-start);
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   }

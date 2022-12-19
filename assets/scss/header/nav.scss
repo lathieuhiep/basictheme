@@ -1,6 +1,6 @@
 .main-navigation {
   background-color: #ffffff;
-  @include box-shadow(0 3px 3px -3px rgba(0, 0, 0, 0.3));
+  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
 
   .site-navbar {
     position: relative;
@@ -19,7 +19,7 @@
 }
 
 .site-logo {
-  @include flex(0 0 auto);
+  flex: 0 0 auto;
 
   a {
     display: inline-block;
@@ -29,7 +29,7 @@
 }
 
 .site-menu {
-  @include flex(1);
+  flex: 1;
 
   > ul {
     > li {

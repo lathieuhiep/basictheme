@@ -6,8 +6,8 @@
   border: 1px solid $border-color;
   height: auto;
   padding: 9px 10px;
-  @include border-radius(3px);
-  @include box-shadow(none);
+  border-radius: 3px;
+  box-shadow: none;
 }
 
 .search-submit {
@@ -16,7 +16,7 @@
   padding: 9px 10px;
   border: none;
   cursor: pointer;
-  @include border-radius(3px);
+  border-radius: 3px;
   @include transition();
 }
 
@@ -75,10 +75,10 @@ section {
 
     &.widget_search {
       .search-form {
-        @include flexbox();
+        display: flex;
 
         .search-field {
-          @include flex(1 auto);
+          flex: 1;
         }
 
         .search-submit {
@@ -179,7 +179,7 @@ section {
       height: 30px;
       line-height: 30px;
       text-align: center;
-      @include border-radius(50%);
+      border-radius: 50%;
     }
 
     .post_widget_warp {
@@ -192,7 +192,7 @@ section {
 
         .item-image {
           width: 110px;
-          @include flex(0 0 auto);
+          flex: 0 0 auto;
         }
 
         .item-content {
@@ -217,7 +217,7 @@ section {
 
     /* Widgets woocommerce */
     .woocommerce-product-search {
-      @include flexbox();
+      display: flex;
 
       label {
         &.screen-reader-text {
@@ -230,9 +230,9 @@ section {
         height: auto;
         padding: 9px 10px;
         cursor: pointer;
-        @include border-radius(3px);
-        @include box-shadow(none);
-        @include flex(1 auto);
+        border-radius: 3px;
+        box-shadow: none;
+        flex: 1 auto;
       }
 
       button[type=submit] {
@@ -241,7 +241,7 @@ section {
         padding: 9px 10px;
         border: none;
         margin-left: 5px;
-        @include border-radius(3px);
+        border-radius: 3px;
         @include transition();
       }
     }

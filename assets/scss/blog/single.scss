@@ -31,7 +31,7 @@
       .owl-next {
         position: absolute;
         top: 50%;
-        @include transform(translateY(-50%));
+        transform: translateY(-50%);
       }
 
       .owl-prev {
@@ -75,7 +75,7 @@
       margin: 0 5px 5px 0;
       border: 1px solid $border-color;
       font-size: 12px;
-      @include border-radius(3px);
+      border-radius: 3px;
 
       &:first-child {
         margin-left: 10px;

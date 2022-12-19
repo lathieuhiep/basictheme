@@ -6,8 +6,8 @@
   .site-shop-single {
     .site-shop-single__warp {
       margin: 0 -15px 30px;
-      @include flexbox();
-      @include flex-flow(row wrap);
+      display: flex;
+      flex-flow: row wrap;
 
       span {
         &.onsale {
@@ -51,8 +51,7 @@
 
         .woocommerce-product-rating {
           margin-bottom: 10px;
-          @include flexbox();
-          @include align-items(center);
+          @include flex-center-vert;
 
           .star-rating {
             margin: 0 10px 0 0;

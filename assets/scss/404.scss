@@ -2,9 +2,7 @@
   height: 100vh;
   padding: 30px;
   background-color: #222;
-  @include flexbox();
-  @include align-items(center);
-  @include justify-content(center);
+  @include flex-center;
 
   &__content {
     max-width: 460px;

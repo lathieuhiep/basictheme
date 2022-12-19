@@ -20,7 +20,7 @@
   &.mode-quick-view-product {
     .modal-dialog {
       top: 50%;
-      @include transform(translateY(-50%));
+      transform: translateY(-50%);
 
       .modal-body {
         min-height: 100px;

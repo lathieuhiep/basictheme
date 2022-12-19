@@ -1,12 +1,11 @@
 .site-post-item {
   margin-bottom: 24px;
-  @include flexbox();
-  @include flex-direction(column);
+  @include flex-column;
 
   .site-post-content {
     padding: 25px 15px 15px;
     border: 1px solid #eee;
-    @include flex(1 auto);
+    flex: 1 auto;
   }
 
   .site-post-image {
