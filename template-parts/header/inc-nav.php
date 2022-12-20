@@ -46,7 +46,7 @@ $cart = basictheme_get_option( 'menu_option_cart', '1' );
                     <?php endif; ?>
                 </div>
 
-                <?php if ( class_exists('Woocommerce') && $cart == '1' ) : ?>
+                <?php if ( class_exists('Woocommerce') && $cart == '1' && !is_cart() && !is_checkout() ) : ?>
                     <div class="shop-cart-view d-flex align-items-center">
                         <?php
                         do_action( 'basictheme_woo_shopping_cart' );

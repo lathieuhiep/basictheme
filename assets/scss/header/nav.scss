@@ -68,45 +68,10 @@
         }
       }
 
-      .sub-menu {
-        min-width: 160px;
-        border-top: 1px solid $color-hover;
-        background-color: $border-color;
-        position: absolute;
-        top: 120%;
-        left: 0;
-        z-index: -1;
-        visibility: hidden;
-        opacity: 0;
-        @include transition();
-
-        li {
-          padding: 6px 8px;
-          display: block;
-
-          a {
-            white-space: nowrap;
-          }
-
-          .sub-menu {
-            left: 90%;
-            top: -1px;
-          }
-
-          &:hover {
-            > .sub-menu {
-              left: 100%;
-            }
-          }
-        }
-      }
-
-      &:hover {
-        > .sub-menu {
-          top: 100%;
-          z-index: 999;
-          opacity: 1;
-          visibility: visible;
+      &.current-menu-item,
+      &.current-menu-parent {
+        > a {
+          color: $color-hover;
         }
       }
     }

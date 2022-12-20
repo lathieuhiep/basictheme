@@ -17,11 +17,12 @@
 .woocommerce,
 .woocommerce-page {
   .col2-set {
-    margin: 0 -15px;
+    margin: 0 -12px;
     flex-flow: wrap;
 
     .col-1,
     .col-2 {
+      padding: 0 12px;
       flex: 0 0 50%;
       max-width: 50%;
       width: 100%;

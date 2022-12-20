@@ -1,8 +1,6 @@
 <?php
-add_action('cmb2_admin_init', 'basictheme_post_metaboxes');
-
-function basictheme_post_metaboxes()
-{
+add_action('cmb2_admin_init', 'basictheme_post_meta_boxes');
+function basictheme_post_meta_boxes(): void {
     $cmb = new_cmb2_box(array(
         'id' => 'basictheme_cmb_post',
         'title' => esc_html__('Option metabox', 'basictheme'),

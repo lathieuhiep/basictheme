@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class BasicTheme_Elementor_Addon_Carousel_Images extends Widget_Base {
 
 	public function get_categories() {
-		return array( 'mytheme' );
+		return array( 'my-theme' );
 	}
 
 	public function get_name() {
@@ -26,7 +26,7 @@ class BasicTheme_Elementor_Addon_Carousel_Images extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		return ['basictheme-elementor-custom'];
+		return ['basictheme-elementor-addon'];
 	}
 
 	protected function _register_controls() {

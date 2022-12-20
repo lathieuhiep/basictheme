@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
 
     public function get_categories() {
-        return array( 'mytheme' );
+        return array( 'my-theme' );
     }
 
     public function get_name() {

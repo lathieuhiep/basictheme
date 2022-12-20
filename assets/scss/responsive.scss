@@ -14,7 +14,6 @@
 }
 
 @media (min-width: 992px) and (max-width: 1400px) {
-
   .site-menu ul li:nth-last-child(1),
   .site-menu ul li:nth-last-child(2) {
     .sub-menu {
@@ -36,11 +35,9 @@
       }
     }
   }
-
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-
   .site-menu {
     ul {
       li {
@@ -50,11 +47,9 @@
       }
     }
   }
-
 }
 
 @media (min-width: 992px) {
-
   .active-sticky-nav {
     position: sticky;
     top: 0;
@@ -84,19 +79,36 @@
       li {
         .sub-menu {
           display: block !important;
+          min-width: 160px;
+          border-top: 1px solid $color-hover;
+          background-color: $border-color;
+          position: absolute;
+          top: 120%;
+          left: 0;
+          z-index: -1;
+          visibility: hidden;
+          opacity: 0;
+          @include transition();
 
           li {
+            padding: 6px 8px;
             display: flex;
 
             a {
+              white-space: nowrap;
               flex: 1;
             }
 
-            .sub-menu-toggle {
-              margin-left: 6px;
+            .sub-menu {
+              left: 90%;
+              top: -1px;
             }
 
             &:hover {
+              > .sub-menu {
+                left: 100%;
+              }
+
               > .sub-menu-toggle {
                 &:after {
                   transform: rotate(-90deg);
@@ -105,22 +117,21 @@
             }
           }
         }
+
+        &:hover {
+          > .sub-menu {
+            top: 100%;
+            z-index: 999;
+            opacity: 1;
+            visibility: visible;
+          }
+        }
       }
     }
   }
-
-  .modal {
-    &.mode-quick-view-product {
-      .modal-dialog {
-        max-width: 850px;
-      }
-    }
-  }
-
 }
 
 @media (max-width: 991px) {
-
   .site-navigation_warp {
     display: block;
   }
@@ -185,12 +196,8 @@
 
         .sub-menu {
           display: none;
-          position: static;
-          opacity: 1;
-          visibility: visible;
           border-top: 0;
           background-color: transparent;
-          transition-duration: 0s;
 
           li {
             border-bottom: 0;
@@ -225,84 +232,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-
-  .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item,
-  .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) {
-    flex-direction: column;
-  }
-  .recent_posts_thumbs_widget_list .recent_posts_thumbs_widget_item--image,
-  .recent_posts_thumbs_widget_fist_large .recent_posts_thumbs_widget_item:nth-child(n+2) .recent_posts_thumbs_widget_item--image {
-    max-width: 100%;
-    margin: 0 0 10px;
-  }
-  .recent_posts_thumbs_widget_grid {
-    .recent_posts_thumbs_widget_item {
-      width: 100%;
-    }
-  }
-
-  .woocommerce {
-    ul {
-      &.products {
-        &.columns-4,
-        &.columns-5 {
-          li {
-            &.product {
-              flex: 0 0 33.33333333%;
-              width: 33.33333333%;
-            }
-          }
-        }
-      }
-    }
-  }
-
-}
-
-@media (max-width: 767px) {
-
-  .site-sidebar {
-    padding-top: 50px;
-  }
-
-  /* woocommerce */
-  .woocommerce,
-  .woocommerce-page {
-    .col2-set {
-      .col-1,
-      .col-2 {
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-    }
-  }
-
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-
-  .woocommerce {
-    ul {
-      &.products {
-        &.columns-3,
-        &.columns-4,
-        &.columns-5 {
-          li {
-            &.product {
-              flex: 0 0 33.33333333%;
-              width: 33.33333333%;
-            }
-          }
-        }
-      }
-    }
-  }
-
-}
-
 @media (max-width: 575px) {
-
   .comment-form {
     .comment-fields-row {
       margin-bottom: 0;
@@ -313,23 +243,6 @@
     }
   }
 
-  .woocommerce {
-    ul {
-      &.products {
-        &.columns-3,
-        &.columns-4,
-        &.columns-5 {
-          li {
-            &.product {
-              flex: 0 0 50%;
-              width: 50%;
-            }
-          }
-        }
-      }
-    }
-  }
-
   .site-error {
     &__content {
       .heading {
@@ -337,11 +250,9 @@
       }
     }
   }
-
 }
 
 @media (max-width: 480px) {
-
   .comments-area {
     .comment-list {
       li {
@@ -365,23 +276,4 @@
       }
     }
   }
-
-  /* woocommerce */
-  .woocommerce {
-    ul {
-      &.products {
-        &.columns-3,
-        &.columns-4,
-        &.columns-5 {
-          li {
-            &.product {
-              flex: 0 0 50%;
-              width: 50%;
-            }
-          }
-        }
-      }
-    }
-  }
-
 }

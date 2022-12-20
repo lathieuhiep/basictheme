@@ -8,9 +8,8 @@ use Elementor\Controls_Manager;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
-
     public function get_categories() {
-        return array( 'mytheme' );
+        return array( 'my-theme' );
     }
 
     public function get_name() {
@@ -26,7 +25,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['basictheme-elementor-custom'];
+        return ['basictheme-elementor-addon'];
     }
 
     protected function _register_controls() {
@@ -171,7 +170,6 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
             'loop' => ('yes' === $settings['loop']),
             'nav' => ('yes' === $settings['nav']),
             'dots' => ('yes' === $settings['dots']),
-            'margin' => $settings['margin_item'],
             'autoplay' => ('yes' === $settings['autoplay']),
             'items' => 1
         ];

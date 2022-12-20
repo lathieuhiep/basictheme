@@ -260,12 +260,9 @@ function basictheme_get_social_url(): void {
 
     if ( !empty( $opt_social_networks ) ) :
 	    foreach ( $opt_social_networks as $item ) :
-            $url = $item['link']['url'];
-            $target = $item['link']['target'];
-            $title = $item['link']['text'];
         ?>
             <div class="social-network-item">
-                <a href="<?php echo esc_url( !empty( $url ) ? $url : '#' ); ?>" target="<?php echo esc_attr( !empty( $target ) ? $target : '_self' ); ?>" title="<?php echo esc_attr( $title ); ?>">
+                <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank">
                     <i class="<?php echo $item['icon']; ?>"></i>
                 </a>
             </div>

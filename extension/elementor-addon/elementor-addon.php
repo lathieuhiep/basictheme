@@ -1,9 +1,9 @@
 <?php
 // Register Category Elementor Addon
-add_action( 'elementor/elements/categories_registered', 'basictheme_register_category_elementor_addon' );
-function basictheme_register_category_elementor_addon( $elements_manager ): void {
+add_action( 'elementor/elements/categories_registered', 'basictheme_add_elementor_widget_categories' );
+function basictheme_add_elementor_widget_categories( $elements_manager ): void {
 	$elements_manager->add_category(
-		'mytheme',
+		'my-theme',
 		[
 			'title' => esc_html__( 'My Theme', 'basictheme' ),
 			'icon'  => 'icon-goes-here',

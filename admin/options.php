@@ -263,26 +263,22 @@ if ( class_exists( 'CSF' ) ) {
 					),
 
 					array(
-						'id'      => 'link',
-						'type'    => 'link',
-						'title'   => 'Link',
-						'default' => array(
-							'url'    => '#',
-							'text'   => 'facebook',
-							'target' => '_blank'
-						),
+						'id'    => 'url',
+						'type'  => 'text',
+						'title' => esc_html__('URL', 'basictheme'),
+						'default' => '#'
 					),
 
 				),
 				'default' => array(
 					array(
 						'icon' => 'fab fa-facebook-f',
-						'link' => '#',
+						'url' => '#',
 					),
 
 					array(
 						'icon' => 'fab fa-youtube',
-						'link' => '#',
+						'url' => '#',
 					),
 				)
 			),

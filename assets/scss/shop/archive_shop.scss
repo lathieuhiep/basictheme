@@ -312,6 +312,24 @@
           }
         }
       }
+
+      &.columns-3,
+      &.columns-4,
+      &.columns-5 {
+        li {
+          &.product {
+            @media (min-width: 576px) and (max-width: 991px) {
+              flex: 0 0 33.33333333%;
+              width: 33.33333333%;
+            }
+
+            @media (max-width: 575px) {
+              flex: 0 0 50%;
+              width: 50%;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -487,4 +505,18 @@
   &__product-add-to-cart {
     line-height: normal;
   }
+}
+
+@media (max-width: 767px) {
+  .woocommerce,
+  .woocommerce-page {
+    .col2-set {
+      .col-1,
+      .col-2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
 }
