@@ -27,7 +27,7 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['basictheme-elementor-addon'];
+        return ['basictheme-elementor-script'];
     }
 
     protected function _register_controls() {

@@ -16,7 +16,9 @@ const pathRoot = './';
 function server() {
     browserSync.init({
         proxy: "localhost/basictheme/",
-        notify: false
+        open: 'local',
+        cors: true,
+        ghostMode: false
     })
 }
 
@@ -30,6 +32,20 @@ function buildStyles() {
         .pipe(browserSync.stream());
 }
 exports.buildStyles = buildStyles;
+
+// Task build styles elementor
+function buildStylesElementor() {
+    return src(`${pathRoot}assets/scss/elementor-addon/elementor-addon.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}extension/elementor-addon/css/`))
+        .pipe(browserSync.stream());
+}
+exports.buildStylesElementor = buildStylesElementor;
 
 // buildJSTheme
 function buildJSTheme() {
@@ -90,7 +106,8 @@ exports.compressLibraryJsMin = compressLibraryJsMin
 // Task watch
 function watchTask() {
     server()
-    watch(`${pathRoot}assets/scss/**/*.scss`, buildStyles)
+    watch([`${pathRoot}assets/scss/**/*.scss`, `!${pathRoot}assets/scss/elementor-addon/*.scss`], buildStyles)
+    watch(`${pathRoot}assets/scss/elementor-addon/*.scss`, buildStylesElementor)
     watch([`${pathRoot}assets/js/*.js`, `!${pathRoot}assets/js/*.min.js`], buildJSTheme)
 }
 exports.watchTask = watchTask

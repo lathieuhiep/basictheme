@@ -1,4 +1,7 @@
 <?php
+function basictheme_get_version_theme(): string {
+	return wp_get_theme()->get( 'Version' );
+}
 // Callback Comment List
 function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ): bool {
 	if ( 'div' === $basictheme_comment_args['style'] ) :

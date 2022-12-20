@@ -35,8 +35,14 @@ function basictheme_register_widget_elementor_addon( $widgets_manager ): void {
 	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Info_Box() );
 }
 
-// Register Script Elementor Addon
-add_action( 'elementor/frontend/after_enqueue_styles', 'basictheme_register_script_elementor_addon' );
-function basictheme_register_script_elementor_addon(): void {
-	wp_register_script( 'basictheme-elementor-addon', get_theme_file_uri( '/extension/elementor-addon/js/elementor-addon.js' ), array( 'jquery' ), '1.0.0', true );
+// Register stylesheets
+add_action( 'elementor/frontend/after_enqueue_styles', 'basictheme_elementor_frontend_stylesheets' );
+function basictheme_elementor_frontend_stylesheets(): void {
+	wp_enqueue_style( 'basictheme-elementor-style', get_theme_file_uri( '/extension/elementor-addon/css/elementor-addon.min.css' ), array(), basictheme_get_version_theme() );
+}
+
+// Register scripts
+add_action( 'elementor/frontend/after_register_scripts', 'basictheme_elementor_register_script' );
+function basictheme_elementor_register_script(): void {
+	wp_register_script( 'basictheme-elementor-script', get_theme_file_uri( '/extension/elementor-addon/js/elementor-addon.js' ), array( 'jquery' ), '1.0.0', true );
 }

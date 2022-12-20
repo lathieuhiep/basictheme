@@ -25,7 +25,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
     }
 
     public function get_script_depends() {
-        return ['basictheme-elementor-addon'];
+        return ['basictheme-elementor-script'];
     }
 
     protected function _register_controls() {
