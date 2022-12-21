@@ -26,10 +26,6 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
         return 'eicon-slides';
     }
 
-    public function get_script_depends() {
-        return ['basictheme-elementor-script'];
-    }
-
     protected function _register_controls() {
         $this->start_controls_section(
             'section_content',

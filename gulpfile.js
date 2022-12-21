@@ -78,8 +78,8 @@ exports.compressLibraryCssMin = compressLibraryCssMin
 // Task compress mini fontawesome css
 function compressFontAwesomeCssMin() {
     return src([
-        `${pathRoot}assets/fonts/fontawesome/css/*.css`,
-        `!${pathRoot}assets/fonts/fontawesome/css/*.min.css`
+        `${pathRoot}assets/libs/fontawesome/css/*.css`,
+        `!${pathRoot}assets/libs/fontawesome/css/*.min.css`
     ]).pipe(concatCss("fontawesome-brands-solid.min.css"))
         .pipe(minifyCss({
             compatibility: 'ie8',

@@ -166,7 +166,7 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
             <?php if ( !empty( $settings['description'] ) ) : ?>
 
                 <div class="element-about-text__description">
-                    <?php echo wp_kses_post( $settings['description'] ); ?>
+                    <?php echo wpautop( $settings['description'] ); ?>
                 </div>
 
             <?php endif; ?>

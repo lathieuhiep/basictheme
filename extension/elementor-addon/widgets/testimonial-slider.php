@@ -24,10 +24,6 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         return 'eicon-user-circle-o';
     }
 
-    public function get_script_depends() {
-        return ['basictheme-elementor-script'];
-    }
-
     protected function _register_controls() {
 
         // Content testimonial

@@ -24,10 +24,6 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
         return 'eicon-slider-push';
     }
 
-    public function get_script_depends() {
-        return ['basictheme-elementor-script'];
-    }
-
     protected function register_controls() {
 
         // Content section
@@ -69,7 +65,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'    =>  esc_html__( 'Post ID', 'basictheme' ),
+                    'id'    =>  esc_html__( 'ID', 'basictheme' ),
                     'title' =>  esc_html__( 'Title', 'basictheme' ),
                     'date'  =>  esc_html__( 'Date', 'basictheme' ),
                     'rand'  =>  esc_html__( 'Random', 'basictheme' ),
@@ -82,7 +78,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
             [
                 'label'     =>  esc_html__( 'Order', 'basictheme' ),
                 'type'      =>  Controls_Manager::SELECT,
-                'default'   =>  'ASC',
+                'default'   =>  'DESC',
                 'options'   =>  [
                     'ASC'   =>  esc_html__( 'Ascending', 'basictheme' ),
                     'DESC'  =>  esc_html__( 'Descending', 'basictheme' ),
@@ -137,7 +133,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 		    'loop',
 		    [
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label'         =>  esc_html__('Loop Slider ?', 'basictheme'),
+			    'label'         =>  esc_html__('Loop Slider?', 'basictheme'),
 			    'label_off'     =>  esc_html__('No', 'basictheme'),
 			    'label_on'      =>  esc_html__('Yes', 'basictheme'),
 			    'return_value'  =>  'yes',

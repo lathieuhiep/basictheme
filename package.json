@@ -9,7 +9,7 @@
     "sass": "^1.55.0"
   },
   "dependencies": {
-    "bootstrap": "^5.2.2",
+    "bootstrap": "^5.2.3",
     "browser-sync": "^2.27.11",
     "gulp-clean-css": "^4.3.0",
     "gulp-sourcemaps": "^3.0.0",

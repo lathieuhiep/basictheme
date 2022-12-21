@@ -25,8 +25,8 @@ class BasicTheme_Elementor_Addon_Carousel_Images extends Widget_Base {
 		return 'eicon-slider-album';
 	}
 
-	public function get_script_depends() {
-		return ['basictheme-elementor-script'];
+	public function get_style_depends() {
+		return [ 'owl.carousel' ];
 	}
 
 	protected function _register_controls() {
