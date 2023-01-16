@@ -9,37 +9,46 @@ html {
 
 body {
   min-height: 100vh;
-  line-height: 1.8em;
   overflow-x: hidden;
-  font-size: 1.5rem;
-  color: $color-primary;
-  font-family: $font-primary;
-  font-weight:400;
   word-break: break-word;
   @include flex-column;
 }
 
+a {
+  @include transition();
+}
+
+p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+blockquote {
+  border-left: 1px solid $color-hover;
+  padding-left: 30px;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin-bottom: 30px;
+}
+
 .sticky-footer {
   flex: 1 0 auto;
-}
-
-
-
-.nav {
-  > li {
-    > a {
-      &:focus {
-        background-color: transparent;
-      }
-    }
-  }
-}
-
-.form-control {
-  &:focus {
-    border-color: $color-hover;
-    box-shadow: none;
-  }
 }
 
 #site-loadding {
@@ -48,7 +57,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #ffffff;
+  background-color:$color-white;
   z-index: 99999;
 }
 
@@ -161,6 +170,6 @@ body {
 .breadcrumbs {
   .breadcrumbs-col {
     padding: 15px 0;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid $border-color;
   }
 }

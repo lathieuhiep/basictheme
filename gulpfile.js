@@ -22,6 +22,23 @@ function server() {
     })
 }
 
+// Task buildStyleBootstrap
+function buildStylesBootstrap() {
+    return src(`${pathRoot}assets/scss/bootstrap.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathRoot}assets/libs/bootstrap/`))
+        .pipe(browserSync.stream());
+}
+
+exports.buildStylesBootstrap = buildStylesBootstrap;
+
 // Task build styles
 function buildStyles() {
     return src(`${pathRoot}assets/scss/style.scss`)
@@ -106,7 +123,12 @@ exports.compressLibraryJsMin = compressLibraryJsMin
 // Task watch
 function watchTask() {
     server()
-    watch([`${pathRoot}assets/scss/**/*.scss`, `!${pathRoot}assets/scss/elementor-addon/*.scss`], buildStyles)
+    watch(`${pathRoot}assets/scss/bootstrap.scss`, buildStylesBootstrap)
+    watch([
+        `${pathRoot}assets/scss/**/*.scss`,
+        `!${pathRoot}assets/scss/bootstrap.scss`,
+        `!${pathRoot}assets/scss/elementor-addon/*.scss`
+    ], buildStyles)
     watch(`${pathRoot}assets/scss/elementor-addon/*.scss`, buildStylesElementor)
     watch([`${pathRoot}assets/js/*.js`, `!${pathRoot}assets/js/*.min.js`], buildJSTheme)
 }
