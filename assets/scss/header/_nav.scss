@@ -1,37 +1,117 @@
-@media (max-width: 1199px) {
+.main-navigation {
+  background-color: $color-white;
+  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
 
-  .container {
-    max-width: none;
+  .site-navbar {
+    position: relative;
   }
 
-}
+  button {
+    &.navbar-toggler {
+      padding: 0;
+      border: 0;
 
-@media (min-width: 992px) and (max-width: 1400px) {
-  .site-menu ul li:nth-last-child(1),
-  .site-menu ul li:nth-last-child(2) {
-    .sub-menu {
-      left: auto;
-      right: 0;
-
-      li {
-        .sub-menu {
-          left: auto;
-          right: 90%;
-        }
-
-        &:hover {
-          > .sub-menu {
-            left: auto;
-            right: 100%;
-          }
-        }
+      &:focus {
+        box-shadow: none;
       }
     }
   }
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
-  .site-menu {
+.site-logo {
+  flex: 0 0 auto;
+
+  a {
+    display: inline-block;
+    line-height: 64px;
+    padding: 15px 0;
+  }
+
+  @media (max-width: 991px) {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+  }
+}
+
+.site-menu {
+  flex: 1;
+
+  > ul {
+    > li {
+      > a {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+
+      a {
+        text-shadow: none;
+        display: block;
+
+        &:hover {
+          background-color: transparent;
+          color: $color-hover;
+        }
+      }
+
+      &:last-child {
+        a {
+          padding-right: 0;
+        }
+      }
+
+      .sub-menu-toggle {
+        &:after {
+          @include transition();
+        }
+      }
+
+      &.current-menu-item,
+      &.current-menu-parent {
+        > a {
+          color: $color-hover;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1400px) {
+    ul {
+      li {
+        &:nth-last-child(1),
+        &:nth-last-child(2) {
+          .sub-menu {
+            left: auto;
+            right: 0;
+
+            li {
+              .sub-menu {
+                left: auto;
+                right: 90%;
+              }
+
+              &:hover {
+                > .sub-menu {
+                  left: auto;
+                  right: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1200px) {
     ul {
       li {
         a {
@@ -40,24 +120,8 @@
       }
     }
   }
-}
 
-@media (min-width: 992px) {
-  .active-sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .admin-bar {
-    .main-navigation {
-      &.active-sticky-nav {
-        top: 32px;
-      }
-    }
-  }
-
-  .site-menu {
+  @media (min-width: 992px) {
     > ul {
       height: 100%;
 
@@ -122,27 +186,8 @@
       }
     }
   }
-}
 
-@media (max-width: 991px) {
-  .site-navigation_warp {
-    display: block;
-  }
-
-  .site-logo {
-    display: flex;
-    justify-content: space-between;
-    flex: 1;
-  }
-
-  .navbar-toggle {
-    float: none;
-    margin: 0;
-    padding: 0;
-    display: block;
-  }
-
-  .site-menu {
+  @media (max-width: 991px) {
     position: absolute;
     top: 100%;
     left: 0;
@@ -225,48 +270,21 @@
   }
 }
 
-@media (max-width: 575px) {
-  .comment-form {
-    .comment-fields-row {
-      margin-bottom: 0;
-    }
+.sub-menu-toggle {
+  font-size: 14px;
+  cursor: pointer;
 
-    .form-comment-item {
-      margin-bottom: 15px;
-    }
-  }
-
-  .site-error {
-    &__content {
-      .heading {
-        font-size: 9rem;
-      }
-    }
+  &:after {
+    content: "\f078";
+    display: inline-block;
+    font-family: $font-awesome;
+    font-style: normal;
+    font-weight: 900;
   }
 }
 
-@media (max-width: 480px) {
-  .comments-area {
-    .comment-list {
-      li {
-        .comment-body {
-          margin-bottom: 15px;
-
-          .comment-meta {
-            padding-left: 15px;
-          }
-        }
-      }
-    }
-
-    ul {
-      li {
-        ul {
-          &.children {
-            padding-left: 10px;
-          }
-        }
-      }
-    }
+@media (max-width: 991px) {
+  .site-navigation_warp {
+    display: block;
   }
 }

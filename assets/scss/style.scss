@@ -15,11 +15,9 @@ Text Domain: basictheme
 * Table of Contents:
 *
 # General
-# Typography
 # WordPress Core
-# Reboot Bootstrap
 # Header
-  ## Information
+  ## Top
   ## Nav
 # Page
 # Sidebar
@@ -46,17 +44,9 @@ Text Domain: basictheme
 -----------------------------------------------------------------------------*/
 @import "general";
 
-/* Typography
--------------------------------------------------------------- */
-@import "typography";
-
 /* WordPress Core
 -------------------------------------------------------------- */
 @import "wp-core";
-
-/* Reboot Bootstrap
--------------------------------------------------------------- */
-@import "reboot-bootstrap";
 
 /**
 # Header

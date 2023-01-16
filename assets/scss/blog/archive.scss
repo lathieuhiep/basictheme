@@ -4,7 +4,7 @@
 
   .site-post-content {
     padding: 25px 15px 15px;
-    border: 1px solid #eee;
+    border: 1px solid $border-color;
     flex: 1 auto;
   }
 
@@ -14,8 +14,7 @@
 }
 
 .site-post-title {
-  margin-bottom: 10px;
-  font-size: 24px;
+  font-size: $h3-font-size;
 
   a {
     color: $color-title;
@@ -32,7 +31,7 @@
 }
 
 .site-post-meta {
-  font-size: 12px;
+  font-size: 1.2rem;
   margin-bottom: 5px;
 
   span {

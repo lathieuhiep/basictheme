@@ -4,10 +4,10 @@
   }
 
   .item-post {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 
     &__thumbnail {
-      margin-bottom: 15px;
+      margin-bottom: 1.5rem;
 
       a {
         display: block;
@@ -15,15 +15,15 @@
     }
 
     &__title {
-      font-size: 18px;
+      font-size: 1.8rem;
     }
 
     &__content {
-      margin-top: 15px;
+      margin-top: 1.5rem;
 
       p {
         margin: 0;
-        font-size: 14px;
+        font-size: 1.4rem;
       }
     }
   }
