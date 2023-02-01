@@ -5,13 +5,17 @@
 
 // Include any default variable overrides here
 
+// body
+$body-bg: $background-body;
+$body-color: $color-primary;
+$body-text-align: inherit;
+
 // stylelint-enable value-keyword-case
 $font-family-sans-serif: $font-primary;
 $font-family-monospace: $font-primary;
 $font-family-base: $font-primary;
 $font-size-base: 1.6rem;
 $line-height-base: 1.6;
-$body-text-align: inherit;
 
 // Grid columns
 //
