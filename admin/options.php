@@ -116,7 +116,7 @@ if ( class_exists( 'CSF' ) ) {
 	CSF::createSection( $basictheme_prefix, array(
 		'id'    => 'blog_opt_section',
 		'icon'  => 'fas fa-blog',
-		'title' => esc_html__( 'Blog', 'basictheme' ),
+		'title' => esc_html__( 'Post', 'basictheme' ),
 	) );
 
 	// Category Post
@@ -144,7 +144,6 @@ if ( class_exists( 'CSF' ) ) {
 				'type'    => 'select',
 				'title'   => esc_html__( 'Blog Per Row', 'basictheme' ),
 				'options' => array(
-					'2' => esc_html__( '2 Column', 'basictheme' ),
 					'3' => esc_html__( '3 Column', 'basictheme' ),
 					'4' => esc_html__( '4 Column', 'basictheme' ),
 				),
@@ -168,16 +167,6 @@ if ( class_exists( 'CSF' ) ) {
 					'right' => esc_html__( 'Right', 'basictheme' ),
 				),
 				'default' => 'right'
-			),
-
-			array(
-				'id'         => 'single_opt_share_post',
-				'type'       => 'switcher',
-				'title'      => esc_html__( 'Share post', 'basictheme' ),
-				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
-				'text_off'   => esc_html__( 'No', 'basictheme' ),
-				'default'    => true,
-				'text_width' => 80
 			),
 
 			// Show related post

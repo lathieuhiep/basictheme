@@ -1,5 +1,4 @@
 <?php
-$share_post = basictheme_get_option('single_opt_share_post', '1');
 $show_related = basictheme_get_option('single_opt_related_post', '1');
 ?>
 
@@ -47,12 +46,6 @@ $show_related = basictheme_get_option('single_opt_related_post', '1');
             <?php endif; ?>
         </div>
     </div>
-
-    <?php
-    if ( $share_post == '1' ) :
-        basictheme_post_share();
-    endif;
-    ?>
 </div>
 
 <?php
@@ -61,8 +54,3 @@ basictheme_comment_form();
 if ( $show_related == '1' ) :
     get_template_part( 'template-parts/post/inc','related-post' );
 endif;
-
-
-
-
-

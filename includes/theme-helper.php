@@ -159,8 +159,8 @@ function basictheme_col_sidebar(): string
 function basictheme_post_meta(): void {
 	?>
 
-	<div class="site-post-meta">
-        <span class="site-post-author">
+	<div class="post-meta">
+        <span class="post-meta__author">
             <?php esc_html_e( 'Author:', 'basictheme' ); ?>
 
             <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
@@ -168,12 +168,12 @@ function basictheme_post_meta(): void {
             </a>
         </span>
 
-		<span class="site-post-date">
+		<span class="post-meta__date">
             <?php esc_html_e( 'Post date: ', 'basictheme' );
             the_date(); ?>
         </span>
 
-		<span class="site-post-comments">
+		<span class="post-meta__comments">
             <?php
             comments_popup_link( '0 ' . esc_html__( 'Comment', 'basictheme' ), '1 ' . esc_html__( 'Comment', 'basictheme' ), '% ' . esc_html__( 'Comments', 'basictheme' ) );
             ?>
@@ -251,15 +251,6 @@ function basictheme_get_form_cf7(): array {
 	}
 
 	return $options;
-}
-
-// Share Facebook
-function basictheme_post_share(): void {
-	?>
-	<div class="site-post-share">
-		<iframe src="https://www.facebook.com/plugins/like.php?href=<?php the_permalink(); ?>&width=150&layout=button&action=like&size=large&share=true&height=30&appId=612555202942781" width="150" height="30" style="border:none;overflow:hidden" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-	</div>
-	<?php
 }
 
 // Social Network
