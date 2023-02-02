@@ -2,12 +2,12 @@
 get_header();
 
 $sidebar = basictheme_get_option('single_opt_sidebar', 'right');
-$class_col_content = basictheme_col_use_sidebar( $sidebar, 'basictheme-sidebar-main' );
+$class_col_content = basictheme_col_use_sidebar( $sidebar, 'sidebar-main' );
 
-get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
+get_template_part( 'components/inc', 'breadcrumbs' );
 ?>
 
-<div class="site-container site-single">
+<div class="site-container single-post-warp">
     <div class="container">
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">

@@ -17,8 +17,6 @@ Text Domain: basictheme
 # General
 # WordPress Core
 # Header
-  ## Top
-  ## Nav
 # Page
 # Sidebar
 # Blog
@@ -51,7 +49,7 @@ Text Domain: basictheme
 /**
 # Header
 -----------------------------------------------------------------------------*/
-@import "header/header";
+@import "header";
 
 /**
 # Page
@@ -66,7 +64,7 @@ Text Domain: basictheme
 /**
 # Blog
 -----------------------------------------------------------------------------*/
-@import "blog/blog";
+@import "post/post";
 
 /**
 # Woocommerce
@@ -86,7 +84,7 @@ Text Domain: basictheme
 /**
 # Footer
 -----------------------------------------------------------------------------*/
-@import "footer/footer";
+@import "footer";
 
 /**
 # Responsive

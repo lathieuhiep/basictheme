@@ -112,54 +112,11 @@ if ( class_exists( 'CSF' ) ) {
 	) );
 
 	//
-	// Create a section contact us
-	CSF::createSection( $basictheme_prefix, array(
-		'title'  => esc_html__( 'Contact us', 'basictheme' ),
-		'icon'   => 'far fa-address-card',
-		'fields' => array(
-			// Show contact us
-			array(
-				'id'         => 'contact_us_opt_show',
-				'type'       => 'switcher',
-				'title'      => esc_html__( 'Show Contact Us', 'basictheme' ),
-				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
-				'text_off'   => esc_html__( 'No', 'basictheme' ),
-				'text_width' => 80,
-				'default'    => true
-			),
-
-			// Address
-			array(
-				'id'      => 'contact_us_opt_address',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Address', 'basictheme' ),
-				'default' => esc_html__( '988782, Our Street, S State', 'basictheme' )
-			),
-
-			// Email
-			array(
-				'id'      => 'contact_us_opt_email',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Email', 'basictheme' ),
-				'default' => 'info@domain.com'
-			),
-
-			// Phone
-			array(
-				'id'      => 'contact_us_opt_phone',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Phone', 'basictheme' ),
-				'default' => '+1 234 567 186'
-			),
-		)
-	) );
-
-	//
 	// -> Create a section blog
 	CSF::createSection( $basictheme_prefix, array(
 		'id'    => 'blog_opt_section',
 		'icon'  => 'fas fa-blog',
-		'title' => esc_html__( 'Blog', 'basictheme' ),
+		'title' => esc_html__( 'Post', 'basictheme' ),
 	) );
 
 	// Category Post
@@ -187,7 +144,6 @@ if ( class_exists( 'CSF' ) ) {
 				'type'    => 'select',
 				'title'   => esc_html__( 'Blog Per Row', 'basictheme' ),
 				'options' => array(
-					'2' => esc_html__( '2 Column', 'basictheme' ),
 					'3' => esc_html__( '3 Column', 'basictheme' ),
 					'4' => esc_html__( '4 Column', 'basictheme' ),
 				),
@@ -211,16 +167,6 @@ if ( class_exists( 'CSF' ) ) {
 					'right' => esc_html__( 'Right', 'basictheme' ),
 				),
 				'default' => 'right'
-			),
-
-			array(
-				'id'         => 'single_opt_share_post',
-				'type'       => 'switcher',
-				'title'      => esc_html__( 'Share post', 'basictheme' ),
-				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
-				'text_off'   => esc_html__( 'No', 'basictheme' ),
-				'default'    => true,
-				'text_width' => 80
 			),
 
 			// Show related post
@@ -423,7 +369,7 @@ if ( class_exists( 'CSF' ) ) {
 				'type'    => 'wp_editor',
 				'title'   => esc_html__( 'Content', 'basictheme' ),
 				'media_buttons' => false,
-				'default' => esc_html__( 'Copyright &amp; DiepLK', 'basictheme' )
+				'default' => esc_html__( 'Copyright &copy; DiepLK', 'basictheme' )
 			),
 		)
 	) );

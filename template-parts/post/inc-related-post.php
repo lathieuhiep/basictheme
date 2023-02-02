@@ -15,8 +15,8 @@ if ( !empty( $term_ids ) ):
 
     if ($query->have_posts()) :
     ?>
-        <div class="site-single-post-related">
-            <h3 class="title">
+        <div class="related-posts">
+            <h3 class="related-posts__title">
                 <?php esc_html_e('Related Post', 'basictheme'); ?>
             </h3>
 
@@ -24,8 +24,7 @@ if ( !empty( $term_ids ) ):
                 <?php
                 while ($query->have_posts()) :
                     $query->the_post();
-                    ?>
-
+                ?>
                     <div class="col item">
                         <div class="related-post-item">
                             <?php if (has_post_thumbnail()) : ?>
@@ -53,7 +52,6 @@ if ( !empty( $term_ids ) ):
                             </div>
                         </div>
                     </div>
-
                 <?php
                 endwhile;
                 wp_reset_postdata();

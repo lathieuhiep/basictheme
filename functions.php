@@ -14,7 +14,7 @@ function basictheme_setup(): void {
 	global $content_width;
 
 	if ( ! isset( $content_width ) ) {
-		$content_width = 900;
+		$content_width = 1200;
 	}
 
 	// Required: options theme
@@ -48,7 +48,6 @@ function basictheme_setup(): void {
     register_nav_menus(
         array(
             'primary'   => esc_html__('Primary Menu', 'basictheme'),
-            'footer-menu' => esc_html__('Footer Menu', 'basictheme'),
         )
     );
 

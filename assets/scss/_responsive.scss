@@ -4,21 +4,7 @@
   }
 }
 
-@media (min-width: 992px) {
-  .active-sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
 
-  .admin-bar {
-    .main-navigation {
-      &.active-sticky-nav {
-        top: 32px;
-      }
-    }
-  }
-}
 
 @media (max-width: 575px) {
   .comment-form {

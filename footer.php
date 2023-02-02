@@ -1,15 +1,29 @@
 </div><!--End Sticky Footer-->
 
-<?php if ( !is_404() ) : ?>
+<?php
+$opt_back_to_top = basictheme_get_option( 'general_opt_back_to_top', '1' );
 
-<footer class="site-footer">
-    <?php
-    get_template_part( 'template-parts/footer/inc','multi-column' );
+get_template_part('components/inc','loading');
 
-    get_template_part( 'template-parts/footer/inc','copyright' );
-    ?>
-</footer>
+if ( $opt_back_to_top == '1' ) :
+?>
+    <div id="back-top">
+        <a href="#">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+<?php
+endif;
 
+if ( !is_404() ) :
+?>
+    <footer class="global-footer">
+        <?php
+        get_template_part( 'components/footer/inc','column' );
+
+        get_template_part( 'components/footer/inc','copyright' );
+        ?>
+    </footer>
 <?php
 endif;
 
