@@ -112,49 +112,6 @@ if ( class_exists( 'CSF' ) ) {
 	) );
 
 	//
-	// Create a section contact us
-	CSF::createSection( $basictheme_prefix, array(
-		'title'  => esc_html__( 'Contact us', 'basictheme' ),
-		'icon'   => 'far fa-address-card',
-		'fields' => array(
-			// Show contact us
-			array(
-				'id'         => 'contact_us_opt_show',
-				'type'       => 'switcher',
-				'title'      => esc_html__( 'Show Contact Us', 'basictheme' ),
-				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
-				'text_off'   => esc_html__( 'No', 'basictheme' ),
-				'text_width' => 80,
-				'default'    => true
-			),
-
-			// Address
-			array(
-				'id'      => 'contact_us_opt_address',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Address', 'basictheme' ),
-				'default' => esc_html__( '988782, Our Street, S State', 'basictheme' )
-			),
-
-			// Email
-			array(
-				'id'      => 'contact_us_opt_email',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Email', 'basictheme' ),
-				'default' => 'info@domain.com'
-			),
-
-			// Phone
-			array(
-				'id'      => 'contact_us_opt_phone',
-				'type'    => 'text',
-				'title'   => esc_html__( 'Phone', 'basictheme' ),
-				'default' => '+1 234 567 186'
-			),
-		)
-	) );
-
-	//
 	// -> Create a section blog
 	CSF::createSection( $basictheme_prefix, array(
 		'id'    => 'blog_opt_section',
