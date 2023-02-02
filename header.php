@@ -11,7 +11,7 @@
 
 <!--Include Loading Template-->
 <?php
-get_template_part('template-parts/inc','loading');
+get_template_part('components/inc','loading');
 
 if ( !is_404() ) {
 	get_template_part('components/inc','header');
