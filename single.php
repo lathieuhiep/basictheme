@@ -7,7 +7,7 @@ $class_col_content = basictheme_col_use_sidebar( $sidebar, 'sidebar-main' );
 get_template_part( 'components/inc', 'breadcrumbs' );
 ?>
 
-<div class="site-container site-single">
+<div class="site-container single-post-warp">
     <div class="container">
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">
