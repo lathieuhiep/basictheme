@@ -276,15 +276,13 @@
       }
 
       .number-cart-product {
-        display: inline-block;
         position: absolute;
         font-size: 12px;
         color: #ffffff;
         top: -12px;
         right: 0;
         @include square(20px, 50%);
-        line-height: 22px;
-        text-align: center;
+        @include flex-center();
         background-color: $color-hover;
       }
     }

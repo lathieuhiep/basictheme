@@ -69,7 +69,7 @@ if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
     function basictheme_woo_get_sidebar(): void {
 	    $sidebar = basictheme_get_option('shop_opt_sidebar', 'left');
 
-	    if( is_active_sidebar( 'basictheme-sidebar-wc' ) ):
+	    if( is_active_sidebar( 'sidebar-wc' ) ):
 
 	        if ( $sidebar == 'left' ) :
 		        $class_order = 'order-md-1';
@@ -79,7 +79,7 @@ if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
     ?>
 
             <aside class="col-12 col-md-4 col-lg-3 order-2 <?php echo esc_attr( $class_order ); ?>">
-                <?php dynamic_sidebar( 'basictheme-sidebar-wc' ); ?>
+                <?php dynamic_sidebar( 'sidebar-wc' ); ?>
             </aside>
 
     <?php
@@ -114,7 +114,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
                     do_action( 'basictheme_woo_sidebar' );
 
                 ?>
-                    <div class="<?php echo is_active_sidebar( 'basictheme-sidebar-wc' ) && $sidebar != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
+                    <div class="<?php echo is_active_sidebar( 'sidebar-wc' ) && $sidebar != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
 
     <?php
 

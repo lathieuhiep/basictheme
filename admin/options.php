@@ -380,7 +380,7 @@ if ( class_exists( 'CSF' ) ) {
 				'type'    => 'wp_editor',
 				'title'   => esc_html__( 'Content', 'basictheme' ),
 				'media_buttons' => false,
-				'default' => esc_html__( 'Copyright &amp; DiepLK', 'basictheme' )
+				'default' => esc_html__( 'Copyright &copy; DiepLK', 'basictheme' )
 			),
 		)
 	) );
