@@ -6,9 +6,16 @@ function disable_gutenberg_editor()
 	return false;
 }
 
+// get version theme
 function basictheme_get_version_theme(): string {
 	return wp_get_theme()->get( 'Version' );
 }
+
+// check is blog
+function basictheme_is_blog (): bool {
+	return ( is_archive() || is_author() || is_category() || is_home() || is_single() || is_tag() ) && get_post_type() == 'post';
+}
+
 // Callback Comment List
 function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
 	if ( $basictheme_comment_args['style'] == 'div' ) :

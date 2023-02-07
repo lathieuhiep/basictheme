@@ -42,6 +42,11 @@ function basictheme_register_front_end() {
 	// style theme
 	wp_enqueue_style( 'basictheme-style', get_stylesheet_uri(), array(), basictheme_get_version_theme() );
 
+	// style post
+	if ( basictheme_is_blog() ) {
+		wp_enqueue_style( 'post', get_theme_file_uri( '/assets/css/post/post.min.css' ), array(), basictheme_get_version_theme() );
+	}
+
 	/** Load js **/
 
 	// bootstrap js

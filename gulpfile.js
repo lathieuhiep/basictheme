@@ -36,10 +36,9 @@ function buildStylesBootstrap() {
         .pipe(dest(`${pathRoot}assets/libs/bootstrap/`))
         .pipe(browserSync.stream());
 }
-
 exports.buildStylesBootstrap = buildStylesBootstrap;
 
-// Task build styles
+// Task build style
 function buildStyles() {
     return src(`${pathRoot}assets/scss/style.scss`)
         .pipe(sourcemaps.init())
@@ -50,7 +49,7 @@ function buildStyles() {
 }
 exports.buildStyles = buildStyles;
 
-// Task build styles elementor
+// Task build style elementor
 function buildStylesElementor() {
     return src(`${pathRoot}assets/scss/elementor-addon/elementor-addon.scss`)
         .pipe(sass().on('error', sass.logError))
@@ -63,6 +62,34 @@ function buildStylesElementor() {
         .pipe(browserSync.stream());
 }
 exports.buildStylesElementor = buildStylesElementor;
+
+// Task build style post
+function buildStylePost() {
+    return src(`${pathRoot}assets/scss/post/post.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}assets/css/post/`))
+        .pipe(browserSync.stream());
+}
+exports.buildStylePost = buildStylePost;
+
+// Task build style shop
+function buildStyleShop() {
+    return src(`${pathRoot}assets/scss/shop/shop.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}extension/woocommerce/assets/css/`))
+        .pipe(browserSync.stream());
+}
+exports.buildStyleShop = buildStyleShop;
 
 // buildJSTheme
 function buildJSTheme() {
@@ -127,9 +154,13 @@ function watchTask() {
     watch([
         `${pathRoot}assets/scss/**/*.scss`,
         `!${pathRoot}assets/scss/bootstrap.scss`,
-        `!${pathRoot}assets/scss/elementor-addon/*.scss`
+        `!${pathRoot}assets/scss/elementor-addon/*.scss`,
+        `!${pathRoot}assets/scss/post/*.scss`,
+        `!${pathRoot}assets/scss/shop/*.scss`
     ], buildStyles)
     watch(`${pathRoot}assets/scss/elementor-addon/*.scss`, buildStylesElementor)
+    watch(`${pathRoot}assets/scss/post/*.scss`, buildStylePost)
+    watch(`${pathRoot}assets/scss/shop/*.scss`, buildStyleShop)
     watch([`${pathRoot}assets/js/*.js`, `!${pathRoot}assets/js/*.min.js`], buildJSTheme)
 }
 exports.watchTask = watchTask

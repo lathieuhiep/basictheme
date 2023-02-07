@@ -21,15 +21,6 @@ Text Domain: basictheme
 # Pagination
 # Page
 # Sidebar
-# Blog
-  ## Archive
-  ## Single
-# Woocommerce
-  ## Archive shop
-  ## Single Shop
-  ## Other Page Shop
-  ## Sidebar Shop
-  ## Quick View Product
 # Contact Form 7
 # Footer
 # Responsive
@@ -71,16 +62,6 @@ Text Domain: basictheme
 # Sidebar
 -----------------------------------------------------------------------------*/
 @import "sidebar";
-
-/**
-# Blog
------------------------------------------------------------------------------*/
-@import "post/post";
-
-/**
-# Woocommerce
------------------------------------------------------------------------------*/
-@import "shop/shop";
 
 /**
 # Contact Form 7
