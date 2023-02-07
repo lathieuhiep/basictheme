@@ -43,14 +43,14 @@ add_action( 'wp_enqueue_scripts', 'basictheme_elementor_scripts', 11 );
 function basictheme_elementor_scripts(): void {
 	$basictheme_check_elementor = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 
-	if ( $basictheme_check_elementor ) {
+	if ( $basictheme_check_elementor == 'builder' ) {
 		// style
-		wp_enqueue_style( 'owl.carousel', get_theme_file_uri( 'assets/libs/owl.carousel/owl.carousel.min.css' ), array(), '2.3.4' );
+		wp_enqueue_style( 'owl.carousel', get_theme_file_uri( '/assets/libs/owl.carousel/owl.carousel.min.css' ), array(), '2.3.4' );
 
 		wp_enqueue_style( 'basictheme-elementor-style', get_theme_file_uri( '/extension/elementor-addon/css/elementor-addon.min.css' ), array(), basictheme_get_version_theme() );
 
 		// js
-		wp_enqueue_script( 'owl.carousel', get_theme_file_uri( 'assets/libs/owl.carousel/owl.carousel.min.js' ), array( 'jquery' ), '2.3.4', true );
+		wp_enqueue_script( 'owl.carousel', get_theme_file_uri( '/assets/libs/owl.carousel/owl.carousel.min.js' ), array( 'jquery' ), '2.3.4', true );
 
 		wp_enqueue_script( 'basictheme-elementor-script', get_theme_file_uri( '/extension/elementor-addon/js/elementor-addon.js' ), array( 'jquery' ), '1.0.0', true );
 	}

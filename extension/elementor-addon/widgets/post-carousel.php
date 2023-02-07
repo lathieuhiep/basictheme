@@ -466,7 +466,6 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
     }
 
     protected function render() {
-
         $settings       =   $this->get_settings_for_display();
         $cat_post       =   $settings['select_cat'];
         $limit_post     =   $settings['limit'];
@@ -520,7 +519,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 
     ?>
         <div class="element-post-carousel">
-            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+            <div class="custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php while ( $query->have_posts() ): $query->the_post(); ?>
 
                     <div class="item-post">

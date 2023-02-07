@@ -66,12 +66,14 @@ exports.buildStylesElementor = buildStylesElementor;
 // Task build style post
 function buildStylePost() {
     return src(`${pathRoot}assets/scss/post/post.scss`)
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(minifyCss({
             compatibility: 'ie8',
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename( {suffix: '.min'} ))
+        .pipe(sourcemaps.write())
         .pipe(dest(`${pathRoot}assets/css/post/`))
         .pipe(browserSync.stream());
 }

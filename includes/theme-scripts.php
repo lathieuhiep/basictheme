@@ -25,7 +25,7 @@ function basictheme_register_front_end() {
 	wp_dequeue_style('wp-block-library-theme');
 	wp_dequeue_style( 'classic-theme-styles' );
 
-	wp_dequeue_style('wc-blocks-style'); // disable woocommerce frontend block styles
+	wp_dequeue_style('wc-blocks-style');
 	wp_dequeue_style('storefront-gutenberg-blocks'); // disable storefront frontend block styles
 
 	/** Load css **/
