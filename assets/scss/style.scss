@@ -17,12 +17,13 @@ Text Domain: basictheme
 # General
 # WordPress Core
 # Header
+# Comment Form
+# Pagination
 # Page
 # Sidebar
 # Blog
+  ## Archive
   ## Single
-  ## Pagination
-  ## Comment
 # Woocommerce
   ## Archive shop
   ## Single Shop
@@ -50,6 +51,16 @@ Text Domain: basictheme
 # Header
 -----------------------------------------------------------------------------*/
 @import "header";
+
+/**
+# Comment Form
+-----------------------------------------------------------------------------*/
+@import "comment-form";
+
+/**
+# Pagination
+-----------------------------------------------------------------------------*/
+@import "pagination";
 
 /**
 # Page

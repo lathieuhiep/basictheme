@@ -10,8 +10,8 @@ function basictheme_get_version_theme(): string {
 	return wp_get_theme()->get( 'Version' );
 }
 // Callback Comment List
-function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ): bool {
-	if ( 'div' === $basictheme_comment_args['style'] ) :
+function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
+	if ( $basictheme_comment_args['style'] == 'div' ) :
 		$basictheme_comment_tag       = 'div';
 		$basictheme_comment_add_below = 'comment';
 	else :
@@ -19,55 +19,54 @@ function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $ba
 		$basictheme_comment_add_below = 'div-comment';
 	endif;
 
-	?>
-	<<?php echo $basictheme_comment_tag ?><?php comment_class( empty( $basictheme_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+?>
+	<<?php echo $basictheme_comment_tag ?> <?php comment_class( empty( $basictheme_comment_args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
 
-	<?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
-		<div id="div-comment-<?php comment_ID() ?>" class="comment-body">
-	<?php endif; ?>
+        <?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
 
-	<div class="comment-author vcard">
-		<?php if ( $basictheme_comment_args['avatar_size'] != 0 ) {
-			echo get_avatar( $basictheme_comment, $basictheme_comment_args['avatar_size'] );
-		} ?>
-	</div>
+		<div id="div-comment-<?php comment_ID() ?>" class="comment__body">
 
-	<?php if ( $basictheme_comment->comment_approved == '0' ) : ?>
-		<em class="comment-awaiting-moderation">
-			<?php esc_html_e( 'Your comment is awaiting moderation.', 'basictheme' ); ?>
-		</em>
-	<?php endif; ?>
+        <?php endif; ?>
+            <div class="author vcard">
+                <div class="author__avatar">
+	                <?php if ( $basictheme_comment_args['avatar_size'] != 0 ) {
+		                echo get_avatar( $basictheme_comment, $basictheme_comment_args['avatar_size'] );
+	                } ?>
+                </div>
 
-	<div class="comment-meta commentmetadata">
-		<div class="comment-meta-box">
-             <span class="name">
-                <?php comment_author_link(); ?>
-            </span>
-			<span class="comment-metadata">
-                <?php comment_date(); ?>
-            </span>
+                <div class="author__info">
+                    <span class="name"><?php comment_author_link(); ?></span>
 
-			<?php edit_comment_link( esc_html__( 'Edit ', 'basictheme' ) ); ?>
+                    <span class="date"><?php comment_date(); ?></span>
+                </div>
+            </div>
 
-			<?php comment_reply_link( array_merge( $basictheme_comment_args, array(
-				'add_below' => $basictheme_comment_add_below,
-				'depth'     => $basictheme_comment_depth,
-				'max_depth' => $basictheme_comment_args['max_depth']
-			) ) ); ?>
+            <?php if ( $basictheme_comment->comment_approved == '0' ) : ?>
+                <div class="awaiting">
+                    <?php esc_html_e( 'Your comment is awaiting moderation.', 'basictheme' ); ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="content">
+	            <?php comment_text(); ?>
+            </div>
+
+            <div class="action">
+	            <?php edit_comment_link( esc_html__( 'Edit ', 'basictheme' ) ); ?>
+
+	            <?php comment_reply_link( array_merge( $basictheme_comment_args, array(
+		            'add_below' => $basictheme_comment_add_below,
+		            'depth'     => $basictheme_comment_depth,
+		            'max_depth' => $basictheme_comment_args['max_depth']
+	            ) ) ); ?>
+            </div>
+
+	    <?php if ( $basictheme_comment_args['style'] != 'div' ) : ?>
 
 		</div>
 
-		<div class="comment-text-box">
-			<?php comment_text(); ?>
-		</div>
-	</div>
-
-	<?php if ( 'div' != $basictheme_comment_args['style'] ) : ?>
-		</div>
-	<?php
-	endif;
-
-	return true;
+    <?php
+        endif;
 }
 
 // Content Nav
@@ -193,18 +192,6 @@ function basictheme_link_page(): void {
 		'link_after'  => '</span>',
 	) );
 
-}
-
-// Comment
-function basictheme_comment_form(): void {
-
-	if ( comments_open() || get_comments_number() ) :
-		?>
-		<div class="site-comments">
-			<?php comments_template( '', true ); ?>
-		</div>
-	<?php
-	endif;
 }
 
 // Get Category Check Box
