@@ -32,7 +32,7 @@ if ( class_exists( 'CSF' ) ) {
 		'fields' => array(
 			// favicon
 			array(
-				'id'      => 'general_opt_favicon',
+				'id'      => 'opt_general_favicon',
 				'type'    => 'media',
 				'title'   => esc_html__( 'Upload Image Favicon', 'basictheme' ),
 				'library' => 'image',
@@ -41,7 +41,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// logo
 			array(
-				'id'      => 'general_opt_logo',
+				'id'      => 'opt_general_logo',
 				'type'    => 'media',
 				'title'   => esc_html__( 'Upload Image Logo', 'basictheme' ),
 				'library' => 'image',
@@ -50,7 +50,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// show loading
 			array(
-				'id'         => 'general_opt_loading',
+				'id'         => 'opt_general_loading',
 				'type'       => 'switcher',
 				'title'      => esc_html__( 'website loader', 'basictheme' ),
 				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
@@ -60,17 +60,17 @@ if ( class_exists( 'CSF' ) ) {
 			),
 
 			array(
-				'id'         => 'general_opt_image_loading',
+				'id'         => 'opt_general_image_loading',
 				'type'       => 'media',
 				'title'      => esc_html__( 'Upload Image Loading', 'basictheme' ),
 				'subtitle'   => esc_html__( 'Use file .git', 'basictheme' ) . ' <a href="https://loading.io/" target="_blank">loading.io</a>',
-				'dependency' => array( 'general_opt_loading', '==', 'true' ),
+				'dependency' => array( 'opt_general_loading', '==', 'true' ),
 				'url'        => false
 			),
 
 			// show back to top
 			array(
-				'id'         => 'general_opt_back_to_top',
+				'id'         => 'opt_general_back_to_top',
 				'type'       => 'switcher',
 				'title'      => esc_html__( 'Use Back To Top', 'basictheme' ),
 				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
@@ -89,7 +89,7 @@ if ( class_exists( 'CSF' ) ) {
 		'fields' => array(
 			// Sticky menu
 			array(
-				'id'         => 'menu_option_sticky',
+				'id'         => 'opt_menu_sticky',
 				'type'       => 'switcher',
 				'title'      => esc_html__( 'Sticky menu', 'basictheme' ),
 				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
@@ -100,7 +100,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// Show cart
 			array(
-				'id'         => 'menu_option_cart',
+				'id'         => 'opt_menu_cart',
 				'type'       => 'switcher',
 				'title'      => esc_html__( 'Cart', 'basictheme' ),
 				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
@@ -114,20 +114,20 @@ if ( class_exists( 'CSF' ) ) {
 	//
 	// -> Create a section blog
 	CSF::createSection( $basictheme_prefix, array(
-		'id'    => 'blog_opt_section',
+		'id'    => 'opt_post_section',
 		'icon'  => 'fas fa-blog',
 		'title' => esc_html__( 'Post', 'basictheme' ),
 	) );
 
 	// Category Post
 	CSF::createSection( $basictheme_prefix, array(
-		'parent' => 'blog_opt_section',
+		'parent' => 'opt_post_section',
 		'title'  => esc_html__( 'Category', 'basictheme' ),
 		'description' => esc_html__( 'Use for archive, index, page search', 'basictheme' ),
 		'fields' => array(
 			// Sidebar
 			array(
-				'id'      => 'blog_cat_opt_sidebar',
+				'id'      => 'opt_post_cat_sidebar_position',
 				'type'    => 'select',
 				'title'   => esc_html__( 'Sidebar position', 'basictheme' ),
 				'options' => array(
@@ -140,7 +140,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// Per Row
 			array(
-				'id'      => 'blog_cat_opt_per_row',
+				'id'      => 'opt_post_cat_per_row',
 				'type'    => 'select',
 				'title'   => esc_html__( 'Blog Per Row', 'basictheme' ),
 				'options' => array(
@@ -154,11 +154,11 @@ if ( class_exists( 'CSF' ) ) {
 
 	// Single Post
 	CSF::createSection( $basictheme_prefix, array(
-		'parent' => 'blog_opt_section',
+		'parent' => 'opt_post_section',
 		'title'  => esc_html__( 'Single', 'basictheme' ),
 		'fields' => array(
 			array(
-				'id'      => 'single_opt_sidebar',
+				'id'      => 'opt_post_single_sidebar_position',
 				'type'    => 'select',
 				'title'   => esc_html__( 'Sidebar position', 'basictheme' ),
 				'options' => array(
@@ -171,7 +171,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// Show related post
 			array(
-				'id'         => 'single_opt_related_post',
+				'id'         => 'opt_post_single_related',
 				'type'       => 'switcher',
 				'title'      => esc_html__( 'Show related post', 'basictheme' ),
 				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
@@ -182,7 +182,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// Limit related post
 			array(
-				'id'      => 'single_opt_limit_related_post',
+				'id'      => 'opt_post_single_related_limit',
 				'type'    => 'number',
 				'title'   => esc_html__( 'Limit related post', 'basictheme' ),
 				'default' => 3,
@@ -197,7 +197,7 @@ if ( class_exists( 'CSF' ) ) {
 		'icon'   => 'fab fa-hive',
 		'fields' => array(
 			array(
-				'id'      => 'social_network_opt_list',
+				'id'      => 'opt_social_network',
 				'type'    => 'repeater',
 				'title'   => esc_html__( 'Social Network', 'basictheme' ),
 				'fields'  => array(
@@ -214,7 +214,6 @@ if ( class_exists( 'CSF' ) ) {
 						'title' => esc_html__('URL', 'basictheme'),
 						'default' => '#'
 					),
-
 				),
 				'default' => array(
 					array(
@@ -234,12 +233,20 @@ if ( class_exists( 'CSF' ) ) {
 	//
 	//  Create a section shop
 	CSF::createSection( $basictheme_prefix, array(
+		'id'    => 'opt_shop_section',
 		'title'  => esc_html__( 'Shop', 'basictheme' ),
 		'icon'   => 'fas fa-shopping-cart',
+	) );
+
+	// Category product
+	CSF::createSection( $basictheme_prefix, array(
+		'parent' => 'opt_shop_section',
+		'title'  => esc_html__( 'Category', 'basictheme' ),
+		'description' => esc_html__( 'Use for shop category and tag', 'basictheme' ),
 		'fields' => array(
 			// Sidebar
 			array(
-				'id'      => 'shop_opt_sidebar',
+				'id'      => 'opt_shop_cat_sidebar_position',
 				'type'    => 'select',
 				'title'   => esc_html__( 'Sidebar position', 'basictheme' ),
 				'options' => array(
@@ -252,7 +259,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// Limit
 			array(
-				'id'      => 'shop_opt_limit',
+				'id'      => 'opt_shop_cat_limit',
 				'type'    => 'number',
 				'title'   => esc_html__( 'Limit Product', 'basictheme' ),
 				'default' => 12,
@@ -260,7 +267,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// Per Row
 			array(
-				'id'      => 'shop_opt_per_row',
+				'id'      => 'opt_shop_cat_per_row',
 				'type'    => 'select',
 				'title'   => esc_html__( 'Products Per Row', 'basictheme' ),
 				'options' => array(
@@ -273,88 +280,109 @@ if ( class_exists( 'CSF' ) ) {
 		)
 	) );
 
+	// Single product
+	CSF::createSection( $basictheme_prefix, array(
+		'parent' => 'opt_shop_section',
+		'title'  => esc_html__( 'Single', 'basictheme' ),
+		'description' => esc_html__( 'Use for single product', 'basictheme' ),
+		'fields' => array(
+			// Sidebar
+			array(
+				'id'      => 'opt_shop_single_sidebar_position',
+				'type'    => 'select',
+				'title'   => esc_html__( 'Sidebar position', 'basictheme' ),
+				'options' => array(
+					'hide'  => esc_html__( 'Hide', 'basictheme' ),
+					'left'  => esc_html__( 'Left', 'basictheme' ),
+					'right' => esc_html__( 'Right', 'basictheme' ),
+				),
+				'default' => 'left'
+			)
+		)
+	) );
+
 	//
 	// -> Create a section footer
 	CSF::createSection( $basictheme_prefix, array(
-		'id'    => 'footer_opt_section',
+		'id'    => 'opt_footer_section',
 		'icon'  => 'fas fa-stream',
 		'title' => esc_html__( 'Footer', 'basictheme' ),
 	) );
 
 	// footer columns
 	CSF::createSection( $basictheme_prefix, array(
-		'parent' => 'footer_opt_section',
+		'parent' => 'opt_footer_section',
 		'title'  => esc_html__( 'Columns Sidebar', 'basictheme' ),
 		'fields' => array(
 			// select columns
 			array(
-				'id'      => 'footer_opt_columns',
+				'id'      => 'opt_footer_columns',
 				'type'    => 'select',
 				'title'   => esc_html__( 'Number of footer columns', 'basictheme' ),
 				'options' => array(
 					'0' => esc_html__( 'Hide', 'basictheme' ),
-					'1' => esc_html__( '1', 'basictheme' ),
-					'2' => esc_html__( '2', 'basictheme' ),
-					'3' => esc_html__( '3', 'basictheme' ),
-					'4' => esc_html__( '4', 'basictheme' ),
+					'1' => 1,
+					'2' => 2,
+					'3' => 3,
+					'4' => 4,
 				),
 				'default' => '4'
 			),
 
 			// column width 1
 			array(
-				'id'         => 'footer_opt_column_width_1',
+				'id'         => 'opt_footer_column_width_1',
 				'type'       => 'slider',
 				'title'      => esc_html__( 'Column width 1', 'basictheme' ),
 				'default'    => 3,
 				'min'        => 1,
 				'max'        => 12,
-				'dependency' => array( 'footer_opt_columns', '!=', '0' )
+				'dependency' => array( 'opt_footer_columns', '!=', '0' )
 			),
 
 			// column width 2
 			array(
-				'id'         => 'footer_opt_column_width_2',
+				'id'         => 'opt_footer_column_width_2',
 				'type'       => 'slider',
 				'title'      => esc_html__( 'Column width 2', 'basictheme' ),
 				'default'    => 3,
 				'min'        => 1,
 				'max'        => 12,
-				'dependency' => array( 'footer_opt_columns', 'not-any', '0,1' )
+				'dependency' => array( 'opt_footer_columns', 'not-any', '0,1' )
 			),
 
 			// column width 3
 			array(
-				'id'         => 'footer_opt_column_width_3',
+				'id'         => 'opt_footer_column_width_3',
 				'type'       => 'slider',
 				'title'      => esc_html__( 'Column width 3', 'basictheme' ),
 				'default'    => 3,
 				'min'        => 1,
 				'max'        => 12,
-				'dependency' => array( 'footer_opt_columns', 'not-any', '0,1,2' )
+				'dependency' => array( 'opt_footer_columns', 'not-any', '0,1,2' )
 			),
 
 			// column width 4
 			array(
-				'id'         => 'footer_opt_column_width_4',
+				'id'         => 'opt_footer_column_width_4',
 				'type'       => 'slider',
 				'title'      => esc_html__( 'Column width 4', 'basictheme' ),
 				'default'    => 3,
 				'min'        => 1,
 				'max'        => 12,
-				'dependency' => array( 'footer_opt_columns', 'not-any', '0,1,2,3' )
+				'dependency' => array( 'opt_footer_columns', 'not-any', '0,1,2,3' )
 			),
 		)
 	) );
 
 	// Copyright
 	CSF::createSection( $basictheme_prefix, array(
-		'parent' => 'footer_opt_section',
+		'parent' => 'opt_footer_section',
 		'title'  => esc_html__( 'Copyright', 'basictheme' ),
 		'fields' => array(
 			// show
 			array(
-				'id'         => 'copyright_opt_show',
+				'id'         => 'opt_footer_copyright_show',
 				'type'       => 'switcher',
 				'title'      => esc_html__( 'Show copyright', 'basictheme' ),
 				'text_on'    => esc_html__( 'Yes', 'basictheme' ),
@@ -365,7 +393,7 @@ if ( class_exists( 'CSF' ) ) {
 
 			// content
 			array(
-				'id'      => 'copyright_opt_content',
+				'id'      => 'opt_footer_copyright_content',
 				'type'    => 'wp_editor',
 				'title'   => esc_html__( 'Content', 'basictheme' ),
 				'media_buttons' => false,

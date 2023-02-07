@@ -1,5 +1,5 @@
 <?php
-$show_related = basictheme_get_option('single_opt_related_post', '1');
+$show_related = basictheme_get_option('opt_post_single_related', '1');
 ?>
 
 <div id="post-<?php the_ID() ?>" class="single-post-content">

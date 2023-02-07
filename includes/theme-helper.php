@@ -249,7 +249,7 @@ function basictheme_get_form_cf7(): array {
 
 // Social Network
 function basictheme_get_social_url(): void {
-	$opt_social_networks = basictheme_get_option('social_network_opt_list', '');
+	$opt_social_networks = basictheme_get_option('opt_social_network', '');
 
     if ( !empty( $opt_social_networks ) ) :
 	    foreach ( $opt_social_networks as $item ) :

@@ -1,7 +1,7 @@
 <?php
 get_header();
 
-$sidebar = basictheme_get_option('single_opt_sidebar', 'right');
+$sidebar = basictheme_get_option('opt_post_single_sidebar_position', 'right');
 $class_col_content = basictheme_col_use_sidebar( $sidebar, 'sidebar-main' );
 
 get_template_part( 'components/inc', 'breadcrumbs' );

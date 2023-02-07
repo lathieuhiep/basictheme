@@ -2,7 +2,7 @@
 $term_ids  = wp_get_post_terms( get_the_ID(), 'category', array( 'fields' => 'ids' ) );
 
 if ( !empty( $term_ids ) ):
-	$limit = basictheme_get_option('single_opt_limit_related_post', 3);
+	$limit = basictheme_get_option('opt_post_single_related_limit', 3);
 
     $arg = array(
         'post_type' => 'post',
