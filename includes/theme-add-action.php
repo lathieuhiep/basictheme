@@ -2,7 +2,7 @@
 // setting favicon
 add_action('wp_head', 'basictheme_favicon', 1);
 function basictheme_favicon(): void {
-    $opt_favicon = basictheme_get_option( 'general_opt_favicon' );
+    $opt_favicon = basictheme_get_option( 'opt_general_favicon' );
 
     if ( empty( $opt_favicon['url'] ) ) :
         $favicon_url = get_theme_file_uri('/assets/images/favicon.png' );

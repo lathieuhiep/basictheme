@@ -24,7 +24,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
         return 'eicon-user-circle-o';
     }
 
-    protected function _register_controls() {
+    protected function register_controls() {
 
         // Content testimonial
         $this->start_controls_section(

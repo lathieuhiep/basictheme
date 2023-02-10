@@ -5,21 +5,15 @@ if (post_password_required()) {
 ?>
 
 <div id="comments" class="comments-area">
-
-    <?php if (have_comments()) : ?>
-
-        <h2 class="comments-title">
-
+    <?php if ( have_comments() ) : ?>
+        <h2 class="comments-area__title">
             <?php
             $basictheme_comments_number = get_comments_number();
 
-            if ('1' === $basictheme_comments_number) :
-
+            if ( $basictheme_comments_number == 1 ) :
                 /* translators: %s: post title */
                 printf(_x('One Reply to &ldquo;%s&rdquo;', 'comments title', 'basictheme'), get_the_title());
-
             else :
-
                 printf(
                 /* translators: 1: number of comments, 2: post title */
                     _nx(
@@ -32,17 +26,13 @@ if (post_password_required()) {
                     number_format_i18n($basictheme_comments_number),
                     get_the_title()
                 );
-
             endif;
-
             ?>
-
         </h2>
 
         <?php basictheme_comment_nav(); ?>
 
-        <ul class="comment-list">
-
+        <ul class="comments-area__list">
             <?php
             wp_list_comments(array(
                 'type' => 'comment',
@@ -51,31 +41,19 @@ if (post_password_required()) {
                 'callback' => 'basictheme_comments'
             ));
             ?>
-
-        </ul><!-- .comment-list -->
-
-        <?php
-
-        basictheme_comment_nav();
-
-    endif; // have_comments()
-
-    ?>
-
+        </ul>
     <?php
+        basictheme_comment_nav();
+    endif;
 
-    // If comments are closed and there are comments, let's leave a little note, shall we?
     if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) :
-
-        ?>
-
+    ?>
         <p class="no-comments">
             <?php esc_html_e('Comments are closed.', 'basictheme'); ?>
         </p>
-
-    <?php endif; ?>
-
     <?php
+    endif;
+
     $basictheme_commenter = wp_get_current_commenter();
     $basictheme_req = get_option('require_name_email');
     $basictheme_comments_args = ($basictheme_req ? " aria-required='true'" : '');
@@ -95,5 +73,4 @@ if (post_password_required()) {
 
     comment_form($basictheme_comments_args);
     ?>
-
-</div><!-- .comments-area -->
+</div>

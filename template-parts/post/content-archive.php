@@ -1,6 +1,6 @@
 <?php
-$sidebar = basictheme_get_option('blog_cat_opt_sidebar', 'right');
-$per_row = basictheme_get_option('blog_cat_opt_per_row', '2');
+$sidebar = basictheme_get_option('opt_post_cat_sidebar_position', 'right');
+$per_row = basictheme_get_option('opt_post_cat_per_row', '2');
 
 $class_col_content = basictheme_col_use_sidebar($sidebar, 'sidebar-main');
 

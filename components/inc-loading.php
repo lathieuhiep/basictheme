@@ -1,8 +1,8 @@
 <?php
-$show_loading = basictheme_get_option( 'general_opt_loading', '0' );
+$show_loading = basictheme_get_option( 'opt_general_loading', '0' );
 
 if(  $show_loading == '1' ) :
-    $opt_image_loading  = basictheme_get_option( 'general_opt_image_loading' );
+    $opt_image_loading  = basictheme_get_option( 'opt_general_image_loading' );
 ?>
     <div id="site-loadding" class="d-flex align-items-center justify-content-center">
         <?php if ( !empty( $opt_image_loading['url'] ) ): ?>

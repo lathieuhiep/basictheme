@@ -1,7 +1,7 @@
 <?php
-$sticky_menu = basictheme_get_option( 'menu_option_sticky', '1' );
-$logo = basictheme_get_option( 'general_opt_logo' );
-$cart = basictheme_get_option( 'menu_option_cart', '1' );
+$sticky_menu = basictheme_get_option( 'opt_menu_sticky', '1' );
+$logo = basictheme_get_option( 'opt_general_logo' );
+$cart = basictheme_get_option( 'opt_menu_cart', '1' );
 ?>
 <header class="global-header <?php echo esc_attr( $sticky_menu == '1' ? 'active-sticky-nav' : '' ); ?>">
     <nav class="site-navigation container">

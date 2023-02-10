@@ -16,7 +16,7 @@ function basictheme_shop_setup(): void {
 add_filter('loop_shop_per_page', 'basictheme_show_products_per_page');
 
 function basictheme_show_products_per_page() {
-    return basictheme_get_option('shop_opt_limit', 12);
+    return basictheme_get_option('opt_shop_cat_limit', 12);
 }
 /* End limit product */
 
@@ -24,7 +24,7 @@ function basictheme_show_products_per_page() {
 add_filter('loop_shop_columns', 'basictheme_loop_columns_product');
 
 function basictheme_loop_columns_product() {
-    return basictheme_get_option('shop_opt_per_row', '4');
+    return basictheme_get_option('opt_shop_cat_per_row', '4');
 }
 /* End Change number of products per row */
 
@@ -64,24 +64,36 @@ if ( ! function_exists( 'basictheme_add_to_cart_fragment' ) ) :
 endif;
 /* End get cart */
 
+// get sidebar active
+function basictheme_woo_get_sidebar_active(): array {
+    $sidebar = [];
+
+	if ( is_product() ) :
+		$sidebar['active'] = 'sidebar-wc-product';
+		$sidebar['position'] = basictheme_get_option('opt_shop_single_sidebar_position');
+	else:
+		$sidebar['active'] = 'sidebar-wc';
+		$sidebar['position'] = basictheme_get_option('opt_shop_cat_sidebar_position');
+	endif;
+
+    return $sidebar;
+}
+
 /* Start Sidebar Shop */
 if ( ! function_exists( 'basictheme_woo_get_sidebar' ) ) :
     function basictheme_woo_get_sidebar(): void {
-	    $sidebar = basictheme_get_option('shop_opt_sidebar', 'left');
+	    $sidebar = basictheme_woo_get_sidebar_active();
 
-	    if( is_active_sidebar( 'sidebar-wc' ) ):
-
-	        if ( $sidebar == 'left' ) :
+	    if( !empty( $sidebar ) && $sidebar['position'] != 'hide' && is_active_sidebar( $sidebar['active'] ) ):
+	        if ( $sidebar['position'] == 'left' ) :
 		        $class_order = 'order-md-1';
 	        else:
 		        $class_order = 'order-md-2';
 	        endif;
     ?>
-
-            <aside class="col-12 col-md-4 col-lg-3 order-2 <?php echo esc_attr( $class_order ); ?>">
-                <?php dynamic_sidebar( 'sidebar-wc' ); ?>
-            </aside>
-
+        <aside class="col-12 col-md-4 col-lg-3 order-2 <?php echo esc_attr( $class_order ); ?>">
+            <?php dynamic_sidebar( $sidebar['active'] ); ?>
+        </aside>
     <?php
         endif;
     }
@@ -98,8 +110,7 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
      * Wraps all WooCommerce content in wrappers which match the theme markup
      */
     function basictheme_woo_before_main_content(): void {
-        $sidebar = basictheme_get_option('shop_opt_sidebar', 'left');
-
+	    $sidebar = basictheme_woo_get_sidebar_active();
     ?>
         <div class="site-shop">
             <div class="container">
@@ -112,9 +123,8 @@ if ( ! function_exists( 'basictheme_woo_before_main_content' ) ) :
                      * @hooked basictheme_woo_sidebar - 10
                      */
                     do_action( 'basictheme_woo_sidebar' );
-
                 ?>
-                    <div class="<?php echo is_active_sidebar( 'sidebar-wc' ) && $sidebar != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
+                    <div class="<?php echo !empty( $sidebar ) && is_active_sidebar( $sidebar['active'] ) && $sidebar['position'] != 'hide' ? 'col-12 col-md-8 col-lg-9 order-1 has-sidebar' : 'col-md-12'; ?>">
 
     <?php
 
