@@ -18,7 +18,7 @@ function basictheme_setup(): void {
 	}
 
 	// Required: options theme
-	require get_theme_file_path( '/admin/options.php' );
+	require get_theme_file_path( '/configurations/theme-options.php' );
 
 	/*
 	 * Make theme available for translation.
@@ -69,7 +69,7 @@ require get_parent_theme_file_path( '/includes/theme-add-action.php' );
 
 // Required: CMB2
 if ( !class_exists('CMB2') ) {
-    require get_parent_theme_file_path( '/admin/meta-box/cmb_post.php' );
+    require get_parent_theme_file_path( '/configurations/meta-box/cmb_post.php' );
 }
 
 // Required: Elementor
