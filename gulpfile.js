@@ -79,6 +79,20 @@ function buildStylePost() {
 }
 exports.buildStylePost = buildStylePost;
 
+// Task build style page templates
+function buildStylePageTemplates() {
+    return src(`${pathRoot}assets/scss/page-templates/*.scss`)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(minifyCss({
+            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathRoot}assets/css/page-templates/`))
+        .pipe(browserSync.stream());
+}
+exports.buildStylePageTemplates = buildStylePageTemplates
+
 // Task build style shop
 function buildStyleShop() {
     return src(`${pathRoot}assets/scss/shop/shop.scss`)
@@ -158,10 +172,12 @@ function watchTask() {
         `!${pathRoot}assets/scss/bootstrap.scss`,
         `!${pathRoot}assets/scss/elementor-addon/*.scss`,
         `!${pathRoot}assets/scss/post/*.scss`,
+        `!${pathRoot}assets/scss/page-templates/*.scss`,
         `!${pathRoot}assets/scss/shop/*.scss`
     ], buildStyles)
     watch(`${pathRoot}assets/scss/elementor-addon/*.scss`, buildStylesElementor)
     watch(`${pathRoot}assets/scss/post/*.scss`, buildStylePost)
+    watch(`${pathRoot}assets/scss/page-templates/*.scss`, buildStylePageTemplates)
     watch(`${pathRoot}assets/scss/shop/*.scss`, buildStyleShop)
     watch([`${pathRoot}assets/js/*.js`, `!${pathRoot}assets/js/*.min.js`], buildJSTheme)
 }

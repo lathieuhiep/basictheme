@@ -107,53 +107,53 @@
       font-size: 1.4rem;
     }
   }
-}
 
-.comment-form {
-  @include flex-column;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
+  .comment-form {
+    @include flex-column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
 
-  .comment-notes {
-    order: 1;
-  }
+    .comment-notes {
+      order: 1;
+    }
 
-  .comment-fields-row {
-    margin-bottom: 30px;
-  }
+    .comment-fields-row {
+      margin-bottom: 30px;
+    }
 
-  input,
-  textarea {
-    display: block;
-    width: 100%;
-    padding: 9px 22px;
-    height: auto;
-    border: 1px solid $border-color;
-    border-radius: 0;
-  }
-
-  .form-comment-field {
-    margin-bottom: 30px;
-  }
-
-  .form-submit {
-    order: 4;
-
-    input {
-      cursor: pointer;
-      display: inline-block;
-      width: auto;
+    input,
+    textarea {
+      display: block;
+      width: 100%;
       padding: 9px 22px;
-      color: #000000;
-      background-color: $border-color;
-      border: none;
-      border-radius: 3px;
-      @include transition();
+      height: auto;
+      border: 1px solid $border-color;
+      border-radius: 0;
+    }
 
-      &:hover {
-        color: #ffffff;
-        border-color: $background-hover;
-        background-color: $background-hover;
+    .form-comment-field {
+      margin-bottom: 30px;
+    }
+
+    .form-submit {
+      order: 4;
+
+      input {
+        cursor: pointer;
+        display: inline-block;
+        width: auto;
+        padding: 9px 22px;
+        color: #000000;
+        background-color: $border-color;
+        border: none;
+        border-radius: 3px;
+        @include transition();
+
+        &:hover {
+          color: #ffffff;
+          border-color: $background-hover;
+          background-color: $background-hover;
+        }
       }
     }
   }
