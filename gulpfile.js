@@ -33,8 +33,9 @@ Task build fontawesome
 function buildFontawesomeStyle() {
     return src([
         './node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
-        './node_modules/@fortawesome/fontawesome-free/scss/brands.scss',
         './node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
+        './node_modules/@fortawesome/fontawesome-free/scss/regular.scss',
+        './node_modules/@fortawesome/fontawesome-free/scss/brands.scss',
     ])
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(concatCss('fontawesome.css'))
@@ -48,10 +49,12 @@ function buildFontawesomeStyle() {
 
 function buildFontawesomeWebFonts() {
     return src([
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2',
         './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf',
         './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2'
     ])
         .pipe(dest(`${pathAssets}/libs/fontawesome/webfonts`))
         .pipe(browserSync.stream());
