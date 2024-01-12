@@ -50,7 +50,7 @@
     // loading
     $( window ).on( "load", function() {
 
-        $( '#site-loadding' ).remove();
+        $( '#site-loading' ).remove();
 
     });
 

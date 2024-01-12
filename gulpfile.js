@@ -1,6 +1,6 @@
 'use strict';
 
-const { src, dest, watch, series } = require('gulp')
+const { src, dest, watch } = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const sourcemaps = require('gulp-sourcemaps')
 const babel = require('gulp-babel');
