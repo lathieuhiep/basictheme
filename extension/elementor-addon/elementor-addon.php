@@ -28,14 +28,14 @@ function basictheme_register_widget_elementor_addon( $widgets_manager ): void {
 	require get_parent_theme_file_path( '/extension/elementor-addon/widgets/info-box.php' );
 
 	// register add on
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Slides() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_About_Text() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Post_Carousel() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Post_Grid() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Testimonial_Slider() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Carousel_Images() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Contact_Form_7() );
-	$widgets_manager->register( new \BasicTheme_Elementor_Addon_Info_Box() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Slides() );
+	$widgets_manager->register( new \BasicTheme_Elementor_About_Text() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Post_Carousel() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Post_Grid() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Testimonial_Slider() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Carousel_Images() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Contact_Form_7() );
+	$widgets_manager->register( new \BasicTheme_Elementor_Info_Box() );
 }
 
 // Register scripts

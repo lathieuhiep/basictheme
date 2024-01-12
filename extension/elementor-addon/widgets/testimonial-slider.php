@@ -7,24 +7,24 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
-    public function get_categories() {
+class BasicTheme_Elementor_Testimonial_Slider extends Widget_Base {
+    public function get_categories(): array {
         return array( 'my-theme' );
     }
 
-    public function get_name() {
+    public function get_name(): string {
         return 'basictheme-testimonial-slider';
     }
 
-    public function get_title() {
+    public function get_title(): string {
         return esc_html__( 'Testimonial Slider', 'basictheme' );
     }
 
-    public function get_icon() {
+    public function get_icon(): string {
         return 'eicon-user-circle-o';
     }
 
-    protected function register_controls() {
+    protected function register_controls(): void {
 
         // Content testimonial
         $this->start_controls_section(
@@ -159,7 +159,7 @@ class BasicTheme_Elementor_Addon_Testimonial_Slider extends Widget_Base {
 
     }
 
-    protected function render() {
+    protected function render(): void {
         $settings = $this->get_settings_for_display();
 
         $data_settings_owl = [

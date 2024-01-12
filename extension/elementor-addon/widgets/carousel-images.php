@@ -7,29 +7,29 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Addon_Carousel_Images extends Widget_Base {
+class BasicTheme_Elementor_Carousel_Images extends Widget_Base {
 
-	public function get_categories() {
+	public function get_categories(): array {
 		return array( 'my-theme' );
 	}
 
-	public function get_name() {
+	public function get_name(): string {
 		return 'basictheme-carousel-images';
 	}
 
-	public function get_title() {
+	public function get_title(): string {
 		return esc_html__( 'Carousel Images', 'basictheme' );
 	}
 
-	public function get_icon() {
+	public function get_icon(): string {
 		return 'eicon-slider-album';
 	}
 
-	public function get_style_depends() {
+	public function get_style_depends(): array {
 		return [ 'owl.carousel' ];
 	}
 
-	protected function _register_controls() {
+	protected function _register_controls(): void {
 
 		// Section carousel images
 		$this->start_controls_section(
@@ -413,7 +413,7 @@ class BasicTheme_Elementor_Addon_Carousel_Images extends Widget_Base {
 
 	}
 
-	protected function render() {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 
 		$data_settings_owl = [

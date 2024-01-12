@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class BasicTheme_Elementor_Addon_Info_Box extends Widget_Base {
+class BasicTheme_Elementor_Info_Box extends Widget_Base {
 
 	public function get_categories(): array {
 		return array( 'my-theme' );
@@ -29,7 +29,7 @@ class BasicTheme_Elementor_Addon_Info_Box extends Widget_Base {
 		return 'eicon-info-box';
 	}
 
-	protected function register_controls() {
+	protected function register_controls(): void {
 
 		// image section
 		$this->start_controls_section(
@@ -420,7 +420,7 @@ class BasicTheme_Elementor_Addon_Info_Box extends Widget_Base {
 
 	}
 
-	protected function render() {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 		$img_or_icon = $settings['img_or_icon'];
 

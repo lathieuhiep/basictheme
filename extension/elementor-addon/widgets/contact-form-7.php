@@ -7,25 +7,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class BasicTheme_Elementor_Addon_Contact_Form_7 extends Widget_Base {
+class BasicTheme_Elementor_Contact_Form_7 extends Widget_Base {
 
-	public function get_categories() {
+	public function get_categories(): array {
 		return array( 'my-theme' );
 	}
 
-	public function get_name() {
+	public function get_name(): string {
 		return 'basictheme-contact-form-7';
 	}
 
-	public function get_title() {
+	public function get_title(): string {
 		return esc_html__( 'Contact Form 7', 'basictheme' );
 	}
 
-	public function get_icon() {
+	public function get_icon(): string {
 		return 'eicon-form-horizontal';
 	}
 
-	protected function register_controls() {
+	protected function register_controls(): void {
 
 		// Content section
 		$this->start_controls_section(
@@ -50,7 +50,7 @@ class BasicTheme_Elementor_Addon_Contact_Form_7 extends Widget_Base {
 		$this->end_controls_section();
 	}
 
-	protected function render() {
+	protected function render(): void {
 		$settings = $this->get_settings_for_display();
 
 		if ( !empty( $settings['contact_form_list'] ) ) :

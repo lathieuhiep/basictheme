@@ -7,7 +7,7 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
+class BasicTheme_Elementor_Slides extends Widget_Base {
     public function get_categories(): array {
         return array( 'my-theme' );
     }
@@ -24,7 +24,7 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
         return 'eicon-slides';
     }
 
-    protected function _register_controls() {
+    protected function _register_controls(): void {
         $this->start_controls_section(
             'section_content',
             [
@@ -967,7 +967,7 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
         
     }
 
-    protected function render() {
+    protected function render(): void {
         $settings  =   $this->get_settings_for_display();
 	    $data_settings_owl  =   [
 		    'items'     =>  1,
