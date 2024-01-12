@@ -1,16 +1,3 @@
-/*
-Theme Name: BasicTheme
-Theme URI: https://uxui.vn/
-Author: DiepLK
-Author URI: https://www.facebook.com/lathieuhiep
-Version: 1.0.0
-Description: Basic Theme
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, two-columns, three-columns, four-columns, right-sidebar,  theme-options
-Text Domain: basictheme
-*/
-
 /**
 * Table of Contents:
 *
@@ -31,43 +18,38 @@ Text Domain: basictheme
 /**
 # General
 -----------------------------------------------------------------------------*/
-@import "general";
+@import "base/general";
 
 /* WordPress Core
 -------------------------------------------------------------- */
-@import "wp-core";
+@import "base/wp-core";
 
 /**
 # Header
 -----------------------------------------------------------------------------*/
-@import "header";
+@import "base/header";
 
 /**
 # Comment Form
 -----------------------------------------------------------------------------*/
-@import "comment-form";
+@import "base/comment-form";
 
 /**
 # Page
 -----------------------------------------------------------------------------*/
-@import "page";
+@import "base/page";
 
 /**
 # Sidebar
 -----------------------------------------------------------------------------*/
-@import "sidebar";
+@import "base/sidebar";
 
 /**
 # Contact Form 7
 -----------------------------------------------------------------------------*/
-@import "cf7";
+@import "base/cf7";
 
 /**
 # Footer
 -----------------------------------------------------------------------------*/
-@import "footer";
-
-/**
-# Responsive
------------------------------------------------------------------------------*/
-@import "responsive";
+@import "base/footer";

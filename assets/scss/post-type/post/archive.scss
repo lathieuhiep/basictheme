@@ -1,3 +1,5 @@
+@import "../../variables-site/variables";
+
 .content-archive-post {
   display: grid;
   grid-gap: 2.4rem;
@@ -13,7 +15,7 @@
     font-size: 2rem;
 
     a {
-      color: $color-title;
+      color: $heading-color;
 
       i {
         margin-right: 5px;
@@ -90,7 +92,7 @@
         color: $color-hover;
 
         &:hover {
-          color: $color-primary;
+          color: $body-color;
         }
       }
     }

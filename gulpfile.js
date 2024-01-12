@@ -1,184 +1,257 @@
 'use strict';
 
-const { src, dest, watch, series } = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const sourcemaps = require('gulp-sourcemaps');
-const browserSync = require('browser-sync');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const minifyCss = require('gulp-clean-css');
-const concatCss = require('gulp-concat-css');
-const rename = require("gulp-rename");
+const { src, dest, watch, series } = require('gulp')
+const sass = require('gulp-sass')(require('sass'))
+const sourcemaps = require('gulp-sourcemaps')
+const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
+const browserSync = require('browser-sync')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
+const minifyCss = require('gulp-clean-css')
+const concatCss = require('gulp-concat-css')
+const rename = require("gulp-rename")
+const TerserPlugin = require('terser-webpack-plugin')
 
-const pathRoot = './';
+const pathAssets = './assets'
+const pathNodeModule = './node_modules'
 
 // server
 function server() {
     browserSync.init({
-        proxy: "localhost/basictheme/",
-        open: 'local',
+        proxy: "localhost/basicthem",
+        open: false,
         cors: true,
         ghostMode: false
     })
 }
 
-// Task buildStyleBootstrap
+/*
+Task build fontawesome
+* */
+function buildFontawesomeStyle() {
+    return src([
+        './node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
+        './node_modules/@fortawesome/fontawesome-free/scss/brands.scss',
+        './node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
+    ])
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(concatCss('fontawesome.css'))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(dest(`${pathAssets}/libs/fontawesome/css`))
+        .pipe(browserSync.stream())
+}
+
+function buildFontawesomeWebFonts() {
+    return src([
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2'
+    ])
+        .pipe(dest(`${pathAssets}/libs/fontawesome/webfonts`))
+        .pipe(browserSync.stream());
+}
+
+/*
+Task build Bootstrap
+* */
+
+// Task build style bootstrap
 function buildStylesBootstrap() {
-    return src(`${pathRoot}assets/scss/bootstrap.scss`)
-        .pipe(sourcemaps.init())
+    return src(`${pathAssets}/scss/bootstrap.scss`)
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(minifyCss({
-            compatibility: 'ie8',
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathAssets}/libs/bootstrap/`))
+        .pipe(browserSync.stream());
+}
+
+// Task build js bootstrap
+function buildLibsBootstrapJS() {
+    return src([
+        `${pathNodeModule}/bootstrap/js/dist/collapse.js`
+    ])
+        .pipe(babel())
+        .pipe(webpack({
+            mode: 'production',
+            output: {
+                filename: 'bootstrap.js'  // Giữ nguyên tên file
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        use: {
+                            loader: 'babel-loader'
+                        }
+                    }
+                ]
+            },
+            optimization: {
+                minimize: true,
+                minimizer: [
+                    new TerserPlugin({
+                        terserOptions: {
+                            output: {
+                                comments: false,
+                            },
+                        },
+                        extractComments: false,
+                    }),
+                ],
+            },
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathAssets}/libs/bootstrap/`))
+        .pipe(browserSync.stream());
+}
+
+/*
+Task build owl carousel
+* */
+function buildStylesOwlCarousel() {
+    return src(`${pathNodeModule}/owl.carousel/dist/assets/owl.carousel.css`)
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
+        .pipe(browserSync.stream());
+}
+function buildJsOwlCarouse() {
+    return src([
+        `${pathNodeModule}/owl.carousel/dist/owl.carousel.js`
+    ], {allowEmpty: true})
+        .pipe(uglify())
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
+        .pipe(browserSync.stream());
+}
+
+// Task build style
+function buildStylesTheme() {
+    return src(`${pathAssets}/scss/style-theme.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathAssets}/css/`))
+        .pipe(sourcemaps.init())
+        .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename( {suffix: '.min'} ))
         .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/libs/bootstrap/`))
+        .pipe(dest(`${pathAssets}/css/`))
         .pipe(browserSync.stream());
 }
-exports.buildStylesBootstrap = buildStylesBootstrap;
-
-// Task build style
-function buildStyles() {
-    return src(`${pathRoot}assets/scss/style.scss`)
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(dest('./'))
-        .pipe(browserSync.stream());
-}
-exports.buildStyles = buildStyles;
 
 // Task build style elementor
 function buildStylesElementor() {
-    return src(`${pathRoot}assets/scss/elementor-addon/elementor-addon.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}extension/elementor-addon/css/`))
-        .pipe(browserSync.stream());
-}
-exports.buildStylesElementor = buildStylesElementor;
-
-// Task build style post
-function buildStylePost() {
-    return src(`${pathRoot}assets/scss/post/post.scss`)
+    return src(`${pathAssets}/scss/elementor-addon/elementor-addon.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`./extension/elementor-addon/css/`))
+        .pipe(sourcemaps.init())
         .pipe(minifyCss({
-            compatibility: 'ie8',
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename( {suffix: '.min'} ))
         .pipe(sourcemaps.write())
-        .pipe(dest(`${pathRoot}assets/css/post/`))
+        .pipe(dest(`./extension/elementor-addon/css/`))
         .pipe(browserSync.stream());
 }
-exports.buildStylePost = buildStylePost;
 
-// Task build style page templates
-function buildStylePageTemplates() {
-    return src(`${pathRoot}assets/scss/page-templates/*.scss`)
+// Task build style custom post type
+function buildStylesCustomPostType() {
+    return src(`${pathAssets}/scss/post-type/*/**.scss`)
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathAssets}/css/post-type/`))
+        .pipe(sourcemaps.init())
         .pipe(minifyCss({
-            compatibility: 'ie8',
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}assets/css/page-templates/`))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`${pathAssets}/css/post-type/`))
         .pipe(browserSync.stream());
 }
-exports.buildStylePageTemplates = buildStylePageTemplates
-
-// Task build style shop
-function buildStyleShop() {
-    return src(`${pathRoot}assets/scss/shop/shop.scss`)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}extension/woocommerce/assets/css/`))
-        .pipe(browserSync.stream());
-}
-exports.buildStyleShop = buildStyleShop;
 
 // buildJSTheme
 function buildJSTheme() {
     return src([
-        `${pathRoot}assets/js/*.js`,
-        `!${pathRoot}assets/js/*.min.js`
+        `${pathAssets}/js/*.js`,
+        `!${pathAssets}/js/*.min.js`
     ], {allowEmpty: true})
         .pipe(uglify())
         .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${pathRoot}assets/js/`))
+        .pipe(dest(`${pathAssets}/js/`))
         .pipe(browserSync.stream());
 }
-exports.buildJSTheme = buildJSTheme
 
-// Task compress mini library css theme
-function compressLibraryCssMin() {
-    return src([
-        './node_modules/bootstrap/dist/css/bootstrap.css',
-        './node_modules/owl.carousel/dist/assets/owl.carousel.css',
-    ]).pipe(concatCss("library.min.css"))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(dest(`${pathRoot}assets/css/`))
-        .pipe(browserSync.stream());
-}
-exports.compressLibraryCssMin = compressLibraryCssMin
+/*
+Task build project
+* */
+async function buildProject() {
+    await buildFontawesomeStyle()
+    await buildFontawesomeWebFonts()
 
-// Task compress mini fontawesome css
-function compressFontAwesomeCssMin() {
-    return src([
-        `${pathRoot}assets/libs/fontawesome/css/*.css`,
-        `!${pathRoot}assets/libs/fontawesome/css/*.min.css`
-    ]).pipe(concatCss("fontawesome-brands-solid.min.css"))
-        .pipe(minifyCss({
-            compatibility: 'ie8',
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(dest(`${pathRoot}assets/fonts/fontawesome/css/`))
-        .pipe(browserSync.stream());
-}
-exports.compressFontAwesomeCssMin = compressFontAwesomeCssMin
+    await buildStylesBootstrap()
+    await buildLibsBootstrapJS()
 
-// Task compress lib js & mini file
-function compressLibraryJsMin() {
-    return src([
-        './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-        './node_modules/owl.carousel/dist/owl.carousel.js',
-    ], {allowEmpty: true})
-        .pipe(concat('library.min.js'))
-        .pipe(uglify())
-        .pipe(dest(`${pathRoot}assets/js/`))
-        .pipe(browserSync.stream());
+    await buildStylesOwlCarousel()
+    await buildJsOwlCarouse()
+
+    await buildStylesTheme()
+    await buildStylesElementor()
+    await buildStylesCustomPostType()
+
+    await buildJSTheme()
 }
-exports.compressLibraryJsMin = compressLibraryJsMin
+exports.buildProject = buildProject
 
 // Task watch
 function watchTask() {
     server()
-    watch(`${pathRoot}assets/scss/bootstrap.scss`, buildStylesBootstrap)
+
     watch([
-        `${pathRoot}assets/scss/**/*.scss`,
-        `!${pathRoot}assets/scss/bootstrap.scss`,
-        `!${pathRoot}assets/scss/elementor-addon/*.scss`,
-        `!${pathRoot}assets/scss/post/*.scss`,
-        `!${pathRoot}assets/scss/page-templates/*.scss`,
-        `!${pathRoot}assets/scss/shop/*.scss`
-    ], buildStyles)
-    watch(`${pathRoot}assets/scss/elementor-addon/*.scss`, buildStylesElementor)
-    watch(`${pathRoot}assets/scss/post/*.scss`, buildStylePost)
-    watch(`${pathRoot}assets/scss/page-templates/*.scss`, buildStylePageTemplates)
-    watch(`${pathRoot}assets/scss/shop/*.scss`, buildStyleShop)
-    watch([`${pathRoot}assets/js/*.js`, `!${pathRoot}assets/js/*.min.js`], buildJSTheme)
+        `${pathAssets}/scss/variables-site/*.scss`,
+        `${pathAssets}/scss/bootstrap.scss`
+    ], buildStylesBootstrap)
+
+    watch([
+        `${pathAssets}/scss/variables-site/*.scss`,
+        `${pathAssets}/scss/base/*.scss`,
+        `${pathAssets}/scss/style-theme.scss`,
+    ], buildStylesTheme)
+
+    watch([
+        `${pathAssets}/scss/variables-site/*.scss`,
+        `${pathAssets}/scss/elementor-addon/*.scss`
+    ], buildStylesElementor)
+
+    watch([
+        `${pathAssets}/scss/variables-site/*.scss`,
+        `${pathAssets}/scss/post-type/*/**.scss`
+    ], buildStylesCustomPostType)
+
+    watch([`${pathAssets}/js/*.js`, `!${pathAssets}/js/*.min.js`], buildJSTheme)
+
+    watch([
+        './**/*.js',
+        './*.php',
+        './**/*.php',
+        './assets/images/*/**.{png,jpg,jpeg,gif}'
+    ], browserSync.reload);
 }
 exports.watchTask = watchTask

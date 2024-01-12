@@ -133,7 +133,7 @@
             padding: 0;
             line-height: inherit;
             border: none;
-            color: $color-primary;
+            color: $body-color;
             font-weight: 700;
             background-color: transparent;
 
@@ -161,7 +161,7 @@
             &.added_to_cart {
               padding: 0;
               font-weight: 700;
-              color: $color-primary;
+              color: $body-color;
 
               &:hover {
                 color: $color-hover;
@@ -231,7 +231,7 @@
           a {
             &:focus {
               background-color: transparent;
-              color: $color-title;
+              color: $heading-color;
             }
           }
 

@@ -116,7 +116,7 @@ pre {
       &.owl-prev,
       &.owl-next {
         margin: 0 6px;
-        color: $color-primary;
+        color: $body-color;
         font-size: 20px;
         line-height: normal;
         @include transition();

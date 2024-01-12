@@ -13,7 +13,7 @@ function basictheme_get_version_theme(): string {
 
 // check is blog
 function basictheme_is_blog (): bool {
-	return ( is_archive() || is_author() || is_category() || is_home() || is_single() || is_tag() ) && get_post_type() == 'post';
+	return ( is_archive() || is_category() || is_tag() || is_author() || is_home() );
 }
 
 // Callback Comment List

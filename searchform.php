@@ -7,7 +7,7 @@
 
     <input type="search" id="<?php echo $basictheme_unique_id; ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'basictheme' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
 
-    <button type="submit" class="search-submit">
+    <button type="submit" class="btn search-submit">
         <span class="search-reader-text">
             <?php echo _x( 'Search', 'submit button', 'basictheme' ); ?>
         </span>
