@@ -1,6 +1,6 @@
 'use strict';
 
-const { src, dest, watch } = require('gulp')
+const {src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const sourcemaps = require('gulp-sourcemaps')
 const babel = require('gulp-babel');
@@ -12,6 +12,7 @@ const minifyCss = require('gulp-clean-css')
 const concatCss = require('gulp-concat-css')
 const rename = require("gulp-rename")
 const TerserPlugin = require('terser-webpack-plugin')
+const autoprefixer = require('gulp-autoprefixer');
 
 const pathAssets = './assets'
 const pathNodeModule = './node_modules'
@@ -67,7 +68,7 @@ function buildStylesBootstrap() {
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(dest(`${pathAssets}/libs/bootstrap/`))
         .pipe(browserSync.stream());
 }
@@ -81,7 +82,7 @@ function buildLibsBootstrapJS() {
         .pipe(webpack({
             mode: 'production',
             output: {
-                filename: 'bootstrap.js'  // Giữ nguyên tên file
+                filename: 'bootstrap.js'
             },
             module: {
                 rules: [
@@ -108,7 +109,7 @@ function buildLibsBootstrapJS() {
                 ],
             },
         }))
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(dest(`${pathAssets}/libs/bootstrap/`))
         .pipe(browserSync.stream());
 }
@@ -122,16 +123,17 @@ function buildStylesOwlCarousel() {
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
         .pipe(browserSync.stream());
 }
+
 function buildJsOwlCarouse() {
     return src([
         `${pathNodeModule}/owl.carousel/dist/owl.carousel.js`
     ], {allowEmpty: true})
         .pipe(uglify())
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
         .pipe(browserSync.stream());
 }
@@ -141,13 +143,14 @@ function buildStylesTheme() {
     return src(`${pathAssets}/scss/style-theme.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write())
         .pipe(dest(`${pathAssets}/css/`))
         .pipe(sourcemaps.init())
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
         .pipe(dest(`${pathAssets}/css/`))
         .pipe(browserSync.stream());
@@ -164,7 +167,7 @@ function buildStylesElementor() {
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
         .pipe(dest(`./extension/elementor-addon/css/`))
         .pipe(browserSync.stream());
@@ -181,7 +184,7 @@ function buildStylesCustomPostType() {
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
         .pipe(dest(`${pathAssets}/css/post-type/`))
         .pipe(browserSync.stream());
@@ -194,7 +197,7 @@ function buildJSTheme() {
         `!${pathAssets}/js/*.min.js`
     ], {allowEmpty: true})
         .pipe(uglify())
-        .pipe(rename( {suffix: '.min'} ))
+        .pipe(rename({suffix: '.min'}))
         .pipe(dest(`${pathAssets}/js/`))
         .pipe(browserSync.stream());
 }
@@ -218,6 +221,7 @@ async function buildProject() {
 
     await buildJSTheme()
 }
+
 exports.buildProject = buildProject
 
 // Task watch
@@ -254,4 +258,5 @@ function watchTask() {
         './assets/images/*/**.{png,jpg,jpeg,gif}'
     ], browserSync.reload);
 }
+
 exports.watchTask = watchTask
