@@ -3,8 +3,8 @@
 const {src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const sourcemaps = require('gulp-sourcemaps')
-const babel = require('gulp-babel');
-const webpack = require('webpack-stream');
+const babel = require('gulp-babel')
+const webpack = require('webpack-stream')
 const browserSync = require('browser-sync')
 const concat = require('gulp-concat')
 const uglify = require('gulp-uglify')
@@ -12,7 +12,7 @@ const minifyCss = require('gulp-clean-css')
 const concatCss = require('gulp-concat-css')
 const rename = require("gulp-rename")
 const TerserPlugin = require('terser-webpack-plugin')
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('gulp-autoprefixer')
 
 const pathAssets = './assets'
 const pathNodeModule = './node_modules'
