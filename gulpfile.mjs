@@ -239,11 +239,11 @@ function buildStylePageTemplate() {
 }
 
 // Task optimize images
-export async function optimizeImages() {
+function optimizeImages() {
     const imgSrc = `${pathSrc}/images/**/*.+(png|jpg|webp|svg|gif)`;
     const imgDst = `${pathAssets}/images/`;
 
-    return await gulp.src(imgSrc)
+    return gulp.src(imgSrc)
         .pipe(changed(imgDst))
         .pipe(imagemin([
             gifsicle({interlaced: true}),
