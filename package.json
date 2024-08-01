@@ -1,23 +1,26 @@
 {
+  "type": "module",
   "devDependencies": {
     "babel-loader": "^9.1.3",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-concat-css": "^3.1.0",
+    "gifsicle": "^7.0.1",
+    "gulp": "^5.0.0",
+    "gulp-concat-css": "^1.2.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.2",
-    "sass": "^1.55.0"
+    "gulp-uglify": "^3.0.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "bootstrap": "^5.3.2",
     "browser-sync": "^3.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-changed": "^5.0.2",
     "gulp-clean-css": "^4.3.0",
-    "gulp-sourcemaps": "^3.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-sourcemaps": "^2.6.5",
     "owl.carousel": "^2.3.4",
+    "sass": "^1.77.8",
     "terser-webpack-plugin": "^5.3.10",
     "webpack-stream": "^7.0.0"
   }
