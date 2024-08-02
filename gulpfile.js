@@ -1,22 +1,15 @@
-import gulp from "gulp";
-import dartSass from 'sass';
-import gulpSass  from "gulp-sass";
-import sourcemaps from "gulp-sourcemaps"
-import babel from "gulp-babel"
-import webpack from "webpack-stream"
-import browserSync from "browser-sync"
-import uglify from "gulp-uglify"
-import minifyCss from "gulp-clean-css"
-import concatCss from "gulp-concat-css"
-import rename from "gulp-rename"
-import TerserPlugin from "terser-webpack-plugin"
-import gulpIf from 'gulp-if';
-import changed from "gulp-changed"
-import imagemin, {gifsicle, mozjpeg, optipng, svgo} from "gulp-imagemin"
-import path from 'path';
-
-const sass = gulpSass (dartSass)
-const isGif = file => path.extname(file.path).toLowerCase() === '.gif';
+const gulp = require('gulp')
+const {src, dest, watch} = require('gulp')
+const sass = require('gulp-sass')(require('sass'))
+const sourcemaps = require('gulp-sourcemaps')
+const babel = require('gulp-babel')
+const webpack = require('webpack-stream')
+const browserSync = require('browser-sync')
+const uglify = require('gulp-uglify')
+const minifyCss = require('gulp-clean-css')
+const rename = require("gulp-rename")
+const TerserPlugin = require('terser-webpack-plugin')
+const imagemin = require('gulp-imagemin');
 
 const pathSrc = './src'
 const pathAssets = './assets'
@@ -36,44 +29,7 @@ function server() {
 Task build fontawesome
 * */
 function buildFontawesomeStyle() {
-    return gulp.src([
-        './node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
-        './node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
-        './node_modules/@fortawesome/fontawesome-free/scss/regular.scss',
-        './node_modules/@fortawesome/fontawesome-free/scss/brands.scss',
-    ])
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }, '').on('error', sass.logError))
-        .pipe(concatCss('fontawesome.css'))
-        .pipe(minifyCss({
-            level: {1: {specialComments: 0}}
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`${pathAssets}/libs/fontawesome/css`))
-        .pipe(browserSync.stream())
-}
-
-function buildFontawesomeWebFonts() {
-    return gulp.src([
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf',
-        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
-    ])
-        .pipe(gulp.dest(`${pathAssets}/libs/fontawesome/webfonts`))
-        .pipe(browserSync.stream())
-}
-
-/*
-Task build Bootstrap
-* */
-
-// Task build style bootstrap
-function buildStyleBootstrap() {
-    return gulp.src(`${pathSrc}/scss/vendors/bootstrap.scss`)
+    return src(`${pathSrc}/scss/vendors/fontawesome.scss`)
         .pipe(sass({
             outputStyle: 'expanded',
             includePaths: ['node_modules']
@@ -82,13 +38,47 @@ function buildStyleBootstrap() {
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`${pathAssets}/libs/bootstrap/`))
+        .pipe(dest(`${pathAssets}/libs/fontawesome/css`))
+        .pipe(browserSync.stream())
+}
+
+function CopyWebFonts() {
+    return src([
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf',
+        './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
+    ], {encoding: false})
+        .pipe(dest(`${pathAssets}/libs/fontawesome/webfonts`))
+        .pipe(browserSync.stream())
+}
+
+exports.CopyWebFonts = CopyWebFonts
+
+/*
+Task build Bootstrap
+* */
+
+// Task build style bootstrap
+function buildStyleBootstrap() {
+    return src(`${pathSrc}/scss/vendors/bootstrap.scss`)
+        .pipe(sass({
+            outputStyle: 'expanded',
+            includePaths: ['node_modules']
+        }, '').on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(dest(`${pathAssets}/libs/bootstrap/`))
         .pipe(browserSync.stream())
 }
 
 // Task build js bootstrap
 function buildLibsBootstrapJS() {
-    return gulp.src([
+    return src([
         `${pathNodeModule}/bootstrap/js/dist/collapse.js`
     ])
         .pipe(babel())
@@ -123,7 +113,7 @@ function buildLibsBootstrapJS() {
             },
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`${pathAssets}/libs/bootstrap/`))
+        .pipe(dest(`${pathAssets}/libs/bootstrap/`))
         .pipe(browserSync.stream())
 }
 
@@ -131,7 +121,7 @@ function buildLibsBootstrapJS() {
 Task build owl carousel
 * */
 function buildStyleOwlCarousel() {
-    return gulp.src(`${pathNodeModule}/owl.carousel/dist/assets/owl.carousel.css`)
+    return src(`${pathNodeModule}/owl.carousel/dist/assets/owl.carousel.css`)
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
@@ -139,143 +129,126 @@ function buildStyleOwlCarousel() {
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`${pathAssets}/libs/owl.carousel/`))
+        .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
         .pipe(browserSync.stream())
 }
 
 function buildJsOwlCarouse() {
-    return gulp.src([
+    return src([
         `${pathNodeModule}/owl.carousel/dist/owl.carousel.js`
     ], {allowEmpty: true})
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`${pathAssets}/libs/owl.carousel/`))
+        .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
         .pipe(browserSync.stream())
 }
 
 // Task build style theme
 function buildStyleTheme() {
-    return gulp.src(`${pathSrc}/scss/style-theme.scss`)
+    return src(`${pathSrc}/scss/style-theme.scss`)
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
-        .pipe(sourcemaps.init())
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(`${pathAssets}/css/`))
+        .pipe(dest(`${pathAssets}/css/`))
         .pipe(browserSync.stream())
 }
 
 function buildJSTheme() {
-    return gulp.src([
-        `${pathAssets}/js/*.js`,
-        `!${pathAssets}/js/*.min.js`
+    return src([
+        `${pathSrc}/js/custom.js`,
     ], {allowEmpty: true})
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`${pathAssets}/js/`))
+        .pipe(dest(`${pathAssets}/js/`))
         .pipe(browserSync.stream())
 }
 
 // Task build elementor addons
 function buildStyleElementor() {
-    return gulp.src(`${pathSrc}/scss/elementor-addons/addons.scss`)
+    return src(`${pathSrc}/scss/elementor-addons/addons.scss`)
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
-        .pipe(sourcemaps.init())
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(`./extension/elementor-addon/css/`))
+        .pipe(dest(`./extension/elementor-addon/css/`))
         .pipe(browserSync.stream())
 }
 
 function buildJSElementor() {
-    return gulp.src([
+    return src([
         `${pathSrc}/js/elementor-addon.js`,
     ], {allowEmpty: true})
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(`./extension/elementor-addon/js/`))
+        .pipe(dest(`./extension/elementor-addon/js/`))
         .pipe(browserSync.stream())
 }
 
 // Task build style custom post type
 function buildStyleCustomPostType() {
-    return gulp.src(`${pathSrc}/scss/post-type/*/**.scss`)
+    return src(`${pathSrc}/scss/post-type/*/**.scss`)
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
-        .pipe(sourcemaps.init())
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(`${pathAssets}/css/post-type/`))
+        .pipe(dest(`${pathAssets}/css/post-type/`))
         .pipe(browserSync.stream())
 }
 
 // Task build style page templates
 function buildStylePageTemplate() {
-    return gulp.src(`${pathSrc}/scss/page-templates/*.scss`)
+    return src(`${pathSrc}/scss/page-templates/*.scss`)
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
-        .pipe(sourcemaps.init())
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(`${pathAssets}/css/page-templates/`))
+        .pipe(dest(`${pathAssets}/css/page-templates/`))
         .pipe(browserSync.stream())
 }
 
 // Task optimize images
 function optimizeImages() {
-    const imgSrc = `${pathSrc}/images/**/*.+(png|jpg|webp|svg|gif)`;
     const imgDst = `${pathAssets}/images/`;
 
-    return gulp.src(imgSrc)
-        .pipe(changed(imgDst))
-        .pipe(imagemin([
-            gifsicle({interlaced: true}),
-            mozjpeg({quality: 75, progressive: true}),
-            optipng({optimizationLevel: 5}),
-            svgo({
-                plugins: [
-                    {
-                        name: 'removeViewBox',
-                        active: true
-                    },
-                    {
-                        name: 'cleanupIDs',
-                        active: false
-                    }
-                ]
-            })
-        ]))
-        .pipe(gulp.dest(imgDst))
+    return src([
+        `${pathSrc}/images/*`,
+        `${pathSrc}/images/*/**`
+    ], {encoding: false})
+        .pipe(imagemin())
+        .pipe(dest(imgDst))
         .pipe(browserSync.stream())
 }
-
 
 /*
 Task build project
 * */
-export async function buildProject() {
-    await buildFontawesomeStyle()
-    await buildFontawesomeWebFonts()
-
+async function buildProject() {
     await buildStyleBootstrap()
     await buildLibsBootstrapJS()
+
+    await buildFontawesomeStyle()
+    await CopyWebFonts()
 
     await buildStyleOwlCarousel()
     await buildJsOwlCarouse()
@@ -293,11 +266,13 @@ export async function buildProject() {
     await optimizeImages()
 }
 
+exports.buildProject = buildProject
+
 // Task watch
-export function watchTask() {
+function watchTask() {
     server()
 
-    gulp.watch([
+    watch([
         `${pathSrc}/scss/abstracts/*.scss`
     ], gulp.series(
         buildStyleBootstrap,
@@ -306,32 +281,34 @@ export function watchTask() {
         buildStyleCustomPostType
     ))
 
-    gulp.watch([
+    watch([
         `${pathSrc}/scss/vendors/bootstrap.scss`
     ], buildStyleBootstrap)
 
-    gulp.watch([
+    watch([
         `${pathSrc}/scss/base/*.scss`,
         `${pathSrc}/scss/components/*.scss`,
         `${pathSrc}/scss/layout/*.scss`,
         `${pathSrc}/scss/style-theme.scss`,
     ], buildStyleTheme)
-    gulp.watch([`${pathSrc}/js/custom.js`], buildJSTheme)
+    watch([`${pathSrc}/js/custom.js`], buildJSTheme)
 
-    gulp.watch([
+    watch([
         `${pathSrc}/scss/elementor-addon/*.scss`
     ], buildStyleElementor)
-    gulp.watch([`${pathSrc}/js/elementor-addon.js`], buildJSElementor)
+    watch([`${pathSrc}/js/elementor-addon.js`], buildJSElementor)
 
-    gulp.watch([
+    watch([
         `${pathSrc}/scss/post-type/*/**.scss`
     ], buildStyleCustomPostType)
 
-    gulp.watch(`${pathSrc}/images/**/*`, optimizeImages)
+    watch(`${pathSrc}/images/**/*`, optimizeImages)
 
-    gulp.watch([
+    watch([
         './*.php',
         './**/*.php',
         `${pathAssets}/images/**/*`
     ], browserSync.reload);
 }
+
+exports.watchTask = watchTask
