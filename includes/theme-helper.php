@@ -17,7 +17,7 @@ function basictheme_is_blog (): bool {
 }
 
 // Callback Comment List
-function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ) {
+function basictheme_comments( $basictheme_comment, $basictheme_comment_args, $basictheme_comment_depth ): void {
 	if ( $basictheme_comment_args['style'] == 'div' ) :
 		$basictheme_comment_tag       = 'div';
 		$basictheme_comment_add_below = 'comment';
