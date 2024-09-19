@@ -2,23 +2,20 @@ const gulp = require('gulp')
 const {src, dest, watch} = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const sourcemaps = require('gulp-sourcemaps')
-const babel = require('gulp-babel')
-const webpack = require('webpack-stream')
 const browserSync = require('browser-sync')
 const uglify = require('gulp-uglify')
 const minifyCss = require('gulp-clean-css')
 const rename = require("gulp-rename")
-const TerserPlugin = require('terser-webpack-plugin')
-const imagemin = require('gulp-imagemin');
 
 const pathSrc = './src'
-const pathAssets = './assets'
+const pathDist = './assets'
 const pathNodeModule = './node_modules'
 
 // server
+const proxy = "localhost/basicthem"
 function server() {
     browserSync.init({
-        proxy: "localhost/basicthem",
+        proxy: proxy,
         open: false,
         cors: true,
         ghostMode: false
@@ -38,7 +35,7 @@ function buildFontawesomeStyle() {
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathAssets}/libs/fontawesome/css`))
+        .pipe(dest(`${pathDist}/libs/fontawesome/css`))
         .pipe(browserSync.stream())
 }
 
@@ -51,7 +48,7 @@ function CopyWebFonts() {
         './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf',
         './node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
     ], {encoding: false})
-        .pipe(dest(`${pathAssets}/libs/fontawesome/webfonts`))
+        .pipe(dest(`${pathDist}/libs/fontawesome/webfonts`))
         .pipe(browserSync.stream())
 }
 
@@ -72,48 +69,16 @@ function buildStyleBootstrap() {
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathAssets}/libs/bootstrap/`))
+        .pipe(dest(`${pathDist}/libs/bootstrap/`))
         .pipe(browserSync.stream())
 }
 
 // Task build js bootstrap
 function buildLibsBootstrapJS() {
-    return src([
-        `${pathNodeModule}/bootstrap/js/dist/collapse.js`
-    ])
-        .pipe(babel())
-        .pipe(webpack({
-            mode: 'production',
-            output: {
-                filename: 'bootstrap.js'
-            },
-            module: {
-                rules: [
-                    {
-                        test: /\.js$/,
-                        exclude: /node_modules/,
-                        use: {
-                            loader: 'babel-loader'
-                        }
-                    }
-                ]
-            },
-            optimization: {
-                minimize: true,
-                minimizer: [
-                    new TerserPlugin({
-                        terserOptions: {
-                            output: {
-                                comments: false,
-                            },
-                        },
-                        extractComments: false,
-                    }),
-                ],
-            },
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathAssets}/libs/bootstrap/`))
+    return src( `${pathNodeModule}/bootstrap/dist/js/bootstrap.bundle.js`, {allowEmpty: true} )
+        .pipe(uglify())
+        .pipe(rename( {suffix: '.min'} ))
+        .pipe(dest(`${pathDist}/libs/bootstrap/`))
         .pipe(browserSync.stream())
 }
 
@@ -129,7 +94,7 @@ function buildStyleOwlCarousel() {
             level: {1: {specialComments: 0}}
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
+        .pipe(dest(`${pathDist}/libs/owl.carousel/`))
         .pipe(browserSync.stream())
 }
 
@@ -139,7 +104,7 @@ function buildJsOwlCarouse() {
     ], {allowEmpty: true})
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathAssets}/libs/owl.carousel/`))
+        .pipe(dest(`${pathDist}/libs/owl.carousel/`))
         .pipe(browserSync.stream())
 }
 
@@ -155,7 +120,7 @@ function buildStyleTheme() {
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(dest(`${pathAssets}/css/`))
+        .pipe(dest(`${pathDist}/css/`))
         .pipe(browserSync.stream())
 }
 
@@ -165,7 +130,7 @@ function buildJSTheme() {
     ], {allowEmpty: true})
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${pathAssets}/js/`))
+        .pipe(dest(`${pathDist}/js/`))
         .pipe(browserSync.stream())
 }
 
@@ -207,7 +172,7 @@ function buildStyleCustomPostType() {
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(dest(`${pathAssets}/css/post-type/`))
+        .pipe(dest(`${pathDist}/css/post-type/`))
         .pipe(browserSync.stream())
 }
 
@@ -223,20 +188,7 @@ function buildStylePageTemplate() {
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write())
-        .pipe(dest(`${pathAssets}/css/page-templates/`))
-        .pipe(browserSync.stream())
-}
-
-// Task optimize images
-function optimizeImages() {
-    const imgDst = `${pathAssets}/images/`;
-
-    return src([
-        `${pathSrc}/images/*`,
-        `${pathSrc}/images/*/**`
-    ], {encoding: false})
-        .pipe(imagemin())
-        .pipe(dest(imgDst))
+        .pipe(dest(`${pathDist}/css/page-templates/`))
         .pipe(browserSync.stream())
 }
 
@@ -262,8 +214,6 @@ async function buildProject() {
     await buildStyleCustomPostType()
 
     await buildStylePageTemplate()
-
-    await optimizeImages()
 }
 
 exports.buildProject = buildProject
@@ -278,7 +228,8 @@ function watchTask() {
         buildStyleBootstrap,
         buildStyleTheme,
         buildStyleElementor,
-        buildStyleCustomPostType
+        buildStyleCustomPostType,
+        buildStylePageTemplate
     ))
 
     watch([
@@ -302,12 +253,14 @@ function watchTask() {
         `${pathSrc}/scss/post-type/*/**.scss`
     ], buildStyleCustomPostType)
 
-    watch(`${pathSrc}/images/**/*`, optimizeImages)
+    watch([
+        `${pathSrc}/scss/page-templates/*.scss`
+    ], buildStylePageTemplate)
 
     watch([
         './*.php',
         './**/*.php',
-        `${pathAssets}/images/**/*`
+        `${pathDist}/images/**/*`
     ], browserSync.reload);
 }
 
