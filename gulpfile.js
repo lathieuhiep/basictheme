@@ -12,7 +12,9 @@ const pathDist = './assets'
 const pathNodeModule = './node_modules'
 
 // server
-const proxy = "localhost/basicthem"
+// tạo file .env với biến PROXY="localhost/basicthem". Có thể thay đổi giá trị này.
+require('dotenv').config()
+const proxy = process.env.PROXY || "localhost/basicthem";
 function server() {
     browserSync.init({
         proxy: proxy,
