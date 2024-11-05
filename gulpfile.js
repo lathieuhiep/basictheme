@@ -117,6 +117,7 @@ function buildStyleTheme() {
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
+        .pipe(dest(`${pathDist}/css/`))
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
         }))
