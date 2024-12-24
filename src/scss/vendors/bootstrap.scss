@@ -35,12 +35,12 @@ $link-decoration: none;
 $transition-base: $transition-base;
 
 // font size
-$h1-font-size: $h1-font-size;
-$h2-font-size: $h2-font-size;
-$h3-font-size: $h3-font-size;
-$h4-font-size: $h4-font-size;
-$h5-font-size: $h5-font-size;
-$h6-font-size: $h6-font-size;
+$h1-font-size: map-get($font-sizes, h1);
+$h2-font-size: map-get($font-sizes, h2);
+$h3-font-size: map-get($font-sizes, h3);
+$h4-font-size: map-get($font-sizes, h4);
+$h5-font-size: map-get($font-sizes, h5);
+$h6-font-size: map-get($font-sizes, h6);
 
 // headings-variables
 $headings-color: $heading-color;
@@ -64,6 +64,11 @@ $nav-link-font-weight: 400;
 $container-max-widths: (
         xl: 1224px
 ) !default;
+
+// Spacing
+// scss-docs-start spacer-variables-maps
+$spacer: $spacing-base !default;
+$spacers: $spacers !default;
 
 // Include remainder of required Bootstrap stylesheets
 @import "../../../node_modules/bootstrap/scss/variables";

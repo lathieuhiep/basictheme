@@ -1,8 +1,54 @@
-// body
-$body-color: #000000;
-$body-bg: #ffffff;
+$prefix: mt-theme-;
 
-$font-size-base: 1.6rem;
+// color
+$colors: (
+        primary: #3498db,
+        secondary: #2ecc71,
+        accent: #e74c3c,
+        success: #28a745,
+        error: #dc3545,
+        warning: #ffc107,
+        info: #17a2b8,
+        black: #000000,
+        white: #ffffff
+);
+
+// typography
+$font-sizes: (
+        body: 1.6rem,
+        h1: 3.2rem,
+        h2: 2.8rem,
+        h3: 2.4rem,
+        h4: 2rem,
+        h5: 1.8rem,
+        h6: 1.6rem
+);
+
+$fonts: (
+        base: 'Roboto, sans-serif',
+        heading: 'Poppins, sans-serif'
+);
+
+$font-weights: (
+        regular: 400,
+        medium: 500,
+        bold: 700
+);
+
+// spacing
+$spacing-base: 0.4rem;
+$spacers: ();
+
+@for $i from 0 through 8 {
+  $spacers: map-merge($spacers, (#{$i}: $spacing-base * $i));
+}
+
+
+// body
+$body-color: map-get($colors, black);
+$body-bg:  map-get($colors, white);
+
+$font-size-base: map-get($font-sizes, body);
 $line-height-base: 1.5;
 
 // colors
@@ -14,7 +60,7 @@ $color-hover: #ff5555;
 $color-required: #ff5555;
 
 // Fonts
-$font-family-base: 'Roboto Slab', sans-serif;
+$font-family-base: map-get($fonts, base);
 
 // FontAwesome
 $font-awesome-free: 'Font Awesome 6 Free';
@@ -27,8 +73,8 @@ $paragraph-margin-bottom: 1.2rem;
 
 // headings variables
 $headings-margin-bottom: 1.2rem;
-$heading-color: #208B45;
-$headings-font-family: 'Roboto Slab', sans-serif;
+$heading-color: map-get($colors, primary);
+$headings-font-family: map-get($fonts, heading);
 $headings-font-weight: 700;
 $headings-line-height: 1.25;
 
