@@ -248,7 +248,7 @@ function watchTask() {
     watch([`${pathSrc}/js/custom.js`], buildJSTheme)
 
     watch([
-        `${pathSrc}/scss/elementor-addon/*.scss`
+        `${pathSrc}/scss/elementor-addons/*.scss`
     ], buildStyleElementor)
     watch([`${pathSrc}/js/elementor-addon.js`], buildJSElementor)
 
