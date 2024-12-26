@@ -7,8 +7,8 @@
 $enable-rfs: false;
 
 // body
-$body-bg: map-get($colors, "white");
-$body-color: map-get($colors, "black");
+$body-bg: map-get($mt-colors, "white");
+$body-color: map-get($mt-colors, "black");
 $body-text-align: inherit;
 
 // stylelint-enable value-keyword-case
@@ -16,7 +16,7 @@ $font-family-sans-serif: $var-ff-base;
 $font-family-monospace: $var-ff-base;
 $font-family-base: $var-ff-base;
 
-$font-size-base: $var-fs-body;
+$font-size-base: map-get($mt-font-sizes, sm);
 $line-height-base: $line-height-base;
 
 // Grid columns
@@ -35,12 +35,12 @@ $link-decoration: none;
 $transition-base: $transition-base;
 
 // font size
-$h1-font-size: $var-fs-h1;
-$h2-font-size: $var-fs-h2;
-$h3-font-size: $var-fs-h3;
-$h4-font-size: $var-fs-h4;
-$h5-font-size: $var-fs-h5;
-$h6-font-size: $var-fs-h6;
+$h1-font-size: $var-fs-3xl;
+$h2-font-size: $var-fs-xxl;
+$h3-font-size: $var-fs-xl;
+$h4-font-size: $var-fs-lg;
+$h5-font-size: $var-fs-md;
+$h6-font-size: $var-fs-sm;
 
 // headings-variables
 $headings-color: $heading-color;
@@ -57,7 +57,7 @@ $paragraph-margin-bottom: $paragraph-margin-bottom;
 
 // Navs
 // scss-docs-start nav-variables
-$nav-link-font-size: $var-fs-body;
+$nav-link-font-size: $var-fs-sm;
 $nav-link-font-weight: 400;
 
 // scss-docs-start container-max-widths

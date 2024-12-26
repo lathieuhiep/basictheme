@@ -33,21 +33,21 @@ $var-white-color: var(--#{$prefix-theme}white);
 
 // typography
 $mt-font-sizes: (
-        body: 1.6rem,
-        h1: 3.2rem,
-        h2: 2.8rem,
-        h3: 2.4rem,
-        h4: 2rem,
-        h5: 1.8rem,
-        h6: 1.6rem
+        xs: 1.2rem,
+        sm: 1.6rem,
+        md: 1.8rem,
+        lg: 2rem,
+        xl: 2.4rem,
+        xxl: 2.8rem,
+        3xl: 3.2rem
 );
-$var-fs-body: var(--#{$prefix-theme}fs-body);
-$var-fs-h1: var(--#{$prefix-theme}fs-h1);
-$var-fs-h2: var(--#{$prefix-theme}fs-h2);
-$var-fs-h3: var(--#{$prefix-theme}fs-h3);
-$var-fs-h4: var(--#{$prefix-theme}fs-h4);
-$var-fs-h5: var(--#{$prefix-theme}fs-h5);
-$var-fs-h6: var(--#{$prefix-theme}fs-h6);
+$var-fs-xs: var(--#{$prefix-theme}fs-xs);
+$var-fs-sm: var(--#{$prefix-theme}fs-sm);
+$var-fs-md: var(--#{$prefix-theme}fs-md);
+$var-fs-lg: var(--#{$prefix-theme}fs-lg);
+$var-fs-xl: var(--#{$prefix-theme}fs-xl);
+$var-fs-xxl: var(--#{$prefix-theme}fs-xxl);
+$var-fs-3xl: var(--#{$prefix-theme}fs-3xl);
 
 // font family
 $mt-fonts: (
