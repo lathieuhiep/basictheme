@@ -6,6 +6,7 @@ const browserSync = require('browser-sync')
 const uglify = require('gulp-uglify')
 const minifyCss = require('gulp-clean-css')
 const rename = require("gulp-rename")
+const plumber = require('gulp-plumber');
 
 const pathSrc = './src'
 const pathDist = './assets'
@@ -63,9 +64,16 @@ Task build Bootstrap
 // Task build style bootstrap
 function buildStyleBootstrap() {
     return src(`${pathSrc}/scss/vendors/bootstrap.scss`)
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.error(err.message);
+                this.emit('end');
+            }
+        }))
         .pipe(sass({
             outputStyle: 'expanded',
-            includePaths: ['node_modules']
+            includePaths: ['node_modules'],
+            quietDeps: true
         }, '').on('error', sass.logError))
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}

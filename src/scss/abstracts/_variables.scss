@@ -1,20 +1,38 @@
-$prefix: mt-theme-;
+@use "sass:map";
+
+$prefix-theme: theme-;
+
+// Mixin để tạo CSS Variables
+@mixin generate-css-variables($map, $prefix) {
+  @each $name, $value in $map {
+    --#{$prefix}#{$name}: #{$value};
+  }
+}
 
 // color
-$colors: (
-        primary: #3498db,
-        secondary: #2ecc71,
-        accent: #e74c3c,
-        success: #28a745,
-        error: #dc3545,
-        warning: #ffc107,
-        info: #17a2b8,
-        black: #000000,
-        white: #ffffff
+$mt-colors: (
+        "primary": #3498db,
+        "secondary": #2ecc71,
+        "accent": #e74c3c,
+        "success": #28a745,
+        "error": #dc3545,
+        "warning": #ffc107,
+        "info": #17a2b8,
+        "black": #000000,
+        "white": #ffffff
 );
+$var-primary-color: var(--#{$prefix-theme}primary);
+$var-secondary-color: var(--#{$prefix-theme}secondary);
+$var-accent-color: var(--#{$prefix-theme}accent);
+$var-success-color: var(--#{$prefix-theme}success);
+$var-error-color: var(--#{$prefix-theme}error);
+$var-warning-color: var(--#{$prefix-theme}warning);
+$var-info-color: var(--#{$prefix-theme}info);
+$var-black-color: var(--#{$prefix-theme}black);
+$var-white-color: var(--#{$prefix-theme}white);
 
 // typography
-$font-sizes: (
+$mt-font-sizes: (
         body: 1.6rem,
         h1: 3.2rem,
         h2: 2.8rem,
@@ -23,70 +41,68 @@ $font-sizes: (
         h5: 1.8rem,
         h6: 1.6rem
 );
+$var-fs-body: var(--#{$prefix-theme}fs-body);
+$var-fs-h1: var(--#{$prefix-theme}fs-h1);
+$var-fs-h2: var(--#{$prefix-theme}fs-h2);
+$var-fs-h3: var(--#{$prefix-theme}fs-h3);
+$var-fs-h4: var(--#{$prefix-theme}fs-h4);
+$var-fs-h5: var(--#{$prefix-theme}fs-h5);
+$var-fs-h6: var(--#{$prefix-theme}fs-h6);
 
-$fonts: (
-        base: 'Roboto, sans-serif',
-        heading: 'Poppins, sans-serif'
+// font family
+$mt-fonts: (
+        base: 'Poppins, sans-serif',
+        heading: 'Roboto Slab, sans-serif'
 );
+$var-ff-base: var(--#{$prefix-theme}ff-base);
+$var-ff-heading: var(--#{$prefix-theme}ff-heading);
 
-$font-weights: (
+// font-weights
+$mt-font-weights: (
         regular: 400,
         medium: 500,
         bold: 700
 );
+$var-fw-regular: var(--#{$prefix-theme}fw-regular);
+$var-fw-medium: var(--#{$prefix-theme}fw-medium);
+$var-fw-bold: var(--#{$prefix-theme}fw-bold);
 
 // spacing
 $spacing-base: 0.4rem;
 $spacers: ();
 
 @for $i from 0 through 8 {
-  $spacers: map-merge($spacers, (#{$i}: $spacing-base * $i));
+  $spacers: map.merge($spacers, (#{$i}: $spacing-base * $i));
 }
 
 
 // body
-$body-color: map-get($colors, black);
-$body-bg:  map-get($colors, white);
+$body-color: $var-black-color;
+$body-bg: $var-white-color;
 
-$font-size-base: map-get($font-sizes, body);
 $line-height-base: 1.5;
-
-// colors
-$primary-color: #3498db;
-$secondary-color: #FFF400;
-$tertiary-color: #1D93E3;
 
 $color-hover: #ff5555;
 $color-required: #ff5555;
 
-// Fonts
-$font-family-base: map-get($fonts, base);
+// headings variables
+$headings-margin-bottom: $spacing-base * 3;
+$heading-color: $var-primary-color;
+$headings-font-family: $var-ff-heading;
+$headings-font-weight: $var-fw-bold;
+$headings-line-height: 1.25;
 
 // FontAwesome
-$font-awesome-free: 'Font Awesome 6 Free';
-$font-awesome-brand: 'Font Awesome 6 Brands';
+$font-awesome-free: "Font Awesome 6 Free", serif;
+$font-awesome-brand: "Font Awesome 6 Brands", serif;
 
 // Paragraphs
 //
 // Style p element.
-$paragraph-margin-bottom: 1.2rem;
-
-// headings variables
-$headings-margin-bottom: 1.2rem;
-$heading-color: map-get($colors, primary);
-$headings-font-family: map-get($fonts, heading);
-$headings-font-weight: 700;
-$headings-line-height: 1.25;
-
-$h1-font-size: 3.6rem;
-$h2-font-size: 3rem;
-$h3-font-size: 2.4rem;
-$h4-font-size: 2rem;
-$h5-font-size: 1.6rem;
-$h6-font-size: 1.4rem;
+$paragraph-margin-bottom: $spacing-base * 3;
 
 // others
 $transition-base: all 0.4s ease-in-out;
 
 // Grid columns
-$grid-gutter-width: 2.4rem;
+$grid-gutter-width: $spacing-base * 6;

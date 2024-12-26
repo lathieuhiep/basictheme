@@ -7,6 +7,33 @@
 * -----------------------------------------------------------------------------
 */
 /**
+# Root
+-----------------------------------------------------------------------------*/
+:root {
+  --theme-primary: #3498db;
+  --theme-secondary: #2ecc71;
+  --theme-accent: #e74c3c;
+  --theme-success: #28a745;
+  --theme-error: #dc3545;
+  --theme-warning: #ffc107;
+  --theme-info: #17a2b8;
+  --theme-black: #000000;
+  --theme-white: #ffffff;
+  --theme-ff-base: Poppins, sans-serif;
+  --theme-ff-heading: Roboto Slab, sans-serif;
+  --theme-fs-body: 1.6rem;
+  --theme-fs-h1: 3.2rem;
+  --theme-fs-h2: 2.8rem;
+  --theme-fs-h3: 2.4rem;
+  --theme-fs-h4: 2rem;
+  --theme-fs-h5: 1.8rem;
+  --theme-fs-h6: 1.6rem;
+  --theme-fw-regular: 400;
+  --theme-fw-medium: 500;
+  --theme-fw-bold: 700;
+}
+
+/**
 # Base
 -----------------------------------------------------------------------------*/
 * {
@@ -419,7 +446,7 @@ form.post-password-form p input[type=submit] {
 .site-navigation__menu .sub-menu-toggle:after {
   content: "\f078";
   display: inline-block;
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 6 Free", serif;
   font-style: normal;
   font-weight: 900;
 }
@@ -455,7 +482,7 @@ form.post-password-form p input[type=submit] {
     display: block !important;
     min-width: 160px;
     border-top: 1px solid #ff5555;
-    background-color: #3498db;
+    background-color: var(--theme-primary);
     position: absolute;
     top: 120%;
     left: 0;
@@ -541,7 +568,7 @@ form.post-password-form p input[type=submit] {
   .site-navigation__menu ul li .sub-menu li a:before {
     content: "\f111";
     display: inline-block;
-    font-family: "Font Awesome 6 Free";
+    font-family: "Font Awesome 6 Free", serif;
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -616,7 +643,7 @@ form.post-password-form p input[type=submit] {
   width: auto;
   height: auto;
   font-size: 35px;
-  color: #000000 !important;
+  color: var(--theme-black) !important;
   line-height: inherit;
   background-color: transparent;
   display: flex;
@@ -691,7 +718,7 @@ form.post-password-form p input[type=submit] {
 }
 
 .search-field {
-  border: 1px solid #3498db;
+  border: 1px solid var(--theme-primary);
   height: auto;
   padding: 9px 10px;
   border-radius: 3px;
@@ -768,7 +795,7 @@ section.widget.widget_calendar table caption {
   text-align: center;
 }
 section.widget.widget_calendar table tr {
-  border-bottom: 1px solid #3498db;
+  border-bottom: 1px solid var(--theme-primary);
 }
 section.widget.widget_calendar table tr th {
   text-align: center;
@@ -846,13 +873,13 @@ section.widget .recent-post-widget__list .meta i.fa {
   margin-bottom: 15px;
 }
 .global-footer__column {
-  border-top: 1px solid #3498db;
+  border-top: 1px solid var(--theme-primary);
   padding: 30px 0;
 }
 .global-footer__bottom {
   padding: 10px 0;
   color: #ffffff;
-  background-color: #000000;
+  background-color: var(--theme-black);
 }
 
 /**
@@ -860,7 +887,7 @@ section.widget .recent-post-widget__list .meta i.fa {
 -----------------------------------------------------------------------------*/
 .breadcrumbs .breadcrumbs-col {
   padding: 15px 0;
-  border-bottom: 1px solid #3498db;
+  border-bottom: 1px solid var(--theme-primary);
 }
 
 form.wpcf7-form p {
@@ -949,7 +976,7 @@ form.wpcf7-form .wpcf7-submit {
 .comments-area__list .comment__body {
   padding: 1.2rem;
   border-radius: 4px;
-  border: 1px solid #3498db;
+  border: 1px solid var(--theme-primary);
 }
 .comments-area__list .comment__body > div:not(:last-child) {
   margin-bottom: 1.2rem;
@@ -984,7 +1011,7 @@ form.wpcf7-form .wpcf7-submit {
   margin-right: 1.2rem;
 }
 .comments-area__list .comment__body .action a:hover {
-  color: #000000;
+  color: var(--theme-black);
 }
 .comments-area__list .children {
   margin-top: 2.4rem;
@@ -1022,7 +1049,7 @@ form.wpcf7-form .wpcf7-submit {
   width: 100%;
   padding: 9px 22px;
   height: auto;
-  border: 1px solid #3498db;
+  border: 1px solid var(--theme-primary);
   border-radius: 0;
 }
 .comments-area .comment-form .form-comment-field {
@@ -1037,7 +1064,7 @@ form.wpcf7-form .wpcf7-submit {
   width: auto;
   padding: 9px 22px;
   color: #000000;
-  background-color: #3498db;
+  background-color: var(--theme-primary);
   border: none;
   border-radius: 3px;
   transition: all 0.4s ease-in-out;
@@ -1087,7 +1114,7 @@ form.wpcf7-form .wpcf7-submit {
 }
 .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
   margin: 0 6px;
-  color: #000000;
+  color: var(--theme-black);
   font-size: 20px;
   line-height: normal;
   transition: all 0.4s ease-in-out;

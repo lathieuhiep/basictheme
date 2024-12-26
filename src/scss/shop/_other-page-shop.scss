@@ -1,3 +1,5 @@
+@use "../abstracts/abstracts" as *;
+
 .woocommerce-cart {
   table {
     &.cart {
