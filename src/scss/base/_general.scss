@@ -1,53 +1,4 @@
-@use "../abstracts/abstracts" as *;
-
-* {
-  outline: none !important;
-}
-
-html {
-  min-height: 100%;
-  font-size: 62.5%;
-}
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  word-break: break-word;
-  @include flex-column;
-}
-
-a {
-  @include transition();
-}
-
-p {
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-figure {
-  margin: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-iframe {
-  max-width: 100%;
-}
-
-blockquote {
-  border-left: 1px solid $color-hover;
-  padding-left: 30px;
-}
-
-pre {
-  white-space: pre-wrap;
-  margin-bottom: 30px;
-}
+@import "../abstracts/abstracts";
 
 .sticky-footer {
   flex: 1 0 auto;
@@ -64,47 +15,49 @@ pre {
 }
 
 #back-top {
-  background-color: $color-hover;
+  --#{$prefix-theme}bt-square: 4rem;
+
+  background-color: $var-accent-color;
   opacity: 0;
-  width: 40px;
-  height: 40px;
+  @include square(var(--#{$prefix-theme}bt-square));
   bottom: 0;
   cursor: pointer;
   position: fixed;
-  right: 15px;
+  right: 1.5rem;
   z-index: 1000;
   @include transition();
 
   a {
     display: block;
     color: #ffffff;
-    line-height: 40px;
+    line-height: var(--#{$prefix-theme}bt-square);
     text-align: center;
-    text-decoration: none;
     @include transition(all 0.25s ease-in-out);
   }
 
   &.active_top {
     opacity: 1;
-    bottom: 15px;
+    bottom: 1.5rem;
   }
 
   &:hover {
-    background-color: #000000;
+    background-color: $var-black-color;
   }
 }
 
 .site-container {
-  padding: 50px 0;
+  --#{$prefix-theme}pd-site-container: 5rem 0;
+
+  padding: var(--#{$prefix-theme}pd-site-container);
 
   &.site-container-elementor {
-    padding: 0;
+    --#{$prefix-theme}pd-site-container: 0;
   }
 }
 
 .site-page-content {
   p {
-    &:after {
+    &::after {
       display: table;
       clear: both;
       content: '';

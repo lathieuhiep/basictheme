@@ -1,4 +1,4 @@
-@use "../abstracts/abstracts" as *;
+@import "../abstracts/abstracts";
 
 :root {
   //color
@@ -12,4 +12,7 @@
 
   // font-weight
   @include generate-css-variables($mt-font-weights, "#{$prefix-theme}fw-");
+
+  // spacing
+  @include generate-css-variables($spacers, "#{$prefix-theme}spacing-");
 }

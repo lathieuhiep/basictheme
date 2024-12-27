@@ -123,7 +123,11 @@ function buildStyleTheme() {
     return src(`${pathSrc}/scss/style-theme.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'expanded',
+            // Tắt cảnh báo deprecated
+            sassOptions: {
+                quietDeps: true
+            }
         }, '').on('error', sass.logError))
         .pipe(dest(`${pathDist}/css/`))
         .pipe(minifyCss({
@@ -134,6 +138,8 @@ function buildStyleTheme() {
         .pipe(dest(`${pathDist}/css/`))
         .pipe(browserSync.stream())
 }
+
+exports.buildStyleTheme = buildStyleTheme
 
 function buildJSTheme() {
     return src([
@@ -249,6 +255,7 @@ function watchTask() {
 
     watch([
         `${pathSrc}/scss/base/*.scss`,
+        `${pathSrc}/scss/utilities/*.scss`,
         `${pathSrc}/scss/components/*.scss`,
         `${pathSrc}/scss/layout/*.scss`,
         `${pathSrc}/scss/style-theme.scss`,

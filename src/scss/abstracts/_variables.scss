@@ -1,5 +1,3 @@
-@use "sass:map";
-
 $prefix-theme: theme-;
 
 // Mixin để tạo CSS Variables
@@ -51,8 +49,8 @@ $var-fs-3xl: var(--#{$prefix-theme}fs-3xl);
 
 // font family
 $mt-fonts: (
-        base: 'Poppins, sans-serif',
-        heading: 'Roboto Slab, sans-serif'
+        base: '"Poppins", sans-serif',
+        heading: '"Roboto Slab", sans-serif'
 );
 $var-ff-base: var(--#{$prefix-theme}ff-base);
 $var-ff-heading: var(--#{$prefix-theme}ff-heading);
@@ -67,20 +65,20 @@ $var-fw-regular: var(--#{$prefix-theme}fw-regular);
 $var-fw-medium: var(--#{$prefix-theme}fw-medium);
 $var-fw-bold: var(--#{$prefix-theme}fw-bold);
 
+$line-height-base: 1.5;
+$line-height-heading: 1.25;
+
 // spacing
 $spacing-base: 0.4rem;
 $spacers: ();
 
 @for $i from 0 through 8 {
-  $spacers: map.merge($spacers, (#{$i}: $spacing-base * $i));
+  $spacers: map-merge($spacers, (#{$i}: $spacing-base * $i));
 }
-
 
 // body
 $body-color: $var-black-color;
 $body-bg: $var-white-color;
-
-$line-height-base: 1.5;
 
 $color-hover: #ff5555;
 $color-required: #ff5555;
@@ -90,7 +88,7 @@ $headings-margin-bottom: $spacing-base * 3;
 $heading-color: $var-primary-color;
 $headings-font-family: $var-ff-heading;
 $headings-font-weight: $var-fw-bold;
-$headings-line-height: 1.25;
+$headings-line-height: $line-height-heading;
 
 // FontAwesome
 $font-awesome-free: "Font Awesome 6 Free", serif;
