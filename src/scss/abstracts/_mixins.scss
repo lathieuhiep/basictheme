@@ -1,3 +1,10 @@
+// Mixin để tạo CSS Variables
+@mixin generate-css-variables($map, $prefix) {
+  @each $name, $value in $map {
+    --#{$prefix}#{$name}: #{$value};
+  }
+}
+
 @mixin reset-list {
   margin: 0;
   padding: 0;

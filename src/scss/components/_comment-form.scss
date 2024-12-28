@@ -32,7 +32,7 @@
       bottom: 0;
       left: 0;
       @include square(3rem, .1rem);
-      background: $color-hover;
+      background: $var-accent-color;
       @include transition();
     }
   }
@@ -167,8 +167,8 @@
 
         &:hover {
           color: #ffffff;
-          border-color: $color-hover;
-          background-color: $color-hover;
+          border-color: $var-accent-color;
+          background-color: $var-accent-color;
         }
       }
     }

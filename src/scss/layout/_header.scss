@@ -40,7 +40,7 @@
 
           &:hover {
             background-color: transparent;
-            color: $color-hover;
+            color: $var-accent-color;
           }
         }
 
@@ -59,7 +59,7 @@
         &.current-menu-item,
         &.current-menu-parent {
           > a {
-            color: $color-hover;
+            color: $var-accent-color;
           }
         }
       }
@@ -132,7 +132,7 @@
           .sub-menu {
             display: block !important;
             min-width: 160px;
-            border-top: 1px solid $color-hover;
+            border-top: 1px solid $var-accent-color;
             background-color: $var-primary-color;
             position: absolute;
             top: 120%;
@@ -285,7 +285,7 @@
         right: 0;
         @include square(20px, 50%);
         @include flex-center();
-        background-color: $color-hover;
+        background-color: $var-accent-color;
       }
     }
 
@@ -334,7 +334,7 @@
                 @include flex-center;
 
                 &:hover {
-                  color: $color-hover !important;
+                  color: $var-accent-color !important;
                 }
               }
 

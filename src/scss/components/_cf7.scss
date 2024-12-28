@@ -22,7 +22,7 @@ form {
 
     span {
       &.required {
-        color: $color-hover;
+        color: $var-accent-color;
       }
 
       &.wpcf7-form-control-wrap {

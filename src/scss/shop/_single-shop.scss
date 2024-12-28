@@ -62,7 +62,7 @@
 
         .price {
           margin: 0 0 10px;
-          color: $color-hover;
+          color: $var-accent-color;
         }
 
         form {
@@ -77,7 +77,7 @@
             }
 
             .single_add_to_cart_button {
-              background-color: $color-hover;
+              background-color: $var-accent-color;
               width: auto;
               padding: 10px 15px;
             }

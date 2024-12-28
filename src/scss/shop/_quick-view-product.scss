@@ -14,7 +14,7 @@
 
   &:hover {
     color: #ffffff;
-    background-color: $color-hover;
+    background-color: $var-accent-color;
   }
 }
 
@@ -51,7 +51,7 @@
       .item-price {
         .price {
           font-weight: 700;
-          color: $color-hover;
+          color: $var-accent-color;
           font-size: 15px;
 
           del {
@@ -75,7 +75,7 @@
           background-color: #000000;
 
           &:hover {
-            background-color: $color-hover;
+            background-color: $var-accent-color;
           }
         }
 
