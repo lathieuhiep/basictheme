@@ -1,33 +1,26 @@
 /**
-* Table of Contents:
-*
-# Base
-# Layout
-# Components
-* -----------------------------------------------------------------------------
-*/
-
-@use "global";
+# Root
+-----------------------------------------------------------------------------*/
+@import "base/base";
 
 /**
-# Base
+# Utilities
 -----------------------------------------------------------------------------*/
-@use "base/general";
-@use "base/wp-core";
+@import "utilities/utilities";
 
 /**
 # Layout
 -----------------------------------------------------------------------------*/
-@use "layout/header";
-@use "layout/sidebar";
-@use "layout/footer";
+@import "layout/header";
+@import "layout/sidebar";
+@import "layout/footer";
 
 /**
 # Components
 -----------------------------------------------------------------------------*/
-@use "components/breadcrumbs";
-@use "components/cf7";
-@use "components/comment-form";
-@use "components/pagination";
-@use "components/owl-carousel";
-@use "components/social-network";
+@import "components/breadcrumbs";
+@import "components/cf7";
+@import "components/comment-form";
+@import "components/pagination";
+@import "components/owl-carousel";
+@import "components/social-network";

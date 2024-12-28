@@ -1,7 +1,5 @@
-@use "../abstracts/abstracts";
-
-@use "archive-shop";
-@use "single-shop";
-@use "other-page-shop";
-@use "sidebar-shop";
-@use "quick-view-product";
+@import "archive-shop";
+@import "single-shop";
+@import "other-page-shop";
+@import "sidebar-shop";
+@import "quick-view-product";

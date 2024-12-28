@@ -1,3 +1,5 @@
+@import "../abstracts/abstracts";
+
 section {
   &.widget {
     &.woocommerce {
@@ -110,7 +112,7 @@ section {
       }
 
       .search-field {
-        border: 1px solid $primary-color;
+        border: 1px solid $var-primary-color;
         height: auto;
         padding: 9px 10px;
         cursor: pointer;

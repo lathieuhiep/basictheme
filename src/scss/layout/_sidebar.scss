@@ -1,9 +1,11 @@
+@import "../abstracts/abstracts";
+
 .search-form {
   font-size: 12px;
 }
 
 .search-field {
-  border: 1px solid $primary-color;
+  border: 1px solid $var-primary-color;
   height: auto;
   padding: 9px 10px;
   border-radius: 3px;
@@ -108,7 +110,7 @@ section {
         }
 
         tr {
-          border-bottom: 1px solid $primary-color;
+          border-bottom: 1px solid $var-primary-color;
 
           th {
             text-align: center;

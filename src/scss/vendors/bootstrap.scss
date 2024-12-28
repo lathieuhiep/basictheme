@@ -7,16 +7,16 @@
 $enable-rfs: false;
 
 // body
-$body-bg: $body-bg;
-$body-color: $body-color;
+$body-bg: map-get($mt-colors, "white");
+$body-color: map-get($mt-colors, "black");
 $body-text-align: inherit;
 
 // stylelint-enable value-keyword-case
-$font-family-sans-serif: $font-family-base;
-$font-family-monospace: $font-family-base;
-$font-family-base: $font-family-base;
+$font-family-sans-serif: $var-ff-base;
+$font-family-monospace: $var-ff-base;
+$font-family-base: $var-ff-base;
 
-$font-size-base: $font-size-base;
+$font-size-base: map-get($mt-font-sizes, sm);
 $line-height-base: $line-height-base;
 
 // Grid columns
@@ -35,20 +35,19 @@ $link-decoration: none;
 $transition-base: $transition-base;
 
 // font size
-$h1-font-size: $h1-font-size;
-$h2-font-size: $h2-font-size;
-$h3-font-size: $h3-font-size;
-$h4-font-size: $h4-font-size;
-$h5-font-size: $h5-font-size;
-$h6-font-size: $h6-font-size;
+$h1-font-size: $var-fs-3xl;
+$h2-font-size: $var-fs-xxl;
+$h3-font-size: $var-fs-xl;
+$h4-font-size: $var-fs-lg;
+$h5-font-size: $var-fs-md;
+$h6-font-size: $var-fs-sm;
 
 // headings-variables
 $headings-color: $heading-color;
-$headings-font-family: $headings-font-family;
+$headings-font-family: $var-ff-heading;
 $headings-margin-bottom: $headings-margin-bottom;
 $headings-font-weight: $headings-font-weight;
 $headings-line-height: $headings-line-height;
-
 
 // Paragraphs
 //
@@ -57,13 +56,18 @@ $paragraph-margin-bottom: $paragraph-margin-bottom;
 
 // Navs
 // scss-docs-start nav-variables
-$nav-link-font-size: $font-size-base;
+$nav-link-font-size: $var-fs-sm;
 $nav-link-font-weight: 400;
 
 // scss-docs-start container-max-widths
 $container-max-widths: (
         xl: 1224px
 ) !default;
+
+// Spacing
+// scss-docs-start spacer-variables-maps
+$spacer: $spacing-base !default;
+$spacers: $spacers !default;
 
 // Include remainder of required Bootstrap stylesheets
 @use "../../../node_modules/bootstrap/scss/variables";

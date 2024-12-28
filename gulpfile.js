@@ -6,6 +6,7 @@ const browserSync = require('browser-sync')
 const uglify = require('gulp-uglify')
 const minifyCss = require('gulp-clean-css')
 const rename = require("gulp-rename")
+const plumber = require('gulp-plumber');
 
 const pathSrc = './src'
 const pathDist = './assets'
@@ -63,9 +64,16 @@ Task build Bootstrap
 // Task build style bootstrap
 function buildStyleBootstrap() {
     return src(`${pathSrc}/scss/vendors/bootstrap.scss`)
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.error(err.message);
+                this.emit('end');
+            }
+        }))
         .pipe(sass({
             outputStyle: 'expanded',
-            includePaths: ['node_modules']
+            includePaths: ['node_modules'],
+            quietDeps: true
         }, '').on('error', sass.logError))
         .pipe(minifyCss({
             level: {1: {specialComments: 0}}
@@ -115,7 +123,11 @@ function buildStyleTheme() {
     return src(`${pathSrc}/scss/style-theme.scss`)
         .pipe(sourcemaps.init())
         .pipe(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'expanded',
+            // Tắt cảnh báo deprecated
+            sassOptions: {
+                quietDeps: true
+            }
         }, '').on('error', sass.logError))
         .pipe(dest(`${pathDist}/css/`))
         .pipe(minifyCss({
@@ -126,6 +138,8 @@ function buildStyleTheme() {
         .pipe(dest(`${pathDist}/css/`))
         .pipe(browserSync.stream())
 }
+
+exports.buildStyleTheme = buildStyleTheme
 
 function buildJSTheme() {
     return src([
@@ -241,6 +255,7 @@ function watchTask() {
 
     watch([
         `${pathSrc}/scss/base/*.scss`,
+        `${pathSrc}/scss/utilities/*.scss`,
         `${pathSrc}/scss/components/*.scss`,
         `${pathSrc}/scss/layout/*.scss`,
         `${pathSrc}/scss/style-theme.scss`,
@@ -248,7 +263,7 @@ function watchTask() {
     watch([`${pathSrc}/js/custom.js`], buildJSTheme)
 
     watch([
-        `${pathSrc}/scss/elementor-addon/*.scss`
+        `${pathSrc}/scss/elementor-addons/*.scss`
     ], buildStyleElementor)
     watch([`${pathSrc}/js/elementor-addon.js`], buildJSElementor)
 
