@@ -5,10 +5,10 @@
 }
 
 .search-field {
-  border: 1px solid $var-primary-color;
   height: auto;
   padding: 9px 10px;
-  border-radius: 3px;
+  @include border();
+  @include border-radius();
   box-shadow: none;
 }
 

@@ -732,10 +732,10 @@ form.post-password-form p input[type=submit] {
 }
 
 .search-field {
-  border: 1px solid var(--theme-primary);
   height: auto;
   padding: 9px 10px;
-  border-radius: 3px;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.4rem;
   box-shadow: none;
 }
 
