@@ -53,7 +53,16 @@
   justify-content: center;
 }
 
-//
+// transition
 @mixin transition( $transition: all 0.4s ease-in-out ) {
   transition: $transition;
+}
+
+// custom border
+@mixin border($width: $border-width, $color: $border-color, $style: $border-style) {
+  border: $width $style $color;
+}
+
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
 }

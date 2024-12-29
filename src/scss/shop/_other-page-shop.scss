@@ -115,7 +115,7 @@
     color: #000000;
     background-color: #eeeeee;
     border: none;
-    font-weight: 400;
+    font-weight: $var-fw-regular;
     @include transition();
 
     &:hover {

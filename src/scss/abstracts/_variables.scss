@@ -24,7 +24,7 @@ $var-white-color: var(--#{$prefix-theme}white);
 
 // typography
 $mt-font-sizes: (
-        xs: 1.2rem,
+        xs: 1.4rem,
         sm: 1.6rem,
         md: 1.8rem,
         lg: 2rem,
@@ -96,3 +96,9 @@ $transition-base: all 0.4s ease-in-out;
 
 // Grid columns
 $grid-gutter-width: $spacing-base * 6;
+
+// border
+$border-width: .1rem;
+$border-style: solid;
+$border-color: #ddd;
+$border-radius: .4rem;

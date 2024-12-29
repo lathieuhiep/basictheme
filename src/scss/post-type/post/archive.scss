@@ -1,4 +1,4 @@
-@use "../../abstracts/abstracts";
+@import "../../abstracts/abstracts";
 
 .content-archive-post {
   display: grid;
@@ -97,7 +97,7 @@
   }
 
   .page-links {
-    font-weight: 700;
+    font-weight: $var-fw-bold;
 
     a {
       display: inline-block;
