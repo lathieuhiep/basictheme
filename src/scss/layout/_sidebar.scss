@@ -5,15 +5,15 @@
 }
 
 .search-field {
-  border: 1px solid $var-primary-color;
   height: auto;
   padding: 9px 10px;
-  border-radius: 3px;
+  @include border();
+  @include border-radius();
   box-shadow: none;
 }
 
 .search-submit {
-  background-color: $color-hover;
+  background-color: $var-accent-color;
   color: #fff;
   padding: 9px 10px;
   border: none;
@@ -121,7 +121,7 @@ section {
             text-align: center;
 
             &#today {
-              background-color: $color-hover;
+              background-color: $var-accent-color;
               color: #ffffff;
 
               a {
@@ -165,9 +165,9 @@ section {
           margin: 0 2px 5px;
 
           &:hover {
-            background-color: $color-hover;
+            background-color: $var-accent-color;
             color: #ffffff;
-            border-color: $color-hover;
+            border-color: $var-accent-color;
           }
         }
       }

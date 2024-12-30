@@ -38,7 +38,7 @@
     font-size: 14px;
 
     > span {
-      color: $color-hover;
+      color: $var-accent-color;
     }
 
     &:before,
@@ -97,9 +97,9 @@
             min-height: auto;
             line-height: inherit;
             padding: 4px 18px;
-            font-weight: 400;
+            font-weight: $var-fw-regular;
             border-radius: 30px;
-            background-color: $color-hover;
+            background-color: $var-accent-color;
           }
 
           .woocommerce-loop-product__title {
@@ -113,7 +113,7 @@
           }
 
           .price {
-            color: $color-hover;
+            color: $var-accent-color;
             font-size: 14px;
             line-height: normal;
             font-weight: 700;
@@ -144,7 +144,7 @@
             }
 
             &:hover {
-              color: $color-hover;
+              color: $var-accent-color;
             }
 
             &.added {
@@ -166,7 +166,7 @@
               color: $body-color;
 
               &:hover {
-                color: $color-hover;
+                color: $var-accent-color;
               }
 
               &:after {
@@ -240,8 +240,8 @@
           span.current,
           a:hover {
             color: #fff;
-            background: $color-hover;
-            border-color: $color-hover;
+            background: $var-accent-color;
+            border-color: $var-accent-color;
           }
         }
       }
@@ -274,7 +274,7 @@
               }
 
               &.active {
-                background-color: $color-hover;
+                background-color: $var-accent-color;
 
                 a {
                   color: #ffffff;
@@ -284,7 +284,7 @@
               a {
                 padding: 0;
                 font-size: 15px;
-                font-weight: 400;
+                font-weight: $var-fw-regular;
                 color: #ffffff;
               }
             }
@@ -326,7 +326,7 @@
 
   p.stars a,
   .star-rating::before {
-    color: $color-hover;
+    color: $var-accent-color;
   }
 
   a {
@@ -335,7 +335,7 @@
         background-color: #000000;
 
         &:hover {
-          background-color: $color-hover;
+          background-color: $var-accent-color;
         }
       }
     }

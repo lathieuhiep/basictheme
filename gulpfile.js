@@ -240,7 +240,7 @@ function watchTask() {
     server()
 
     watch([
-        `${pathSrc}/scss/abstracts/*.scss`
+        `${pathSrc}/scss/abstracts/*/**.scss`
     ], gulp.series(
         buildStyleBootstrap,
         buildStyleTheme,

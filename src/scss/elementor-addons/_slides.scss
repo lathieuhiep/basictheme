@@ -31,7 +31,7 @@
           font-size: 30px;
 
           &:hover {
-            color: $color-hover;
+            color: $var-accent-color;
           }
         }
       }
@@ -52,7 +52,7 @@
         &.active,
         &:hover {
           span {
-            background-color: $color-hover;
+            background-color: $var-accent-color;
           }
         }
       }

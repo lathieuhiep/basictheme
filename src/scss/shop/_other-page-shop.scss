@@ -85,7 +85,7 @@
       background-color: #000000;
 
       &:hover {
-        background-color: $color-hover;
+        background-color: $var-accent-color;
       }
     }
   }
@@ -97,10 +97,10 @@
 
 .woocommerce-info,
 .woocommerce-message {
-  border-top-color: $color-hover;
+  border-top-color: $var-accent-color;
 
   &::before {
-    color: $color-hover;
+    color: $var-accent-color;
   }
 }
 
@@ -115,12 +115,12 @@
     color: #000000;
     background-color: #eeeeee;
     border: none;
-    font-weight: 400;
+    font-weight: $var-fw-regular;
     @include transition();
 
     &:hover {
       color: #ffffff;
-      background-color: $color-hover;
+      background-color: $var-accent-color;
     }
   }
 

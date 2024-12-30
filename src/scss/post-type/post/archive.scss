@@ -17,11 +17,11 @@
 
       i {
         margin-right: .5rem;
-        color: $color-hover;
+        color: $var-accent-color;
       }
 
       &:hover {
-        color: $color-hover;
+        color: $var-accent-color;
       }
     }
   }
@@ -87,7 +87,7 @@
       }
 
       a {
-        color: $color-hover;
+        color: $var-accent-color;
 
         &:hover {
           color: $body-color;
@@ -97,7 +97,7 @@
   }
 
   .page-links {
-    font-weight: 700;
+    font-weight: $var-fw-bold;
 
     a {
       display: inline-block;
