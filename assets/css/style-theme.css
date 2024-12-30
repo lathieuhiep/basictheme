@@ -372,7 +372,7 @@ form.post-password-form p input[type=submit] {
 -----------------------------------------------------------------------------*/
 .global-header {
   background-color: #ffffff;
-  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.3rem 0.3rem -0.3rem rgba(0, 0, 0, 0.3);
 }
 
 .site-navigation {
@@ -380,11 +380,6 @@ form.post-password-form p input[type=submit] {
   display: flex;
   gap: 2.4rem;
   min-height: 6.4rem;
-}
-@media (min-width: 992px) {
-  .site-navigation {
-    grid-template-columns: 64px 1fr auto;
-  }
 }
 .site-navigation__logo {
   --theme-logo-padding: var(--theme-spacing-2);
@@ -457,7 +452,7 @@ form.post-password-form p input[type=submit] {
 @media (max-width: 991px) {
   .site-navigation__menu ul li {
     display: block;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
   }
   .site-navigation__menu ul li:last-child {
     border-bottom: 0;
@@ -542,7 +537,7 @@ form.post-password-form p input[type=submit] {
   }
   .site-navigation__menu ul li .sub-menu li .sub-menu {
     left: 90%;
-    top: -1px;
+    top: -0.1rem;
   }
   .site-navigation__menu ul li .sub-menu li:hover > .sub-menu {
     left: 100%;
@@ -581,7 +576,7 @@ form.post-password-form p input[type=submit] {
   }
 }
 .site-navigation__menu .sub-menu-toggle {
-  font-size: 1.4rem;
+  font-size: var(--theme-fs-xs);
   cursor: pointer;
 }
 .site-navigation__menu .sub-menu-toggle::after {
@@ -616,10 +611,10 @@ form.post-password-form p input[type=submit] {
   position: absolute;
   font-size: var(--theme-fs-sm);
   color: #ffffff;
-  top: -12px;
+  top: -1.2rem;
   right: 0;
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -693,11 +688,10 @@ form.post-password-form p input[type=submit] {
   display: none;
 }
 .site-navigation__cart .widget_shopping_cart .widget_shopping_cart_content .woocommerce-mini-cart__buttons a {
-  padding: 0 40px;
-  line-height: 40px;
+  padding: 0 4rem;
   display: block;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 .site-navigation__cart .widget_shopping_cart .widget_shopping_cart_content .woocommerce-mini-cart__buttons a:last-child {
   margin-bottom: 0;
@@ -724,41 +718,40 @@ form.post-password-form p input[type=submit] {
     z-index: 10;
   }
   .admin-bar .active-sticky-nav {
-    top: 32px;
+    top: 3.2rem;
   }
 }
 .search-form {
-  font-size: 12px;
+  --theme-search-field-padding: .9rem 1rem;
+  font-size: var(--theme-fs-xs);
 }
-
-.search-field {
+.search-form .search-field {
   height: auto;
-  padding: 9px 10px;
+  padding: var(--theme-search-field-padding);
   border: 0.1rem solid #ddd;
   border-radius: 0.4rem;
   box-shadow: none;
 }
-
-.search-submit {
+.search-form .search-submit {
   background-color: var(--theme-accent);
-  color: #fff;
-  padding: 9px 10px;
+  color: var(--theme-white);
+  padding: var(--theme-search-field-padding);
   border: none;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 0.4rem;
   transition: all 0.4s ease-in-out;
 }
 
 section.widget {
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
 }
 section.widget:last-child {
   margin-bottom: 0;
 }
 section.widget .widget-title {
   text-transform: uppercase;
-  margin-bottom: 20px;
-  font-size: 16px;
+  margin-bottom: 2rem;
+  font-size: var(--theme-fs-sm);
 }
 section.widget ul {
   margin: 0;
@@ -766,26 +759,26 @@ section.widget ul {
   list-style: none;
 }
 section.widget ul li:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 section.widget ul li a {
   display: block;
 }
 section.widget ul li ul.children, section.widget ul li ul.sub-menu {
-  padding-left: 15px;
-  padding-top: 10px;
+  padding-left: 1.2rem;
+  padding-top: 0.8rem;
 }
 section.widget ul li ul.children li, section.widget ul li ul.sub-menu li {
   border-bottom: 0;
-  padding: 0 0 10px;
+  padding: 0 0 1rem;
 }
 section.widget ul li ul.children li:last-child, section.widget ul li ul.sub-menu li:last-child {
   padding-bottom: 0;
 }
 section.widget select {
   width: 100%;
-  padding: 9px 10px;
-  font-size: 12px;
+  padding: 0.9rem 1rem;
+  font-size: var(--theme-fs-xs);
 }
 section.widget.widget_search .search-form {
   display: flex;
@@ -794,18 +787,18 @@ section.widget.widget_search .search-form .search-field {
   flex: 1;
 }
 section.widget.widget_search .search-form .search-submit {
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 section.widget.widget_archive ul li a, section.widget.widget_categories ul li a {
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 0.5rem;
 }
 section.widget.widget_calendar table {
   width: 100%;
 }
 section.widget.widget_calendar table caption {
   padding: 0;
-  margin-bottom: 15px;
+  margin-bottom: 1.2rem;
   text-align: center;
 }
 section.widget.widget_calendar table tr {
@@ -815,15 +808,15 @@ section.widget.widget_calendar table tr th {
   text-align: center;
 }
 section.widget.widget_calendar table tr td {
-  padding: 5px 0;
+  padding: 0.5rem 0;
   text-align: center;
 }
 section.widget.widget_calendar table tr td#today {
   background-color: var(--theme-accent);
-  color: #ffffff;
+  color: var(--theme-white);
 }
 section.widget.widget_calendar table tr td#today a {
-  color: #ffffff;
+  color: var(--theme-white);
 }
 section.widget.widget_calendar table tr td#prev {
   text-align: left;
@@ -832,22 +825,22 @@ section.widget.widget_calendar table tr td#next {
   text-align: right;
 }
 section.widget.widget_rss ul li {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 section.widget.widget_rss ul li .rssSummary {
-  font-size: 12px;
+  font-size: var(--theme-fs-xs);
 }
 section.widget.widget_tag_cloud .tagcloud a, section.widget.widget_product_tag_cloud .tagcloud a {
   display: inline-block;
-  font-size: 13px !important;
-  border: 1px solid #eee;
-  padding: 5px 10px;
-  margin: 0 2px 5px;
+  font-size: var(--theme-fs-xs) !important;
+  border: 0.1rem solid #ddd;
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem 5px;
 }
 section.widget.widget_tag_cloud .tagcloud a:hover, section.widget.widget_product_tag_cloud .tagcloud a:hover {
   background-color: var(--theme-accent);
-  color: #ffffff;
+  color: var(--theme-white);
   border-color: var(--theme-accent);
 }
 section.widget .social-network-item {
@@ -873,7 +866,7 @@ section.widget .recent-post-widget__list .image {
 }
 section.widget .recent-post-widget__list .title {
   margin-bottom: 10px;
-  font-size: 1.4rem;
+  font-size: var(--theme-fs-sm);
   overflow: hidden;
 }
 section.widget .recent-post-widget__list .meta {
@@ -1013,10 +1006,10 @@ form.wpcf7-form .wpcf7-submit {
   font-weight: var(--theme-fw-bold);
 }
 .comments-area__list .comment__body .author__info .date {
-  font-size: 1.4rem;
+  font-size: var(--theme-fs-sm);
 }
 .comments-area__list .comment__body .action {
-  font-size: 1.4rem;
+  font-size: var(--theme-fs-sm);
 }
 .comments-area__list .comment__body .action a {
   display: inline-block;
@@ -1041,7 +1034,7 @@ form.wpcf7-form .wpcf7-submit {
 .comments-area .comment-reply-title small {
   margin-left: 2rem;
   font-weight: var(--theme-fw-regular);
-  font-size: 1.4rem;
+  font-size: var(--theme-fs-sm);
 }
 .comments-area .comment-form {
   display: flex;

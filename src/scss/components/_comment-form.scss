@@ -78,13 +78,13 @@
             }
 
             .date {
-              font-size: 1.4rem;
+              font-size: $var-fs-sm;
             }
           }
         }
 
         .action {
-          font-size: 1.4rem;
+          font-size: $var-fs-sm;
 
           a {
             display: inline-block;
@@ -118,7 +118,7 @@
     small {
       margin-left: 2rem;
       font-weight: $var-fw-regular;
-      font-size: 1.4rem;
+      font-size: $var-fs-sm;
     }
   }
 

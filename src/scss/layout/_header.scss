@@ -2,7 +2,7 @@
 
 .global-header {
   background-color: #ffffff;
-  box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 .3rem .3rem -0.3rem rgba(0, 0, 0, 0.3);
 }
 
 .site-navigation {
@@ -10,10 +10,6 @@
   display: flex;
   gap: 2.4rem;
   min-height: 6.4rem;
-
-  @media (min-width: 992px) {
-    grid-template-columns: 64px 1fr auto;
-  }
 
   &__logo {
     --#{$prefix-theme}logo-padding: var(--#{$prefix-theme}spacing-2);
@@ -92,7 +88,7 @@
 
         @media (max-width: 991px) {
           display: block;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          border-bottom: .1rem solid rgba(0, 0, 0, 0.1);
 
           &:last-child {
             border-bottom: 0;
@@ -201,7 +197,7 @@
 
               .sub-menu {
                 left: 90%;
-                top: -1px;
+                top: -0.1rem;
               }
 
               &:hover {
@@ -255,7 +251,7 @@
     }
 
     .sub-menu-toggle {
-      font-size: 1.4rem;
+      font-size: $var-fs-xs;
       cursor: pointer;
 
       &::after {
@@ -292,9 +288,9 @@
         position: absolute;
         font-size: $var-fs-sm;
         color: #ffffff;
-        top: -12px;
+        top: -1.2rem;
         right: 0;
-        @include square(20px, 50%);
+        @include square(2rem, 50%);
         @include flex-center();
         background-color: $var-accent-color;
       }
@@ -380,11 +376,10 @@
           }
 
           a {
-            padding: 0 40px;
-            line-height: 40px;
+            padding: 0 4rem;
             display: block;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
 
             &:last-child {
               margin-bottom: 0;
@@ -422,7 +417,7 @@
 
   .admin-bar {
     .active-sticky-nav {
-      top: 32px;
+      top: 3.2rem;
     }
   }
 }
