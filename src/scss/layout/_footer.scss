@@ -3,18 +3,18 @@
 .global-footer {
   section {
     &.widget {
-      margin-bottom: 15px;
+      margin-bottom: 1.5rem;
     }
   }
 
   &__column {
-    border-top: 1px solid $var-primary-color;
-    padding: 30px 0;
+    border-top: .1rem solid $var-primary-color;
+    padding: 3rem 0;
   }
 
   &__bottom {
-    padding: 10px 0;
-    color: #ffffff;
+    padding: 1rem 0;
+    color: $var-white-color;
     background-color: $body-color;
   }
 }

@@ -3,14 +3,14 @@
 .owl-carousel {
   .owl-nav {
     text-align: center;
-    margin-top: 15px;
+    margin-top: var(--#{$prefix-theme}spacing-3);
 
     button {
       &.owl-prev,
       &.owl-next {
-        margin: 0 6px;
+        margin: 0 var(--#{$prefix-theme}spacing-2);
         color: $body-color;
-        font-size: 20px;
+        font-size: $var-fs-lg;
         line-height: normal;
         @include transition();
 
@@ -22,18 +22,17 @@
   }
 
   .owl-dots {
-    margin-top: 30px;
+    margin-top: var(--#{$prefix-theme}spacing-4);
     @include flex-center;
 
     .owl-dot {
       display: inline-block;
-      margin: 0 5px;
+      margin: 0 var(--#{$prefix-theme}spacing-1);
 
       span {
         display: block;
-        width: 10px;
-        height: 10px;
-        background-color: #000000;
+        @include square(1rem);
+        background-color: $var-black-color;
         border-radius: 50%;
         @include transition(all 0.2s ease-in-out);
       }

@@ -2,7 +2,7 @@
 
 .social-network-item {
   display: inline-block;
-  margin-right: 5px;
+  margin-right: var(--#{$prefix-theme}spacing-1);
 
   &:last-child {
     margin-right: 0;

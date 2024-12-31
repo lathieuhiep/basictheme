@@ -26,6 +26,7 @@
       display: inline-block;
       padding-top: var(--#{$prefix-theme}logo-padding);
       padding-bottom: var(--#{$prefix-theme}logo-padding);
+      max-width: var(--#{$prefix-theme}max-width-logo, 16rem);
     }
   }
 

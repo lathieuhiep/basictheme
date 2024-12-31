@@ -12,6 +12,10 @@ body {
   @include flex-column;
 }
 
+:focus-visible {
+  outline: none;
+}
+
 %outline-none {
   outline: none;
 }
@@ -20,10 +24,6 @@ a {
   text-decoration: none;
   @extend %outline-none;
   @include transition();
-}
-
-button {
-  @extend %outline-none;
 }
 
 p {
@@ -53,4 +53,12 @@ blockquote {
 pre {
   white-space: pre-wrap;
   margin-bottom: var(--#{$prefix-theme}spacing-6);
+}
+
+button {
+  @extend %outline-none;
+}
+
+input, button, textarea {
+  padding: var(--#{$prefix-theme}spacing-1) var(--#{$prefix-theme}spacing-6);
 }
