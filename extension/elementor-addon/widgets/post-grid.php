@@ -6,31 +6,26 @@ use Elementor\Controls_Manager;
 
 if (!defined('ABSPATH')) exit;
 
-class BasicTheme_Elementor_Addon_Post_Grid extends Widget_Base
+class BasicTheme_Elementor_Post_Grid extends Widget_Base
 {
 
-    public function get_categories()
-    {
-        return array('mytheme');
+    public function get_categories(): array {
+        return array('my-theme');
     }
 
-    public function get_name()
-    {
+    public function get_name(): string {
         return 'basictheme-post-grid';
     }
 
-    public function get_title()
-    {
+    public function get_title(): string {
         return esc_html__('Posts Grid', 'basictheme');
     }
 
-    public function get_icon()
-    {
+    public function get_icon(): string {
         return 'eicon-gallery-grid';
     }
 
-    protected function register_controls()
-    {
+    protected function register_controls(): void {
 
         // Content query
         $this->start_controls_section(
@@ -295,8 +290,7 @@ class BasicTheme_Elementor_Addon_Post_Grid extends Widget_Base
 
     }
 
-    protected function render()
-    {
+    protected function render(): void {
 
         $settings = $this->get_settings_for_display();
         $cat_post = $settings['select_cat'];

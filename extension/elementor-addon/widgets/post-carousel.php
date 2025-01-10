@@ -6,29 +6,25 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
+class BasicTheme_Elementor_Post_Carousel extends Widget_Base {
 
-    public function get_categories() {
-        return array( 'mytheme' );
+    public function get_categories(): array {
+        return array( 'my-theme' );
     }
 
-    public function get_name() {
+    public function get_name(): string {
         return 'basictheme-post-carousel';
     }
 
-    public function get_title() {
+    public function get_title(): string {
         return esc_html__( 'Posts Carousel', 'basictheme' );
     }
 
-    public function get_icon() {
+    public function get_icon(): string {
         return 'eicon-slider-push';
     }
 
-    public function get_script_depends() {
-        return ['basictheme-elementor-custom'];
-    }
-
-    protected function register_controls() {
+    protected function register_controls(): void {
 
         // Content section
         $this->start_controls_section(
@@ -69,7 +65,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
                 'type'      =>  Controls_Manager::SELECT,
                 'default'   =>  'id',
                 'options'   =>  [
-                    'id'    =>  esc_html__( 'Post ID', 'basictheme' ),
+                    'id'    =>  esc_html__( 'ID', 'basictheme' ),
                     'title' =>  esc_html__( 'Title', 'basictheme' ),
                     'date'  =>  esc_html__( 'Date', 'basictheme' ),
                     'rand'  =>  esc_html__( 'Random', 'basictheme' ),
@@ -82,7 +78,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
             [
                 'label'     =>  esc_html__( 'Order', 'basictheme' ),
                 'type'      =>  Controls_Manager::SELECT,
-                'default'   =>  'ASC',
+                'default'   =>  'DESC',
                 'options'   =>  [
                     'ASC'   =>  esc_html__( 'Ascending', 'basictheme' ),
                     'DESC'  =>  esc_html__( 'Descending', 'basictheme' ),
@@ -137,7 +133,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 		    'loop',
 		    [
 			    'type'          =>  Controls_Manager::SWITCHER,
-			    'label'         =>  esc_html__('Loop Slider ?', 'basictheme'),
+			    'label'         =>  esc_html__('Loop Slider?', 'basictheme'),
 			    'label_off'     =>  esc_html__('No', 'basictheme'),
 			    'label_on'      =>  esc_html__('Yes', 'basictheme'),
 			    'return_value'  =>  'yes',
@@ -469,8 +465,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 
     }
 
-    protected function render() {
-
+    protected function render(): void {
         $settings       =   $this->get_settings_for_display();
         $cat_post       =   $settings['select_cat'];
         $limit_post     =   $settings['limit'];
@@ -524,7 +519,7 @@ class BasicTheme_Elementor_Addon_Post_Carousel extends Widget_Base {
 
     ?>
         <div class="element-post-carousel">
-            <div class="custom-owl-carousel custom-equal-height-owl owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
+            <div class="custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ) ; ?>'>
                 <?php while ( $query->have_posts() ): $query->the_post(); ?>
 
                     <div class="item-post">

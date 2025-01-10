@@ -1,16 +1,12 @@
 <?php
-$limit = get_theme_mod('basictheme_opt_related_limit_single_post', 3);
-$list_cate = get_the_terms(get_the_ID(), 'category');
+$term_ids  = wp_get_post_terms( get_the_ID(), 'category', array( 'fields' => 'ids' ) );
 
-if (!empty($list_cate)):
-
-    $list_cate_ids = array();
-
-    foreach ($list_cate as $item) $list_cate_ids[] = $item->term_id;
+if ( !empty( $term_ids ) ):
+	$limit = basictheme_get_option('opt_post_single_related_limit', 3);
 
     $arg = array(
         'post_type' => 'post',
-        'cat' => $list_cate_ids,
+        'cat' => $term_ids,
         'post__not_in' => array(get_the_ID()),
         'posts_per_page' => $limit,
     );
@@ -18,10 +14,9 @@ if (!empty($list_cate)):
     $query = new WP_Query($arg);
 
     if ($query->have_posts()) :
-        ?>
-
-        <div class="site-single-post-related">
-            <h3 class="title">
+    ?>
+        <div class="related-posts">
+            <h3 class="related-posts__title">
                 <?php esc_html_e('Related Post', 'basictheme'); ?>
             </h3>
 
@@ -29,8 +24,7 @@ if (!empty($list_cate)):
                 <?php
                 while ($query->have_posts()) :
                     $query->the_post();
-                    ?>
-
+                ?>
                     <div class="col item">
                         <div class="related-post-item">
                             <?php if (has_post_thumbnail()) : ?>
@@ -58,14 +52,12 @@ if (!empty($list_cate)):
                             </div>
                         </div>
                     </div>
-
                 <?php
                 endwhile;
                 wp_reset_postdata();
                 ?>
             </div>
         </div>
-
     <?php
     endif;
 endif;

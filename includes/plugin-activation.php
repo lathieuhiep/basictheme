@@ -11,19 +11,12 @@ function basictheme_register_required_plugins() {
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$basictheme_plugins = array(
-
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(
-			'name'      =>  'Kirki Customizer Framework',
-			'slug'      =>  'kirki',
+			'name'      =>  'Codestar Framework',
+			'slug'      =>  'codestar-framework',
 			'required'  =>  true,
-		),
-
-		// This is an example of how to include a plugin from the WordPress Plugin Repository
-		array(
-			'name'      =>  'Customizer Reset',
-			'slug'      =>  'customizer-reset',
-			'required'  =>  true,
+			'source' => 'https://github.com/Codestar/codestar-framework/archive/refs/heads/master.zip'
 		),
 
 		// This is an example of how to include a plugin from the WordPress Plugin Repository

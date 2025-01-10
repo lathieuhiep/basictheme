@@ -1,13 +1,13 @@
 <?php
 get_header();
 
-$sidebar = get_theme_mod('basictheme_opt_sidebar_single_post', 'right');
-$class_col_content = basictheme_col_use_sidebar( $sidebar, 'basictheme-sidebar-main' );
+$sidebar = basictheme_get_option('opt_post_single_sidebar_position', 'right');
+$class_col_content = basictheme_col_use_sidebar( $sidebar, 'sidebar-main' );
 
-get_template_part( 'template-parts/breadcrumbs/inc', 'breadcrumbs' );
+get_template_part( 'components/inc', 'breadcrumbs' );
 ?>
 
-<div class="site-container site-single">
+<div class="site-container single-post-warp">
     <div class="container">
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">

@@ -1,5 +1,4 @@
 <?php
-
 use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -8,26 +7,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
-
-    public function get_categories() {
-        return array( 'mytheme' );
+class BasicTheme_Elementor_About_Text extends Widget_Base {
+    public function get_categories(): array {
+        return array( 'my-theme' );
     }
 
-    public function get_name() {
+    public function get_name(): string {
         return 'basictheme-about-text';
     }
 
-    public function get_title() {
+    public function get_title(): string {
         return esc_html__( 'About Text', 'basictheme' );
     }
 
-    public function get_icon() {
+    public function get_icon(): string {
         return 'eicon-text-area';
     }
 
     protected function register_controls() {
-
         // Content heading
         $this->start_controls_section(
             'content_section',
@@ -155,9 +152,7 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
-
-        ?>
-
+    ?>
         <div class="element-about-text">
             <h2 class="element-about-text__title">
                 <?php echo wp_kses_post( $settings['heading'] ); ?>
@@ -166,19 +161,16 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
             <?php if ( !empty( $settings['description'] ) ) : ?>
 
                 <div class="element-about-text__description">
-                    <?php echo wp_kses_post( $settings['description'] ); ?>
+                    <?php echo wpautop( $settings['description'] ); ?>
                 </div>
 
             <?php endif; ?>
         </div>
-
-        <?php
-
+    <?php
     }
 
     protected function content_template() {
-
-        ?>
+    ?>
         <div class="element-about-text">
             <h2 class="element-about-text__title">
                 {{{ settings.heading }}}
@@ -192,8 +184,7 @@ class BasicTheme_Elementor_Addon_About_Text extends Widget_Base {
 
             <# } #>
         </div>
-
-        <?php
+    <?php
     }
 
 }

@@ -1,8 +1,14 @@
 <?php
+// Register Back-End script
+add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
+function basictheme_register_back_end_scripts(): void {
+	/* Start Get CSS Admin */
+	wp_enqueue_style( 'admin', get_theme_file_uri( '/assets/css/admin.css' ) );
+}
 
 // Remove jquery migrate
 add_action( 'wp_default_scripts', 'basictheme_remove_jquery_migrate' );
-function basictheme_remove_jquery_migrate( $scripts ) {
+function basictheme_remove_jquery_migrate( $scripts ): void {
 	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
 		$script = $scripts->registered['jquery'];
 		if ( $script->deps ) {
@@ -11,55 +17,55 @@ function basictheme_remove_jquery_migrate( $scripts ) {
 	}
 }
 
-//Register Back-End script
-add_action('admin_enqueue_scripts', 'basictheme_register_back_end_scripts');
-
-function basictheme_register_back_end_scripts(){
-
-	/* Start Get CSS Admin */
-	wp_enqueue_style( 'basictheme-admin-styles', get_theme_file_uri( '/extension/assets/css/admin-styles.css' ) );
-
-}
-
-//Register Front-End Styles
+// Register Front-End Styles
 add_action('wp_enqueue_scripts', 'basictheme_register_front_end');
+function basictheme_register_front_end(): void {
+	// remove style gutenberg
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('wp-block-library-theme');
+	wp_dequeue_style( 'classic-theme-styles' );
 
-function basictheme_register_front_end() {
+	wp_dequeue_style('wc-blocks-style');
+	wp_dequeue_style('storefront-gutenberg-blocks');
 
-	/*
-	* Start font google
-	* */
-    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap', array(), null );
+	/** Load css **/
 
-	/* Start main Css */
-	wp_enqueue_style( 'basictheme-library', get_theme_file_uri( '/assets/css/library.min.css' ), array(), '' );
-	/* End main Css */
+	// font google
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap', array(), null );
 
-    /* Start main Css */
-    wp_enqueue_style( 'fontawesome-5', get_theme_file_uri( '/fonts/fontawesome/css/all.min.css' ), array(), '5.12.1' );
-    /* End main Css */
+	// fontawesome
+	wp_enqueue_style( 'fontawesome', get_theme_file_uri( '/assets/libs/fontawesome/css/fontawesome.min.css' ), array(), null );
 
-	/*  Start Style Css   */
-	wp_enqueue_style( 'basictheme-style', get_stylesheet_uri() );
-	/*  Start Style Css   */
+	// bootstrap css
+	wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.min.css' ), array(), null );
 
-	/*
-	* End Get Css Front End
-	* */
+	// style theme
+	wp_enqueue_style( 'basictheme-style', get_theme_file_uri( '/assets/css/style-theme.min.css' ), array(), basictheme_get_version_theme() );
 
-	/*
-	* Start Get Js Front End
-	* */
-    wp_enqueue_script( 'basictheme-library', get_theme_file_uri( '/assets/js/library.min.js' ), array('jquery'), '', true );
+	// style post
+	if ( basictheme_is_blog() ) {
+		wp_enqueue_style( 'category-post', get_theme_file_uri( '/assets/css/post-type/post/archive.min.css' ), array(), basictheme_get_version_theme() );
+	}
 
+	if (is_singular('post')) {
+		wp_enqueue_style( 'single-post', get_theme_file_uri( '/assets/css/post-type/post/single.min.css' ), array(), basictheme_get_version_theme() );
+	}
+
+	// style page 404
+	if ( is_404() ) {
+		wp_enqueue_style( 'page-404', get_theme_file_uri( '/assets/css/page-templates/page-404.min.css' ), array(), basictheme_get_version_theme() );
+	}
+
+	/** Load js **/
+
+	// bootstrap js
+	wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.min.js' ), array('jquery'), null, true );
+
+	// comment reply
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/assets/js/custom.js' ), array(), '1.0.0', true );
-
-	/*
-   * End Get Js Front End
-   * */
-
+	// custom js
+	wp_enqueue_script( 'basictheme-custom', get_theme_file_uri( '/assets/js/custom.min.js' ), array('jquery'), basictheme_get_version_theme(), true );
 }

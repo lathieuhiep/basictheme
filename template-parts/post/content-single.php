@@ -1,80 +1,54 @@
 <?php
-$share_post = get_theme_mod('basictheme_opt_share_single_post', 'show');
-$show_related = get_theme_mod('basictheme_opt_related_single_post', 'show');
+$show_related = basictheme_get_option('opt_post_single_related', '1');
 ?>
 
-<div id="post-<?php the_ID() ?>" <?php post_class( 'site-post-single-item' ); ?>>
+<div id="post-<?php the_ID() ?>" class="single-post-content">
     <?php if ( has_post_thumbnail() ) :?>
-
-        <div class="site-post-image">
+        <div class="single-post-content__image">
             <?php the_post_thumbnail('full'); ?>
         </div>
-
     <?php endif; ?>
 
-    <div class="site-post-content">
-        <h2 class="site-post-title">
-            <?php the_title(); ?>
-        </h2>
+    <h2 class="single-post-content__title">
+		<?php the_title(); ?>
+    </h2>
 
-        <?php basictheme_post_meta(); ?>
+	<?php basictheme_post_meta(); ?>
 
-        <div class="site-post-excerpt">
-            <?php
-            the_content();
+    <div class="single-post-content__detail">
+		<?php
+		the_content();
 
-            basictheme_link_page();
-            ?>
-        </div>
-
-        <div class="site-post-cat-tag">
-
-            <?php if( get_the_category() != false ): ?>
-
-                <p class="site-post-category">
-                    <?php
-                    esc_html_e('Category: ','basictheme');
-                    the_category( ' ' );
-                    ?>
-                </p>
-
-            <?php
-
-            endif;
-
-            if( get_the_tags() != false ):
-
-            ?>
-
-                <p class="site-post-tag">
-                    <?php
-                    esc_html_e( 'Tag: ','basictheme' );
-                    the_tags('',' ');
-                    ?>
-                </p>
-
-            <?php endif; ?>
-
-        </div>
+		basictheme_link_page();
+		?>
     </div>
 
-    <?php
+    <div class="single-post-content__tax">
+		<?php if( get_the_category() ): ?>
+            <p class="post-category">
+				<?php
+				esc_html_e('Category: ','basictheme');
+				the_category( ', ' );
+				?>
+            </p>
+		<?php
+		endif;
 
-    if ( $share_post == 'show' ) :
-        basictheme_post_share();
-    endif;
-
-    ?>
+		if( get_the_tags() ):
+        ?>
+            <p class="post-tag">
+				<?php
+				esc_html_e( 'Tag: ','basictheme' );
+				the_tags('',', ');
+				?>
+            </p>
+		<?php endif; ?>
+    </div>
 </div>
 
 <?php
-basictheme_comment_form();
+get_template_part( 'components/inc','comment-form' );
 
-if ( $show_related == 'show' ) :
+if ( $show_related == '1' ) :
     get_template_part( 'template-parts/post/inc','related-post' );
 endif;
-
-
-
-
-

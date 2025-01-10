@@ -1,5 +1,4 @@
 <?php
-
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Utils;
@@ -8,29 +7,24 @@ use Elementor\Controls_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
-
-    public function get_categories() {
-        return array( 'mytheme' );
+class BasicTheme_Elementor_Slides extends Widget_Base {
+    public function get_categories(): array {
+        return array( 'my-theme' );
     }
 
-    public function get_name() {
+    public function get_name(): string {
         return 'basictheme-slides';
     }
 
-    public function get_title() {
+    public function get_title(): string {
         return esc_html__( 'Slides Theme', 'basictheme' );
     }
 
-    public function get_icon() {
+    public function get_icon(): string {
         return 'eicon-slides';
     }
 
-    public function get_script_depends() {
-        return ['basictheme-elementor-custom'];
-    }
-
-    protected function _register_controls() {
+    protected function _register_controls(): void {
         $this->start_controls_section(
             'section_content',
             [
@@ -973,10 +967,8 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
         
     }
 
-    protected function render() {
-
+    protected function render(): void {
         $settings  =   $this->get_settings_for_display();
-
 	    $data_settings_owl  =   [
 		    'items'     =>  1,
 		    'loop'      =>  ( 'yes' === $settings['loop'] ),
@@ -984,18 +976,12 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
 		    'nav'       =>  ( 'yes' === $settings['nav'] ),
 		    'dots'      =>  ( 'yes' === $settings['dots'] ),
 	    ];
-
     ?>
-
         <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
-
             <?php
-
             foreach ( $settings['slides_list'] as $item ) :
-                $basictheme_slides_link         =   $item['link'];
-
+                $basictheme_slides_link = $item['link'];
             ?>
-
                 <div class="element-slides__item elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
                     <div class="element-slides__item--bg"></div>
 
@@ -1007,7 +993,6 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
 
 	                    if ( $item['show_content'] == 'yes' ) :
                         ?>
-
                             <div class="element-slides__item--content">
                                 <?php if ( !empty( $item['heading'] ) ) : ?>
                                     <div class="element-slides__item--heading">
@@ -1035,16 +1020,12 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
                                     </div>
                                 <?php endif; ?>
                             </div>
-
 	                    <?php endif; ?>
                     </div>
                 </div>
-
             <?php endforeach; ?>
-
         </div>
-
-        <?php
+    <?php
     }
 
     protected function _content_template() {
@@ -1066,12 +1047,10 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
         #>
 
         <div class="element-slides custom-owl-carousel owl-carousel owl-theme" data-settings-owl="{{ sliderOptionsStr }}">
-
             <#
             _.each( settings.slides_list, function( item ) {
                 var target = item.link.is_external ? ' target="_blank"' : '';
             #>
-
                 <div class="element-slides__item elementor-repeater-item-{{ item._id }}">
                     <div class="element-slides__item--bg"></div>
 
@@ -1109,11 +1088,8 @@ class BasicTheme_Elementor_Addon_Slides extends Widget_Base {
                         <# } #>
                     </div>
                 </div>
-
             <# } ); #>
-
         </div>
     <?php
     }
-
 }
