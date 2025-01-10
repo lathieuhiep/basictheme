@@ -7,12 +7,12 @@ section {
         &.product_list_widget {
           li {
             a {
-              margin-bottom: 15px;
+              margin-bottom: 1.5rem;
               display: flex;
 
               img {
-                width: 70px;
-                margin: 0 15px 0 0;
+                width: 7rem;
+                margin: 0 1.5rem 0 0;
                 flex: 0 0 auto;
               }
 
@@ -22,7 +22,7 @@ section {
             }
 
             .star-rating {
-              margin-bottom: 10px;
+              margin-bottom: 1rem;
             }
           }
         }
@@ -30,7 +30,7 @@ section {
 
       &.widget_price_filter {
         .ui-slider-horizontal {
-          height: 2px;
+          height: .2rem;
           background-color: $var-accent-color;
         }
 
@@ -41,27 +41,27 @@ section {
 
           .ui-slider-handle {
             top: -6px;
-            background-color: #ffffff;
-            border: 1px solid #e45914;
+            background-color: $var-white-color;
+            border: .1rem solid #e45914;
             border-radius: 0;
           }
         }
 
         .price_slider_amount {
-          margin-top: 30px;
+          margin-top: 3rem;
 
           .button {
-            color: #ffffff;
+            color: $var-white-color;
             background-color: $var-accent-color;
             box-shadow: none;
             border: none;
-            padding: 10px 15px;
+            padding: 1rem 1.5rem;
             font-weight: normal;
           }
 
           .price_label {
-            font-size: 14px;
-            color: #000000;
+            font-size: $var-fs-xs;
+            color: $var-black-color;
           }
         }
       }
@@ -69,16 +69,16 @@ section {
       &.widget_rating_filter {
         ul {
           li {
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
           }
         }
       }
 
       ul {
         li {
-          margin-bottom: 10px;
-          padding-bottom: 10px;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
 
           &:last-child {
             margin-bottom: 0;
@@ -93,7 +93,7 @@ section {
 
       .woocommerce-widget-layered-nav-list {
         .woocommerce-widget-layered-nav-list__item {
-          padding-bottom: 10px;
+          padding-bottom: 1rem;
 
           &:last-child {
             padding-bottom: 0;
@@ -112,22 +112,22 @@ section {
       }
 
       .search-field {
-        border: 1px solid $var-primary-color;
+        border: .1rem solid $var-primary-color;
         height: auto;
-        padding: 9px 10px;
+        padding: .9rem 1rem;
         cursor: pointer;
-        border-radius: 3px;
+        border-radius: .3rem;
         box-shadow: none;
         flex: 1 auto;
       }
 
       button[type=submit] {
         background-color: $var-accent-color;
-        color: #fff;
-        padding: 9px 10px;
+        color: $var-white-color;
+        padding: 9px 1rem;
         border: none;
-        margin-left: 5px;
-        border-radius: 3px;
+        margin-left: .5rem;
+        border-radius: .3rem;
         @include transition();
       }
     }

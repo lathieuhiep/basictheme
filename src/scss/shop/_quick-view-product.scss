@@ -1,19 +1,19 @@
 @import "../abstracts/abstracts";
 
 .btn-quick-view-product {
-  padding: 5px;
+  padding: .5rem;
   position: absolute;
-  bottom: -40px;
+  bottom: -4rem;
   left: 0;
   right: 0;
   text-align: center;
-  color: #ffffff;
-  background-color: $background-second;
+  color: $var-white-color;
+  background-color: $var-black-color;
   visibility: hidden;
   @include transition();
 
   &:hover {
-    color: #ffffff;
+    color: $var-white-color;
     background-color: $var-accent-color;
   }
 }
@@ -25,11 +25,11 @@
       transform: translateY(-50%);
 
       .modal-body {
-        min-height: 100px;
+        min-height: 10rem;
       }
 
       @media (min-width: 992px) {
-        max-width: 850px;
+        max-width: 85rem;
       }
     }
 
@@ -41,22 +41,22 @@
 
     .content_product_detail {
       .title-product {
-        font-size: 26px;
+        font-size: $var-fs-xl;
       }
 
       > div {
-        margin-bottom: 12px;
+        margin-bottom: var(--#{$prefix-theme}spacing-3);
       }
 
       .item-price {
         .price {
-          font-weight: 700;
+          font-weight: $var-fw-bold;
           color: $var-accent-color;
-          font-size: 15px;
+          font-size: $var-fs-sm;
 
           del {
-            margin-right: 5px;
-            font-size: 12px;
+            margin-right: var(--#{$prefix-theme}spacing-1);
+            font-size: $var-fs-xs;
           }
 
           ins {
@@ -67,12 +67,12 @@
 
       form {
         .quantity {
-          margin-bottom: 16px;
+          margin-bottom: var(--#{$prefix-theme}spacing-4);
         }
 
         button {
-          color: #ffffff;
-          background-color: #000000;
+          color: $var-white-color;
+          background-color: $var-black-color;
 
           &:hover {
             background-color: $var-accent-color;
@@ -84,10 +84,10 @@
 
           tr {
             td {
-              padding-bottom: 10px;
+              padding-bottom: 1rem;
 
               .reset_variations {
-                margin-left: 5px;
+                margin-left: var(--#{$prefix-theme}spacing-1);
               }
             }
           }
@@ -107,16 +107,15 @@
   background-color: #ffffff;
 
   .icon-loading {
+    margin-top: -1.5rem;
+    margin-left: -1.5rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 3px solid #f3f3f3;
+    @include square(3rem);
+    border: .3rem solid #f3f3f3;
+    border-top: .3rem solid #3498db;
     border-radius: 50%;
-    border-top: 3px solid #3498db;
-    width: 30px;
-    height: 30px;
-    margin-top: -15px;
-    margin-left: -15px;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }

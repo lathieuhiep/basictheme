@@ -209,6 +209,23 @@ function buildStylePageTemplate() {
         .pipe(browserSync.stream())
 }
 
+// Task build style shop
+function buildStyleShop() {
+    return src(`${pathSrc}/scss/shop/shop.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }, '').on('error', sass.logError))
+        .pipe(minifyCss({
+            level: {1: {specialComments: 0}}
+        }))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(sourcemaps.write())
+        .pipe(dest(`./extension/woocommerce/assets/css/`))
+        .pipe(browserSync.stream())
+}
+exports.buildStyleShop = buildStyleShop
+
 /*
 Task build project
 * */

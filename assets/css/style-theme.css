@@ -1,6 +1,10 @@
 /**
 # Root
 -----------------------------------------------------------------------------*/
+button, a {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -45,6 +49,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
   --theme-spacing-8: 3.2rem;
 }
 
+button, a {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -70,10 +78,6 @@ body {
 }
 
 :focus-visible {
-  outline: none;
-}
-
-button, a {
   outline: none;
 }
 
@@ -111,6 +115,10 @@ pre {
 
 input, button, textarea {
   padding: var(--theme-spacing-1) var(--theme-spacing-6);
+}
+
+a, button {
+  outline: none;
 }
 
 section.widget .social-network-item {
@@ -178,6 +186,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
   display: table;
   clear: both;
   content: "";
+}
+
+a, button {
+  outline: none;
 }
 
 section.widget .social-network-item {
@@ -299,6 +311,10 @@ form.post-password-form p input[type=submit] {
 /**
 # Utilities
 -----------------------------------------------------------------------------*/
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -382,6 +398,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
   background-color: var(--theme-white);
 }
 
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -444,6 +464,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
 /**
 # Layout
 -----------------------------------------------------------------------------*/
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -807,6 +831,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
     top: 3.2rem;
   }
 }
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -971,6 +999,10 @@ section.widget .recent-post-widget__list .meta i.fa {
   margin-right: 0.5rem;
 }
 
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -998,6 +1030,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
 /**
 # Components
 -----------------------------------------------------------------------------*/
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -1012,6 +1048,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
 .breadcrumbs .breadcrumbs-col {
   padding: 1.5rem 0;
   border-bottom: 0.1rem solid var(--theme-primary);
+}
+
+a, button {
+  outline: none;
 }
 
 section.widget .social-network-item {
@@ -1088,6 +1128,10 @@ form.wpcf7-form.invalid .wpcf7-response-output {
   margin: var(--theme-margin-res, var(--theme-spacing-3) 0 0);
   padding: var(--theme-padding-res, var(--theme-spacing-2));
   border: 0.1rem solid var(--theme-warning);
+}
+
+a, button {
+  outline: none;
 }
 
 section.widget .social-network-item {
@@ -1226,6 +1270,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
   background-color: var(--theme-accent);
 }
 
+a, button {
+  outline: none;
+}
+
 section.widget .social-network-item {
   display: flex;
   justify-content: center;
@@ -1266,6 +1314,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
   background: var(--theme-accent);
   border-color: var(--theme-accent);
   color: var(--theme-white);
+}
+
+a, button {
+  outline: none;
 }
 
 section.widget .social-network-item {
@@ -1321,6 +1373,10 @@ form.wpcf7-form p:has(.wpcf7-submit) {
 .custom-equal-height-owl .owl-stage .owl-item {
   display: flex;
   flex: 1 0 auto;
+}
+
+a, button {
+  outline: none;
 }
 
 section.widget .social-network-item {
